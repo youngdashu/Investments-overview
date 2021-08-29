@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>869</width>
-    <height>669</height>
+    <width>1016</width>
+    <height>693</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -221,6 +221,12 @@
        </property>
        <item>
         <widget class="QFrame" name="left_side_menu">
+         <property name="minimumSize">
+          <size>
+           <width>80</width>
+           <height>0</height>
+          </size>
+         </property>
          <property name="maximumSize">
           <size>
            <width>70</width>
@@ -305,6 +311,12 @@
        </item>
        <item>
         <widget class="QFrame" name="center_main_items">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>530</height>
+          </size>
+         </property>
          <property name="styleSheet">
           <string notr="true"/>
          </property>
@@ -314,90 +326,206 @@
          <property name="frameShadow">
           <enum>QFrame::Raised</enum>
          </property>
-         <widget class="QFrame" name="frame">
-          <property name="geometry">
-           <rect>
-            <x>10</x>
-            <y>10</y>
-            <width>120</width>
-            <height>80</height>
-           </rect>
-          </property>
-          <property name="frameShape">
-           <enum>QFrame::StyledPanel</enum>
-          </property>
-          <property name="frameShadow">
-           <enum>QFrame::Raised</enum>
-          </property>
-         </widget>
-         <widget class="QFrame" name="frame_2">
-          <property name="geometry">
-           <rect>
-            <x>10</x>
-            <y>100</y>
-            <width>120</width>
-            <height>80</height>
-           </rect>
-          </property>
-          <property name="frameShape">
-           <enum>QFrame::StyledPanel</enum>
-          </property>
-          <property name="frameShadow">
-           <enum>QFrame::Raised</enum>
-          </property>
-         </widget>
-         <widget class="QFrame" name="frame_3">
-          <property name="geometry">
-           <rect>
-            <x>10</x>
-            <y>190</y>
-            <width>120</width>
-            <height>80</height>
-           </rect>
-          </property>
-          <property name="frameShape">
-           <enum>QFrame::StyledPanel</enum>
-          </property>
-          <property name="frameShadow">
-           <enum>QFrame::Raised</enum>
-          </property>
-         </widget>
-         <widget class="QFrame" name="frame_4">
-          <property name="geometry">
-           <rect>
-            <x>10</x>
-            <y>280</y>
-            <width>120</width>
-            <height>80</height>
-           </rect>
-          </property>
-          <property name="frameShape">
-           <enum>QFrame::StyledPanel</enum>
-          </property>
-          <property name="frameShadow">
-           <enum>QFrame::Raised</enum>
-          </property>
-         </widget>
-         <widget class="QFrame" name="frame_5">
-          <property name="geometry">
-           <rect>
-            <x>10</x>
-            <y>370</y>
-            <width>120</width>
-            <height>80</height>
-           </rect>
-          </property>
-          <property name="frameShape">
-           <enum>QFrame::StyledPanel</enum>
-          </property>
-          <property name="frameShadow">
-           <enum>QFrame::Raised</enum>
-          </property>
-         </widget>
+         <layout class="QVBoxLayout" name="verticalLayout_3">
+          <item>
+           <widget class="QFrame" name="frame_6">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>31</height>
+             </size>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::StyledPanel</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Raised</enum>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QScrollArea" name="scrollArea">
+            <property name="widgetResizable">
+             <bool>true</bool>
+            </property>
+            <widget class="QWidget" name="scrollAreaWidgetContents">
+             <property name="geometry">
+              <rect>
+               <x>0</x>
+               <y>0</y>
+               <width>836</width>
+               <height>824</height>
+              </rect>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_2">
+              <property name="rightMargin">
+               <number>24</number>
+              </property>
+              <item>
+               <widget class="QFrame" name="frame_main_characteristics">
+                <property name="minimumSize">
+                 <size>
+                  <width>630</width>
+                  <height>120</height>
+                 </size>
+                </property>
+                <property name="frameShape">
+                 <enum>QFrame::StyledPanel</enum>
+                </property>
+                <property name="frameShadow">
+                 <enum>QFrame::Raised</enum>
+                </property>
+                <layout class="QVBoxLayout" name="verticalLayout_4">
+                 <item>
+                  <widget class="QPushButton" name="button_main_characteristics">
+                   <property name="text">
+                    <string>Cechy główne</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item>
+               <widget class="QFrame" name="frame_information">
+                <property name="minimumSize">
+                 <size>
+                  <width>630</width>
+                  <height>120</height>
+                 </size>
+                </property>
+                <property name="frameShape">
+                 <enum>QFrame::StyledPanel</enum>
+                </property>
+                <property name="frameShadow">
+                 <enum>QFrame::Raised</enum>
+                </property>
+                <layout class="QVBoxLayout" name="verticalLayout_9">
+                 <item>
+                  <widget class="QPushButton" name="button_information">
+                   <property name="text">
+                    <string>Informacje</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item>
+               <widget class="QFrame" name="frame_own_contribution">
+                <property name="minimumSize">
+                 <size>
+                  <width>630</width>
+                  <height>120</height>
+                 </size>
+                </property>
+                <property name="frameShape">
+                 <enum>QFrame::StyledPanel</enum>
+                </property>
+                <property name="frameShadow">
+                 <enum>QFrame::Raised</enum>
+                </property>
+                <layout class="QVBoxLayout" name="verticalLayout_5">
+                 <item>
+                  <widget class="QPushButton" name="button_own_contribution">
+                   <property name="text">
+                    <string>Wkład własny</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item>
+               <widget class="QFrame" name="frame_credit">
+                <property name="minimumSize">
+                 <size>
+                  <width>630</width>
+                  <height>120</height>
+                 </size>
+                </property>
+                <property name="frameShape">
+                 <enum>QFrame::StyledPanel</enum>
+                </property>
+                <property name="frameShadow">
+                 <enum>QFrame::Raised</enum>
+                </property>
+                <layout class="QVBoxLayout" name="verticalLayout_6">
+                 <item>
+                  <widget class="QPushButton" name="button_information_3">
+                   <property name="text">
+                    <string>Kredyt</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item>
+               <widget class="QFrame" name="frame_rent">
+                <property name="minimumSize">
+                 <size>
+                  <width>630</width>
+                  <height>120</height>
+                 </size>
+                </property>
+                <property name="frameShape">
+                 <enum>QFrame::StyledPanel</enum>
+                </property>
+                <property name="frameShadow">
+                 <enum>QFrame::Raised</enum>
+                </property>
+                <layout class="QVBoxLayout" name="verticalLayout_7">
+                 <item>
+                  <widget class="QPushButton" name="button_rent">
+                   <property name="text">
+                    <string>Wynajem</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item>
+               <widget class="QFrame" name="frame_investment_assessment">
+                <property name="minimumSize">
+                 <size>
+                  <width>630</width>
+                  <height>120</height>
+                 </size>
+                </property>
+                <property name="frameShape">
+                 <enum>QFrame::StyledPanel</enum>
+                </property>
+                <property name="frameShadow">
+                 <enum>QFrame::Raised</enum>
+                </property>
+                <layout class="QVBoxLayout" name="verticalLayout_8">
+                 <item>
+                  <widget class="QPushButton" name="button_investment_assessment">
+                   <property name="text">
+                    <string>Ocena inwestycji</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </widget>
+          </item>
+         </layout>
         </widget>
        </item>
        <item>
         <widget class="QFrame" name="right_side_menu">
+         <property name="minimumSize">
+          <size>
+           <width>70</width>
+           <height>0</height>
+          </size>
+         </property>
          <property name="maximumSize">
           <size>
            <width>100</width>
