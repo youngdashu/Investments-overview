@@ -234,7 +234,17 @@
           </size>
          </property>
          <property name="styleSheet">
-          <string notr="true"/>
+          <string notr="true">#left_side_menu{
+
+}
+
+
+QPushButton{
+border: 2px solid gray;
+border-radius: 5px;
+background: rgb(126, 125, 128);
+color: rgb(255, 255, 255)
+}</string>
          </property>
          <property name="frameShape">
           <enum>QFrame::WinPanel</enum>
@@ -242,7 +252,7 @@
          <property name="frameShadow">
           <enum>QFrame::Raised</enum>
          </property>
-         <widget class="QPushButton" name="pushButton">
+         <widget class="QPushButton" name="button_load_data">
           <property name="geometry">
            <rect>
             <x>10</x>
@@ -252,10 +262,10 @@
            </rect>
           </property>
           <property name="text">
-           <string>PushButton</string>
+           <string>Załaduj dane</string>
           </property>
          </widget>
-         <widget class="QPushButton" name="pushButton_2">
+         <widget class="QPushButton" name="button_save_data">
           <property name="geometry">
            <rect>
             <x>10</x>
@@ -265,10 +275,10 @@
            </rect>
           </property>
           <property name="text">
-           <string>PushButton</string>
+           <string>Zapisz dane</string>
           </property>
          </widget>
-         <widget class="QPushButton" name="pushButton_3">
+         <widget class="QPushButton" name="button_new_investment">
           <property name="geometry">
            <rect>
             <x>10</x>
@@ -278,10 +288,10 @@
            </rect>
           </property>
           <property name="text">
-           <string>PushButton</string>
+           <string>Nowa</string>
           </property>
          </widget>
-         <widget class="QPushButton" name="pushButton_4">
+         <widget class="QPushButton" name="button_compare">
           <property name="geometry">
            <rect>
             <x>10</x>
@@ -291,7 +301,7 @@
            </rect>
           </property>
           <property name="text">
-           <string>PushButton</string>
+           <string>Porównaj</string>
           </property>
          </widget>
          <widget class="QPushButton" name="pushButton_5">
@@ -328,12 +338,19 @@
          </property>
          <layout class="QVBoxLayout" name="verticalLayout_3">
           <item>
-           <widget class="QFrame" name="frame_6">
+           <widget class="QFrame" name="frame_currently_opened">
             <property name="minimumSize">
              <size>
               <width>0</width>
               <height>31</height>
              </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">#frame_currently_opened{
+
+border: 2px solid gray;
+border-radius: 5px;
+}</string>
             </property>
             <property name="frameShape">
              <enum>QFrame::StyledPanel</enum>
@@ -345,6 +362,26 @@
           </item>
           <item>
            <widget class="QScrollArea" name="scrollArea">
+            <property name="styleSheet">
+             <string notr="true">#scrollArea {
+border: 3px solid gray;
+border-radius: 8px;
+background: white;
+}
+
+QFrame{
+border: 1px solid gray;
+border-radius: 10px;
+background: rgb(207, 206, 209);
+}
+
+QPushButton{
+border: 2px solid gray;
+border-radius: 5px;
+background: rgb(126, 125, 128);
+color: rgb(255, 255, 255)
+}</string>
+            </property>
             <property name="widgetResizable">
              <bool>true</bool>
             </property>
@@ -353,9 +390,15 @@
               <rect>
                <x>0</x>
                <y>0</y>
-               <width>836</width>
-               <height>824</height>
+               <width>832</width>
+               <height>552</height>
               </rect>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">#scrollAreaWidgetContainer{
+border: 3px solid gray;
+border-radius: 8px;
+}</string>
              </property>
              <layout class="QVBoxLayout" name="verticalLayout_2">
               <property name="rightMargin">
@@ -366,7 +409,7 @@
                 <property name="minimumSize">
                  <size>
                   <width>630</width>
-                  <height>120</height>
+                  <height>40</height>
                  </size>
                 </property>
                 <property name="frameShape">
@@ -378,9 +421,39 @@
                 <layout class="QVBoxLayout" name="verticalLayout_4">
                  <item>
                   <widget class="QPushButton" name="button_main_characteristics">
+                   <property name="minimumSize">
+                    <size>
+                     <width>0</width>
+                     <height>24</height>
+                    </size>
+                   </property>
                    <property name="text">
                     <string>Cechy główne</string>
                    </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QTableWidget" name="tableMainCharacteristics">
+                   <row>
+                    <property name="text">
+                     <string>Cena zakupu</string>
+                    </property>
+                   </row>
+                   <row>
+                    <property name="text">
+                     <string>POW. m²</string>
+                    </property>
+                   </row>
+                   <row>
+                    <property name="text">
+                     <string>Cena/m²</string>
+                    </property>
+                   </row>
+                   <column>
+                    <property name="text">
+                     <string/>
+                    </property>
+                   </column>
                   </widget>
                  </item>
                 </layout>
@@ -391,7 +464,7 @@
                 <property name="minimumSize">
                  <size>
                   <width>630</width>
-                  <height>120</height>
+                  <height>40</height>
                  </size>
                 </property>
                 <property name="frameShape">
@@ -403,10 +476,19 @@
                 <layout class="QVBoxLayout" name="verticalLayout_9">
                  <item>
                   <widget class="QPushButton" name="button_information">
+                   <property name="minimumSize">
+                    <size>
+                     <width>0</width>
+                     <height>24</height>
+                    </size>
+                   </property>
                    <property name="text">
                     <string>Informacje</string>
                    </property>
                   </widget>
+                 </item>
+                 <item>
+                  <widget class="QTableWidget" name="tableInformation"/>
                  </item>
                 </layout>
                </widget>
@@ -416,7 +498,7 @@
                 <property name="minimumSize">
                  <size>
                   <width>630</width>
-                  <height>120</height>
+                  <height>40</height>
                  </size>
                 </property>
                 <property name="frameShape">
@@ -428,10 +510,19 @@
                 <layout class="QVBoxLayout" name="verticalLayout_5">
                  <item>
                   <widget class="QPushButton" name="button_own_contribution">
+                   <property name="minimumSize">
+                    <size>
+                     <width>0</width>
+                     <height>24</height>
+                    </size>
+                   </property>
                    <property name="text">
                     <string>Wkład własny</string>
                    </property>
                   </widget>
+                 </item>
+                 <item>
+                  <widget class="QTableWidget" name="tableOwnContribution"/>
                  </item>
                 </layout>
                </widget>
@@ -441,7 +532,7 @@
                 <property name="minimumSize">
                  <size>
                   <width>630</width>
-                  <height>120</height>
+                  <height>40</height>
                  </size>
                 </property>
                 <property name="frameShape">
@@ -452,11 +543,20 @@
                 </property>
                 <layout class="QVBoxLayout" name="verticalLayout_6">
                  <item>
-                  <widget class="QPushButton" name="button_information_3">
+                  <widget class="QPushButton" name="button_credit">
+                   <property name="minimumSize">
+                    <size>
+                     <width>0</width>
+                     <height>24</height>
+                    </size>
+                   </property>
                    <property name="text">
                     <string>Kredyt</string>
                    </property>
                   </widget>
+                 </item>
+                 <item>
+                  <widget class="QTableWidget" name="tableCredit"/>
                  </item>
                 </layout>
                </widget>
@@ -466,7 +566,7 @@
                 <property name="minimumSize">
                  <size>
                   <width>630</width>
-                  <height>120</height>
+                  <height>40</height>
                  </size>
                 </property>
                 <property name="frameShape">
@@ -478,10 +578,19 @@
                 <layout class="QVBoxLayout" name="verticalLayout_7">
                  <item>
                   <widget class="QPushButton" name="button_rent">
+                   <property name="minimumSize">
+                    <size>
+                     <width>0</width>
+                     <height>24</height>
+                    </size>
+                   </property>
                    <property name="text">
                     <string>Wynajem</string>
                    </property>
                   </widget>
+                 </item>
+                 <item>
+                  <widget class="QTableWidget" name="tableRent"/>
                  </item>
                 </layout>
                </widget>
@@ -491,7 +600,7 @@
                 <property name="minimumSize">
                  <size>
                   <width>630</width>
-                  <height>120</height>
+                  <height>40</height>
                  </size>
                 </property>
                 <property name="frameShape">
@@ -503,10 +612,19 @@
                 <layout class="QVBoxLayout" name="verticalLayout_8">
                  <item>
                   <widget class="QPushButton" name="button_investment_assessment">
+                   <property name="minimumSize">
+                    <size>
+                     <width>0</width>
+                     <height>24</height>
+                    </size>
+                   </property>
                    <property name="text">
                     <string>Ocena inwestycji</string>
                    </property>
                   </widget>
+                 </item>
+                 <item>
+                  <widget class="QTableWidget" name="tableInvestmentAssessment"/>
                  </item>
                 </layout>
                </widget>

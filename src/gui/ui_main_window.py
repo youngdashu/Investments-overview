@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'main_windowrXCLLe.ui'
+## Form generated from reading UI file 'main_windowBAsvkb.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.1.1
 ##
@@ -113,7 +113,17 @@ class Ui_MainWindow(object):
         self.left_side_menu.setObjectName(u"left_side_menu")
         self.left_side_menu.setMinimumSize(QSize(80, 0))
         self.left_side_menu.setMaximumSize(QSize(70, 16777215))
-        self.left_side_menu.setStyleSheet(u"")
+        self.left_side_menu.setStyleSheet(u"#left_side_menu{\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"QPushButton{\n"
+"border: 2px solid gray;\n"
+"border-radius: 5px;\n"
+"background: rgb(126, 125, 128);\n"
+"color: rgb(255, 255, 255)\n"
+"}")
         self.left_side_menu.setFrameShape(QFrame.WinPanel)
         self.left_side_menu.setFrameShadow(QFrame.Raised)
         self.button_load_data = QPushButton(self.left_side_menu)
@@ -142,20 +152,47 @@ class Ui_MainWindow(object):
         self.center_main_items.setFrameShadow(QFrame.Raised)
         self.verticalLayout_3 = QVBoxLayout(self.center_main_items)
         self.verticalLayout_3.setObjectName(u"verticalLayout_3")
-        self.frame_6 = QFrame(self.center_main_items)
-        self.frame_6.setObjectName(u"frame_6")
-        self.frame_6.setMinimumSize(QSize(0, 31))
-        self.frame_6.setFrameShape(QFrame.StyledPanel)
-        self.frame_6.setFrameShadow(QFrame.Raised)
+        self.frame_currently_opened = QFrame(self.center_main_items)
+        self.frame_currently_opened.setObjectName(u"frame_currently_opened")
+        self.frame_currently_opened.setMinimumSize(QSize(0, 31))
+        self.frame_currently_opened.setStyleSheet(u"#frame_currently_opened{\n"
+"\n"
+"border: 2px solid gray;\n"
+"border-radius: 5px;\n"
+"}")
+        self.frame_currently_opened.setFrameShape(QFrame.StyledPanel)
+        self.frame_currently_opened.setFrameShadow(QFrame.Raised)
 
-        self.verticalLayout_3.addWidget(self.frame_6)
+        self.verticalLayout_3.addWidget(self.frame_currently_opened)
 
         self.scrollArea = QScrollArea(self.center_main_items)
         self.scrollArea.setObjectName(u"scrollArea")
+        self.scrollArea.setStyleSheet(u"#scrollArea {\n"
+"border: 3px solid gray;\n"
+"border-radius: 8px;\n"
+"background: white;\n"
+"}\n"
+"\n"
+"QFrame{\n"
+"border: 1px solid gray;\n"
+"border-radius: 10px;\n"
+"background: rgb(207, 206, 209);\n"
+"}\n"
+"\n"
+"QPushButton{\n"
+"border: 2px solid gray;\n"
+"border-radius: 5px;\n"
+"background: rgb(126, 125, 128);\n"
+"color: rgb(255, 255, 255)\n"
+"}")
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 836, 556))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 832, 552))
+        self.scrollAreaWidgetContents.setStyleSheet(u"#scrollAreaWidgetContainer{\n"
+"border: 3px solid gray;\n"
+"border-radius: 8px;\n"
+"}")
         self.verticalLayout_2 = QVBoxLayout(self.scrollAreaWidgetContents)
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
         self.verticalLayout_2.setContentsMargins(-1, -1, 24, -1)
@@ -173,6 +210,18 @@ class Ui_MainWindow(object):
         self.verticalLayout_4.addWidget(self.button_main_characteristics)
 
         self.tableMainCharacteristics = QTableWidget(self.frame_main_characteristics)
+        if (self.tableMainCharacteristics.columnCount() < 1):
+            self.tableMainCharacteristics.setColumnCount(1)
+        __qtablewidgetitem = QTableWidgetItem()
+        self.tableMainCharacteristics.setHorizontalHeaderItem(0, __qtablewidgetitem)
+        if (self.tableMainCharacteristics.rowCount() < 3):
+            self.tableMainCharacteristics.setRowCount(3)
+        __qtablewidgetitem1 = QTableWidgetItem()
+        self.tableMainCharacteristics.setVerticalHeaderItem(0, __qtablewidgetitem1)
+        __qtablewidgetitem2 = QTableWidgetItem()
+        self.tableMainCharacteristics.setVerticalHeaderItem(1, __qtablewidgetitem2)
+        __qtablewidgetitem3 = QTableWidgetItem()
+        self.tableMainCharacteristics.setVerticalHeaderItem(2, __qtablewidgetitem3)
         self.tableMainCharacteristics.setObjectName(u"tableMainCharacteristics")
 
         self.verticalLayout_4.addWidget(self.tableMainCharacteristics)
@@ -332,6 +381,12 @@ class Ui_MainWindow(object):
         self.button_compare.setText(QCoreApplication.translate("MainWindow", u"Por\u00f3wnaj", None))
         self.pushButton_5.setText(QCoreApplication.translate("MainWindow", u"PushButton", None))
         self.button_main_characteristics.setText(QCoreApplication.translate("MainWindow", u"Cechy g\u0142\u00f3wne", None))
+        ___qtablewidgetitem = self.tableMainCharacteristics.verticalHeaderItem(0)
+        ___qtablewidgetitem.setText(QCoreApplication.translate("MainWindow", u"Cena zakupu", None));
+        ___qtablewidgetitem1 = self.tableMainCharacteristics.verticalHeaderItem(1)
+        ___qtablewidgetitem1.setText(QCoreApplication.translate("MainWindow", u"POW. m\u00b2", None));
+        ___qtablewidgetitem2 = self.tableMainCharacteristics.verticalHeaderItem(2)
+        ___qtablewidgetitem2.setText(QCoreApplication.translate("MainWindow", u"Cena/m\u00b2", None));
         self.button_information.setText(QCoreApplication.translate("MainWindow", u"Informacje", None))
         self.button_own_contribution.setText(QCoreApplication.translate("MainWindow", u"Wk\u0142ad w\u0142asny", None))
         self.button_credit.setText(QCoreApplication.translate("MainWindow", u"Kredyt", None))
