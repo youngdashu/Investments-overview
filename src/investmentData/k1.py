@@ -32,15 +32,9 @@ class Contribution:
 
 
 class Credit:
-    def __init__(self, bank_c, bank_perc, rate, time, month_rate, capital_part, interest_part, monthly_insurance,
-                 costs_total):
-        self.bank_c = bank_c
-        self.bank_perc = bank_perc
+    def __init__(self, rate, time, monthly_insurance, costs_total):
         self.rate = rate
         self.time = time
-        self.month_rate = month_rate
-        self.capital_part = capital_part
-        self.interest_part = interest_part
         self.monthly_insurance = monthly_insurance
         self.costs_total = costs_total
 
@@ -61,15 +55,9 @@ class Rent:
         self.cost_total = cost_total
         self.gain = gain
 
-
 class Eval:
-    def __init__(self, return_time, return_total, return_rate, rate_total, notes):
-        self.return_time = return_time
-        self.return_total = return_total
-        self.return_rate = return_rate
-        self.rate_total = rate_total
+    def __init__(self, notes):
         self.notes = notes
-
 
 class Investment:
     def __init__(self, title):
@@ -77,9 +65,9 @@ class Investment:
         self.Main_Char = Main_Char(0, 0, 0)
         self.Info = Info(0, 0, "", "", "", 0, 0)
         self.Contribution = Contribution(0, 0, 0, 0, 0, 0, 0, 0)
-        self.Credit = Credit(0, 0, 0, 0, 0, 0, 0, 0, 0)
+        self.Credit = Credit(0, 0, 0, 0)
         self.Rent = Rent(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
-        self.Eval = Eval(0, 0, 0, 0, "")
+        self.Eval = Eval("")
 
     def save(self):
         self.inv = json.dumps(self.Main_Char.__dict__) + json.dumps(self.Info.__dict__) + json.dumps(
@@ -99,143 +87,214 @@ class Investment:
         outfile.close()
 
     def purchasePrice(self):
+        return self.Main_Char.price
 
     def setPurchasePrice(self, purchasePrice):
+        self.Main_Char.price=purchasePrice
 
     def area(self):
+        return self.Main_Char.area
 
     def setArea(self, area):
+        self.Main_Char.area=area
 
     def pricePerSquareMeter(self):
+        return self.Main_Char.ppm
 
     def startDate(self):
+        return self.Info.date_start
 
     def setStartDate(self, startDate):
+        self.Info.date_start=startDate
 
     def description(self):
+        return self.Info.desc
 
     def setDescription(self, description):
+        self.Info.desc=description
 
     def addressStreet(self):
+        return self.Info.address1
 
     def setAddressStreet(self, addressStreet):
+        self.Info.address1=addressStreet
 
     def addressCity(self):
+        return self.Info.address2
 
     def setAddressCity(self, addressCity):
+        self.Info.address2=addressCity
 
     def estimatedCurrentValue(self):
+        return self.Info.estimated_value
 
     def setEstimatedCurrentValue(self, estimatedCurrentValue):
+        self.Info.estimated_value=estimatedCurrentValue
 
     def lastEstimationDate(self):
+        return self.Info.estimation_date
 
     def setLastEstimationDate(self, lastEstimationDate):
+        self.Info.estimation_date=lastEstimationDate
 
     def finishDate(self):
+        return self.Info.date_end
 
     def setFinishDate(self, finishDate):
+        self.Info.date_end=finishDate
 
     def ownContribution(self):
+        return self.Contribution.contr
 
     def setOwnContribution(self, ownContribution):
+        self.Contribution.contr=ownContribution
 
     def brokerMargin(self):
+        return self.Contribution.marg_b
 
     def setBrokerMargin(self, brokerMargin):
+        self.Contribution.marg_b=brokerMargin
 
     def notaryMargin(self):
+        return self.Contribution.marg_n
 
     def setNotaryMargin(self, notaryMargin):
+        self.Contribution.marg_n=notaryMargin
 
     def tax(self):
+        return self.Contribution.tax
 
     def setTax(self, tax):
+        self.Contribution.tax=tax
 
     def otherCosts(self):
+        return self.Contribution.other
 
     def setOtherCosts(self, otherCosts):
+        self.Contribution.other=otherCosts
 
     def renovationCost(self):
+        return self.Contribution.redec
 
     def setRenovationCost(self, renovationCost):
+        self.Contribution.redec =renovationCost
+
+    def entryCost(self):
+        return self.ownContribution()+self.brokerMargin()+self.notaryMargin()+self.tax()+self.otherCosts()+self.renovationCost()
 
     def bankCredit(self):
+        return self.Main_Char.price-self.Contribution.contr
 
     def bankContributionPercent(self):
+        return self.bankCredit()/self.Main_Char.price
 
     def interestRate(self):
+        return self.Credit.rate
 
     def setInterestRate(self, interestRate):
+        self.Credit.rate=interestRate
 
     def repaymentPeriod(self):
+        return self.Credit.time
 
-    def monthlyInstallmentCapitalPart(self):
-
-    def monthlyInstallmentInterestPart(self):
+    def setRepaymentPeriod(self, period):
+        self.Credit.time=period
 
     def monthlyInstallment(self):
-        return self.monthlyInstallmentCapitalPart() + self.monthlyInstallmentInterestPart()
+        return (self.bankCredit()*self.interestRate())/(12*(1-(12/(12+self.interestRate()))**self.repaymentPeriod()))
+
+    def monthlyInstallmentCapitalPart(self):
+        return self.bankCredit()/self.repaymentPeriod()
+
+    def monthlyInstallmentInterestPart(self):
+        return self.monthlyInstallment()-self.monthlyInstallmentCapitalPart()
 
     def creditInsurancePerMonth(self):
+        return self.Credit.monthly_insurance
 
     def setCreditInsurancePerMonth(self, creditInsurance):
+        self.Credit.monthly_insurance=creditInsurance
 
     def totalCreditCost(self):
         return self.monthlyInstallment() + self.creditInsurancePerMonth()
 
     def rentIncomeMinPerMonth(self):
+        return self.Rent.income_min
 
     def setRentIncomeMinPerMonth(self, rentIncome):
+        self.Rent.income_min=rentIncome
 
     def rentIncomeMaxPerMonth(self):
+        return self.Rent.income_max
 
     def setRentIncomeMaxPerMonth(self, rentIncome):
+        self.Rent.income_max=rentIncome
 
     def incomeReceivedPerMonth(self):
+        return self.Rent.income_real
 
     def setIncomeReceivedPerMonth(self, income):
+        self.Rent.income_real=income
 
     def rentTaxPerMonth(self):
+        return self.Rent.tax_rent
 
     def setRentTaxPerMonth(self, rentTax):
+        self.Rent.tax_rent=rentTax
 
     def propertyTaxPerYear(self):
+        return self.Rent.tax_estate
 
     def setPropertyTaxPerYear(self, propertyTax):
+        self.Rent.tax_estate=propertyTax
 
     def electricityPerMonth(self):
+        return self.Rent.power
 
     def setElectricityPerMonth(self, electricity):
+        self.Rent.power=electricity
 
     def gasPerMonth(self):
+        return self.Rent.gas
 
     def setGasPerMonth(self, gas):
+        self.Rent.gas=gas
 
     def waterPerMonth(self):
+        return self.Rent.water
 
     def setWaterPerMonth(self, water):
+        self.Rent.water=water
 
     def internetPerMonth(self):
+        return self.Rent.internet
 
     def setInternetPerMonth(self, internet):
+        self.Rent.internet=internet
 
     def otherPerMonth(self):
+        return self.Rent.other
 
     def setOtherPerMonth(self, other):
+        self.Rent.other=other
 
     def costsTotalPerMonth(self):
+        return self.Rent.tax_estate+self.Rent.tax_rent+self.Rent.power+self.Rent.water+self.Rent.gas+self.Rent.internet+self.Rent.other
 
     def incomeOrLossPerMonth(self):
+        return self.incomeReceivedPerMonth()-self.costsTotalPerMonth()
 
     def ownCapitalReturnTimeMonths(self):
+        return self.entryCost()/self.incomeOrLossPerMonth()
 
     def ownCapitalReturnTimeYears(self):
+        return self.ownCapitalReturnTimeMonths()*12
 
     def totalReturnTimeMonths(self):
+        return (self.entryCost()+self.bankCredit())/self.incomeOrLossPerMonth()
 
     def totalReturnTimeYears(self):
-
+        return self.totalReturnTimeMonths()*12
 
 g = Investment("Test")
 g.save()
