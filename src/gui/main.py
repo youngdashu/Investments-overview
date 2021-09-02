@@ -2,13 +2,16 @@ import sys
 from PySide6 import QtCore, QtGui
 from PySide6.QtCore import (QPropertyAnimation)
 from PySide6.QtGui import (QColor)
-from PySide6.QtWidgets import QApplication, QMainWindow
+from PySide6.QtWidgets import QApplication, QMainWindow, QLabel
 
+from pageTypes import PageTypes
 from ui_main_window import Ui_MainWindow
 
 from functools import partial
 
 SHOW_MAXIMIZED = True
+
+labelCounter = 1
 
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -57,8 +60,22 @@ class MainWindow(QMainWindow):
         self.ownContributionSlideAnimation = None
         self.ui.button_own_contribution.clicked.connect(self.slideOwnContribution)
 
+        # left buttons section
+        self.ui.button_home_page.clicked.connect(lambda : self.mainMenu(PageTypes.homePage))
+
+        self.ui.button_new_investment.clicked.connect(self.myFunction)
+
         self.showFullScreen()
         self.show()
+
+    def myFunction(self):
+        global labelCounter
+        newLabel = QLabel("przykładowa inwestycja", self.ui.frame_currently_opened)
+        newLabel.setObjectName("new investment" + str(labelCounter))
+        labelCounter += 1
+        self.ui.horizontalLayout_44.addWidget(newLabel)
+        newLabel.show()
+
 
     def decreaseFrameHeights(self, minHeight):
 
@@ -76,57 +93,11 @@ class MainWindow(QMainWindow):
         self.ui.frame_own_contribution.resize(self.ui.frame_own_contribution.width(), minHeight)
         self.ui.frame_investment_assessment.resize(self.ui.frame_investment_assessment.width(), minHeight)
 
-        # for table in self.tables:
-        #     table.setVisible(False)
 
-        # self.ui.frame_main_characteristics.setMinimumHeight(minHeight)
-        # self.ui.frame_information.setMinimumHeight(minHeight)
-        # self.ui.frame_credit.setMinimumHeight(minHeight)
-        # self.ui.frame_investment_assessment.setMinimumHeight(minHeight)
-        # self.ui.frame_rent.setMinimumHeight(minHeight)
-        # self.ui.frame_own_contribution.setMinimumHeight(minHeight)
+    def mainMenu(self, pageType: PageTypes):
 
-    # def slideFrameMcInfo(self, afterAnimationHeight):
-    #     self.mcInfoSlideAnimation = QPropertyAnimation(self.ui.frame_mc_info, b'minimumHeight')
-    #     self.mcInfoSlideAnimation.setDuration(450)
-    #     self.mcInfoSlideAnimation.setStartValue(self.ui.frame_mc_info.height())
-    #     self.mcInfoSlideAnimation.setEndValue(afterAnimationHeight)
-    #     self.mcInfoSlideAnimation.setEasingCurve(QtCore.QEasingCurve.InOutQuart)
-    #     self.mcInfoSlideAnimation.start()
-
-    #
-    # def slideMainCharacteristics(self):
-    #
-    #     isSlided = False
-    #     afterAnimationHeight = None
-    #     actualHeight = None
-    #     if self.ui.frame_main_characteristics.height() < self.targetFrameHeight: # == self.frameHeight:  # height before slide
-    #         isSlided = False
-    #         afterAnimationHeight = 300
-    #         actualHeight = self.frameHeight
-    #         self.ui.tableMainCharacteristics.setVisible(True)
-    #
-    #         if not self.isMcInfoFrameSlided:
-    #             self.slideFrameMcInfo(afterAnimationHeight + 20)
-    #             self.isMcInfoFrameSlided = True
-    #     else:  # self.ui.frame_main_characteristics.height() == 300: # after slide
-    #         isSlided = True
-    #         afterAnimationHeight = self.frameHeight
-    #         actualHeight = 300
-    #         self.ui.tableMainCharacteristics.setVisible(False)
-    #
-    #         if self.ui.frame_information.height() < afterAnimationHeight + 10:
-    #             self.slideFrameMcInfo(afterAnimationHeight + 20)
-    #             self.isMcInfoFrameSlided = False
-    #
-    #     self.mainCharacteristicsSlideAnimation = QPropertyAnimation(self.ui.frame_main_characteristics,
-    #                                                                 b'minimumHeight')
-    #     self.mainCharacteristicsSlideAnimation.setDuration(450)
-    #     self.mainCharacteristicsSlideAnimation.setStartValue(actualHeight)
-    #     self.mainCharacteristicsSlideAnimation.setEndValue(afterAnimationHeight)
-    #     self.mainCharacteristicsSlideAnimation.setEasingCurve(QtCore.QEasingCurve.InOutQuart)
-    #     self.mainCharacteristicsSlideAnimation.start()
-
+        if pageType == PageTypes.homePage:
+            self.ui.all_pages.setCurrentWidget(self.ui.home_page)
 
 
     def slideInformation(self):
@@ -138,17 +109,12 @@ class MainWindow(QMainWindow):
             afterAnimationHeight = 400
             actualHeight = self.frameHeight
             self.ui.frame_information_data.setVisible(True)
-            # if not self.isMcInfoFrameSlided:
-            #     self.slideFrameMcInfo(afterAnimationHeight + 20)
-            #     self.isMcInfoFrameSlided = True
+
         else:  # self.ui.frame_main_characteristics.height() == 300: # after slide
             isSlided = True
             afterAnimationHeight = self.frameHeight
             actualHeight = 400
             self.ui.frame_information_data.setVisible(False)
-            # if self.ui.frame_information.height() < afterAnimationHeight + 10:
-            #     self.slideFrameMcInfo(afterAnimationHeight + 20)
-            #     self.isMcInfoFrameSlided = False
 
         self.informationSlideAnimation = QPropertyAnimation(self.ui.frame_information,
                                                                     b'minimumHeight')
@@ -159,60 +125,19 @@ class MainWindow(QMainWindow):
         self.informationSlideAnimation.start()
 
 
-    # def slideMcAndInfo(self):
-    #     isSlided = None
-    #     afterAnimationHeight = None
-    #     actualHeight = None
-    #     if self.ui.frame_information.height() < self.targetFrameHeight:  # == self.frameHeight:  # height before slide
-    #         isSlided = False
-    #         afterAnimationHeight = 300
-    #         actualHeight = self.frameHeight
-    #         self.ui.tableInformation.setVisible(True)
-    #         self.ui.tableMainCharacteristics.setVisible(True)
-    #         # if not self.isMcInfoFrameSlided:
-    #         self.slideFrameMcInfo(afterAnimationHeight + 20)
-    #         self.isMcInfoFrameSlided = True
-    #     else:  # self.ui.frame_main_characteristics.height() == 300: # after slide
-    #         isSlided = True
-    #         afterAnimationHeight = self.frameHeight
-    #         actualHeight = 300
-    #         self.ui.tableInformation.setVisible(False)
-    #         self.ui.tableMainCharacteristics.setVisible(False)
-    #         # if self.ui.frame_information.height() < afterAnimationHeight + 10:
-    #         self.slideFrameMcInfo(afterAnimationHeight + 20)
-    #         self.isMcInfoFrameSlided = False
-    #
-    #     self.informationSlideAnimation = QPropertyAnimation(self.ui.frame_information,
-    #                                                         b'minimumHeight')
-    #     self.informationSlideAnimation.setDuration(450)
-    #     self.informationSlideAnimation.setStartValue(actualHeight)
-    #     self.informationSlideAnimation.setEndValue(afterAnimationHeight)
-    #     self.informationSlideAnimation.setEasingCurve(QtCore.QEasingCurve.InOutQuart)
-    #
-    #     self.mainCharacteristicsSlideAnimation = QPropertyAnimation(self.ui.frame_main_characteristics,
-    #                                                                 b'minimumHeight')
-    #     self.mainCharacteristicsSlideAnimation.setDuration(450)
-    #     self.mainCharacteristicsSlideAnimation.setStartValue(actualHeight)
-    #     self.mainCharacteristicsSlideAnimation.setEndValue(afterAnimationHeight)
-    #     self.mainCharacteristicsSlideAnimation.setEasingCurve(QtCore.QEasingCurve.InOutQuart)
-    #
-    #     self.mainCharacteristicsSlideAnimation.start()
-    #
-    #     self.informationSlideAnimation.start()
-
     def slideCredit(self):
         isSlided = False
         afterAnimationHeight = None
         actualHeight = None
         if self.ui.frame_credit.height() < self.targetFrameHeight: # == self.frameHeight:  # height before slide
             isSlided = False
-            afterAnimationHeight = 300
+            afterAnimationHeight = 560
             actualHeight = self.frameHeight
             self.ui.frame_credit_data.setVisible(True)
         else:  # self.ui.frame_main_characteristics.height() == 300: # after slide
             isSlided = True
             afterAnimationHeight = self.frameHeight
-            actualHeight = 300
+            actualHeight = 560
             self.ui.frame_credit_data.setVisible(False)
 
         self.creditSlideAnimation = QPropertyAnimation(self.ui.frame_credit,
@@ -229,13 +154,13 @@ class MainWindow(QMainWindow):
         actualHeight = None
         if self.ui.frame_rent.height() < self.targetFrameHeight: # == self.frameHeight:  # height before slide
             isSlided = False
-            afterAnimationHeight = 300
+            afterAnimationHeight = 750
             actualHeight = self.frameHeight
             self.ui.frame_rent_data.setVisible(True)
         else:  # self.ui.frame_main_characteristics.height() == 300: # after slide
             isSlided = True
             afterAnimationHeight = self.frameHeight
-            actualHeight = 300
+            actualHeight = 750
             self.ui.frame_rent_data.setVisible(False)
 
         self.rentSlideAnimation = QPropertyAnimation(self.ui.frame_rent,
@@ -252,13 +177,13 @@ class MainWindow(QMainWindow):
         actualHeight = None
         if self.ui.frame_investment_assessment.height() < self.targetFrameHeight: # == self.frameHeight:  # height before slide
             isSlided = False
-            afterAnimationHeight = 300
+            afterAnimationHeight = 400
             actualHeight = self.frameHeight
             self.ui.frame_investment_assessment_data.setVisible(True)
         else:  # self.ui.frame_main_characteristics.height() == 300: # after slide
             isSlided = True
             afterAnimationHeight = self.frameHeight
-            actualHeight = 300
+            actualHeight = 400
             self.ui.frame_investment_assessment_data.setVisible(False)
 
         self.investmentAssessmentSlideAnimation = QPropertyAnimation(self.ui.frame_investment_assessment,
@@ -275,13 +200,13 @@ class MainWindow(QMainWindow):
         actualHeight = None
         if self.ui.frame_own_contribution.height() < self.targetFrameHeight: # == self.frameHeight:  # height before slide
             isSlided = False
-            afterAnimationHeight = 300
+            afterAnimationHeight = 500
             actualHeight = self.frameHeight
             self.ui.frame_own_contribution_data.setVisible(True)
         else:  # self.ui.frame_main_characteristics.height() == 300: # after slide
             isSlided = True
             afterAnimationHeight = self.frameHeight
-            actualHeight = 300
+            actualHeight = 500
             self.ui.frame_own_contribution_data.setVisible(False)
 
         self.ownContributionSlideAnimation = QPropertyAnimation(self.ui.frame_own_contribution,
