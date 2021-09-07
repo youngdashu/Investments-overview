@@ -353,7 +353,7 @@ główna</string>
             <property name="minimumSize">
              <size>
               <width>0</width>
-              <height>31</height>
+              <height>70</height>
              </size>
             </property>
             <property name="styleSheet">
@@ -371,19 +371,44 @@ border-radius: 5px;
             </property>
             <layout class="QHBoxLayout" name="horizontalLayout_44">
              <item>
-              <widget class="QFrame" name="frame_42">
-               <property name="maximumSize">
-                <size>
-                 <width>0</width>
-                 <height>0</height>
-                </size>
+              <widget class="QScrollArea" name="scrollArea_currently_opened">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
                </property>
-               <property name="frameShape">
-                <enum>QFrame::StyledPanel</enum>
+               <property name="widgetResizable">
+                <bool>true</bool>
                </property>
-               <property name="frameShadow">
-                <enum>QFrame::Raised</enum>
-               </property>
+               <widget class="QWidget" name="scrollAreaContents_currently_opened">
+                <property name="geometry">
+                 <rect>
+                  <x>0</x>
+                  <y>0</y>
+                  <width>808</width>
+                  <height>72</height>
+                 </rect>
+                </property>
+                <layout class="QHBoxLayout" name="horizontalLayout_52">
+                 <item>
+                  <widget class="QFrame" name="frame_small_decoy">
+                   <property name="maximumSize">
+                    <size>
+                     <width>0</width>
+                     <height>0</height>
+                    </size>
+                   </property>
+                   <property name="frameShape">
+                    <enum>QFrame::StyledPanel</enum>
+                   </property>
+                   <property name="frameShadow">
+                    <enum>QFrame::Raised</enum>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
               </widget>
              </item>
             </layout>
@@ -399,9 +424,8 @@ border-radius: 5px;
               <item>
                <widget class="QScrollArea" name="scrollArea_current_investment">
                 <property name="styleSheet">
-                 <string notr="true">#scrollArea {
+                 <string notr="true">#scrollArea_current_investment {
 border: 3px solid gray;
-border-radius: 8px;
 background: white;
 }
 
@@ -421,13 +445,13 @@ color: rgb(255, 255, 255)
                 <property name="widgetResizable">
                  <bool>true</bool>
                 </property>
-                <widget class="QWidget" name="scrollAreaWidgetContents">
+                <widget class="QWidget" name="scrollArea_investment_contents">
                  <property name="geometry">
                   <rect>
                    <x>0</x>
-                   <y>-94</y>
-                   <width>812</width>
-                   <height>2794</height>
+                   <y>-984</y>
+                   <width>808</width>
+                   <height>2308</height>
                   </rect>
                  </property>
                  <property name="styleSheet">
@@ -445,13 +469,13 @@ border-radius: 8px;
                     <property name="minimumSize">
                      <size>
                       <width>0</width>
-                      <height>80</height>
+                      <height>120</height>
                      </size>
                     </property>
                     <property name="maximumSize">
                      <size>
                       <width>16777215</width>
-                      <height>80</height>
+                      <height>200</height>
                      </size>
                     </property>
                     <property name="frameShape">
@@ -460,9 +484,30 @@ border-radius: 8px;
                     <property name="frameShadow">
                      <enum>QFrame::Raised</enum>
                     </property>
-                    <layout class="QHBoxLayout" name="horizontalLayout_6">
+                    <layout class="QVBoxLayout" name="verticalLayout_20">
+                     <property name="spacing">
+                      <number>4</number>
+                     </property>
+                     <property name="leftMargin">
+                      <number>4</number>
+                     </property>
+                     <property name="topMargin">
+                      <number>4</number>
+                     </property>
+                     <property name="rightMargin">
+                      <number>4</number>
+                     </property>
+                     <property name="bottomMargin">
+                      <number>4</number>
+                     </property>
                      <item>
                       <widget class="QFrame" name="frame_15">
+                       <property name="minimumSize">
+                        <size>
+                         <width>0</width>
+                         <height>40</height>
+                        </size>
+                       </property>
                        <property name="frameShape">
                         <enum>QFrame::StyledPanel</enum>
                        </property>
@@ -470,59 +515,192 @@ border-radius: 8px;
                         <enum>QFrame::Raised</enum>
                        </property>
                        <layout class="QHBoxLayout" name="horizontalLayout_16">
+                        <property name="spacing">
+                         <number>4</number>
+                        </property>
+                        <property name="leftMargin">
+                         <number>4</number>
+                        </property>
+                        <property name="topMargin">
+                         <number>4</number>
+                        </property>
+                        <property name="rightMargin">
+                         <number>4</number>
+                        </property>
+                        <property name="bottomMargin">
+                         <number>4</number>
+                        </property>
                         <item>
                          <widget class="QLabel" name="label_11">
                           <property name="text">
-                           <string>Cena zakupu</string>
+                           <string>Nazwa inwestycji</string>
                           </property>
                          </widget>
                         </item>
                         <item>
-                         <widget class="QTextEdit" name="textEdit_11"/>
+                         <widget class="QTextEdit" name="text_investment_name"/>
                         </item>
                        </layout>
                       </widget>
                      </item>
                      <item>
                       <widget class="QFrame" name="frame_16">
+                       <property name="minimumSize">
+                        <size>
+                         <width>0</width>
+                         <height>40</height>
+                        </size>
+                       </property>
                        <property name="frameShape">
                         <enum>QFrame::StyledPanel</enum>
                        </property>
                        <property name="frameShadow">
                         <enum>QFrame::Raised</enum>
                        </property>
-                       <layout class="QHBoxLayout" name="horizontalLayout_17">
+                       <layout class="QHBoxLayout" name="horizontalLayout_6">
+                        <property name="spacing">
+                         <number>4</number>
+                        </property>
+                        <property name="leftMargin">
+                         <number>4</number>
+                        </property>
+                        <property name="topMargin">
+                         <number>4</number>
+                        </property>
+                        <property name="rightMargin">
+                         <number>4</number>
+                        </property>
+                        <property name="bottomMargin">
+                         <number>4</number>
+                        </property>
                         <item>
-                         <widget class="QLabel" name="label_12">
-                          <property name="text">
-                           <string>POW. [m²]</string>
+                         <widget class="QFrame" name="frame_51">
+                          <property name="minimumSize">
+                           <size>
+                            <width>0</width>
+                            <height>40</height>
+                           </size>
                           </property>
+                          <property name="frameShape">
+                           <enum>QFrame::StyledPanel</enum>
+                          </property>
+                          <property name="frameShadow">
+                           <enum>QFrame::Raised</enum>
+                          </property>
+                          <layout class="QHBoxLayout" name="horizontalLayout_57">
+                           <property name="spacing">
+                            <number>4</number>
+                           </property>
+                           <property name="leftMargin">
+                            <number>4</number>
+                           </property>
+                           <property name="topMargin">
+                            <number>4</number>
+                           </property>
+                           <property name="rightMargin">
+                            <number>4</number>
+                           </property>
+                           <property name="bottomMargin">
+                            <number>4</number>
+                           </property>
+                           <item>
+                            <widget class="QLabel" name="label_68">
+                             <property name="text">
+                              <string>Cena zakupu</string>
+                             </property>
+                            </widget>
+                           </item>
+                           <item>
+                            <widget class="QTextEdit" name="text_purchase_price"/>
+                           </item>
+                          </layout>
                          </widget>
                         </item>
                         <item>
-                         <widget class="QTextEdit" name="textEdit_12"/>
-                        </item>
-                       </layout>
-                      </widget>
-                     </item>
-                     <item>
-                      <widget class="QFrame" name="frame_17">
-                       <property name="frameShape">
-                        <enum>QFrame::StyledPanel</enum>
-                       </property>
-                       <property name="frameShadow">
-                        <enum>QFrame::Raised</enum>
-                       </property>
-                       <layout class="QHBoxLayout" name="horizontalLayout_18">
-                        <item>
-                         <widget class="QLabel" name="label_13">
-                          <property name="text">
-                           <string>Cena/m²</string>
+                         <widget class="QFrame" name="frame_52">
+                          <property name="minimumSize">
+                           <size>
+                            <width>0</width>
+                            <height>40</height>
+                           </size>
                           </property>
+                          <property name="frameShape">
+                           <enum>QFrame::StyledPanel</enum>
+                          </property>
+                          <property name="frameShadow">
+                           <enum>QFrame::Raised</enum>
+                          </property>
+                          <layout class="QHBoxLayout" name="horizontalLayout_58">
+                           <property name="spacing">
+                            <number>4</number>
+                           </property>
+                           <property name="leftMargin">
+                            <number>4</number>
+                           </property>
+                           <property name="topMargin">
+                            <number>4</number>
+                           </property>
+                           <property name="rightMargin">
+                            <number>4</number>
+                           </property>
+                           <property name="bottomMargin">
+                            <number>4</number>
+                           </property>
+                           <item>
+                            <widget class="QLabel" name="label_69">
+                             <property name="text">
+                              <string>POW. [m²]</string>
+                             </property>
+                            </widget>
+                           </item>
+                           <item>
+                            <widget class="QTextEdit" name="text_area"/>
+                           </item>
+                          </layout>
                          </widget>
                         </item>
                         <item>
-                         <widget class="QTextEdit" name="textEdit_13"/>
+                         <widget class="QFrame" name="frame_53">
+                          <property name="minimumSize">
+                           <size>
+                            <width>0</width>
+                            <height>40</height>
+                           </size>
+                          </property>
+                          <property name="frameShape">
+                           <enum>QFrame::StyledPanel</enum>
+                          </property>
+                          <property name="frameShadow">
+                           <enum>QFrame::Raised</enum>
+                          </property>
+                          <layout class="QHBoxLayout" name="horizontalLayout_59">
+                           <property name="spacing">
+                            <number>4</number>
+                           </property>
+                           <property name="leftMargin">
+                            <number>4</number>
+                           </property>
+                           <property name="topMargin">
+                            <number>4</number>
+                           </property>
+                           <property name="rightMargin">
+                            <number>4</number>
+                           </property>
+                           <property name="bottomMargin">
+                            <number>4</number>
+                           </property>
+                           <item>
+                            <widget class="QLabel" name="label_70">
+                             <property name="text">
+                              <string>Cena/m²</string>
+                             </property>
+                            </widget>
+                           </item>
+                           <item>
+                            <widget class="QTextEdit" name="text_price_per_square_meter"/>
+                           </item>
+                          </layout>
+                         </widget>
                         </item>
                        </layout>
                       </widget>
@@ -626,7 +804,7 @@ border-radius: 8px;
                             </widget>
                            </item>
                            <item>
-                            <widget class="QTextEdit" name="textEdit_14"/>
+                            <widget class="QTextEdit" name="text_start_date"/>
                            </item>
                           </layout>
                          </widget>
@@ -660,7 +838,7 @@ border-radius: 8px;
                             </widget>
                            </item>
                            <item>
-                            <widget class="QTextEdit" name="textEdit_15"/>
+                            <widget class="QTextEdit" name="text_description"/>
                            </item>
                           </layout>
                          </widget>
@@ -694,7 +872,7 @@ border-radius: 8px;
                             </widget>
                            </item>
                            <item>
-                            <widget class="QTextEdit" name="textEdit_16"/>
+                            <widget class="QTextEdit" name="text_address_street"/>
                            </item>
                           </layout>
                          </widget>
@@ -728,7 +906,7 @@ border-radius: 8px;
                             </widget>
                            </item>
                            <item>
-                            <widget class="QTextEdit" name="textEdit_17"/>
+                            <widget class="QTextEdit" name="text_address_city"/>
                            </item>
                           </layout>
                          </widget>
@@ -756,7 +934,7 @@ border-radius: 8px;
                             </widget>
                            </item>
                            <item>
-                            <widget class="QTextEdit" name="textEdit_18"/>
+                            <widget class="QTextEdit" name="text_estimated_value"/>
                            </item>
                           </layout>
                          </widget>
@@ -790,7 +968,7 @@ border-radius: 8px;
                             </widget>
                            </item>
                            <item>
-                            <widget class="QTextEdit" name="textEdit_19"/>
+                            <widget class="QTextEdit" name="text_last_estimation"/>
                            </item>
                           </layout>
                          </widget>
@@ -824,7 +1002,7 @@ border-radius: 8px;
                             </widget>
                            </item>
                            <item>
-                            <widget class="QTextEdit" name="textEdit_20"/>
+                            <widget class="QTextEdit" name="text_finish_date"/>
                            </item>
                           </layout>
                          </widget>
@@ -836,11 +1014,11 @@ border-radius: 8px;
                    </widget>
                   </item>
                   <item>
-                   <widget class="QFrame" name="frame_own_contribution">
+                   <widget class="QFrame" name="frame_own_contribution_credit">
                     <property name="minimumSize">
                      <size>
                       <width>630</width>
-                      <height>500</height>
+                      <height>550</height>
                      </size>
                     </property>
                     <property name="frameShape">
@@ -851,7 +1029,7 @@ border-radius: 8px;
                     </property>
                     <layout class="QVBoxLayout" name="verticalLayout_5">
                      <item>
-                      <widget class="QPushButton" name="button_own_contribution">
+                      <widget class="QPushButton" name="button_own_contribution_credit">
                        <property name="minimumSize">
                         <size>
                          <width>0</width>
@@ -859,387 +1037,44 @@ border-radius: 8px;
                         </size>
                        </property>
                        <property name="text">
-                        <string>Wkład własny</string>
+                        <string>Wkład własny / Kredyt</string>
                        </property>
                       </widget>
                      </item>
                      <item>
-                      <widget class="QFrame" name="frame_own_contribution_data">
-                       <property name="minimumSize">
-                        <size>
-                         <width>0</width>
-                         <height>250</height>
-                        </size>
-                       </property>
-                       <property name="styleSheet">
-                        <string notr="true">QFrame{
-border: 1px solid gray;
-border-radius: 2px;
-background: rgb(207, 206, 209);
-}</string>
-                       </property>
+                      <widget class="QFrame" name="frame_own_contribution_credit_inner">
                        <property name="frameShape">
                         <enum>QFrame::StyledPanel</enum>
                        </property>
                        <property name="frameShadow">
                         <enum>QFrame::Raised</enum>
                        </property>
-                       <layout class="QVBoxLayout" name="verticalLayout_9">
+                       <layout class="QHBoxLayout" name="horizontalLayout_17">
                         <property name="spacing">
                          <number>4</number>
                         </property>
+                        <property name="leftMargin">
+                         <number>4</number>
+                        </property>
                         <property name="topMargin">
-                         <number>2</number>
+                         <number>4</number>
+                        </property>
+                        <property name="rightMargin">
+                         <number>4</number>
                         </property>
                         <property name="bottomMargin">
-                         <number>2</number>
+                         <number>4</number>
                         </property>
                         <item>
-                         <widget class="QFrame" name="frame_3">
-                          <property name="frameShape">
-                           <enum>QFrame::StyledPanel</enum>
-                          </property>
-                          <property name="frameShadow">
-                           <enum>QFrame::Raised</enum>
-                          </property>
-                          <layout class="QHBoxLayout" name="horizontalLayout_5">
-                           <property name="topMargin">
-                            <number>2</number>
-                           </property>
-                           <property name="bottomMargin">
-                            <number>2</number>
-                           </property>
-                           <item>
-                            <widget class="QLabel" name="label">
-                             <property name="minimumSize">
-                              <size>
-                               <width>138</width>
-                               <height>0</height>
-                              </size>
-                             </property>
-                             <property name="text">
-                              <string>Wkład własny</string>
-                             </property>
-                            </widget>
-                           </item>
-                           <item>
-                            <widget class="QTextEdit" name="textEdit_9"/>
-                           </item>
-                           <item>
-                            <widget class="QTextEdit" name="textEdit"/>
-                           </item>
-                          </layout>
-                         </widget>
-                        </item>
-                        <item>
-                         <widget class="QFrame" name="frame_6">
-                          <property name="frameShape">
-                           <enum>QFrame::StyledPanel</enum>
-                          </property>
-                          <property name="frameShadow">
-                           <enum>QFrame::Raised</enum>
-                          </property>
-                          <layout class="QHBoxLayout" name="horizontalLayout_7">
-                           <property name="topMargin">
-                            <number>2</number>
-                           </property>
-                           <property name="bottomMargin">
-                            <number>2</number>
-                           </property>
-                           <item>
-                            <widget class="QLabel" name="label_2">
-                             <property name="minimumSize">
-                              <size>
-                               <width>138</width>
-                               <height>0</height>
-                              </size>
-                             </property>
-                             <property name="text">
-                              <string>Marża maklera </string>
-                             </property>
-                            </widget>
-                           </item>
-                           <item>
-                            <widget class="QTextEdit" name="textEdit_10"/>
-                           </item>
-                           <item>
-                            <widget class="QTextEdit" name="textEdit_2"/>
-                           </item>
-                          </layout>
-                         </widget>
-                        </item>
-                        <item>
-                         <widget class="QFrame" name="frame_9">
-                          <property name="frameShape">
-                           <enum>QFrame::StyledPanel</enum>
-                          </property>
-                          <property name="frameShadow">
-                           <enum>QFrame::Raised</enum>
-                          </property>
-                          <layout class="QHBoxLayout" name="horizontalLayout_8">
-                           <property name="topMargin">
-                            <number>2</number>
-                           </property>
-                           <property name="bottomMargin">
-                            <number>2</number>
-                           </property>
-                           <item>
-                            <widget class="QLabel" name="label_3">
-                             <property name="minimumSize">
-                              <size>
-                               <width>138</width>
-                               <height>0</height>
-                              </size>
-                             </property>
-                             <property name="text">
-                              <string>Marża notariusza</string>
-                             </property>
-                            </widget>
-                           </item>
-                           <item>
-                            <widget class="QTextEdit" name="textEdit_21"/>
-                           </item>
-                           <item>
-                            <widget class="QTextEdit" name="textEdit_3"/>
-                           </item>
-                          </layout>
-                         </widget>
-                        </item>
-                        <item>
-                         <widget class="QFrame" name="frame_5">
-                          <property name="frameShape">
-                           <enum>QFrame::StyledPanel</enum>
-                          </property>
-                          <property name="frameShadow">
-                           <enum>QFrame::Raised</enum>
-                          </property>
-                          <layout class="QHBoxLayout" name="horizontalLayout_9">
-                           <property name="topMargin">
-                            <number>2</number>
-                           </property>
-                           <property name="bottomMargin">
-                            <number>2</number>
-                           </property>
-                           <item>
-                            <widget class="QLabel" name="label_4">
-                             <property name="minimumSize">
-                              <size>
-                               <width>138</width>
-                               <height>0</height>
-                              </size>
-                             </property>
-                             <property name="text">
-                              <string>Podatek</string>
-                             </property>
-                            </widget>
-                           </item>
-                           <item>
-                            <widget class="QTextEdit" name="textEdit_22"/>
-                           </item>
-                           <item>
-                            <widget class="QTextEdit" name="textEdit_6"/>
-                           </item>
-                          </layout>
-                         </widget>
-                        </item>
-                        <item>
-                         <widget class="QFrame" name="frame_10">
-                          <property name="frameShape">
-                           <enum>QFrame::StyledPanel</enum>
-                          </property>
-                          <property name="frameShadow">
-                           <enum>QFrame::Raised</enum>
-                          </property>
-                          <layout class="QHBoxLayout" name="horizontalLayout_10">
-                           <property name="topMargin">
-                            <number>2</number>
-                           </property>
-                           <property name="bottomMargin">
-                            <number>2</number>
-                           </property>
-                           <item>
-                            <widget class="QLabel" name="label_5">
-                             <property name="minimumSize">
-                              <size>
-                               <width>138</width>
-                               <height>0</height>
-                              </size>
-                             </property>
-                             <property name="text">
-                              <string>Inne koszty</string>
-                             </property>
-                            </widget>
-                           </item>
-                           <item>
-                            <widget class="QTextEdit" name="textEdit_23"/>
-                           </item>
-                           <item>
-                            <widget class="QTextEdit" name="textEdit_4"/>
-                           </item>
-                          </layout>
-                         </widget>
-                        </item>
-                        <item>
-                         <widget class="QFrame" name="frame_4">
-                          <property name="frameShape">
-                           <enum>QFrame::StyledPanel</enum>
-                          </property>
-                          <property name="frameShadow">
-                           <enum>QFrame::Raised</enum>
-                          </property>
-                          <layout class="QHBoxLayout" name="horizontalLayout_11">
-                           <property name="topMargin">
-                            <number>2</number>
-                           </property>
-                           <property name="bottomMargin">
-                            <number>2</number>
-                           </property>
-                           <item>
-                            <widget class="QLabel" name="label_6">
-                             <property name="minimumSize">
-                              <size>
-                               <width>138</width>
-                               <height>0</height>
-                              </size>
-                             </property>
-                             <property name="text">
-                              <string>Remont</string>
-                             </property>
-                            </widget>
-                           </item>
-                           <item>
-                            <widget class="QTextEdit" name="textEdit_24"/>
-                           </item>
-                           <item>
-                            <widget class="QTextEdit" name="textEdit_7"/>
-                           </item>
-                          </layout>
-                         </widget>
-                        </item>
-                        <item>
-                         <widget class="QFrame" name="frame">
-                          <property name="frameShape">
-                           <enum>QFrame::StyledPanel</enum>
-                          </property>
-                          <property name="frameShadow">
-                           <enum>QFrame::Raised</enum>
-                          </property>
-                          <layout class="QHBoxLayout" name="horizontalLayout_12">
-                           <property name="topMargin">
-                            <number>2</number>
-                           </property>
-                           <property name="bottomMargin">
-                            <number>2</number>
-                           </property>
-                           <item>
-                            <widget class="QLabel" name="label_7">
-                             <property name="minimumSize">
-                              <size>
-                               <width>138</width>
-                               <height>0</height>
-                              </size>
-                             </property>
-                             <property name="text">
-                              <string>Koszty wejścia razem</string>
-                             </property>
-                            </widget>
-                           </item>
-                           <item>
-                            <widget class="QTextEdit" name="textEdit_5"/>
-                           </item>
-                          </layout>
-                         </widget>
-                        </item>
-                        <item>
-                         <widget class="QFrame" name="frame_2">
-                          <property name="frameShape">
-                           <enum>QFrame::StyledPanel</enum>
-                          </property>
-                          <property name="frameShadow">
-                           <enum>QFrame::Raised</enum>
-                          </property>
-                          <layout class="QHBoxLayout" name="horizontalLayout_13">
-                           <property name="topMargin">
-                            <number>2</number>
-                           </property>
-                           <property name="bottomMargin">
-                            <number>2</number>
-                           </property>
-                           <item>
-                            <widget class="QLabel" name="label_8">
-                             <property name="minimumSize">
-                              <size>
-                               <width>138</width>
-                               <height>0</height>
-                              </size>
-                             </property>
-                             <property name="text">
-                              <string>Cena zakupu</string>
-                             </property>
-                            </widget>
-                           </item>
-                           <item>
-                            <widget class="QTextEdit" name="textEdit_8"/>
-                           </item>
-                          </layout>
-                         </widget>
-                        </item>
-                       </layout>
-                      </widget>
-                     </item>
-                    </layout>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="QFrame" name="frame_credit">
-                    <property name="minimumSize">
-                     <size>
-                      <width>630</width>
-                      <height>560</height>
-                     </size>
-                    </property>
-                    <property name="frameShape">
-                     <enum>QFrame::StyledPanel</enum>
-                    </property>
-                    <property name="frameShadow">
-                     <enum>QFrame::Raised</enum>
-                    </property>
-                    <layout class="QVBoxLayout" name="verticalLayout_6">
-                     <item>
-                      <widget class="QPushButton" name="button_credit">
-                       <property name="minimumSize">
-                        <size>
-                         <width>0</width>
-                         <height>24</height>
-                        </size>
-                       </property>
-                       <property name="text">
-                        <string>Kredyt</string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item>
-                      <widget class="QFrame" name="frame_credit_data">
-                       <property name="frameShape">
-                        <enum>QFrame::StyledPanel</enum>
-                       </property>
-                       <property name="frameShadow">
-                        <enum>QFrame::Raised</enum>
-                       </property>
-                       <layout class="QVBoxLayout" name="verticalLayout_10">
-                        <property name="topMargin">
-                         <number>2</number>
-                        </property>
-                        <property name="bottomMargin">
-                         <number>2</number>
-                        </property>
-                        <item>
-                         <widget class="QFrame" name="frame_11">
+                         <widget class="QFrame" name="frame_own_contribution_data">
                           <property name="minimumSize">
                            <size>
                             <width>0</width>
-                            <height>40</height>
+                            <height>250</height>
                            </size>
+                          </property>
+                          <property name="styleSheet">
+                           <string notr="true"/>
                           </property>
                           <property name="frameShape">
                            <enum>QFrame::StyledPanel</enum>
@@ -1247,169 +1082,9 @@ background: rgb(207, 206, 209);
                           <property name="frameShadow">
                            <enum>QFrame::Raised</enum>
                           </property>
-                          <layout class="QHBoxLayout" name="horizontalLayout_14">
-                           <property name="topMargin">
-                            <number>2</number>
-                           </property>
-                           <property name="bottomMargin">
-                            <number>2</number>
-                           </property>
-                           <item>
-                            <widget class="QLabel" name="label_9">
-                             <property name="minimumSize">
-                              <size>
-                               <width>195</width>
-                               <height>0</height>
-                              </size>
-                             </property>
-                             <property name="text">
-                              <string>Kredyt bankowy</string>
-                             </property>
-                            </widget>
-                           </item>
-                           <item>
-                            <widget class="QTextEdit" name="textEdit_25"/>
-                           </item>
-                          </layout>
-                         </widget>
-                        </item>
-                        <item>
-                         <widget class="QFrame" name="frame_12">
-                          <property name="minimumSize">
-                           <size>
-                            <width>0</width>
-                            <height>40</height>
-                           </size>
-                          </property>
-                          <property name="frameShape">
-                           <enum>QFrame::StyledPanel</enum>
-                          </property>
-                          <property name="frameShadow">
-                           <enum>QFrame::Raised</enum>
-                          </property>
-                          <layout class="QHBoxLayout" name="horizontalLayout_15">
-                           <property name="topMargin">
-                            <number>2</number>
-                           </property>
-                           <property name="bottomMargin">
-                            <number>2</number>
-                           </property>
-                           <item>
-                            <widget class="QLabel" name="label_10">
-                             <property name="minimumSize">
-                              <size>
-                               <width>195</width>
-                               <height>0</height>
-                              </size>
-                             </property>
-                             <property name="text">
-                              <string>Wkład banku [%]</string>
-                             </property>
-                            </widget>
-                           </item>
-                           <item>
-                            <widget class="QTextEdit" name="textEdit_26"/>
-                           </item>
-                          </layout>
-                         </widget>
-                        </item>
-                        <item>
-                         <widget class="QFrame" name="frame_13">
-                          <property name="minimumSize">
-                           <size>
-                            <width>0</width>
-                            <height>40</height>
-                           </size>
-                          </property>
-                          <property name="frameShape">
-                           <enum>QFrame::StyledPanel</enum>
-                          </property>
-                          <property name="frameShadow">
-                           <enum>QFrame::Raised</enum>
-                          </property>
-                          <layout class="QHBoxLayout" name="horizontalLayout_26">
-                           <property name="topMargin">
-                            <number>2</number>
-                           </property>
-                           <property name="bottomMargin">
-                            <number>2</number>
-                           </property>
-                           <item>
-                            <widget class="QLabel" name="label_21">
-                             <property name="minimumSize">
-                              <size>
-                               <width>195</width>
-                               <height>0</height>
-                              </size>
-                             </property>
-                             <property name="text">
-                              <string>Stopa procentowa</string>
-                             </property>
-                            </widget>
-                           </item>
-                           <item>
-                            <widget class="QTextEdit" name="textEdit_33"/>
-                           </item>
-                          </layout>
-                         </widget>
-                        </item>
-                        <item>
-                         <widget class="QFrame" name="frame_14">
-                          <property name="minimumSize">
-                           <size>
-                            <width>0</width>
-                            <height>40</height>
-                           </size>
-                          </property>
-                          <property name="frameShape">
-                           <enum>QFrame::StyledPanel</enum>
-                          </property>
-                          <property name="frameShadow">
-                           <enum>QFrame::Raised</enum>
-                          </property>
-                          <layout class="QHBoxLayout" name="horizontalLayout_27">
-                           <property name="topMargin">
-                            <number>2</number>
-                           </property>
-                           <property name="bottomMargin">
-                            <number>2</number>
-                           </property>
-                           <item>
-                            <widget class="QLabel" name="label_22">
-                             <property name="minimumSize">
-                              <size>
-                               <width>195</width>
-                               <height>0</height>
-                              </size>
-                             </property>
-                             <property name="text">
-                              <string>Okres spłaty</string>
-                             </property>
-                            </widget>
-                           </item>
-                           <item>
-                            <widget class="QTextEdit" name="textEdit_27"/>
-                           </item>
-                          </layout>
-                         </widget>
-                        </item>
-                        <item>
-                         <widget class="QFrame" name="frame_23">
-                          <property name="minimumSize">
-                           <size>
-                            <width>0</width>
-                            <height>120</height>
-                           </size>
-                          </property>
-                          <property name="frameShape">
-                           <enum>QFrame::StyledPanel</enum>
-                          </property>
-                          <property name="frameShadow">
-                           <enum>QFrame::Raised</enum>
-                          </property>
-                          <layout class="QVBoxLayout" name="verticalLayout_11">
+                          <layout class="QVBoxLayout" name="verticalLayout_9">
                            <property name="spacing">
-                            <number>1</number>
+                            <number>4</number>
                            </property>
                            <property name="topMargin">
                             <number>2</number>
@@ -1418,14 +1093,14 @@ background: rgb(207, 206, 209);
                             <number>2</number>
                            </property>
                            <item>
-                            <widget class="QFrame" name="frame_28">
+                            <widget class="QFrame" name="frame_3">
                              <property name="frameShape">
                               <enum>QFrame::StyledPanel</enum>
                              </property>
                              <property name="frameShadow">
                               <enum>QFrame::Raised</enum>
                              </property>
-                             <layout class="QHBoxLayout" name="horizontalLayout_28">
+                             <layout class="QHBoxLayout" name="horizontalLayout_5">
                               <property name="topMargin">
                                <number>2</number>
                               </property>
@@ -1433,33 +1108,36 @@ background: rgb(207, 206, 209);
                                <number>2</number>
                               </property>
                               <item>
-                               <widget class="QLabel" name="label_23">
+                               <widget class="QLabel" name="label">
                                 <property name="minimumSize">
                                  <size>
-                                  <width>185</width>
+                                  <width>138</width>
                                   <height>0</height>
                                  </size>
                                 </property>
                                 <property name="text">
-                                 <string>Rata miesięczna</string>
+                                 <string>Wkład własny</string>
                                 </property>
                                </widget>
                               </item>
                               <item>
-                               <widget class="QTextEdit" name="textEdit_28"/>
+                               <widget class="QTextEdit" name="text_own_contribution"/>
+                              </item>
+                              <item>
+                               <widget class="QTextEdit" name="text_own_contribution_percent"/>
                               </item>
                              </layout>
                             </widget>
                            </item>
                            <item>
-                            <widget class="QFrame" name="frame_29">
+                            <widget class="QFrame" name="frame_6">
                              <property name="frameShape">
                               <enum>QFrame::StyledPanel</enum>
                              </property>
                              <property name="frameShadow">
                               <enum>QFrame::Raised</enum>
                              </property>
-                             <layout class="QHBoxLayout" name="horizontalLayout_33">
+                             <layout class="QHBoxLayout" name="horizontalLayout_7">
                               <property name="topMargin">
                                <number>2</number>
                               </property>
@@ -1467,33 +1145,36 @@ background: rgb(207, 206, 209);
                                <number>2</number>
                               </property>
                               <item>
-                               <widget class="QLabel" name="label_28">
+                               <widget class="QLabel" name="label_2">
                                 <property name="minimumSize">
                                  <size>
-                                  <width>185</width>
+                                  <width>138</width>
                                   <height>0</height>
                                  </size>
                                 </property>
                                 <property name="text">
-                                 <string>Część kapitałowa</string>
+                                 <string>Marża maklera </string>
                                 </property>
                                </widget>
                               </item>
                               <item>
-                               <widget class="QTextEdit" name="textEdit_34"/>
+                               <widget class="QTextEdit" name="text_broker_margin"/>
+                              </item>
+                              <item>
+                               <widget class="QTextEdit" name="text_broker_margin_percent"/>
                               </item>
                              </layout>
                             </widget>
                            </item>
                            <item>
-                            <widget class="QFrame" name="frame_30">
+                            <widget class="QFrame" name="frame_9">
                              <property name="frameShape">
                               <enum>QFrame::StyledPanel</enum>
                              </property>
                              <property name="frameShadow">
                               <enum>QFrame::Raised</enum>
                              </property>
-                             <layout class="QHBoxLayout" name="horizontalLayout_34">
+                             <layout class="QHBoxLayout" name="horizontalLayout_8">
                               <property name="topMargin">
                                <number>2</number>
                               </property>
@@ -1501,20 +1182,216 @@ background: rgb(207, 206, 209);
                                <number>2</number>
                               </property>
                               <item>
-                               <widget class="QLabel" name="label_29">
+                               <widget class="QLabel" name="label_3">
                                 <property name="minimumSize">
                                  <size>
-                                  <width>185</width>
+                                  <width>138</width>
                                   <height>0</height>
                                  </size>
                                 </property>
                                 <property name="text">
-                                 <string>Część odestkowa</string>
+                                 <string>Marża notariusza</string>
                                 </property>
                                </widget>
                               </item>
                               <item>
-                               <widget class="QTextEdit" name="textEdit_35"/>
+                               <widget class="QTextEdit" name="text_notary_margin"/>
+                              </item>
+                              <item>
+                               <widget class="QTextEdit" name="text_notary_margin_percent"/>
+                              </item>
+                             </layout>
+                            </widget>
+                           </item>
+                           <item>
+                            <widget class="QFrame" name="frame_5">
+                             <property name="frameShape">
+                              <enum>QFrame::StyledPanel</enum>
+                             </property>
+                             <property name="frameShadow">
+                              <enum>QFrame::Raised</enum>
+                             </property>
+                             <layout class="QHBoxLayout" name="horizontalLayout_9">
+                              <property name="topMargin">
+                               <number>2</number>
+                              </property>
+                              <property name="bottomMargin">
+                               <number>2</number>
+                              </property>
+                              <item>
+                               <widget class="QLabel" name="label_4">
+                                <property name="minimumSize">
+                                 <size>
+                                  <width>138</width>
+                                  <height>0</height>
+                                 </size>
+                                </property>
+                                <property name="text">
+                                 <string>Podatek</string>
+                                </property>
+                               </widget>
+                              </item>
+                              <item>
+                               <widget class="QTextEdit" name="text_tax"/>
+                              </item>
+                              <item>
+                               <widget class="QTextEdit" name="text_tax_percent"/>
+                              </item>
+                             </layout>
+                            </widget>
+                           </item>
+                           <item>
+                            <widget class="QFrame" name="frame_10">
+                             <property name="frameShape">
+                              <enum>QFrame::StyledPanel</enum>
+                             </property>
+                             <property name="frameShadow">
+                              <enum>QFrame::Raised</enum>
+                             </property>
+                             <layout class="QHBoxLayout" name="horizontalLayout_10">
+                              <property name="topMargin">
+                               <number>2</number>
+                              </property>
+                              <property name="bottomMargin">
+                               <number>2</number>
+                              </property>
+                              <item>
+                               <widget class="QLabel" name="label_5">
+                                <property name="minimumSize">
+                                 <size>
+                                  <width>138</width>
+                                  <height>0</height>
+                                 </size>
+                                </property>
+                                <property name="text">
+                                 <string>Inne koszty</string>
+                                </property>
+                               </widget>
+                              </item>
+                              <item>
+                               <widget class="QTextEdit" name="text_other_costs"/>
+                              </item>
+                              <item>
+                               <widget class="QTextEdit" name="text_other_costs_percent"/>
+                              </item>
+                             </layout>
+                            </widget>
+                           </item>
+                           <item>
+                            <widget class="QFrame" name="frame_4">
+                             <property name="frameShape">
+                              <enum>QFrame::StyledPanel</enum>
+                             </property>
+                             <property name="frameShadow">
+                              <enum>QFrame::Raised</enum>
+                             </property>
+                             <layout class="QHBoxLayout" name="horizontalLayout_11">
+                              <property name="topMargin">
+                               <number>2</number>
+                              </property>
+                              <property name="bottomMargin">
+                               <number>2</number>
+                              </property>
+                              <item>
+                               <widget class="QLabel" name="label_6">
+                                <property name="minimumSize">
+                                 <size>
+                                  <width>138</width>
+                                  <height>0</height>
+                                 </size>
+                                </property>
+                                <property name="text">
+                                 <string>Remont</string>
+                                </property>
+                               </widget>
+                              </item>
+                              <item>
+                               <widget class="QTextEdit" name="text_renovation"/>
+                              </item>
+                              <item>
+                               <widget class="QTextEdit" name="text_renovation_percent"/>
+                              </item>
+                             </layout>
+                            </widget>
+                           </item>
+                           <item>
+                            <widget class="QFrame" name="frame">
+                             <property name="frameShape">
+                              <enum>QFrame::StyledPanel</enum>
+                             </property>
+                             <property name="frameShadow">
+                              <enum>QFrame::Raised</enum>
+                             </property>
+                             <layout class="QHBoxLayout" name="horizontalLayout_12">
+                              <property name="topMargin">
+                               <number>2</number>
+                              </property>
+                              <property name="bottomMargin">
+                               <number>2</number>
+                              </property>
+                              <item>
+                               <widget class="QLabel" name="label_7">
+                                <property name="minimumSize">
+                                 <size>
+                                  <width>138</width>
+                                  <height>0</height>
+                                 </size>
+                                </property>
+                                <property name="text">
+                                 <string>Koszty wejścia razem</string>
+                                </property>
+                               </widget>
+                              </item>
+                              <item>
+                               <widget class="QTextEdit" name="text_entry_cost"/>
+                              </item>
+                             </layout>
+                            </widget>
+                           </item>
+                           <item>
+                            <widget class="QFrame" name="frame_2">
+                             <property name="frameShape">
+                              <enum>QFrame::StyledPanel</enum>
+                             </property>
+                             <property name="frameShadow">
+                              <enum>QFrame::Raised</enum>
+                             </property>
+                             <layout class="QHBoxLayout" name="horizontalLayout_13">
+                              <property name="topMargin">
+                               <number>2</number>
+                              </property>
+                              <property name="bottomMargin">
+                               <number>2</number>
+                              </property>
+                              <item>
+                               <widget class="QLabel" name="label_8">
+                                <property name="minimumSize">
+                                 <size>
+                                  <width>138</width>
+                                  <height>0</height>
+                                 </size>
+                                </property>
+                                <property name="text">
+                                 <string>Kwota zainwestowana
+vs cena zakupu</string>
+                                </property>
+                               </widget>
+                              </item>
+                              <item>
+                               <spacer name="horizontalSpacer_6">
+                                <property name="orientation">
+                                 <enum>Qt::Horizontal</enum>
+                                </property>
+                                <property name="sizeHint" stdset="0">
+                                 <size>
+                                  <width>40</width>
+                                  <height>20</height>
+                                 </size>
+                                </property>
+                               </spacer>
+                              </item>
+                              <item>
+                               <widget class="QTextEdit" name="text_invested_vs_purchase"/>
                               </item>
                              </layout>
                             </widget>
@@ -1523,20 +1400,17 @@ background: rgb(207, 206, 209);
                          </widget>
                         </item>
                         <item>
-                         <widget class="QFrame" name="frame_24">
-                          <property name="minimumSize">
-                           <size>
-                            <width>0</width>
-                            <height>40</height>
-                           </size>
-                          </property>
+                         <widget class="QFrame" name="frame_credit_data">
                           <property name="frameShape">
                            <enum>QFrame::StyledPanel</enum>
                           </property>
                           <property name="frameShadow">
                            <enum>QFrame::Raised</enum>
                           </property>
-                          <layout class="QHBoxLayout" name="horizontalLayout_29">
+                          <layout class="QVBoxLayout" name="verticalLayout_10">
+                           <property name="spacing">
+                            <number>6</number>
+                           </property>
                            <property name="topMargin">
                             <number>2</number>
                            </property>
@@ -1544,54 +1418,400 @@ background: rgb(207, 206, 209);
                             <number>2</number>
                            </property>
                            <item>
-                            <widget class="QLabel" name="label_24">
-                             <property name="text">
-                              <string>Ubezpieczenie kredytu/miesiąc</string>
-                             </property>
-                            </widget>
-                           </item>
-                           <item>
-                            <widget class="QTextEdit" name="textEdit_29"/>
-                           </item>
-                          </layout>
-                         </widget>
-                        </item>
-                        <item>
-                         <widget class="QFrame" name="frame_25">
-                          <property name="minimumSize">
-                           <size>
-                            <width>0</width>
-                            <height>40</height>
-                           </size>
-                          </property>
-                          <property name="frameShape">
-                           <enum>QFrame::StyledPanel</enum>
-                          </property>
-                          <property name="frameShadow">
-                           <enum>QFrame::Raised</enum>
-                          </property>
-                          <layout class="QHBoxLayout" name="horizontalLayout_30">
-                           <property name="topMargin">
-                            <number>2</number>
-                           </property>
-                           <property name="bottomMargin">
-                            <number>2</number>
-                           </property>
-                           <item>
-                            <widget class="QLabel" name="label_25">
+                            <widget class="QFrame" name="frame_11">
                              <property name="minimumSize">
                               <size>
-                               <width>195</width>
-                               <height>0</height>
+                               <width>0</width>
+                               <height>40</height>
                               </size>
                              </property>
-                             <property name="text">
-                              <string>Koszty kredytowania razem</string>
+                             <property name="frameShape">
+                              <enum>QFrame::StyledPanel</enum>
                              </property>
+                             <property name="frameShadow">
+                              <enum>QFrame::Raised</enum>
+                             </property>
+                             <layout class="QHBoxLayout" name="horizontalLayout_14">
+                              <property name="topMargin">
+                               <number>2</number>
+                              </property>
+                              <property name="bottomMargin">
+                               <number>2</number>
+                              </property>
+                              <item>
+                               <widget class="QLabel" name="label_9">
+                                <property name="minimumSize">
+                                 <size>
+                                  <width>195</width>
+                                  <height>0</height>
+                                 </size>
+                                </property>
+                                <property name="text">
+                                 <string>Kredyt bankowy</string>
+                                </property>
+                               </widget>
+                              </item>
+                              <item>
+                               <widget class="QTextEdit" name="text_credit"/>
+                              </item>
+                             </layout>
                             </widget>
                            </item>
                            <item>
-                            <widget class="QTextEdit" name="textEdit_30"/>
+                            <widget class="QFrame" name="frame_12">
+                             <property name="minimumSize">
+                              <size>
+                               <width>0</width>
+                               <height>40</height>
+                              </size>
+                             </property>
+                             <property name="frameShape">
+                              <enum>QFrame::StyledPanel</enum>
+                             </property>
+                             <property name="frameShadow">
+                              <enum>QFrame::Raised</enum>
+                             </property>
+                             <layout class="QHBoxLayout" name="horizontalLayout_15">
+                              <property name="topMargin">
+                               <number>2</number>
+                              </property>
+                              <property name="bottomMargin">
+                               <number>2</number>
+                              </property>
+                              <item>
+                               <widget class="QLabel" name="label_10">
+                                <property name="minimumSize">
+                                 <size>
+                                  <width>195</width>
+                                  <height>0</height>
+                                 </size>
+                                </property>
+                                <property name="text">
+                                 <string>Wkład banku [%]</string>
+                                </property>
+                               </widget>
+                              </item>
+                              <item>
+                               <widget class="QTextEdit" name="text_bank_contribution"/>
+                              </item>
+                             </layout>
+                            </widget>
+                           </item>
+                           <item>
+                            <widget class="QFrame" name="frame_13">
+                             <property name="minimumSize">
+                              <size>
+                               <width>0</width>
+                               <height>40</height>
+                              </size>
+                             </property>
+                             <property name="frameShape">
+                              <enum>QFrame::StyledPanel</enum>
+                             </property>
+                             <property name="frameShadow">
+                              <enum>QFrame::Raised</enum>
+                             </property>
+                             <layout class="QHBoxLayout" name="horizontalLayout_26">
+                              <property name="topMargin">
+                               <number>2</number>
+                              </property>
+                              <property name="bottomMargin">
+                               <number>2</number>
+                              </property>
+                              <item>
+                               <widget class="QLabel" name="label_21">
+                                <property name="minimumSize">
+                                 <size>
+                                  <width>195</width>
+                                  <height>0</height>
+                                 </size>
+                                </property>
+                                <property name="text">
+                                 <string>Stopa procentowa</string>
+                                </property>
+                               </widget>
+                              </item>
+                              <item>
+                               <widget class="QTextEdit" name="text_interest_rate"/>
+                              </item>
+                             </layout>
+                            </widget>
+                           </item>
+                           <item>
+                            <widget class="QFrame" name="frame_14">
+                             <property name="minimumSize">
+                              <size>
+                               <width>0</width>
+                               <height>40</height>
+                              </size>
+                             </property>
+                             <property name="frameShape">
+                              <enum>QFrame::StyledPanel</enum>
+                             </property>
+                             <property name="frameShadow">
+                              <enum>QFrame::Raised</enum>
+                             </property>
+                             <layout class="QHBoxLayout" name="horizontalLayout_27">
+                              <property name="topMargin">
+                               <number>2</number>
+                              </property>
+                              <property name="bottomMargin">
+                               <number>2</number>
+                              </property>
+                              <item>
+                               <widget class="QLabel" name="label_22">
+                                <property name="minimumSize">
+                                 <size>
+                                  <width>195</width>
+                                  <height>0</height>
+                                 </size>
+                                </property>
+                                <property name="text">
+                                 <string>Okres spłaty</string>
+                                </property>
+                               </widget>
+                              </item>
+                              <item>
+                               <widget class="QTextEdit" name="text_repayment_period"/>
+                              </item>
+                             </layout>
+                            </widget>
+                           </item>
+                           <item>
+                            <widget class="QFrame" name="frame_23">
+                             <property name="minimumSize">
+                              <size>
+                               <width>0</width>
+                               <height>120</height>
+                              </size>
+                             </property>
+                             <property name="frameShape">
+                              <enum>QFrame::StyledPanel</enum>
+                             </property>
+                             <property name="frameShadow">
+                              <enum>QFrame::Raised</enum>
+                             </property>
+                             <layout class="QVBoxLayout" name="verticalLayout_11">
+                              <property name="spacing">
+                               <number>1</number>
+                              </property>
+                              <property name="leftMargin">
+                               <number>8</number>
+                              </property>
+                              <property name="topMargin">
+                               <number>2</number>
+                              </property>
+                              <property name="rightMargin">
+                               <number>2</number>
+                              </property>
+                              <property name="bottomMargin">
+                               <number>2</number>
+                              </property>
+                              <item>
+                               <widget class="QFrame" name="frame_28">
+                                <property name="frameShape">
+                                 <enum>QFrame::StyledPanel</enum>
+                                </property>
+                                <property name="frameShadow">
+                                 <enum>QFrame::Raised</enum>
+                                </property>
+                                <layout class="QHBoxLayout" name="horizontalLayout_28">
+                                 <property name="spacing">
+                                  <number>2</number>
+                                 </property>
+                                 <property name="leftMargin">
+                                  <number>2</number>
+                                 </property>
+                                 <property name="topMargin">
+                                  <number>2</number>
+                                 </property>
+                                 <property name="rightMargin">
+                                  <number>2</number>
+                                 </property>
+                                 <property name="bottomMargin">
+                                  <number>2</number>
+                                 </property>
+                                 <item>
+                                  <widget class="QLabel" name="label_23">
+                                   <property name="minimumSize">
+                                    <size>
+                                     <width>185</width>
+                                     <height>0</height>
+                                    </size>
+                                   </property>
+                                   <property name="text">
+                                    <string>Rata miesięczna</string>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                 <item>
+                                  <widget class="QTextEdit" name="text_monthly_installment"/>
+                                 </item>
+                                </layout>
+                               </widget>
+                              </item>
+                              <item>
+                               <widget class="QFrame" name="frame_29">
+                                <property name="frameShape">
+                                 <enum>QFrame::StyledPanel</enum>
+                                </property>
+                                <property name="frameShadow">
+                                 <enum>QFrame::Raised</enum>
+                                </property>
+                                <layout class="QHBoxLayout" name="horizontalLayout_33">
+                                 <property name="spacing">
+                                  <number>2</number>
+                                 </property>
+                                 <property name="leftMargin">
+                                  <number>2</number>
+                                 </property>
+                                 <property name="topMargin">
+                                  <number>2</number>
+                                 </property>
+                                 <property name="rightMargin">
+                                  <number>2</number>
+                                 </property>
+                                 <property name="bottomMargin">
+                                  <number>2</number>
+                                 </property>
+                                 <item>
+                                  <widget class="QLabel" name="label_28">
+                                   <property name="minimumSize">
+                                    <size>
+                                     <width>185</width>
+                                     <height>0</height>
+                                    </size>
+                                   </property>
+                                   <property name="text">
+                                    <string>Część kapitałowa</string>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                 <item>
+                                  <widget class="QTextEdit" name="text_monthly_installment_capital_part"/>
+                                 </item>
+                                </layout>
+                               </widget>
+                              </item>
+                              <item>
+                               <widget class="QFrame" name="frame_30">
+                                <property name="frameShape">
+                                 <enum>QFrame::StyledPanel</enum>
+                                </property>
+                                <property name="frameShadow">
+                                 <enum>QFrame::Raised</enum>
+                                </property>
+                                <layout class="QHBoxLayout" name="horizontalLayout_34">
+                                 <property name="spacing">
+                                  <number>2</number>
+                                 </property>
+                                 <property name="leftMargin">
+                                  <number>2</number>
+                                 </property>
+                                 <property name="topMargin">
+                                  <number>2</number>
+                                 </property>
+                                 <property name="rightMargin">
+                                  <number>2</number>
+                                 </property>
+                                 <property name="bottomMargin">
+                                  <number>2</number>
+                                 </property>
+                                 <item>
+                                  <widget class="QLabel" name="label_29">
+                                   <property name="minimumSize">
+                                    <size>
+                                     <width>185</width>
+                                     <height>0</height>
+                                    </size>
+                                   </property>
+                                   <property name="text">
+                                    <string>Część odestkowa</string>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                 <item>
+                                  <widget class="QTextEdit" name="text_monthly_installment_interest_part"/>
+                                 </item>
+                                </layout>
+                               </widget>
+                              </item>
+                             </layout>
+                            </widget>
+                           </item>
+                           <item>
+                            <widget class="QFrame" name="frame_24">
+                             <property name="minimumSize">
+                              <size>
+                               <width>0</width>
+                               <height>40</height>
+                              </size>
+                             </property>
+                             <property name="frameShape">
+                              <enum>QFrame::StyledPanel</enum>
+                             </property>
+                             <property name="frameShadow">
+                              <enum>QFrame::Raised</enum>
+                             </property>
+                             <layout class="QHBoxLayout" name="horizontalLayout_29">
+                              <property name="topMargin">
+                               <number>2</number>
+                              </property>
+                              <property name="bottomMargin">
+                               <number>2</number>
+                              </property>
+                              <item>
+                               <widget class="QLabel" name="label_24">
+                                <property name="text">
+                                 <string>Ubezpieczenie kredytu/miesiąc</string>
+                                </property>
+                               </widget>
+                              </item>
+                              <item>
+                               <widget class="QTextEdit" name="text_credit_credit_insurance_per_month"/>
+                              </item>
+                             </layout>
+                            </widget>
+                           </item>
+                           <item>
+                            <widget class="QFrame" name="frame_25">
+                             <property name="minimumSize">
+                              <size>
+                               <width>0</width>
+                               <height>40</height>
+                              </size>
+                             </property>
+                             <property name="frameShape">
+                              <enum>QFrame::StyledPanel</enum>
+                             </property>
+                             <property name="frameShadow">
+                              <enum>QFrame::Raised</enum>
+                             </property>
+                             <layout class="QHBoxLayout" name="horizontalLayout_30">
+                              <property name="topMargin">
+                               <number>2</number>
+                              </property>
+                              <property name="bottomMargin">
+                               <number>2</number>
+                              </property>
+                              <item>
+                               <widget class="QLabel" name="label_25">
+                                <property name="minimumSize">
+                                 <size>
+                                  <width>195</width>
+                                  <height>0</height>
+                                 </size>
+                                </property>
+                                <property name="text">
+                                 <string>Koszty kredytowania razem</string>
+                                </property>
+                               </widget>
+                              </item>
+                              <item>
+                               <widget class="QTextEdit" name="text_total_credit_cost"/>
+                              </item>
+                             </layout>
+                            </widget>
                            </item>
                           </layout>
                          </widget>
@@ -2772,21 +2992,192 @@ border: 1px white;
               <property name="frameShadow">
                <enum>QFrame::Raised</enum>
               </property>
+              <widget class="QFrame" name="frame_main_characteristics_2">
+               <property name="geometry">
+                <rect>
+                 <x>20</x>
+                 <y>120</y>
+                 <width>776</width>
+                 <height>80</height>
+                </rect>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>80</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>16777215</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="frameShape">
+                <enum>QFrame::StyledPanel</enum>
+               </property>
+               <property name="frameShadow">
+                <enum>QFrame::Raised</enum>
+               </property>
+               <layout class="QHBoxLayout" name="horizontalLayout_53">
+                <property name="leftMargin">
+                 <number>4</number>
+                </property>
+                <property name="topMargin">
+                 <number>4</number>
+                </property>
+                <property name="rightMargin">
+                 <number>4</number>
+                </property>
+                <property name="bottomMargin">
+                 <number>4</number>
+                </property>
+                <item>
+                 <widget class="QFrame" name="frame_42">
+                  <property name="minimumSize">
+                   <size>
+                    <width>0</width>
+                    <height>40</height>
+                   </size>
+                  </property>
+                  <property name="frameShape">
+                   <enum>QFrame::StyledPanel</enum>
+                  </property>
+                  <property name="frameShadow">
+                   <enum>QFrame::Raised</enum>
+                  </property>
+                  <layout class="QHBoxLayout" name="horizontalLayout_54">
+                   <item>
+                    <widget class="QLabel" name="label_65">
+                     <property name="text">
+                      <string>Cena zakupu</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QTextEdit" name="textEdit_68"/>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QFrame" name="frame_48">
+                  <property name="minimumSize">
+                   <size>
+                    <width>0</width>
+                    <height>40</height>
+                   </size>
+                  </property>
+                  <property name="frameShape">
+                   <enum>QFrame::StyledPanel</enum>
+                  </property>
+                  <property name="frameShadow">
+                   <enum>QFrame::Raised</enum>
+                  </property>
+                  <layout class="QHBoxLayout" name="horizontalLayout_55">
+                   <item>
+                    <widget class="QLabel" name="label_66">
+                     <property name="text">
+                      <string>POW. [m²]</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QTextEdit" name="textEdit_69"/>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QFrame" name="frame_50">
+                  <property name="minimumSize">
+                   <size>
+                    <width>0</width>
+                    <height>40</height>
+                   </size>
+                  </property>
+                  <property name="frameShape">
+                   <enum>QFrame::StyledPanel</enum>
+                  </property>
+                  <property name="frameShadow">
+                   <enum>QFrame::Raised</enum>
+                  </property>
+                  <layout class="QHBoxLayout" name="horizontalLayout_56">
+                   <item>
+                    <widget class="QLabel" name="label_67">
+                     <property name="text">
+                      <string>Cena/m²</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QTextEdit" name="textEdit_70"/>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+               </layout>
+              </widget>
              </widget>
             </widget>
             <widget class="QWidget" name="home_page">
-             <widget class="QLabel" name="label_45">
+             <widget class="QFrame" name="frame_49">
               <property name="geometry">
                <rect>
-                <x>150</x>
-                <y>20</y>
-                <width>471</width>
-                <height>16</height>
+                <x>30</x>
+                <y>30</y>
+                <width>800</width>
+                <height>400</height>
                </rect>
               </property>
-              <property name="text">
-               <string>Witamy na stronie głównej</string>
+              <property name="minimumSize">
+               <size>
+                <width>800</width>
+                <height>400</height>
+               </size>
               </property>
+              <property name="frameShape">
+               <enum>QFrame::StyledPanel</enum>
+              </property>
+              <property name="frameShadow">
+               <enum>QFrame::Raised</enum>
+              </property>
+              <widget class="QLabel" name="label_45">
+               <property name="geometry">
+                <rect>
+                 <x>50</x>
+                 <y>20</y>
+                 <width>281</width>
+                 <height>31</height>
+                </rect>
+               </property>
+               <property name="text">
+                <string>Witamy na stronie głównej</string>
+               </property>
+              </widget>
+              <widget class="QScrollArea" name="scrollArea_2">
+               <property name="geometry">
+                <rect>
+                 <x>50</x>
+                 <y>60</y>
+                 <width>701</width>
+                 <height>321</height>
+                </rect>
+               </property>
+               <property name="widgetResizable">
+                <bool>true</bool>
+               </property>
+               <widget class="QWidget" name="scrollAreaWidgetContents_3">
+                <property name="geometry">
+                 <rect>
+                  <x>0</x>
+                  <y>0</y>
+                  <width>699</width>
+                  <height>319</height>
+                 </rect>
+                </property>
+               </widget>
+              </widget>
              </widget>
             </widget>
            </widget>

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'main_windowOtxQwl.ui'
+## Form generated from reading UI file 'main_windowjaPIvH.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.1.1
 ##
@@ -172,7 +172,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_3.setObjectName(u"verticalLayout_3")
         self.frame_currently_opened = QFrame(self.center_main_items)
         self.frame_currently_opened.setObjectName(u"frame_currently_opened")
-        self.frame_currently_opened.setMinimumSize(QSize(0, 31))
+        self.frame_currently_opened.setMinimumSize(QSize(0, 70))
         self.frame_currently_opened.setStyleSheet(u"#frame_currently_opened{\n"
 "\n"
 "border: 2px solid gray;\n"
@@ -182,13 +182,30 @@ class Ui_MainWindow(object):
         self.frame_currently_opened.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_44 = QHBoxLayout(self.frame_currently_opened)
         self.horizontalLayout_44.setObjectName(u"horizontalLayout_44")
-        self.frame_42 = QFrame(self.frame_currently_opened)
-        self.frame_42.setObjectName(u"frame_42")
-        self.frame_42.setMaximumSize(QSize(0, 0))
-        self.frame_42.setFrameShape(QFrame.StyledPanel)
-        self.frame_42.setFrameShadow(QFrame.Raised)
+        self.scrollArea_currently_opened = QScrollArea(self.frame_currently_opened)
+        self.scrollArea_currently_opened.setObjectName(u"scrollArea_currently_opened")
+        sizePolicy = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Minimum)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.scrollArea_currently_opened.sizePolicy().hasHeightForWidth())
+        self.scrollArea_currently_opened.setSizePolicy(sizePolicy)
+        self.scrollArea_currently_opened.setWidgetResizable(True)
+        self.scrollAreaContents_currently_opened = QWidget()
+        self.scrollAreaContents_currently_opened.setObjectName(u"scrollAreaContents_currently_opened")
+        self.scrollAreaContents_currently_opened.setGeometry(QRect(0, 0, 808, 72))
+        self.horizontalLayout_52 = QHBoxLayout(self.scrollAreaContents_currently_opened)
+        self.horizontalLayout_52.setObjectName(u"horizontalLayout_52")
+        self.frame_small_decoy = QFrame(self.scrollAreaContents_currently_opened)
+        self.frame_small_decoy.setObjectName(u"frame_small_decoy")
+        self.frame_small_decoy.setMaximumSize(QSize(0, 0))
+        self.frame_small_decoy.setFrameShape(QFrame.StyledPanel)
+        self.frame_small_decoy.setFrameShadow(QFrame.Raised)
 
-        self.horizontalLayout_44.addWidget(self.frame_42)
+        self.horizontalLayout_52.addWidget(self.frame_small_decoy)
+
+        self.scrollArea_currently_opened.setWidget(self.scrollAreaContents_currently_opened)
+
+        self.horizontalLayout_44.addWidget(self.scrollArea_currently_opened)
 
 
         self.verticalLayout_3.addWidget(self.frame_currently_opened)
@@ -201,9 +218,8 @@ class Ui_MainWindow(object):
         self.verticalLayout_16.setObjectName(u"verticalLayout_16")
         self.scrollArea_current_investment = QScrollArea(self.investment_page)
         self.scrollArea_current_investment.setObjectName(u"scrollArea_current_investment")
-        self.scrollArea_current_investment.setStyleSheet(u"#scrollArea {\n"
+        self.scrollArea_current_investment.setStyleSheet(u"#scrollArea_current_investment {\n"
 "border: 3px solid gray;\n"
-"border-radius: 8px;\n"
 "background: white;\n"
 "}\n"
 "\n"
@@ -220,85 +236,130 @@ class Ui_MainWindow(object):
 "color: rgb(255, 255, 255)\n"
 "}")
         self.scrollArea_current_investment.setWidgetResizable(True)
-        self.scrollAreaWidgetContents = QWidget()
-        self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, -472, 812, 2794))
-        self.scrollAreaWidgetContents.setStyleSheet(u"#scrollAreaWidgetContainer{\n"
+        self.scrollArea_investment_contents = QWidget()
+        self.scrollArea_investment_contents.setObjectName(u"scrollArea_investment_contents")
+        self.scrollArea_investment_contents.setGeometry(QRect(0, -383, 808, 2308))
+        self.scrollArea_investment_contents.setStyleSheet(u"#scrollAreaWidgetContainer{\n"
 "border: 3px solid gray;\n"
 "border-radius: 8px;\n"
 "}")
-        self.verticalLayout_2 = QVBoxLayout(self.scrollAreaWidgetContents)
+        self.verticalLayout_2 = QVBoxLayout(self.scrollArea_investment_contents)
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
         self.verticalLayout_2.setContentsMargins(-1, -1, 24, -1)
-        self.frame_main_characteristics = QFrame(self.scrollAreaWidgetContents)
+        self.frame_main_characteristics = QFrame(self.scrollArea_investment_contents)
         self.frame_main_characteristics.setObjectName(u"frame_main_characteristics")
-        self.frame_main_characteristics.setMinimumSize(QSize(0, 80))
-        self.frame_main_characteristics.setMaximumSize(QSize(16777215, 80))
+        self.frame_main_characteristics.setMinimumSize(QSize(0, 120))
+        self.frame_main_characteristics.setMaximumSize(QSize(16777215, 200))
         self.frame_main_characteristics.setFrameShape(QFrame.StyledPanel)
         self.frame_main_characteristics.setFrameShadow(QFrame.Raised)
-        self.horizontalLayout_6 = QHBoxLayout(self.frame_main_characteristics)
-        self.horizontalLayout_6.setObjectName(u"horizontalLayout_6")
+        self.verticalLayout_20 = QVBoxLayout(self.frame_main_characteristics)
+        self.verticalLayout_20.setSpacing(4)
+        self.verticalLayout_20.setObjectName(u"verticalLayout_20")
+        self.verticalLayout_20.setContentsMargins(4, 4, 4, 4)
         self.frame_15 = QFrame(self.frame_main_characteristics)
         self.frame_15.setObjectName(u"frame_15")
+        self.frame_15.setMinimumSize(QSize(0, 40))
         self.frame_15.setFrameShape(QFrame.StyledPanel)
         self.frame_15.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_16 = QHBoxLayout(self.frame_15)
+        self.horizontalLayout_16.setSpacing(4)
         self.horizontalLayout_16.setObjectName(u"horizontalLayout_16")
+        self.horizontalLayout_16.setContentsMargins(4, 4, 4, 4)
         self.label_11 = QLabel(self.frame_15)
         self.label_11.setObjectName(u"label_11")
 
         self.horizontalLayout_16.addWidget(self.label_11)
 
-        self.textEdit_11 = QTextEdit(self.frame_15)
-        self.textEdit_11.setObjectName(u"textEdit_11")
+        self.text_investment_name = QTextEdit(self.frame_15)
+        self.text_investment_name.setObjectName(u"text_investment_name")
 
-        self.horizontalLayout_16.addWidget(self.textEdit_11)
+        self.horizontalLayout_16.addWidget(self.text_investment_name)
 
 
-        self.horizontalLayout_6.addWidget(self.frame_15)
+        self.verticalLayout_20.addWidget(self.frame_15)
 
         self.frame_16 = QFrame(self.frame_main_characteristics)
         self.frame_16.setObjectName(u"frame_16")
+        self.frame_16.setMinimumSize(QSize(0, 40))
         self.frame_16.setFrameShape(QFrame.StyledPanel)
         self.frame_16.setFrameShadow(QFrame.Raised)
-        self.horizontalLayout_17 = QHBoxLayout(self.frame_16)
-        self.horizontalLayout_17.setObjectName(u"horizontalLayout_17")
-        self.label_12 = QLabel(self.frame_16)
-        self.label_12.setObjectName(u"label_12")
+        self.horizontalLayout_6 = QHBoxLayout(self.frame_16)
+        self.horizontalLayout_6.setSpacing(4)
+        self.horizontalLayout_6.setObjectName(u"horizontalLayout_6")
+        self.horizontalLayout_6.setContentsMargins(4, 4, 4, 4)
+        self.frame_51 = QFrame(self.frame_16)
+        self.frame_51.setObjectName(u"frame_51")
+        self.frame_51.setMinimumSize(QSize(0, 40))
+        self.frame_51.setFrameShape(QFrame.StyledPanel)
+        self.frame_51.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_57 = QHBoxLayout(self.frame_51)
+        self.horizontalLayout_57.setSpacing(4)
+        self.horizontalLayout_57.setObjectName(u"horizontalLayout_57")
+        self.horizontalLayout_57.setContentsMargins(4, 4, 4, 4)
+        self.label_68 = QLabel(self.frame_51)
+        self.label_68.setObjectName(u"label_68")
 
-        self.horizontalLayout_17.addWidget(self.label_12)
+        self.horizontalLayout_57.addWidget(self.label_68)
 
-        self.textEdit_12 = QTextEdit(self.frame_16)
-        self.textEdit_12.setObjectName(u"textEdit_12")
+        self.text_purchase_price = QTextEdit(self.frame_51)
+        self.text_purchase_price.setObjectName(u"text_purchase_price")
 
-        self.horizontalLayout_17.addWidget(self.textEdit_12)
-
-
-        self.horizontalLayout_6.addWidget(self.frame_16)
-
-        self.frame_17 = QFrame(self.frame_main_characteristics)
-        self.frame_17.setObjectName(u"frame_17")
-        self.frame_17.setFrameShape(QFrame.StyledPanel)
-        self.frame_17.setFrameShadow(QFrame.Raised)
-        self.horizontalLayout_18 = QHBoxLayout(self.frame_17)
-        self.horizontalLayout_18.setObjectName(u"horizontalLayout_18")
-        self.label_13 = QLabel(self.frame_17)
-        self.label_13.setObjectName(u"label_13")
-
-        self.horizontalLayout_18.addWidget(self.label_13)
-
-        self.textEdit_13 = QTextEdit(self.frame_17)
-        self.textEdit_13.setObjectName(u"textEdit_13")
-
-        self.horizontalLayout_18.addWidget(self.textEdit_13)
+        self.horizontalLayout_57.addWidget(self.text_purchase_price)
 
 
-        self.horizontalLayout_6.addWidget(self.frame_17)
+        self.horizontalLayout_6.addWidget(self.frame_51)
+
+        self.frame_52 = QFrame(self.frame_16)
+        self.frame_52.setObjectName(u"frame_52")
+        self.frame_52.setMinimumSize(QSize(0, 40))
+        self.frame_52.setFrameShape(QFrame.StyledPanel)
+        self.frame_52.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_58 = QHBoxLayout(self.frame_52)
+        self.horizontalLayout_58.setSpacing(4)
+        self.horizontalLayout_58.setObjectName(u"horizontalLayout_58")
+        self.horizontalLayout_58.setContentsMargins(4, 4, 4, 4)
+        self.label_69 = QLabel(self.frame_52)
+        self.label_69.setObjectName(u"label_69")
+
+        self.horizontalLayout_58.addWidget(self.label_69)
+
+        self.text_area = QTextEdit(self.frame_52)
+        self.text_area.setObjectName(u"text_area")
+
+        self.horizontalLayout_58.addWidget(self.text_area)
+
+
+        self.horizontalLayout_6.addWidget(self.frame_52)
+
+        self.frame_53 = QFrame(self.frame_16)
+        self.frame_53.setObjectName(u"frame_53")
+        self.frame_53.setMinimumSize(QSize(0, 40))
+        self.frame_53.setFrameShape(QFrame.StyledPanel)
+        self.frame_53.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_59 = QHBoxLayout(self.frame_53)
+        self.horizontalLayout_59.setSpacing(4)
+        self.horizontalLayout_59.setObjectName(u"horizontalLayout_59")
+        self.horizontalLayout_59.setContentsMargins(4, 4, 4, 4)
+        self.label_70 = QLabel(self.frame_53)
+        self.label_70.setObjectName(u"label_70")
+
+        self.horizontalLayout_59.addWidget(self.label_70)
+
+        self.text_price_per_square_meter = QTextEdit(self.frame_53)
+        self.text_price_per_square_meter.setObjectName(u"text_price_per_square_meter")
+
+        self.horizontalLayout_59.addWidget(self.text_price_per_square_meter)
+
+
+        self.horizontalLayout_6.addWidget(self.frame_53)
+
+
+        self.verticalLayout_20.addWidget(self.frame_16)
 
 
         self.verticalLayout_2.addWidget(self.frame_main_characteristics)
 
-        self.frame_information = QFrame(self.scrollAreaWidgetContents)
+        self.frame_information = QFrame(self.scrollArea_investment_contents)
         self.frame_information.setObjectName(u"frame_information")
         self.frame_information.setMinimumSize(QSize(300, 400))
         self.frame_information.setFrameShape(QFrame.StyledPanel)
@@ -334,10 +395,10 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_19.addWidget(self.label_14)
 
-        self.textEdit_14 = QTextEdit(self.frame_18)
-        self.textEdit_14.setObjectName(u"textEdit_14")
+        self.text_start_date = QTextEdit(self.frame_18)
+        self.text_start_date.setObjectName(u"text_start_date")
 
-        self.horizontalLayout_19.addWidget(self.textEdit_14)
+        self.horizontalLayout_19.addWidget(self.text_start_date)
 
 
         self.verticalLayout_13.addWidget(self.frame_18)
@@ -355,10 +416,10 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_20.addWidget(self.label_15)
 
-        self.textEdit_15 = QTextEdit(self.frame_19)
-        self.textEdit_15.setObjectName(u"textEdit_15")
+        self.text_description = QTextEdit(self.frame_19)
+        self.text_description.setObjectName(u"text_description")
 
-        self.horizontalLayout_20.addWidget(self.textEdit_15)
+        self.horizontalLayout_20.addWidget(self.text_description)
 
 
         self.verticalLayout_13.addWidget(self.frame_19)
@@ -376,10 +437,10 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_21.addWidget(self.label_16)
 
-        self.textEdit_16 = QTextEdit(self.frame_20)
-        self.textEdit_16.setObjectName(u"textEdit_16")
+        self.text_address_street = QTextEdit(self.frame_20)
+        self.text_address_street.setObjectName(u"text_address_street")
 
-        self.horizontalLayout_21.addWidget(self.textEdit_16)
+        self.horizontalLayout_21.addWidget(self.text_address_street)
 
 
         self.verticalLayout_13.addWidget(self.frame_20)
@@ -397,10 +458,10 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_22.addWidget(self.label_17)
 
-        self.textEdit_17 = QTextEdit(self.frame_21)
-        self.textEdit_17.setObjectName(u"textEdit_17")
+        self.text_address_city = QTextEdit(self.frame_21)
+        self.text_address_city.setObjectName(u"text_address_city")
 
-        self.horizontalLayout_22.addWidget(self.textEdit_17)
+        self.horizontalLayout_22.addWidget(self.text_address_city)
 
 
         self.verticalLayout_13.addWidget(self.frame_21)
@@ -417,10 +478,10 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_23.addWidget(self.label_18)
 
-        self.textEdit_18 = QTextEdit(self.frame_22)
-        self.textEdit_18.setObjectName(u"textEdit_18")
+        self.text_estimated_value = QTextEdit(self.frame_22)
+        self.text_estimated_value.setObjectName(u"text_estimated_value")
 
-        self.horizontalLayout_23.addWidget(self.textEdit_18)
+        self.horizontalLayout_23.addWidget(self.text_estimated_value)
 
 
         self.verticalLayout_13.addWidget(self.frame_22)
@@ -438,10 +499,10 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_24.addWidget(self.label_19)
 
-        self.textEdit_19 = QTextEdit(self.frame_7)
-        self.textEdit_19.setObjectName(u"textEdit_19")
+        self.text_last_estimation = QTextEdit(self.frame_7)
+        self.text_last_estimation.setObjectName(u"text_last_estimation")
 
-        self.horizontalLayout_24.addWidget(self.textEdit_19)
+        self.horizontalLayout_24.addWidget(self.text_last_estimation)
 
 
         self.verticalLayout_13.addWidget(self.frame_7)
@@ -459,10 +520,10 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_25.addWidget(self.label_20)
 
-        self.textEdit_20 = QTextEdit(self.frame_8)
-        self.textEdit_20.setObjectName(u"textEdit_20")
+        self.text_finish_date = QTextEdit(self.frame_8)
+        self.text_finish_date.setObjectName(u"text_finish_date")
 
-        self.horizontalLayout_25.addWidget(self.textEdit_20)
+        self.horizontalLayout_25.addWidget(self.text_finish_date)
 
 
         self.verticalLayout_13.addWidget(self.frame_8)
@@ -473,27 +534,31 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_2.addWidget(self.frame_information)
 
-        self.frame_own_contribution = QFrame(self.scrollAreaWidgetContents)
-        self.frame_own_contribution.setObjectName(u"frame_own_contribution")
-        self.frame_own_contribution.setMinimumSize(QSize(630, 500))
-        self.frame_own_contribution.setFrameShape(QFrame.StyledPanel)
-        self.frame_own_contribution.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_5 = QVBoxLayout(self.frame_own_contribution)
+        self.frame_own_contribution_credit = QFrame(self.scrollArea_investment_contents)
+        self.frame_own_contribution_credit.setObjectName(u"frame_own_contribution_credit")
+        self.frame_own_contribution_credit.setMinimumSize(QSize(630, 550))
+        self.frame_own_contribution_credit.setFrameShape(QFrame.StyledPanel)
+        self.frame_own_contribution_credit.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_5 = QVBoxLayout(self.frame_own_contribution_credit)
         self.verticalLayout_5.setObjectName(u"verticalLayout_5")
-        self.button_own_contribution = QPushButton(self.frame_own_contribution)
-        self.button_own_contribution.setObjectName(u"button_own_contribution")
-        self.button_own_contribution.setMinimumSize(QSize(0, 24))
+        self.button_own_contribution_credit = QPushButton(self.frame_own_contribution_credit)
+        self.button_own_contribution_credit.setObjectName(u"button_own_contribution_credit")
+        self.button_own_contribution_credit.setMinimumSize(QSize(0, 24))
 
-        self.verticalLayout_5.addWidget(self.button_own_contribution)
+        self.verticalLayout_5.addWidget(self.button_own_contribution_credit)
 
-        self.frame_own_contribution_data = QFrame(self.frame_own_contribution)
+        self.frame_own_contribution_credit_inner = QFrame(self.frame_own_contribution_credit)
+        self.frame_own_contribution_credit_inner.setObjectName(u"frame_own_contribution_credit_inner")
+        self.frame_own_contribution_credit_inner.setFrameShape(QFrame.StyledPanel)
+        self.frame_own_contribution_credit_inner.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_17 = QHBoxLayout(self.frame_own_contribution_credit_inner)
+        self.horizontalLayout_17.setSpacing(4)
+        self.horizontalLayout_17.setObjectName(u"horizontalLayout_17")
+        self.horizontalLayout_17.setContentsMargins(4, 4, 4, 4)
+        self.frame_own_contribution_data = QFrame(self.frame_own_contribution_credit_inner)
         self.frame_own_contribution_data.setObjectName(u"frame_own_contribution_data")
         self.frame_own_contribution_data.setMinimumSize(QSize(0, 250))
-        self.frame_own_contribution_data.setStyleSheet(u"QFrame{\n"
-"border: 1px solid gray;\n"
-"border-radius: 2px;\n"
-"background: rgb(207, 206, 209);\n"
-"}")
+        self.frame_own_contribution_data.setStyleSheet(u"")
         self.frame_own_contribution_data.setFrameShape(QFrame.StyledPanel)
         self.frame_own_contribution_data.setFrameShadow(QFrame.Raised)
         self.verticalLayout_9 = QVBoxLayout(self.frame_own_contribution_data)
@@ -513,15 +578,15 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_5.addWidget(self.label)
 
-        self.textEdit_9 = QTextEdit(self.frame_3)
-        self.textEdit_9.setObjectName(u"textEdit_9")
+        self.text_own_contribution = QTextEdit(self.frame_3)
+        self.text_own_contribution.setObjectName(u"text_own_contribution")
 
-        self.horizontalLayout_5.addWidget(self.textEdit_9)
+        self.horizontalLayout_5.addWidget(self.text_own_contribution)
 
-        self.textEdit = QTextEdit(self.frame_3)
-        self.textEdit.setObjectName(u"textEdit")
+        self.text_own_contribution_percent = QTextEdit(self.frame_3)
+        self.text_own_contribution_percent.setObjectName(u"text_own_contribution_percent")
 
-        self.horizontalLayout_5.addWidget(self.textEdit)
+        self.horizontalLayout_5.addWidget(self.text_own_contribution_percent)
 
 
         self.verticalLayout_9.addWidget(self.frame_3)
@@ -539,15 +604,15 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_7.addWidget(self.label_2)
 
-        self.textEdit_10 = QTextEdit(self.frame_6)
-        self.textEdit_10.setObjectName(u"textEdit_10")
+        self.text_broker_margin = QTextEdit(self.frame_6)
+        self.text_broker_margin.setObjectName(u"text_broker_margin")
 
-        self.horizontalLayout_7.addWidget(self.textEdit_10)
+        self.horizontalLayout_7.addWidget(self.text_broker_margin)
 
-        self.textEdit_2 = QTextEdit(self.frame_6)
-        self.textEdit_2.setObjectName(u"textEdit_2")
+        self.text_broker_margin_percent = QTextEdit(self.frame_6)
+        self.text_broker_margin_percent.setObjectName(u"text_broker_margin_percent")
 
-        self.horizontalLayout_7.addWidget(self.textEdit_2)
+        self.horizontalLayout_7.addWidget(self.text_broker_margin_percent)
 
 
         self.verticalLayout_9.addWidget(self.frame_6)
@@ -565,15 +630,15 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_8.addWidget(self.label_3)
 
-        self.textEdit_21 = QTextEdit(self.frame_9)
-        self.textEdit_21.setObjectName(u"textEdit_21")
+        self.text_notary_margin = QTextEdit(self.frame_9)
+        self.text_notary_margin.setObjectName(u"text_notary_margin")
 
-        self.horizontalLayout_8.addWidget(self.textEdit_21)
+        self.horizontalLayout_8.addWidget(self.text_notary_margin)
 
-        self.textEdit_3 = QTextEdit(self.frame_9)
-        self.textEdit_3.setObjectName(u"textEdit_3")
+        self.text_notary_margin_percent = QTextEdit(self.frame_9)
+        self.text_notary_margin_percent.setObjectName(u"text_notary_margin_percent")
 
-        self.horizontalLayout_8.addWidget(self.textEdit_3)
+        self.horizontalLayout_8.addWidget(self.text_notary_margin_percent)
 
 
         self.verticalLayout_9.addWidget(self.frame_9)
@@ -591,15 +656,15 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_9.addWidget(self.label_4)
 
-        self.textEdit_22 = QTextEdit(self.frame_5)
-        self.textEdit_22.setObjectName(u"textEdit_22")
+        self.text_tax = QTextEdit(self.frame_5)
+        self.text_tax.setObjectName(u"text_tax")
 
-        self.horizontalLayout_9.addWidget(self.textEdit_22)
+        self.horizontalLayout_9.addWidget(self.text_tax)
 
-        self.textEdit_6 = QTextEdit(self.frame_5)
-        self.textEdit_6.setObjectName(u"textEdit_6")
+        self.text_tax_percent = QTextEdit(self.frame_5)
+        self.text_tax_percent.setObjectName(u"text_tax_percent")
 
-        self.horizontalLayout_9.addWidget(self.textEdit_6)
+        self.horizontalLayout_9.addWidget(self.text_tax_percent)
 
 
         self.verticalLayout_9.addWidget(self.frame_5)
@@ -617,15 +682,15 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_10.addWidget(self.label_5)
 
-        self.textEdit_23 = QTextEdit(self.frame_10)
-        self.textEdit_23.setObjectName(u"textEdit_23")
+        self.text_other_costs = QTextEdit(self.frame_10)
+        self.text_other_costs.setObjectName(u"text_other_costs")
 
-        self.horizontalLayout_10.addWidget(self.textEdit_23)
+        self.horizontalLayout_10.addWidget(self.text_other_costs)
 
-        self.textEdit_4 = QTextEdit(self.frame_10)
-        self.textEdit_4.setObjectName(u"textEdit_4")
+        self.text_other_costs_percent = QTextEdit(self.frame_10)
+        self.text_other_costs_percent.setObjectName(u"text_other_costs_percent")
 
-        self.horizontalLayout_10.addWidget(self.textEdit_4)
+        self.horizontalLayout_10.addWidget(self.text_other_costs_percent)
 
 
         self.verticalLayout_9.addWidget(self.frame_10)
@@ -643,15 +708,15 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_11.addWidget(self.label_6)
 
-        self.textEdit_24 = QTextEdit(self.frame_4)
-        self.textEdit_24.setObjectName(u"textEdit_24")
+        self.text_renovation = QTextEdit(self.frame_4)
+        self.text_renovation.setObjectName(u"text_renovation")
 
-        self.horizontalLayout_11.addWidget(self.textEdit_24)
+        self.horizontalLayout_11.addWidget(self.text_renovation)
 
-        self.textEdit_7 = QTextEdit(self.frame_4)
-        self.textEdit_7.setObjectName(u"textEdit_7")
+        self.text_renovation_percent = QTextEdit(self.frame_4)
+        self.text_renovation_percent.setObjectName(u"text_renovation_percent")
 
-        self.horizontalLayout_11.addWidget(self.textEdit_7)
+        self.horizontalLayout_11.addWidget(self.text_renovation_percent)
 
 
         self.verticalLayout_9.addWidget(self.frame_4)
@@ -669,10 +734,10 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_12.addWidget(self.label_7)
 
-        self.textEdit_5 = QTextEdit(self.frame)
-        self.textEdit_5.setObjectName(u"textEdit_5")
+        self.text_entry_cost = QTextEdit(self.frame)
+        self.text_entry_cost.setObjectName(u"text_entry_cost")
 
-        self.horizontalLayout_12.addWidget(self.textEdit_5)
+        self.horizontalLayout_12.addWidget(self.text_entry_cost)
 
 
         self.verticalLayout_9.addWidget(self.frame)
@@ -690,38 +755,27 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_13.addWidget(self.label_8)
 
-        self.textEdit_8 = QTextEdit(self.frame_2)
-        self.textEdit_8.setObjectName(u"textEdit_8")
+        self.horizontalSpacer_6 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
-        self.horizontalLayout_13.addWidget(self.textEdit_8)
+        self.horizontalLayout_13.addItem(self.horizontalSpacer_6)
+
+        self.text_invested_vs_purchase = QTextEdit(self.frame_2)
+        self.text_invested_vs_purchase.setObjectName(u"text_invested_vs_purchase")
+
+        self.horizontalLayout_13.addWidget(self.text_invested_vs_purchase)
 
 
         self.verticalLayout_9.addWidget(self.frame_2)
 
 
-        self.verticalLayout_5.addWidget(self.frame_own_contribution_data)
+        self.horizontalLayout_17.addWidget(self.frame_own_contribution_data)
 
-
-        self.verticalLayout_2.addWidget(self.frame_own_contribution)
-
-        self.frame_credit = QFrame(self.scrollAreaWidgetContents)
-        self.frame_credit.setObjectName(u"frame_credit")
-        self.frame_credit.setMinimumSize(QSize(630, 560))
-        self.frame_credit.setFrameShape(QFrame.StyledPanel)
-        self.frame_credit.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_6 = QVBoxLayout(self.frame_credit)
-        self.verticalLayout_6.setObjectName(u"verticalLayout_6")
-        self.button_credit = QPushButton(self.frame_credit)
-        self.button_credit.setObjectName(u"button_credit")
-        self.button_credit.setMinimumSize(QSize(0, 24))
-
-        self.verticalLayout_6.addWidget(self.button_credit)
-
-        self.frame_credit_data = QFrame(self.frame_credit)
+        self.frame_credit_data = QFrame(self.frame_own_contribution_credit_inner)
         self.frame_credit_data.setObjectName(u"frame_credit_data")
         self.frame_credit_data.setFrameShape(QFrame.StyledPanel)
         self.frame_credit_data.setFrameShadow(QFrame.Raised)
         self.verticalLayout_10 = QVBoxLayout(self.frame_credit_data)
+        self.verticalLayout_10.setSpacing(6)
         self.verticalLayout_10.setObjectName(u"verticalLayout_10")
         self.verticalLayout_10.setContentsMargins(-1, 2, -1, 2)
         self.frame_11 = QFrame(self.frame_credit_data)
@@ -738,10 +792,10 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_14.addWidget(self.label_9)
 
-        self.textEdit_25 = QTextEdit(self.frame_11)
-        self.textEdit_25.setObjectName(u"textEdit_25")
+        self.text_credit = QTextEdit(self.frame_11)
+        self.text_credit.setObjectName(u"text_credit")
 
-        self.horizontalLayout_14.addWidget(self.textEdit_25)
+        self.horizontalLayout_14.addWidget(self.text_credit)
 
 
         self.verticalLayout_10.addWidget(self.frame_11)
@@ -760,10 +814,10 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_15.addWidget(self.label_10)
 
-        self.textEdit_26 = QTextEdit(self.frame_12)
-        self.textEdit_26.setObjectName(u"textEdit_26")
+        self.text_bank_contribution = QTextEdit(self.frame_12)
+        self.text_bank_contribution.setObjectName(u"text_bank_contribution")
 
-        self.horizontalLayout_15.addWidget(self.textEdit_26)
+        self.horizontalLayout_15.addWidget(self.text_bank_contribution)
 
 
         self.verticalLayout_10.addWidget(self.frame_12)
@@ -782,10 +836,10 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_26.addWidget(self.label_21)
 
-        self.textEdit_33 = QTextEdit(self.frame_13)
-        self.textEdit_33.setObjectName(u"textEdit_33")
+        self.text_interest_rate = QTextEdit(self.frame_13)
+        self.text_interest_rate.setObjectName(u"text_interest_rate")
 
-        self.horizontalLayout_26.addWidget(self.textEdit_33)
+        self.horizontalLayout_26.addWidget(self.text_interest_rate)
 
 
         self.verticalLayout_10.addWidget(self.frame_13)
@@ -804,10 +858,10 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_27.addWidget(self.label_22)
 
-        self.textEdit_27 = QTextEdit(self.frame_14)
-        self.textEdit_27.setObjectName(u"textEdit_27")
+        self.text_repayment_period = QTextEdit(self.frame_14)
+        self.text_repayment_period.setObjectName(u"text_repayment_period")
 
-        self.horizontalLayout_27.addWidget(self.textEdit_27)
+        self.horizontalLayout_27.addWidget(self.text_repayment_period)
 
 
         self.verticalLayout_10.addWidget(self.frame_14)
@@ -820,24 +874,25 @@ class Ui_MainWindow(object):
         self.verticalLayout_11 = QVBoxLayout(self.frame_23)
         self.verticalLayout_11.setSpacing(1)
         self.verticalLayout_11.setObjectName(u"verticalLayout_11")
-        self.verticalLayout_11.setContentsMargins(-1, 2, -1, 2)
+        self.verticalLayout_11.setContentsMargins(8, 2, 2, 2)
         self.frame_28 = QFrame(self.frame_23)
         self.frame_28.setObjectName(u"frame_28")
         self.frame_28.setFrameShape(QFrame.StyledPanel)
         self.frame_28.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_28 = QHBoxLayout(self.frame_28)
+        self.horizontalLayout_28.setSpacing(2)
         self.horizontalLayout_28.setObjectName(u"horizontalLayout_28")
-        self.horizontalLayout_28.setContentsMargins(-1, 2, -1, 2)
+        self.horizontalLayout_28.setContentsMargins(2, 2, 2, 2)
         self.label_23 = QLabel(self.frame_28)
         self.label_23.setObjectName(u"label_23")
         self.label_23.setMinimumSize(QSize(185, 0))
 
         self.horizontalLayout_28.addWidget(self.label_23)
 
-        self.textEdit_28 = QTextEdit(self.frame_28)
-        self.textEdit_28.setObjectName(u"textEdit_28")
+        self.text_monthly_installment = QTextEdit(self.frame_28)
+        self.text_monthly_installment.setObjectName(u"text_monthly_installment")
 
-        self.horizontalLayout_28.addWidget(self.textEdit_28)
+        self.horizontalLayout_28.addWidget(self.text_monthly_installment)
 
 
         self.verticalLayout_11.addWidget(self.frame_28)
@@ -847,18 +902,19 @@ class Ui_MainWindow(object):
         self.frame_29.setFrameShape(QFrame.StyledPanel)
         self.frame_29.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_33 = QHBoxLayout(self.frame_29)
+        self.horizontalLayout_33.setSpacing(2)
         self.horizontalLayout_33.setObjectName(u"horizontalLayout_33")
-        self.horizontalLayout_33.setContentsMargins(-1, 2, -1, 2)
+        self.horizontalLayout_33.setContentsMargins(2, 2, 2, 2)
         self.label_28 = QLabel(self.frame_29)
         self.label_28.setObjectName(u"label_28")
         self.label_28.setMinimumSize(QSize(185, 0))
 
         self.horizontalLayout_33.addWidget(self.label_28)
 
-        self.textEdit_34 = QTextEdit(self.frame_29)
-        self.textEdit_34.setObjectName(u"textEdit_34")
+        self.text_monthly_installment_capital_part = QTextEdit(self.frame_29)
+        self.text_monthly_installment_capital_part.setObjectName(u"text_monthly_installment_capital_part")
 
-        self.horizontalLayout_33.addWidget(self.textEdit_34)
+        self.horizontalLayout_33.addWidget(self.text_monthly_installment_capital_part)
 
 
         self.verticalLayout_11.addWidget(self.frame_29)
@@ -868,18 +924,19 @@ class Ui_MainWindow(object):
         self.frame_30.setFrameShape(QFrame.StyledPanel)
         self.frame_30.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_34 = QHBoxLayout(self.frame_30)
+        self.horizontalLayout_34.setSpacing(2)
         self.horizontalLayout_34.setObjectName(u"horizontalLayout_34")
-        self.horizontalLayout_34.setContentsMargins(-1, 2, -1, 2)
+        self.horizontalLayout_34.setContentsMargins(2, 2, 2, 2)
         self.label_29 = QLabel(self.frame_30)
         self.label_29.setObjectName(u"label_29")
         self.label_29.setMinimumSize(QSize(185, 0))
 
         self.horizontalLayout_34.addWidget(self.label_29)
 
-        self.textEdit_35 = QTextEdit(self.frame_30)
-        self.textEdit_35.setObjectName(u"textEdit_35")
+        self.text_monthly_installment_interest_part = QTextEdit(self.frame_30)
+        self.text_monthly_installment_interest_part.setObjectName(u"text_monthly_installment_interest_part")
 
-        self.horizontalLayout_34.addWidget(self.textEdit_35)
+        self.horizontalLayout_34.addWidget(self.text_monthly_installment_interest_part)
 
 
         self.verticalLayout_11.addWidget(self.frame_30)
@@ -900,10 +957,10 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_29.addWidget(self.label_24)
 
-        self.textEdit_29 = QTextEdit(self.frame_24)
-        self.textEdit_29.setObjectName(u"textEdit_29")
+        self.text_credit_credit_insurance_per_month = QTextEdit(self.frame_24)
+        self.text_credit_credit_insurance_per_month.setObjectName(u"text_credit_credit_insurance_per_month")
 
-        self.horizontalLayout_29.addWidget(self.textEdit_29)
+        self.horizontalLayout_29.addWidget(self.text_credit_credit_insurance_per_month)
 
 
         self.verticalLayout_10.addWidget(self.frame_24)
@@ -922,21 +979,24 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_30.addWidget(self.label_25)
 
-        self.textEdit_30 = QTextEdit(self.frame_25)
-        self.textEdit_30.setObjectName(u"textEdit_30")
+        self.text_total_credit_cost = QTextEdit(self.frame_25)
+        self.text_total_credit_cost.setObjectName(u"text_total_credit_cost")
 
-        self.horizontalLayout_30.addWidget(self.textEdit_30)
+        self.horizontalLayout_30.addWidget(self.text_total_credit_cost)
 
 
         self.verticalLayout_10.addWidget(self.frame_25)
 
 
-        self.verticalLayout_6.addWidget(self.frame_credit_data)
+        self.horizontalLayout_17.addWidget(self.frame_credit_data)
 
 
-        self.verticalLayout_2.addWidget(self.frame_credit)
+        self.verticalLayout_5.addWidget(self.frame_own_contribution_credit_inner)
 
-        self.frame_rent = QFrame(self.scrollAreaWidgetContents)
+
+        self.verticalLayout_2.addWidget(self.frame_own_contribution_credit)
+
+        self.frame_rent = QFrame(self.scrollArea_investment_contents)
         self.frame_rent.setObjectName(u"frame_rent")
         self.frame_rent.setMinimumSize(QSize(630, 750))
         self.frame_rent.setFrameShape(QFrame.StyledPanel)
@@ -1015,11 +1075,11 @@ class Ui_MainWindow(object):
         self.verticalLayout_14.setContentsMargins(-1, 2, -1, 2)
         self.label_26 = QLabel(self.frame_rent_data_income)
         self.label_26.setObjectName(u"label_26")
-        sizePolicy = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Maximum)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.label_26.sizePolicy().hasHeightForWidth())
-        self.label_26.setSizePolicy(sizePolicy)
+        sizePolicy1 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Maximum)
+        sizePolicy1.setHorizontalStretch(0)
+        sizePolicy1.setVerticalStretch(0)
+        sizePolicy1.setHeightForWidth(self.label_26.sizePolicy().hasHeightForWidth())
+        self.label_26.setSizePolicy(sizePolicy1)
         self.label_26.setLayoutDirection(Qt.LeftToRight)
         self.label_26.setAlignment(Qt.AlignCenter)
 
@@ -1132,8 +1192,8 @@ class Ui_MainWindow(object):
         self.verticalLayout_15.setContentsMargins(-1, 2, -1, 2)
         self.label_27 = QLabel(self.frame_rent_data_cost)
         self.label_27.setObjectName(u"label_27")
-        sizePolicy.setHeightForWidth(self.label_27.sizePolicy().hasHeightForWidth())
-        self.label_27.setSizePolicy(sizePolicy)
+        sizePolicy1.setHeightForWidth(self.label_27.sizePolicy().hasHeightForWidth())
+        self.label_27.setSizePolicy(sizePolicy1)
         self.label_27.setMinimumSize(QSize(0, 30))
         self.label_27.setAlignment(Qt.AlignCenter)
 
@@ -1426,7 +1486,7 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_2.addWidget(self.frame_rent)
 
-        self.frame_investment_assessment = QFrame(self.scrollAreaWidgetContents)
+        self.frame_investment_assessment = QFrame(self.scrollArea_investment_contents)
         self.frame_investment_assessment.setObjectName(u"frame_investment_assessment")
         self.frame_investment_assessment.setMinimumSize(QSize(630, 400))
         self.frame_investment_assessment.setFrameShape(QFrame.StyledPanel)
@@ -1636,7 +1696,7 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_2.addWidget(self.frame_investment_assessment)
 
-        self.scrollArea_current_investment.setWidget(self.scrollAreaWidgetContents)
+        self.scrollArea_current_investment.setWidget(self.scrollArea_investment_contents)
 
         self.verticalLayout_16.addWidget(self.scrollArea_current_investment)
 
@@ -1648,12 +1708,96 @@ class Ui_MainWindow(object):
         self.frame_43.setGeometry(QRect(0, 20, 831, 521))
         self.frame_43.setFrameShape(QFrame.StyledPanel)
         self.frame_43.setFrameShadow(QFrame.Raised)
+        self.frame_main_characteristics_2 = QFrame(self.frame_43)
+        self.frame_main_characteristics_2.setObjectName(u"frame_main_characteristics_2")
+        self.frame_main_characteristics_2.setGeometry(QRect(20, 120, 776, 80))
+        self.frame_main_characteristics_2.setMinimumSize(QSize(0, 80))
+        self.frame_main_characteristics_2.setMaximumSize(QSize(16777215, 16777215))
+        self.frame_main_characteristics_2.setFrameShape(QFrame.StyledPanel)
+        self.frame_main_characteristics_2.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_53 = QHBoxLayout(self.frame_main_characteristics_2)
+        self.horizontalLayout_53.setObjectName(u"horizontalLayout_53")
+        self.horizontalLayout_53.setContentsMargins(4, 4, 4, 4)
+        self.frame_42 = QFrame(self.frame_main_characteristics_2)
+        self.frame_42.setObjectName(u"frame_42")
+        self.frame_42.setMinimumSize(QSize(0, 40))
+        self.frame_42.setFrameShape(QFrame.StyledPanel)
+        self.frame_42.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_54 = QHBoxLayout(self.frame_42)
+        self.horizontalLayout_54.setObjectName(u"horizontalLayout_54")
+        self.label_65 = QLabel(self.frame_42)
+        self.label_65.setObjectName(u"label_65")
+
+        self.horizontalLayout_54.addWidget(self.label_65)
+
+        self.textEdit_68 = QTextEdit(self.frame_42)
+        self.textEdit_68.setObjectName(u"textEdit_68")
+
+        self.horizontalLayout_54.addWidget(self.textEdit_68)
+
+
+        self.horizontalLayout_53.addWidget(self.frame_42)
+
+        self.frame_48 = QFrame(self.frame_main_characteristics_2)
+        self.frame_48.setObjectName(u"frame_48")
+        self.frame_48.setMinimumSize(QSize(0, 40))
+        self.frame_48.setFrameShape(QFrame.StyledPanel)
+        self.frame_48.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_55 = QHBoxLayout(self.frame_48)
+        self.horizontalLayout_55.setObjectName(u"horizontalLayout_55")
+        self.label_66 = QLabel(self.frame_48)
+        self.label_66.setObjectName(u"label_66")
+
+        self.horizontalLayout_55.addWidget(self.label_66)
+
+        self.textEdit_69 = QTextEdit(self.frame_48)
+        self.textEdit_69.setObjectName(u"textEdit_69")
+
+        self.horizontalLayout_55.addWidget(self.textEdit_69)
+
+
+        self.horizontalLayout_53.addWidget(self.frame_48)
+
+        self.frame_50 = QFrame(self.frame_main_characteristics_2)
+        self.frame_50.setObjectName(u"frame_50")
+        self.frame_50.setMinimumSize(QSize(0, 40))
+        self.frame_50.setFrameShape(QFrame.StyledPanel)
+        self.frame_50.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_56 = QHBoxLayout(self.frame_50)
+        self.horizontalLayout_56.setObjectName(u"horizontalLayout_56")
+        self.label_67 = QLabel(self.frame_50)
+        self.label_67.setObjectName(u"label_67")
+
+        self.horizontalLayout_56.addWidget(self.label_67)
+
+        self.textEdit_70 = QTextEdit(self.frame_50)
+        self.textEdit_70.setObjectName(u"textEdit_70")
+
+        self.horizontalLayout_56.addWidget(self.textEdit_70)
+
+
+        self.horizontalLayout_53.addWidget(self.frame_50)
+
         self.all_pages.addWidget(self.new_investment_page)
         self.home_page = QWidget()
         self.home_page.setObjectName(u"home_page")
-        self.label_45 = QLabel(self.home_page)
+        self.frame_49 = QFrame(self.home_page)
+        self.frame_49.setObjectName(u"frame_49")
+        self.frame_49.setGeometry(QRect(30, 30, 800, 400))
+        self.frame_49.setMinimumSize(QSize(800, 400))
+        self.frame_49.setFrameShape(QFrame.StyledPanel)
+        self.frame_49.setFrameShadow(QFrame.Raised)
+        self.label_45 = QLabel(self.frame_49)
         self.label_45.setObjectName(u"label_45")
-        self.label_45.setGeometry(QRect(150, 20, 471, 16))
+        self.label_45.setGeometry(QRect(50, 20, 281, 31))
+        self.scrollArea_2 = QScrollArea(self.frame_49)
+        self.scrollArea_2.setObjectName(u"scrollArea_2")
+        self.scrollArea_2.setGeometry(QRect(50, 60, 701, 321))
+        self.scrollArea_2.setWidgetResizable(True)
+        self.scrollAreaWidgetContents_3 = QWidget()
+        self.scrollAreaWidgetContents_3.setObjectName(u"scrollAreaWidgetContents_3")
+        self.scrollAreaWidgetContents_3.setGeometry(QRect(0, 0, 699, 319))
+        self.scrollArea_2.setWidget(self.scrollAreaWidgetContents_3)
         self.all_pages.addWidget(self.home_page)
 
         self.verticalLayout_3.addWidget(self.all_pages)
@@ -1706,9 +1850,10 @@ class Ui_MainWindow(object):
         self.button_compare.setText(QCoreApplication.translate("MainWindow", u"Por\u00f3wnaj", None))
         self.button_home_page.setText(QCoreApplication.translate("MainWindow", u"Strona \n"
 "g\u0142\u00f3wna", None))
-        self.label_11.setText(QCoreApplication.translate("MainWindow", u"Cena zakupu", None))
-        self.label_12.setText(QCoreApplication.translate("MainWindow", u"POW. [m\u00b2]", None))
-        self.label_13.setText(QCoreApplication.translate("MainWindow", u"Cena/m\u00b2", None))
+        self.label_11.setText(QCoreApplication.translate("MainWindow", u"Nazwa inwestycji", None))
+        self.label_68.setText(QCoreApplication.translate("MainWindow", u"Cena zakupu", None))
+        self.label_69.setText(QCoreApplication.translate("MainWindow", u"POW. [m\u00b2]", None))
+        self.label_70.setText(QCoreApplication.translate("MainWindow", u"Cena/m\u00b2", None))
         self.button_information.setText(QCoreApplication.translate("MainWindow", u"Informacje", None))
         self.label_14.setText(QCoreApplication.translate("MainWindow", u"Data rozpocz\u0119cia", None))
         self.label_15.setText(QCoreApplication.translate("MainWindow", u"Opis", None))
@@ -1717,7 +1862,7 @@ class Ui_MainWindow(object):
         self.label_18.setText(QCoreApplication.translate("MainWindow", u"Szac. warto\u015b\u0107 obecna", None))
         self.label_19.setText(QCoreApplication.translate("MainWindow", u"Data ost. szacowania", None))
         self.label_20.setText(QCoreApplication.translate("MainWindow", u"Data zako\u0144czenia", None))
-        self.button_own_contribution.setText(QCoreApplication.translate("MainWindow", u"Wk\u0142ad w\u0142asny", None))
+        self.button_own_contribution_credit.setText(QCoreApplication.translate("MainWindow", u"Wk\u0142ad w\u0142asny / Kredyt", None))
         self.label.setText(QCoreApplication.translate("MainWindow", u"Wk\u0142ad w\u0142asny", None))
         self.label_2.setText(QCoreApplication.translate("MainWindow", u"Mar\u017ca maklera ", None))
         self.label_3.setText(QCoreApplication.translate("MainWindow", u"Mar\u017ca notariusza", None))
@@ -1725,8 +1870,8 @@ class Ui_MainWindow(object):
         self.label_5.setText(QCoreApplication.translate("MainWindow", u"Inne koszty", None))
         self.label_6.setText(QCoreApplication.translate("MainWindow", u"Remont", None))
         self.label_7.setText(QCoreApplication.translate("MainWindow", u"Koszty wej\u015bcia razem", None))
-        self.label_8.setText(QCoreApplication.translate("MainWindow", u"Cena zakupu", None))
-        self.button_credit.setText(QCoreApplication.translate("MainWindow", u"Kredyt", None))
+        self.label_8.setText(QCoreApplication.translate("MainWindow", u"Kwota zainwestowana\n"
+"vs cena zakupu", None))
         self.label_9.setText(QCoreApplication.translate("MainWindow", u"Kredyt bankowy", None))
         self.label_10.setText(QCoreApplication.translate("MainWindow", u"Wk\u0142ad banku [%]", None))
         self.label_21.setText(QCoreApplication.translate("MainWindow", u"Stopa procentowa", None))
@@ -1774,6 +1919,9 @@ class Ui_MainWindow(object):
         self.label_56.setText("")
         self.label_60.setText("")
         self.label_64.setText("")
+        self.label_65.setText(QCoreApplication.translate("MainWindow", u"Cena zakupu", None))
+        self.label_66.setText(QCoreApplication.translate("MainWindow", u"POW. [m\u00b2]", None))
+        self.label_67.setText(QCoreApplication.translate("MainWindow", u"Cena/m\u00b2", None))
         self.label_45.setText(QCoreApplication.translate("MainWindow", u"Witamy na stronie g\u0142\u00f3wnej", None))
     # retranslateUi
 
