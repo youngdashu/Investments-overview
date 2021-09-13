@@ -390,7 +390,7 @@ border-radius: 5px;
                   <height>72</height>
                  </rect>
                 </property>
-                <layout class="QHBoxLayout" name="horizontalLayout_52">
+                <layout class="QHBoxLayout" name="scrollAreaContents_currently_opened_layout">
                  <item>
                   <widget class="QFrame" name="frame_small_decoy">
                    <property name="maximumSize">
@@ -449,7 +449,7 @@ color: rgb(255, 255, 255)
                  <property name="geometry">
                   <rect>
                    <x>0</x>
-                   <y>-984</y>
+                   <y>-1851</y>
                    <width>808</width>
                    <height>2308</height>
                   </rect>
@@ -2041,13 +2041,13 @@ border: 1px white;
                                </widget>
                               </item>
                               <item>
-                               <widget class="QTextEdit" name="textEdit_31"/>
+                               <widget class="QTextEdit" name="text_rent_income_min_month"/>
                               </item>
                               <item>
-                               <widget class="QTextEdit" name="textEdit_32"/>
+                               <widget class="QTextEdit" name="text_rent_income_min_year"/>
                               </item>
                               <item>
-                               <widget class="QTextEdit" name="textEdit_36"/>
+                               <widget class="QTextEdit" name="text_rent_income_min_percent"/>
                               </item>
                              </layout>
                             </widget>
@@ -2081,13 +2081,13 @@ border: 1px white;
                                </widget>
                               </item>
                               <item>
-                               <widget class="QTextEdit" name="textEdit_37"/>
+                               <widget class="QTextEdit" name="text_rent_income_max_month"/>
                               </item>
                               <item>
-                               <widget class="QTextEdit" name="textEdit_38"/>
+                               <widget class="QTextEdit" name="text_rent_income_max_year"/>
                               </item>
                               <item>
-                               <widget class="QTextEdit" name="textEdit_39"/>
+                               <widget class="QTextEdit" name="text_rent_income_max_percent"/>
                               </item>
                              </layout>
                             </widget>
@@ -2121,13 +2121,13 @@ border: 1px white;
                                </widget>
                               </item>
                               <item>
-                               <widget class="QTextEdit" name="textEdit_40"/>
+                               <widget class="QTextEdit" name="text_income_earned_month"/>
                               </item>
                               <item>
-                               <widget class="QTextEdit" name="textEdit_41"/>
+                               <widget class="QTextEdit" name="text_income_earned_year"/>
                               </item>
                               <item>
-                               <widget class="QTextEdit" name="textEdit_42"/>
+                               <widget class="QTextEdit" name="text_income_earned_percent"/>
                               </item>
                              </layout>
                             </widget>
@@ -2210,13 +2210,13 @@ border: 1px white;
                                </widget>
                               </item>
                               <item>
-                               <widget class="QTextEdit" name="textEdit_43"/>
+                               <widget class="QTextEdit" name="text_rent_tax_month"/>
                               </item>
                               <item>
-                               <widget class="QTextEdit" name="textEdit_44"/>
+                               <widget class="QTextEdit" name="text_rent_tax_year"/>
                               </item>
                               <item>
-                               <widget class="QTextEdit" name="textEdit_45"/>
+                               <widget class="QTextEdit" name="text_rent_tax_percent"/>
                               </item>
                              </layout>
                             </widget>
@@ -2250,13 +2250,13 @@ border: 1px white;
                                </widget>
                               </item>
                               <item>
-                               <widget class="QTextEdit" name="textEdit_46"/>
+                               <widget class="QTextEdit" name="text_property_tax_month"/>
                               </item>
                               <item>
-                               <widget class="QTextEdit" name="textEdit_47"/>
+                               <widget class="QTextEdit" name="text_property_tax_year"/>
                               </item>
                               <item>
-                               <widget class="QTextEdit" name="textEdit_48"/>
+                               <widget class="QTextEdit" name="text_property_tax_percent"/>
                               </item>
                              </layout>
                             </widget>
@@ -2290,13 +2290,13 @@ border: 1px white;
                                </widget>
                               </item>
                               <item>
-                               <widget class="QTextEdit" name="textEdit_49"/>
+                               <widget class="QTextEdit" name="text_electricity_month"/>
                               </item>
                               <item>
-                               <widget class="QTextEdit" name="textEdit_50"/>
+                               <widget class="QTextEdit" name="text_electricity_year"/>
                               </item>
                               <item>
-                               <widget class="QTextEdit" name="textEdit_51"/>
+                               <widget class="QTextEdit" name="text_electricity_percent"/>
                               </item>
                              </layout>
                             </widget>
@@ -2330,13 +2330,13 @@ border: 1px white;
                                </widget>
                               </item>
                               <item>
-                               <widget class="QTextEdit" name="textEdit_54"/>
+                               <widget class="QTextEdit" name="text_gas_month"/>
                               </item>
                               <item>
-                               <widget class="QTextEdit" name="textEdit_53"/>
+                               <widget class="QTextEdit" name="text_gas_year"/>
                               </item>
                               <item>
-                               <widget class="QTextEdit" name="textEdit_52"/>
+                               <widget class="QTextEdit" name="text_gas_percent"/>
                               </item>
                              </layout>
                             </widget>
@@ -2370,13 +2370,13 @@ border: 1px white;
                                </widget>
                               </item>
                               <item>
-                               <widget class="QTextEdit" name="textEdit_57"/>
+                               <widget class="QTextEdit" name="text_water_month"/>
                               </item>
                               <item>
-                               <widget class="QTextEdit" name="textEdit_56"/>
+                               <widget class="QTextEdit" name="text_water_year"/>
                               </item>
                               <item>
-                               <widget class="QTextEdit" name="textEdit_55"/>
+                               <widget class="QTextEdit" name="text_water_percent"/>
                               </item>
                              </layout>
                             </widget>
@@ -2410,13 +2410,13 @@ border: 1px white;
                                </widget>
                               </item>
                               <item>
-                               <widget class="QTextEdit" name="textEdit_60"/>
+                               <widget class="QTextEdit" name="text_internet_month"/>
                               </item>
                               <item>
-                               <widget class="QTextEdit" name="textEdit_59"/>
+                               <widget class="QTextEdit" name="text_internet_year"/>
                               </item>
                               <item>
-                               <widget class="QTextEdit" name="textEdit_58"/>
+                               <widget class="QTextEdit" name="text_internet_percent"/>
                               </item>
                              </layout>
                             </widget>
@@ -2450,13 +2450,13 @@ border: 1px white;
                                </widget>
                               </item>
                               <item>
-                               <widget class="QTextEdit" name="textEdit_63"/>
+                               <widget class="QTextEdit" name="text_other_costs_month"/>
                               </item>
                               <item>
-                               <widget class="QTextEdit" name="textEdit_62"/>
+                               <widget class="QTextEdit" name="text_other_costs_year"/>
                               </item>
                               <item>
-                               <widget class="QTextEdit" name="textEdit_61"/>
+                               <widget class="QTextEdit" name="text_other_costs_percent_2"/>
                               </item>
                              </layout>
                             </widget>
@@ -2490,10 +2490,10 @@ border: 1px white;
                                </widget>
                               </item>
                               <item>
-                               <widget class="QTextEdit" name="textEdit_64"/>
+                               <widget class="QTextEdit" name="text_total_costs_month"/>
                               </item>
                               <item>
-                               <widget class="QTextEdit" name="textEdit_65"/>
+                               <widget class="QTextEdit" name="text_total_costs_year"/>
                               </item>
                               <item>
                                <spacer name="horizontalSpacer_4">
@@ -2549,10 +2549,10 @@ border: 1px white;
                             </widget>
                            </item>
                            <item>
-                            <widget class="QTextEdit" name="textEdit_66"/>
+                            <widget class="QTextEdit" name="text_rent_gain_loss_month"/>
                            </item>
                            <item>
-                            <widget class="QTextEdit" name="textEdit_67"/>
+                            <widget class="QTextEdit" name="text_rent_gain_loss_year"/>
                            </item>
                            <item>
                             <spacer name="horizontalSpacer_5">
@@ -2723,7 +2723,13 @@ border: 1px white;
                            <enum>QFrame::Raised</enum>
                           </property>
                           <layout class="QVBoxLayout" name="verticalLayout_19">
+                           <property name="leftMargin">
+                            <number>2</number>
+                           </property>
                            <property name="topMargin">
+                            <number>2</number>
+                           </property>
+                           <property name="rightMargin">
                             <number>2</number>
                            </property>
                            <property name="bottomMargin">
@@ -2744,7 +2750,13 @@ border: 1px white;
                               <enum>QFrame::Raised</enum>
                              </property>
                              <layout class="QHBoxLayout" name="horizontalLayout_48">
+                              <property name="leftMargin">
+                               <number>2</number>
+                              </property>
                               <property name="topMargin">
+                               <number>2</number>
+                              </property>
+                              <property name="rightMargin">
                                <number>2</number>
                               </property>
                               <property name="bottomMargin">
@@ -2764,14 +2776,14 @@ border: 1px white;
                                </widget>
                               </item>
                               <item>
-                               <widget class="QLabel" name="label_53">
+                               <widget class="QLabel" name="label_own_capital_return_time_months">
                                 <property name="text">
                                  <string/>
                                 </property>
                                </widget>
                               </item>
                               <item>
-                               <widget class="QLabel" name="label_57">
+                               <widget class="QLabel" name="label_own_capital_return_time_years">
                                 <property name="text">
                                  <string/>
                                 </property>
@@ -2802,7 +2814,13 @@ border: 1px white;
                               <enum>QFrame::Raised</enum>
                              </property>
                              <layout class="QHBoxLayout" name="horizontalLayout_49">
+                              <property name="leftMargin">
+                               <number>2</number>
+                              </property>
                               <property name="topMargin">
+                               <number>2</number>
+                              </property>
+                              <property name="rightMargin">
                                <number>2</number>
                               </property>
                               <property name="bottomMargin">
@@ -2822,14 +2840,14 @@ border: 1px white;
                                </widget>
                               </item>
                               <item>
-                               <widget class="QLabel" name="label_54">
+                               <widget class="QLabel" name="label_total_return_time_months">
                                 <property name="text">
                                  <string/>
                                 </property>
                                </widget>
                               </item>
                               <item>
-                               <widget class="QLabel" name="label_58">
+                               <widget class="QLabel" name="label_total_return_time_years">
                                 <property name="text">
                                  <string/>
                                 </property>
@@ -2860,7 +2878,13 @@ border: 1px white;
                               <enum>QFrame::Raised</enum>
                              </property>
                              <layout class="QHBoxLayout" name="horizontalLayout_50">
+                              <property name="leftMargin">
+                               <number>2</number>
+                              </property>
                               <property name="topMargin">
+                               <number>2</number>
+                              </property>
+                              <property name="rightMargin">
                                <number>2</number>
                               </property>
                               <property name="bottomMargin">
@@ -2918,7 +2942,13 @@ border: 1px white;
                               <enum>QFrame::Raised</enum>
                              </property>
                              <layout class="QHBoxLayout" name="horizontalLayout_51">
+                              <property name="leftMargin">
+                               <number>2</number>
+                              </property>
                               <property name="topMargin">
+                               <number>2</number>
+                              </property>
+                              <property name="rightMargin">
                                <number>2</number>
                               </property>
                               <property name="bottomMargin">

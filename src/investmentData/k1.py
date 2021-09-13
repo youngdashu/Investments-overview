@@ -1,5 +1,7 @@
 import json
 
+noDataText = "Brak danych"
+
 
 class Main_Char:
     def __init__(self, price, area, ppm):
@@ -64,12 +66,16 @@ class Eval:
 class Investment:
     def __init__(self):
         self.title = ""
-        self.Main_Char = Main_Char(0, 0, 0)
+        self.id = self.getId()
+        self.Main_Char = Main_Char(float("inf"), 0, 0)
         self.Info = Info(0, 0, "", "", "", 0, 0)
         self.Contribution = Contribution(0, 0, 0, 0, 0, 0, 0, 0)
-        self.Credit = Credit(0, 0, 0, 0)
+        self.Credit = Credit(float("inf"), 0, 0, 0)
         self.Rent = Rent(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
         self.Eval = Eval("")
+
+    def getId(self):
+        pass
 
     def save(self):
         self.inv = json.dumps(self.Main_Char.__dict__) + json.dumps(self.Info.__dict__) + json.dumps(
@@ -89,6 +95,7 @@ class Investment:
         outfile.close()
 
     def setTitle(self, title):
+        print("setting title to " + title + " inv: ", self)
         self.title = title
 
     def purchasePrice(self):
@@ -188,13 +195,16 @@ class Investment:
         return self.ownContribution() + self.brokerMargin() + self.notaryMargin() + self.tax() + self.otherCosts() + self.renovationCost()
 
     def investedVsPurchasePrice(self):
-        return self.entryCost() / self.purchasePrice()
+        return self.entryCost() / self.purchasePrice() if type(
+            self.entryCost()) is not str and type(self.purchasePrice()) is not str else noDataText
 
     def bankCredit(self):
-        return self.Main_Char.price - self.Contribution.contr
+        return self.Main_Char.price - self.Contribution.contr if type(
+            self.Main_Char.price) is not str and type(self.Contribution.contr) is not str else noDataText
 
     def bankContributionPercent(self):
-        return self.bankCredit() / self.Main_Char.price
+        return self.bankCredit() / self.Main_Char.price if type(
+            self.bankCredit()) is not str and type(self.Main_Char.price) is not str else noDataText
 
     def interestRate(self):
         return self.Credit.rate
@@ -209,14 +219,26 @@ class Investment:
         self.Credit.time = period
 
     def monthlyInstallment(self):
-        return (self.bankCredit() * self.interestRate()) / (
+        monthlyInstallment = noDataText
+        try:
+            monthlyInstallment = (self.bankCredit() * self.interestRate()) / (
                     12 * (1 - (12 / (12 + self.interestRate())) ** self.repaymentPeriod()))
+        finally:
+            return monthlyInstallment
 
     def monthlyInstallmentCapitalPart(self):
-        return self.bankCredit() / self.repaymentPeriod()
+        monthlyInstallmentCapitalPart = noDataText
+        try:
+            monthlyInstallmentCapitalPart = self.bankCredit() / self.repaymentPeriod()
+        finally:
+            return monthlyInstallmentCapitalPart
 
     def monthlyInstallmentInterestPart(self):
-        return self.monthlyInstallment() - self.monthlyInstallmentCapitalPart()
+        monthlyInstallmentInterestPart = noDataText
+        try:
+            monthlyInstallmentInterestPart = self.monthlyInstallment() - self.monthlyInstallmentCapitalPart()
+        finally:
+            return monthlyInstallmentInterestPart
 
     def creditInsurancePerMonth(self):
         return self.Credit.monthly_insurance
@@ -225,7 +247,11 @@ class Investment:
         self.Credit.monthly_insurance = creditInsurance
 
     def totalCreditCost(self):
-        return self.monthlyInstallment() + self.creditInsurancePerMonth()
+        totalCreditCost = noDataText
+        try:
+            totalCreditCost = self.monthlyInstallment() + self.creditInsurancePerMonth()
+        finally:
+            return totalCreditCost
 
     def rentIncomeMinPerMonth(self):
         return self.Rent.income_min
@@ -291,10 +317,15 @@ class Investment:
         return self.Rent.tax_estate + self.Rent.tax_rent + self.Rent.power + self.Rent.water + self.Rent.gas + self.Rent.internet + self.Rent.other
 
     def incomeOrLossPerMonth(self):
-        return self.incomeReceivedPerMonth() - self.costsTotalPerMonth()
+        return self.incomeReceivedPerMonth() - self.costsTotalPerMonth() if type(
+            self.incomeReceivedPerMonth()) is not str and type(self.costsTotalPerMonth()) is not str else noDataText
 
     def ownCapitalReturnTimeMonths(self):
-        return self.entryCost() / self.incomeOrLossPerMonth()
+        ownCapitalReturnTimeMonths = noDataText
+        try:
+            ownCapitalReturnTimeMonths = self.entryCost() / self.incomeOrLossPerMonth()
+        finally:
+            return ownCapitalReturnTimeMonths
 
     def ownCapitalReturnTimeYears(self):
         return self.ownCapitalReturnTimeMonths() * 12
@@ -304,7 +335,6 @@ class Investment:
 
     def totalReturnTimeYears(self):
         return self.totalReturnTimeMonths() * 12
-
 
 # g = Investment()
 # g.save()

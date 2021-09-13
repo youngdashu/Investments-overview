@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'main_windowjaPIvH.ui'
+## Form generated from reading UI file 'main_windowWvkUtQ.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.1.1
 ##
@@ -193,15 +193,15 @@ class Ui_MainWindow(object):
         self.scrollAreaContents_currently_opened = QWidget()
         self.scrollAreaContents_currently_opened.setObjectName(u"scrollAreaContents_currently_opened")
         self.scrollAreaContents_currently_opened.setGeometry(QRect(0, 0, 808, 72))
-        self.horizontalLayout_52 = QHBoxLayout(self.scrollAreaContents_currently_opened)
-        self.horizontalLayout_52.setObjectName(u"horizontalLayout_52")
+        self.scrollAreaContents_currently_opened_layout = QHBoxLayout(self.scrollAreaContents_currently_opened)
+        self.scrollAreaContents_currently_opened_layout.setObjectName(u"scrollAreaContents_currently_opened_layout")
         self.frame_small_decoy = QFrame(self.scrollAreaContents_currently_opened)
         self.frame_small_decoy.setObjectName(u"frame_small_decoy")
         self.frame_small_decoy.setMaximumSize(QSize(0, 0))
         self.frame_small_decoy.setFrameShape(QFrame.StyledPanel)
         self.frame_small_decoy.setFrameShadow(QFrame.Raised)
 
-        self.horizontalLayout_52.addWidget(self.frame_small_decoy)
+        self.scrollAreaContents_currently_opened_layout.addWidget(self.frame_small_decoy)
 
         self.scrollArea_currently_opened.setWidget(self.scrollAreaContents_currently_opened)
 
@@ -238,7 +238,7 @@ class Ui_MainWindow(object):
         self.scrollArea_current_investment.setWidgetResizable(True)
         self.scrollArea_investment_contents = QWidget()
         self.scrollArea_investment_contents.setObjectName(u"scrollArea_investment_contents")
-        self.scrollArea_investment_contents.setGeometry(QRect(0, -383, 808, 2308))
+        self.scrollArea_investment_contents.setGeometry(QRect(0, -1851, 808, 2308))
         self.scrollArea_investment_contents.setStyleSheet(u"#scrollAreaWidgetContainer{\n"
 "border: 3px solid gray;\n"
 "border-radius: 8px;\n"
@@ -1098,20 +1098,20 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_31.addWidget(self.label_37)
 
-        self.textEdit_31 = QTextEdit(self.frame_31)
-        self.textEdit_31.setObjectName(u"textEdit_31")
+        self.text_rent_income_min_month = QTextEdit(self.frame_31)
+        self.text_rent_income_min_month.setObjectName(u"text_rent_income_min_month")
 
-        self.horizontalLayout_31.addWidget(self.textEdit_31)
+        self.horizontalLayout_31.addWidget(self.text_rent_income_min_month)
 
-        self.textEdit_32 = QTextEdit(self.frame_31)
-        self.textEdit_32.setObjectName(u"textEdit_32")
+        self.text_rent_income_min_year = QTextEdit(self.frame_31)
+        self.text_rent_income_min_year.setObjectName(u"text_rent_income_min_year")
 
-        self.horizontalLayout_31.addWidget(self.textEdit_32)
+        self.horizontalLayout_31.addWidget(self.text_rent_income_min_year)
 
-        self.textEdit_36 = QTextEdit(self.frame_31)
-        self.textEdit_36.setObjectName(u"textEdit_36")
+        self.text_rent_income_min_percent = QTextEdit(self.frame_31)
+        self.text_rent_income_min_percent.setObjectName(u"text_rent_income_min_percent")
 
-        self.horizontalLayout_31.addWidget(self.textEdit_36)
+        self.horizontalLayout_31.addWidget(self.text_rent_income_min_percent)
 
 
         self.verticalLayout_14.addWidget(self.frame_31)
@@ -1129,20 +1129,20 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_32.addWidget(self.label_38)
 
-        self.textEdit_37 = QTextEdit(self.frame_34)
-        self.textEdit_37.setObjectName(u"textEdit_37")
+        self.text_rent_income_max_month = QTextEdit(self.frame_34)
+        self.text_rent_income_max_month.setObjectName(u"text_rent_income_max_month")
 
-        self.horizontalLayout_32.addWidget(self.textEdit_37)
+        self.horizontalLayout_32.addWidget(self.text_rent_income_max_month)
 
-        self.textEdit_38 = QTextEdit(self.frame_34)
-        self.textEdit_38.setObjectName(u"textEdit_38")
+        self.text_rent_income_max_year = QTextEdit(self.frame_34)
+        self.text_rent_income_max_year.setObjectName(u"text_rent_income_max_year")
 
-        self.horizontalLayout_32.addWidget(self.textEdit_38)
+        self.horizontalLayout_32.addWidget(self.text_rent_income_max_year)
 
-        self.textEdit_39 = QTextEdit(self.frame_34)
-        self.textEdit_39.setObjectName(u"textEdit_39")
+        self.text_rent_income_max_percent = QTextEdit(self.frame_34)
+        self.text_rent_income_max_percent.setObjectName(u"text_rent_income_max_percent")
 
-        self.horizontalLayout_32.addWidget(self.textEdit_39)
+        self.horizontalLayout_32.addWidget(self.text_rent_income_max_percent)
 
 
         self.verticalLayout_14.addWidget(self.frame_34)
@@ -1160,20 +1160,20 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_35.addWidget(self.label_39)
 
-        self.textEdit_40 = QTextEdit(self.frame_33)
-        self.textEdit_40.setObjectName(u"textEdit_40")
+        self.text_income_earned_month = QTextEdit(self.frame_33)
+        self.text_income_earned_month.setObjectName(u"text_income_earned_month")
 
-        self.horizontalLayout_35.addWidget(self.textEdit_40)
+        self.horizontalLayout_35.addWidget(self.text_income_earned_month)
 
-        self.textEdit_41 = QTextEdit(self.frame_33)
-        self.textEdit_41.setObjectName(u"textEdit_41")
+        self.text_income_earned_year = QTextEdit(self.frame_33)
+        self.text_income_earned_year.setObjectName(u"text_income_earned_year")
 
-        self.horizontalLayout_35.addWidget(self.textEdit_41)
+        self.horizontalLayout_35.addWidget(self.text_income_earned_year)
 
-        self.textEdit_42 = QTextEdit(self.frame_33)
-        self.textEdit_42.setObjectName(u"textEdit_42")
+        self.text_income_earned_percent = QTextEdit(self.frame_33)
+        self.text_income_earned_percent.setObjectName(u"text_income_earned_percent")
 
-        self.horizontalLayout_35.addWidget(self.textEdit_42)
+        self.horizontalLayout_35.addWidget(self.text_income_earned_percent)
 
 
         self.verticalLayout_14.addWidget(self.frame_33)
@@ -1212,20 +1212,20 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_36.addWidget(self.label_30)
 
-        self.textEdit_43 = QTextEdit(self.frame_35)
-        self.textEdit_43.setObjectName(u"textEdit_43")
+        self.text_rent_tax_month = QTextEdit(self.frame_35)
+        self.text_rent_tax_month.setObjectName(u"text_rent_tax_month")
 
-        self.horizontalLayout_36.addWidget(self.textEdit_43)
+        self.horizontalLayout_36.addWidget(self.text_rent_tax_month)
 
-        self.textEdit_44 = QTextEdit(self.frame_35)
-        self.textEdit_44.setObjectName(u"textEdit_44")
+        self.text_rent_tax_year = QTextEdit(self.frame_35)
+        self.text_rent_tax_year.setObjectName(u"text_rent_tax_year")
 
-        self.horizontalLayout_36.addWidget(self.textEdit_44)
+        self.horizontalLayout_36.addWidget(self.text_rent_tax_year)
 
-        self.textEdit_45 = QTextEdit(self.frame_35)
-        self.textEdit_45.setObjectName(u"textEdit_45")
+        self.text_rent_tax_percent = QTextEdit(self.frame_35)
+        self.text_rent_tax_percent.setObjectName(u"text_rent_tax_percent")
 
-        self.horizontalLayout_36.addWidget(self.textEdit_45)
+        self.horizontalLayout_36.addWidget(self.text_rent_tax_percent)
 
 
         self.verticalLayout_15.addWidget(self.frame_35)
@@ -1243,20 +1243,20 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_37.addWidget(self.label_31)
 
-        self.textEdit_46 = QTextEdit(self.frame_36)
-        self.textEdit_46.setObjectName(u"textEdit_46")
+        self.text_property_tax_month = QTextEdit(self.frame_36)
+        self.text_property_tax_month.setObjectName(u"text_property_tax_month")
 
-        self.horizontalLayout_37.addWidget(self.textEdit_46)
+        self.horizontalLayout_37.addWidget(self.text_property_tax_month)
 
-        self.textEdit_47 = QTextEdit(self.frame_36)
-        self.textEdit_47.setObjectName(u"textEdit_47")
+        self.text_property_tax_year = QTextEdit(self.frame_36)
+        self.text_property_tax_year.setObjectName(u"text_property_tax_year")
 
-        self.horizontalLayout_37.addWidget(self.textEdit_47)
+        self.horizontalLayout_37.addWidget(self.text_property_tax_year)
 
-        self.textEdit_48 = QTextEdit(self.frame_36)
-        self.textEdit_48.setObjectName(u"textEdit_48")
+        self.text_property_tax_percent = QTextEdit(self.frame_36)
+        self.text_property_tax_percent.setObjectName(u"text_property_tax_percent")
 
-        self.horizontalLayout_37.addWidget(self.textEdit_48)
+        self.horizontalLayout_37.addWidget(self.text_property_tax_percent)
 
 
         self.verticalLayout_15.addWidget(self.frame_36)
@@ -1274,20 +1274,20 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_38.addWidget(self.label_32)
 
-        self.textEdit_49 = QTextEdit(self.frame_37)
-        self.textEdit_49.setObjectName(u"textEdit_49")
+        self.text_electricity_month = QTextEdit(self.frame_37)
+        self.text_electricity_month.setObjectName(u"text_electricity_month")
 
-        self.horizontalLayout_38.addWidget(self.textEdit_49)
+        self.horizontalLayout_38.addWidget(self.text_electricity_month)
 
-        self.textEdit_50 = QTextEdit(self.frame_37)
-        self.textEdit_50.setObjectName(u"textEdit_50")
+        self.text_electricity_year = QTextEdit(self.frame_37)
+        self.text_electricity_year.setObjectName(u"text_electricity_year")
 
-        self.horizontalLayout_38.addWidget(self.textEdit_50)
+        self.horizontalLayout_38.addWidget(self.text_electricity_year)
 
-        self.textEdit_51 = QTextEdit(self.frame_37)
-        self.textEdit_51.setObjectName(u"textEdit_51")
+        self.text_electricity_percent = QTextEdit(self.frame_37)
+        self.text_electricity_percent.setObjectName(u"text_electricity_percent")
 
-        self.horizontalLayout_38.addWidget(self.textEdit_51)
+        self.horizontalLayout_38.addWidget(self.text_electricity_percent)
 
 
         self.verticalLayout_15.addWidget(self.frame_37)
@@ -1305,20 +1305,20 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_39.addWidget(self.label_33)
 
-        self.textEdit_54 = QTextEdit(self.frame_38)
-        self.textEdit_54.setObjectName(u"textEdit_54")
+        self.text_gas_month = QTextEdit(self.frame_38)
+        self.text_gas_month.setObjectName(u"text_gas_month")
 
-        self.horizontalLayout_39.addWidget(self.textEdit_54)
+        self.horizontalLayout_39.addWidget(self.text_gas_month)
 
-        self.textEdit_53 = QTextEdit(self.frame_38)
-        self.textEdit_53.setObjectName(u"textEdit_53")
+        self.text_gas_year = QTextEdit(self.frame_38)
+        self.text_gas_year.setObjectName(u"text_gas_year")
 
-        self.horizontalLayout_39.addWidget(self.textEdit_53)
+        self.horizontalLayout_39.addWidget(self.text_gas_year)
 
-        self.textEdit_52 = QTextEdit(self.frame_38)
-        self.textEdit_52.setObjectName(u"textEdit_52")
+        self.text_gas_percent = QTextEdit(self.frame_38)
+        self.text_gas_percent.setObjectName(u"text_gas_percent")
 
-        self.horizontalLayout_39.addWidget(self.textEdit_52)
+        self.horizontalLayout_39.addWidget(self.text_gas_percent)
 
 
         self.verticalLayout_15.addWidget(self.frame_38)
@@ -1336,20 +1336,20 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_40.addWidget(self.label_34)
 
-        self.textEdit_57 = QTextEdit(self.frame_40)
-        self.textEdit_57.setObjectName(u"textEdit_57")
+        self.text_water_month = QTextEdit(self.frame_40)
+        self.text_water_month.setObjectName(u"text_water_month")
 
-        self.horizontalLayout_40.addWidget(self.textEdit_57)
+        self.horizontalLayout_40.addWidget(self.text_water_month)
 
-        self.textEdit_56 = QTextEdit(self.frame_40)
-        self.textEdit_56.setObjectName(u"textEdit_56")
+        self.text_water_year = QTextEdit(self.frame_40)
+        self.text_water_year.setObjectName(u"text_water_year")
 
-        self.horizontalLayout_40.addWidget(self.textEdit_56)
+        self.horizontalLayout_40.addWidget(self.text_water_year)
 
-        self.textEdit_55 = QTextEdit(self.frame_40)
-        self.textEdit_55.setObjectName(u"textEdit_55")
+        self.text_water_percent = QTextEdit(self.frame_40)
+        self.text_water_percent.setObjectName(u"text_water_percent")
 
-        self.horizontalLayout_40.addWidget(self.textEdit_55)
+        self.horizontalLayout_40.addWidget(self.text_water_percent)
 
 
         self.verticalLayout_15.addWidget(self.frame_40)
@@ -1367,20 +1367,20 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_41.addWidget(self.label_35)
 
-        self.textEdit_60 = QTextEdit(self.frame_41)
-        self.textEdit_60.setObjectName(u"textEdit_60")
+        self.text_internet_month = QTextEdit(self.frame_41)
+        self.text_internet_month.setObjectName(u"text_internet_month")
 
-        self.horizontalLayout_41.addWidget(self.textEdit_60)
+        self.horizontalLayout_41.addWidget(self.text_internet_month)
 
-        self.textEdit_59 = QTextEdit(self.frame_41)
-        self.textEdit_59.setObjectName(u"textEdit_59")
+        self.text_internet_year = QTextEdit(self.frame_41)
+        self.text_internet_year.setObjectName(u"text_internet_year")
 
-        self.horizontalLayout_41.addWidget(self.textEdit_59)
+        self.horizontalLayout_41.addWidget(self.text_internet_year)
 
-        self.textEdit_58 = QTextEdit(self.frame_41)
-        self.textEdit_58.setObjectName(u"textEdit_58")
+        self.text_internet_percent = QTextEdit(self.frame_41)
+        self.text_internet_percent.setObjectName(u"text_internet_percent")
 
-        self.horizontalLayout_41.addWidget(self.textEdit_58)
+        self.horizontalLayout_41.addWidget(self.text_internet_percent)
 
 
         self.verticalLayout_15.addWidget(self.frame_41)
@@ -1398,20 +1398,20 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_42.addWidget(self.label_36)
 
-        self.textEdit_63 = QTextEdit(self.frame_39)
-        self.textEdit_63.setObjectName(u"textEdit_63")
+        self.text_other_costs_month = QTextEdit(self.frame_39)
+        self.text_other_costs_month.setObjectName(u"text_other_costs_month")
 
-        self.horizontalLayout_42.addWidget(self.textEdit_63)
+        self.horizontalLayout_42.addWidget(self.text_other_costs_month)
 
-        self.textEdit_62 = QTextEdit(self.frame_39)
-        self.textEdit_62.setObjectName(u"textEdit_62")
+        self.text_other_costs_year = QTextEdit(self.frame_39)
+        self.text_other_costs_year.setObjectName(u"text_other_costs_year")
 
-        self.horizontalLayout_42.addWidget(self.textEdit_62)
+        self.horizontalLayout_42.addWidget(self.text_other_costs_year)
 
-        self.textEdit_61 = QTextEdit(self.frame_39)
-        self.textEdit_61.setObjectName(u"textEdit_61")
+        self.text_other_costs_percent_2 = QTextEdit(self.frame_39)
+        self.text_other_costs_percent_2.setObjectName(u"text_other_costs_percent_2")
 
-        self.horizontalLayout_42.addWidget(self.textEdit_61)
+        self.horizontalLayout_42.addWidget(self.text_other_costs_percent_2)
 
 
         self.verticalLayout_15.addWidget(self.frame_39)
@@ -1429,15 +1429,15 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_46.addWidget(self.label_47)
 
-        self.textEdit_64 = QTextEdit(self.frame_26)
-        self.textEdit_64.setObjectName(u"textEdit_64")
+        self.text_total_costs_month = QTextEdit(self.frame_26)
+        self.text_total_costs_month.setObjectName(u"text_total_costs_month")
 
-        self.horizontalLayout_46.addWidget(self.textEdit_64)
+        self.horizontalLayout_46.addWidget(self.text_total_costs_month)
 
-        self.textEdit_65 = QTextEdit(self.frame_26)
-        self.textEdit_65.setObjectName(u"textEdit_65")
+        self.text_total_costs_year = QTextEdit(self.frame_26)
+        self.text_total_costs_year.setObjectName(u"text_total_costs_year")
 
-        self.horizontalLayout_46.addWidget(self.textEdit_65)
+        self.horizontalLayout_46.addWidget(self.text_total_costs_year)
 
         self.horizontalSpacer_4 = QSpacerItem(255, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
@@ -1463,15 +1463,15 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_47.addWidget(self.label_48)
 
-        self.textEdit_66 = QTextEdit(self.frame_32)
-        self.textEdit_66.setObjectName(u"textEdit_66")
+        self.text_rent_gain_loss_month = QTextEdit(self.frame_32)
+        self.text_rent_gain_loss_month.setObjectName(u"text_rent_gain_loss_month")
 
-        self.horizontalLayout_47.addWidget(self.textEdit_66)
+        self.horizontalLayout_47.addWidget(self.text_rent_gain_loss_month)
 
-        self.textEdit_67 = QTextEdit(self.frame_32)
-        self.textEdit_67.setObjectName(u"textEdit_67")
+        self.text_rent_gain_loss_year = QTextEdit(self.frame_32)
+        self.text_rent_gain_loss_year.setObjectName(u"text_rent_gain_loss_year")
 
-        self.horizontalLayout_47.addWidget(self.textEdit_67)
+        self.horizontalLayout_47.addWidget(self.text_rent_gain_loss_year)
 
         self.horizontalSpacer_5 = QSpacerItem(265, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
@@ -1558,7 +1558,7 @@ class Ui_MainWindow(object):
         self.frame_44.setFrameShadow(QFrame.Raised)
         self.verticalLayout_19 = QVBoxLayout(self.frame_44)
         self.verticalLayout_19.setObjectName(u"verticalLayout_19")
-        self.verticalLayout_19.setContentsMargins(-1, 2, -1, 2)
+        self.verticalLayout_19.setContentsMargins(2, 2, 2, 2)
         self.frame_27 = QFrame(self.frame_44)
         self.frame_27.setObjectName(u"frame_27")
         self.frame_27.setMinimumSize(QSize(0, 40))
@@ -1566,22 +1566,22 @@ class Ui_MainWindow(object):
         self.frame_27.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_48 = QHBoxLayout(self.frame_27)
         self.horizontalLayout_48.setObjectName(u"horizontalLayout_48")
-        self.horizontalLayout_48.setContentsMargins(-1, 2, -1, 2)
+        self.horizontalLayout_48.setContentsMargins(2, 2, 2, 2)
         self.label_49 = QLabel(self.frame_27)
         self.label_49.setObjectName(u"label_49")
         self.label_49.setMinimumSize(QSize(267, 0))
 
         self.horizontalLayout_48.addWidget(self.label_49)
 
-        self.label_53 = QLabel(self.frame_27)
-        self.label_53.setObjectName(u"label_53")
+        self.label_own_capital_return_time_months = QLabel(self.frame_27)
+        self.label_own_capital_return_time_months.setObjectName(u"label_own_capital_return_time_months")
 
-        self.horizontalLayout_48.addWidget(self.label_53)
+        self.horizontalLayout_48.addWidget(self.label_own_capital_return_time_months)
 
-        self.label_57 = QLabel(self.frame_27)
-        self.label_57.setObjectName(u"label_57")
+        self.label_own_capital_return_time_years = QLabel(self.frame_27)
+        self.label_own_capital_return_time_years.setObjectName(u"label_own_capital_return_time_years")
 
-        self.horizontalLayout_48.addWidget(self.label_57)
+        self.horizontalLayout_48.addWidget(self.label_own_capital_return_time_years)
 
         self.label_61 = QLabel(self.frame_27)
         self.label_61.setObjectName(u"label_61")
@@ -1598,22 +1598,22 @@ class Ui_MainWindow(object):
         self.frame_46.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_49 = QHBoxLayout(self.frame_46)
         self.horizontalLayout_49.setObjectName(u"horizontalLayout_49")
-        self.horizontalLayout_49.setContentsMargins(-1, 2, -1, 2)
+        self.horizontalLayout_49.setContentsMargins(2, 2, 2, 2)
         self.label_50 = QLabel(self.frame_46)
         self.label_50.setObjectName(u"label_50")
         self.label_50.setMinimumSize(QSize(267, 0))
 
         self.horizontalLayout_49.addWidget(self.label_50)
 
-        self.label_54 = QLabel(self.frame_46)
-        self.label_54.setObjectName(u"label_54")
+        self.label_total_return_time_months = QLabel(self.frame_46)
+        self.label_total_return_time_months.setObjectName(u"label_total_return_time_months")
 
-        self.horizontalLayout_49.addWidget(self.label_54)
+        self.horizontalLayout_49.addWidget(self.label_total_return_time_months)
 
-        self.label_58 = QLabel(self.frame_46)
-        self.label_58.setObjectName(u"label_58")
+        self.label_total_return_time_years = QLabel(self.frame_46)
+        self.label_total_return_time_years.setObjectName(u"label_total_return_time_years")
 
-        self.horizontalLayout_49.addWidget(self.label_58)
+        self.horizontalLayout_49.addWidget(self.label_total_return_time_years)
 
         self.label_62 = QLabel(self.frame_46)
         self.label_62.setObjectName(u"label_62")
@@ -1630,7 +1630,7 @@ class Ui_MainWindow(object):
         self.frame_47.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_50 = QHBoxLayout(self.frame_47)
         self.horizontalLayout_50.setObjectName(u"horizontalLayout_50")
-        self.horizontalLayout_50.setContentsMargins(-1, 2, -1, 2)
+        self.horizontalLayout_50.setContentsMargins(2, 2, 2, 2)
         self.label_51 = QLabel(self.frame_47)
         self.label_51.setObjectName(u"label_51")
         self.label_51.setMinimumSize(QSize(267, 0))
@@ -1662,7 +1662,7 @@ class Ui_MainWindow(object):
         self.frame_45.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_51 = QHBoxLayout(self.frame_45)
         self.horizontalLayout_51.setObjectName(u"horizontalLayout_51")
-        self.horizontalLayout_51.setContentsMargins(-1, 2, -1, 2)
+        self.horizontalLayout_51.setContentsMargins(2, 2, 2, 2)
         self.label_52 = QLabel(self.frame_45)
         self.label_52.setObjectName(u"label_52")
         self.label_52.setMinimumSize(QSize(267, 0))
@@ -1904,12 +1904,12 @@ class Ui_MainWindow(object):
         self.label_44.setText(QCoreApplication.translate("MainWindow", u"Na rok", None))
         self.label_46.setText(QCoreApplication.translate("MainWindow", u"%", None))
         self.label_49.setText(QCoreApplication.translate("MainWindow", u"Czas zwrotu kapita\u0142u w\u0142asnego z wynajmu", None))
-        self.label_53.setText("")
-        self.label_57.setText("")
+        self.label_own_capital_return_time_months.setText("")
+        self.label_own_capital_return_time_years.setText("")
         self.label_61.setText("")
         self.label_50.setText(QCoreApplication.translate("MainWindow", u"Czas zwrotu kapita\u0142u \u0142\u0105cznie z kredytem", None))
-        self.label_54.setText("")
-        self.label_58.setText("")
+        self.label_total_return_time_months.setText("")
+        self.label_total_return_time_years.setText("")
         self.label_62.setText("")
         self.label_51.setText(QCoreApplication.translate("MainWindow", u"Stopa zwrotu kapita\u0142u w\u0142asnego z wynajmu", None))
         self.label_55.setText("")
