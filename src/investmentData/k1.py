@@ -97,7 +97,7 @@ class Investment:
             self.Contribution.__dict__) + json.dumps(self.Credit.__dict__) + json.dumps(
             self.Rent.__dict__) + json.dumps(self.Eval.__dict__)
         outfile = open("guide.txt", "a")
-        outfile.write("InvStart__" + str(self.id))
+        outfile.write("\n"+"InvStart__" + str(self.id))
         outfile.write(json.dumps(self.inv))
         outfile.write("__InvEnd")
         outfile.close()
@@ -344,5 +344,20 @@ class Investment:
     def totalReturnTimeYears(self):
         return self.totalReturnTimeMonths() * 12
 
+def getIDsOfInvestments():
+    ids=[]
+    with open("guide.txt") as guide:
+        for line in guide.readlines():
+            if "InvStart__" in line:
+                g=10
+                num=""
+                while line[g].isdigit():
+                    num=num+line[g]
+                    g+=1
+                ids.append(int(num))
+    return(ids)
+
 #g = Investment()
 #g.save()
+
+#print(getNumberOfInvestments())
