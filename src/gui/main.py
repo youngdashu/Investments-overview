@@ -2,7 +2,9 @@ import sys
 from PySide6 import QtCore, QtGui
 from PySide6.QtCore import (QPropertyAnimation)
 from PySide6.QtGui import (QColor)
+from PySide6.QtGui import QPixmap
 from PySide6.QtWidgets import QApplication, QMainWindow, QLabel, QWidget, QTextEdit, QFrame, QHBoxLayout, QPushButton
+from typing import Dict, List
 
 from pageTypes import PageTypes
 from src.investmentData.k1 import Investment
@@ -43,21 +45,28 @@ class MainWindow(QMainWindow):
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
 
+        self.savedIcon: QPixmap = QPixmap("icons/saved.png")
+        self.unsavedIcon: QPixmap = QPixmap("icons/unsaved.png")
+
         self.textEditsConnected = False
 
-        self.investments = []
-        self.investmentTabs = []
+        self.investments: Dict[int, Investment] = {}
+        self.investmentTabs: Dict[int, QFrame] = {}
+        self.currentInvestment: Investment = None
+        self.currentInvestmentTabIconLabel: QLabel = None
 
         self.ui.closeButton.clicked.connect(self.close)
         self.ui.minimizeButton.clicked.connect(self.showMinimized())
         self.ui.restoreButton.clicked.connect(self.restore)
+
+        self.ui.button_save_data.clicked.connect(self.saveCurrentInvestment)
 
         # self.tables = [self.ui.tableRent, self.ui.tableCredit, self.ui.tableInformation,
         #                self.ui.tableMainCharacteristics, self.ui.tableOwnContribution,
         #                self.ui.tableInvestmentAssessment]
 
         # read only text edits
-        self.readOnlyTextEdits = [self.ui.text_price_per_square_meter, self.ui.text_own_contribution_percent,
+        self.readOnlyTextEdits: List[QTextEdit] = [self.ui.text_price_per_square_meter, self.ui.text_own_contribution_percent,
                                   self.ui.text_broker_margin_percent, self.ui.text_notary_margin_percent,
                                   self.ui.text_tax_percent, self.ui.text_other_costs_percent,
                                   self.ui.text_renovation_percent, self.ui.text_entry_cost, self.ui.text_credit,
@@ -73,7 +82,7 @@ class MainWindow(QMainWindow):
                                   self.ui.text_total_costs_month, self.ui.text_total_costs_year,
                                   self.ui.text_rent_gain_loss_month, self.ui.text_rent_gain_loss_year]
 
-        self.editableTextEdits = [self.ui.text_investment_name,
+        self.editableTextEdits: List[QTextEdit] = [self.ui.text_investment_name,
                                   self.ui.text_purchase_price,
                                   self.ui.text_area,
                                   self.ui.text_start_date,
@@ -296,7 +305,7 @@ class MainWindow(QMainWindow):
     #     else:
     #         children = []
     #         try:
-    #             children = parent.getChildren(QWidget)
+    #             children = parent.findChildren(QWidget)
     #         except:
     #             pass
     #         for c in children:
@@ -307,12 +316,12 @@ class MainWindow(QMainWindow):
         global tabCounter
         global buttonCounter
         global layoutCounter
+        global labelCounter
 
         newInvestment = Investment()
-        self.investments.append(newInvestment)
-
-        for inv in self.investments:
-            print("! ", inv)
+        # self.investments.append(newInvestment)
+        self.investments[newInvestment.id] = newInvestment
+        # self.currentInvestment = newInvestment
 
         print(newInvestment)
 
@@ -331,11 +340,20 @@ class MainWindow(QMainWindow):
         openInvestmentButton = QPushButton("Inwestycja nienazwana", investmentFrame)
         openInvestmentButton.setObjectName("investment_button" + str(buttonCounter))
         buttonCounter += 1
+        isSavedLabel = QLabel("", investmentFrame)
+        isSavedLabel.setObjectName("isSavedLabel_" + str(labelCounter))
+        labelCounter += 1
+        isSavedLabel.setPixmap(self.unsavedIcon)
+        isSavedLabel.setStyleSheet("")
+        isSavedLabel.setMaximumHeight(42)
+        isSavedLabel.setMaximumWidth(42)
 
         investmentFrameLayout.addWidget(closeFrameButton)
         investmentFrameLayout.addWidget(openInvestmentButton)
+        investmentFrameLayout.addWidget(isSavedLabel)
 
-        self.investmentTabs.append(investmentFrame)
+        # self.investmentTabs.append(investmentFrame)
+        self.investmentTabs[newInvestment.id] = investmentFrame
 
         openInvestmentButton.clicked.connect(lambda: self.showInvestmentOnMainPage(newInvestment, investmentFrame))
 
@@ -349,9 +367,13 @@ class MainWindow(QMainWindow):
 
     def showInvestmentOnMainPage(self, investment: Investment, frameToHighlight: QFrame):
 
-        for frame in self.investmentTabs:
+        self.currentInvestment = investment
+
+        for frame in self.investmentTabs.values():
             if frame is frameToHighlight:
                 frame.setStyleSheet(highlightedFrameStyleSheet)
+                iconLabel: QLabel = frame.findChild(QLabel)
+                iconLabel.setPixmap(self.savedIcon)
             else:
                 frame.setStyleSheet(frameStyleSheet)
 
@@ -446,44 +468,32 @@ class MainWindow(QMainWindow):
         self.ui.label_own_capital_return_time_months.setText(str(investment.ownCapitalReturnTimeMonths()))
         self.ui.label_own_capital_return_time_years.setText(str(investment.ownCapitalReturnTimeYears()))
 
+    def changeOneIcon(self, investmentFrameLabel: QLabel):
+        if investmentFrameLabel.pixmap() is self.savedIcon:
+            investmentFrameLabel.setPixmap(self.unsavedIcon)
+
+    def changeSaveIconMap(self, editableTextEdit: QTextEdit):
+        investmentFrameLabel = self.currentInvestmentTabIconLabel
+        editableTextEdit.textChanged.connect(self.changeOneIcon(investmentFrameLabel))
+        return editableTextEdit
+
+    def disconnectFunction(self, editableTextEdit):
+        editableTextEdit.textChanged.disconnect()
+        return editableTextEdit
+
     def captureTextEdits(self, investment):
 
         if self.textEditsConnected:
             print("odlaczam")
             self.textEditsConnected = False
-            # map(lambda editableTextEdit: editableTextEdit.textChanged.disconnect(), self.editableTextEdits)
-
-            self.ui.text_investment_name.textChanged.disconnect()
-            self.ui.text_purchase_price.textChanged.disconnect()
-            self.ui.text_area.textChanged.disconnect()
-            self.ui.text_start_date.textChanged.disconnect()
-            self.ui.text_description.textChanged.disconnect()
-            self.ui.text_address_street.textChanged.disconnect()
-            self.ui.text_address_city.textChanged.disconnect()
-            self.ui.text_estimated_value.textChanged.disconnect()
-            self.ui.text_last_estimation.textChanged.disconnect()
-            self.ui.text_finish_date.textChanged.disconnect()
-            self.ui.text_own_contribution.textChanged.disconnect()
-            self.ui.text_broker_margin.textChanged.disconnect()
-            self.ui.text_notary_margin.textChanged.disconnect()
-            self.ui.text_tax.textChanged.disconnect()
-            self.ui.text_other_costs.textChanged.disconnect()
-            self.ui.text_renovation.textChanged.disconnect()
-            self.ui.text_interest_rate.textChanged.disconnect()
-            self.ui.text_repayment_period.textChanged.disconnect()
-            self.ui.text_credit_credit_insurance_per_month.textChanged.disconnect()
-            self.ui.text_rent_income_min_month.textChanged.disconnect()
-            self.ui.text_rent_income_max_month.textChanged.disconnect()
-            self.ui.text_income_earned_month.textChanged.disconnect()
-            self.ui.text_rent_tax_month.textChanged.disconnect()
-            self.ui.text_property_tax_year.textChanged.disconnect()
-            self.ui.text_electricity_month.textChanged.disconnect()
-            self.ui.text_gas_month.textChanged.disconnect()
-            self.ui.text_water_month.textChanged.disconnect()
-            self.ui.text_internet_month.textChanged.disconnect()
-            self.ui.text_other_costs_month.textChanged.disconnect()
-
+            print(self.editableTextEdits)
+            self.editableTextEdits = list(
+                map(self.disconnectFunction, self.editableTextEdits))
         self.textEditsConnected = True
+
+        self.currentInvestmentTabIconLabel = self.investmentTabs[investment.id].findChild(QLabel)
+
+        self.editableTextEdits = list(map(self.changeSaveIconMap, self.editableTextEdits))
 
         self.ui.text_investment_name.textChanged.connect(
             lambda: investment.setTitle(self.ui.text_investment_name.toPlainText()))
@@ -541,6 +551,11 @@ class MainWindow(QMainWindow):
             lambda: investment.setInternetPerMonth(self.ui.text_internet_month.toPlainText()))
         self.ui.text_other_costs_month.textChanged.connect(
             lambda: investment.setOtherPerMonth(self.ui.text_other_costs_month.toPlainText()))
+
+
+    def saveCurrentInvestment(self):
+        if self.currentInvestment is None:
+            return
 
 
 if __name__ == '__main__':
