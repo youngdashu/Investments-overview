@@ -75,23 +75,31 @@ class Investment:
         self.Eval = Eval("")
 
     def getId(self):
-        pass
+        guide = open("guide.txt", "r")
+        text = guide.readlines()
+        try:
+            id=int(text[0])+1
+            text[0]=str(id)+"\n"
+            guide.close()
+            guide = open("guide.txt", "w")
+            guide.writelines(text)
+            guide.close()
+        except:
+            guide.close()
+            id=0
+            guide = open("guide.txt", "w")
+            guide.writelines("0")
+            guide.close()
+        return(id)
 
     def save(self):
-        self.inv = json.dumps(self.Main_Char.__dict__) + json.dumps(self.Info.__dict__) + json.dumps(
+        self.inv = self.title + json.dumps(self.Main_Char.__dict__) + json.dumps(self.Info.__dict__) + json.dumps(
             self.Contribution.__dict__) + json.dumps(self.Credit.__dict__) + json.dumps(
             self.Rent.__dict__) + json.dumps(self.Eval.__dict__)
-        guide = open("guide.txt", "r")
-        line = guide.readlines()
-        num = int(''.join(line[-1:]))
-        guide.close()
-        guide = open("guide.txt", "a")
-        guide.write('\n' + str(num + 1) + ": " + str(self.title))
-        guide.close()
-        outfile = open("data.txt", "a")
-        outfile.write("IStart__" + str(num) + "__")
+        outfile = open("guide.txt", "a")
+        outfile.write("InvStart__" + str(self.id))
         outfile.write(json.dumps(self.inv))
-        outfile.write("__End__")
+        outfile.write("__InvEnd")
         outfile.close()
 
     def setTitle(self, title):
@@ -336,5 +344,5 @@ class Investment:
     def totalReturnTimeYears(self):
         return self.totalReturnTimeMonths() * 12
 
-# g = Investment()
-# g.save()
+#g = Investment()
+#g.save()
