@@ -67,6 +67,7 @@ class Investment:
     def __init__(self):
         self.title = "Unnamed"
         self.id = self.getId()
+        print(self.id)
         self.Main_Char = Main_Char(float("inf"), 0, 0)
         self.Info = Info(0, 0, "", "", "", 0, 0)
         self.Contribution = Contribution(0, 0, 0, 0, 0, 0, 0, 0)
@@ -75,29 +76,29 @@ class Investment:
         self.Eval = Eval("")
 
     def getId(self):
-        guide = open("guide.txt", "r")
+        guide = open("guide.txt", "r+")
         text = guide.readlines()
         try:
-            id=int(text[0])+1
-            text[0]=str(id)+"\n"
+            id = int(text[0]) + 1
+            text[0] = str(id) + "\n"
             guide.close()
             guide = open("guide.txt", "w")
             guide.writelines(text)
             guide.close()
         except:
             guide.close()
-            id=0
+            id = 0
             guide = open("guide.txt", "w")
             guide.writelines("0")
             guide.close()
-        return(id)
+        return (id)
 
     def save(self):
         self.inv = self.title + json.dumps(self.Main_Char.__dict__) + json.dumps(self.Info.__dict__) + json.dumps(
             self.Contribution.__dict__) + json.dumps(self.Credit.__dict__) + json.dumps(
             self.Rent.__dict__) + json.dumps(self.Eval.__dict__)
         outfile = open("guide.txt", "a")
-        outfile.write("\n"+"InvStart__" + str(self.id))
+        outfile.write("\n" + "InvStart__" + str(self.id))
         outfile.write(json.dumps(self.inv))
         outfile.write("__InvEnd")
         outfile.close()
@@ -361,6 +362,7 @@ def getInvestments():
                     tp+=1
                 investments.append([ids, titles])
     return(investments)
+
 
 #g = Investment()
 #g.save()

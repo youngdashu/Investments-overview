@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'main_windowWvkUtQ.ui'
+## Form generated from reading UI file 'main_windowRteukl.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.1.1
 ##
@@ -129,12 +129,6 @@ class Ui_MainWindow(object):
         self.verticalLayout_18 = QVBoxLayout(self.left_side_menu)
         self.verticalLayout_18.setObjectName(u"verticalLayout_18")
         self.verticalLayout_18.setContentsMargins(6, -1, 6, -1)
-        self.button_load_data = QPushButton(self.left_side_menu)
-        self.button_load_data.setObjectName(u"button_load_data")
-        self.button_load_data.setMinimumSize(QSize(0, 60))
-
-        self.verticalLayout_18.addWidget(self.button_load_data)
-
         self.button_save_data = QPushButton(self.left_side_menu)
         self.button_save_data.setObjectName(u"button_save_data")
         self.button_save_data.setMinimumSize(QSize(0, 60))
@@ -146,12 +140,6 @@ class Ui_MainWindow(object):
         self.button_new_investment.setMinimumSize(QSize(0, 60))
 
         self.verticalLayout_18.addWidget(self.button_new_investment)
-
-        self.button_compare = QPushButton(self.left_side_menu)
-        self.button_compare.setObjectName(u"button_compare")
-        self.button_compare.setMinimumSize(QSize(0, 60))
-
-        self.verticalLayout_18.addWidget(self.button_compare)
 
         self.button_home_page = QPushButton(self.left_side_menu)
         self.button_home_page.setObjectName(u"button_home_page")
@@ -194,7 +182,9 @@ class Ui_MainWindow(object):
         self.scrollAreaContents_currently_opened.setObjectName(u"scrollAreaContents_currently_opened")
         self.scrollAreaContents_currently_opened.setGeometry(QRect(0, 0, 808, 72))
         self.scrollAreaContents_currently_opened_layout = QHBoxLayout(self.scrollAreaContents_currently_opened)
+        self.scrollAreaContents_currently_opened_layout.setSpacing(2)
         self.scrollAreaContents_currently_opened_layout.setObjectName(u"scrollAreaContents_currently_opened_layout")
+        self.scrollAreaContents_currently_opened_layout.setContentsMargins(2, 2, 2, 2)
         self.frame_small_decoy = QFrame(self.scrollAreaContents_currently_opened)
         self.frame_small_decoy.setObjectName(u"frame_small_decoy")
         self.frame_small_decoy.setMaximumSize(QSize(0, 0))
@@ -238,7 +228,7 @@ class Ui_MainWindow(object):
         self.scrollArea_current_investment.setWidgetResizable(True)
         self.scrollArea_investment_contents = QWidget()
         self.scrollArea_investment_contents.setObjectName(u"scrollArea_investment_contents")
-        self.scrollArea_investment_contents.setGeometry(QRect(0, -1851, 808, 2308))
+        self.scrollArea_investment_contents.setGeometry(QRect(0, 0, 808, 2308))
         self.scrollArea_investment_contents.setStyleSheet(u"#scrollAreaWidgetContainer{\n"
 "border: 3px solid gray;\n"
 "border-radius: 8px;\n"
@@ -1842,12 +1832,9 @@ class Ui_MainWindow(object):
         self.minimizeButton.setText(QCoreApplication.translate("MainWindow", u"_", None))
         self.restoreButton.setText(QCoreApplication.translate("MainWindow", u"[]", None))
         self.closeButton.setText(QCoreApplication.translate("MainWindow", u"x", None))
-        self.button_load_data.setText(QCoreApplication.translate("MainWindow", u"Za\u0142aduj\n"
-"dane", None))
         self.button_save_data.setText(QCoreApplication.translate("MainWindow", u"Zapisz\n"
 "dane", None))
         self.button_new_investment.setText(QCoreApplication.translate("MainWindow", u"Nowa", None))
-        self.button_compare.setText(QCoreApplication.translate("MainWindow", u"Por\u00f3wnaj", None))
         self.button_home_page.setText(QCoreApplication.translate("MainWindow", u"Strona \n"
 "g\u0142\u00f3wna", None))
         self.label_11.setText(QCoreApplication.translate("MainWindow", u"Nazwa inwestycji", None))

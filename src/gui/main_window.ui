@@ -364,6 +364,21 @@ border-radius: 5px;
                  </rect>
                 </property>
                 <layout class="QHBoxLayout" name="scrollAreaContents_currently_opened_layout">
+                 <property name="spacing">
+                  <number>2</number>
+                 </property>
+                 <property name="leftMargin">
+                  <number>2</number>
+                 </property>
+                 <property name="topMargin">
+                  <number>2</number>
+                 </property>
+                 <property name="rightMargin">
+                  <number>2</number>
+                 </property>
+                 <property name="bottomMargin">
+                  <number>2</number>
+                 </property>
                  <item>
                   <widget class="QFrame" name="frame_small_decoy">
                    <property name="maximumSize">

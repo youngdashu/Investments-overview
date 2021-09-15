@@ -3,14 +3,15 @@ from PySide6 import QtCore, QtGui
 from PySide6.QtCore import (QPropertyAnimation)
 from PySide6.QtGui import (QColor)
 from PySide6.QtGui import QPixmap
-from PySide6.QtWidgets import QApplication, QMainWindow, QLabel, QWidget, QTextEdit, QFrame, QHBoxLayout, QPushButton
+from PySide6.QtWidgets import QApplication, QMainWindow, QLabel, QWidget, QTextEdit, QFrame, QHBoxLayout, QPushButton, \
+    QDialog
 from typing import Dict, List
 
 from pageTypes import PageTypes
 from src.investmentData.k1 import Investment
 from ui_main_window import Ui_MainWindow
+from ui_UnsavedDialog import Ui_UnsavedDialog
 
-from functools import partial
 
 SHOW_MAXIMIZED = True
 
@@ -39,6 +40,12 @@ highlightedFrameStyleSheet = """QFrame{
 noDataText = "Brak danych"
 
 
+class UnsavedDialog(Ui_UnsavedDialog, QDialog):
+    def __init__(self, parent=None):
+        super().__init__(parent)
+        self.setupUi(self)
+
+
 class MainWindow(QMainWindow):
     def __init__(self):
         QMainWindow.__init__(self)
@@ -52,6 +59,7 @@ class MainWindow(QMainWindow):
 
         self.investments: Dict[int, Investment] = {}
         self.investmentTabs: Dict[int, QFrame] = {}
+        self.isInvestmentSaved: Dict[int, bool] = {}
         self.currentInvestment: Investment = None
         self.currentInvestmentTabIconLabel: QLabel = None
 
@@ -66,51 +74,56 @@ class MainWindow(QMainWindow):
         #                self.ui.tableInvestmentAssessment]
 
         # read only text edits
-        self.readOnlyTextEdits: List[QTextEdit] = [self.ui.text_price_per_square_meter, self.ui.text_own_contribution_percent,
-                                  self.ui.text_broker_margin_percent, self.ui.text_notary_margin_percent,
-                                  self.ui.text_tax_percent, self.ui.text_other_costs_percent,
-                                  self.ui.text_renovation_percent, self.ui.text_entry_cost, self.ui.text_credit,
-                                  self.ui.text_bank_contribution, self.ui.text_monthly_installment,
-                                  self.ui.text_monthly_installment_capital_part,
-                                  self.ui.text_monthly_installment_interest_part, self.ui.text_total_credit_cost,
-                                  self.ui.text_rent_income_min_year,
-                                  self.ui.text_rent_income_max_year, self.ui.text_rent_income_max_year,
-                                  self.ui.text_income_earned_year,
-                                  self.ui.text_rent_tax_year, self.ui.text_property_tax_month,
-                                  self.ui.text_electricity_year, self.ui.text_gas_year, self.ui.text_water_year,
-                                  self.ui.text_internet_year, self.ui.text_other_costs_year,
-                                  self.ui.text_total_costs_month, self.ui.text_total_costs_year,
-                                  self.ui.text_rent_gain_loss_month, self.ui.text_rent_gain_loss_year]
+        self.readOnlyTextEdits: List[QTextEdit] = [self.ui.text_price_per_square_meter,
+                                                   self.ui.text_own_contribution_percent,
+                                                   self.ui.text_broker_margin_percent,
+                                                   self.ui.text_notary_margin_percent,
+                                                   self.ui.text_tax_percent, self.ui.text_other_costs_percent,
+                                                   self.ui.text_renovation_percent, self.ui.text_entry_cost,
+                                                   self.ui.text_credit,
+                                                   self.ui.text_bank_contribution, self.ui.text_monthly_installment,
+                                                   self.ui.text_monthly_installment_capital_part,
+                                                   self.ui.text_monthly_installment_interest_part,
+                                                   self.ui.text_total_credit_cost,
+                                                   self.ui.text_rent_income_min_year,
+                                                   self.ui.text_rent_income_max_year, self.ui.text_rent_income_max_year,
+                                                   self.ui.text_income_earned_year,
+                                                   self.ui.text_rent_tax_year, self.ui.text_property_tax_month,
+                                                   self.ui.text_electricity_year, self.ui.text_gas_year,
+                                                   self.ui.text_water_year,
+                                                   self.ui.text_internet_year, self.ui.text_other_costs_year,
+                                                   self.ui.text_total_costs_month, self.ui.text_total_costs_year,
+                                                   self.ui.text_rent_gain_loss_month, self.ui.text_rent_gain_loss_year]
 
         self.editableTextEdits: List[QTextEdit] = [self.ui.text_investment_name,
-                                  self.ui.text_purchase_price,
-                                  self.ui.text_area,
-                                  self.ui.text_start_date,
-                                  self.ui.text_description,
-                                  self.ui.text_address_street,
-                                  self.ui.text_address_city,
-                                  self.ui.text_estimated_value,
-                                  self.ui.text_last_estimation,
-                                  self.ui.text_finish_date,
-                                  self.ui.text_own_contribution,
-                                  self.ui.text_broker_margin,
-                                  self.ui.text_notary_margin,
-                                  self.ui.text_tax,
-                                  self.ui.text_other_costs,
-                                  self.ui.text_renovation,
-                                  self.ui.text_interest_rate,
-                                  self.ui.text_repayment_period,
-                                  self.ui.text_credit_credit_insurance_per_month,
-                                  self.ui.text_rent_income_min_month,
-                                  self.ui.text_rent_income_max_month,
-                                  self.ui.text_income_earned_month,
-                                  self.ui.text_rent_tax_month,
-                                  self.ui.text_property_tax_year,
-                                  self.ui.text_electricity_month,
-                                  self.ui.text_gas_month,
-                                  self.ui.text_water_month,
-                                  self.ui.text_internet_month,
-                                  self.ui.text_other_costs_month]
+                                                   self.ui.text_purchase_price,
+                                                   self.ui.text_area,
+                                                   self.ui.text_start_date,
+                                                   self.ui.text_description,
+                                                   self.ui.text_address_street,
+                                                   self.ui.text_address_city,
+                                                   self.ui.text_estimated_value,
+                                                   self.ui.text_last_estimation,
+                                                   self.ui.text_finish_date,
+                                                   self.ui.text_own_contribution,
+                                                   self.ui.text_broker_margin,
+                                                   self.ui.text_notary_margin,
+                                                   self.ui.text_tax,
+                                                   self.ui.text_other_costs,
+                                                   self.ui.text_renovation,
+                                                   self.ui.text_interest_rate,
+                                                   self.ui.text_repayment_period,
+                                                   self.ui.text_credit_credit_insurance_per_month,
+                                                   self.ui.text_rent_income_min_month,
+                                                   self.ui.text_rent_income_max_month,
+                                                   self.ui.text_income_earned_month,
+                                                   self.ui.text_rent_tax_month,
+                                                   self.ui.text_property_tax_year,
+                                                   self.ui.text_electricity_month,
+                                                   self.ui.text_gas_month,
+                                                   self.ui.text_water_month,
+                                                   self.ui.text_internet_month,
+                                                   self.ui.text_other_costs_month]
 
         for readOnlyFrame in self.readOnlyTextEdits:
             readOnlyFrame.setReadOnly(True)
@@ -291,8 +304,6 @@ class MainWindow(QMainWindow):
 
         # read from file
 
-        investments = []
-
         pass
 
     # def clearInvestmentPage(self, parent):
@@ -311,6 +322,33 @@ class MainWindow(QMainWindow):
     #         for c in children:
     #             self.clearInvestmentPage(c)
 
+    def closeInvestment(self, investment: Investment):
+
+        def deleteInvestmentTab(innerId):
+            investmentFrame = self.investmentTabs[innerId]
+            investmentFrame.hide()
+            investmentFrame.deleteLater()
+
+        id = investment.id
+        if self.isInvestmentSaved[id] is False:
+            print("false")
+            # otworz okienko i zapytaj sie o zapisanie pliku
+            unsavedInvestmentDialog = UnsavedDialog(self)
+            dialogResult: QDialog.DialogCode = unsavedInvestmentDialog.exec()
+            if dialogResult == QDialog.Accepted:
+                self.saveCurrentInvestment()
+            elif dialogResult == QDialog.Rejected:
+                pass
+            else:
+                raise NotImplementedError
+        else:
+            investment.save()
+        deleteInvestmentTab(id)
+        del self.investments[id]
+        del self.investmentTabs[id]
+        del self.isInvestmentSaved[id]
+        del investment
+
     def addNewInvestment(self):
 
         global tabCounter
@@ -319,8 +357,11 @@ class MainWindow(QMainWindow):
         global labelCounter
 
         newInvestment = Investment()
+        print("new investment ", newInvestment.id)
         # self.investments.append(newInvestment)
         self.investments[newInvestment.id] = newInvestment
+
+        self.isInvestmentSaved[newInvestment.id] = False
         # self.currentInvestment = newInvestment
 
         print(newInvestment)
@@ -356,6 +397,7 @@ class MainWindow(QMainWindow):
         self.investmentTabs[newInvestment.id] = investmentFrame
 
         openInvestmentButton.clicked.connect(lambda: self.showInvestmentOnMainPage(newInvestment, investmentFrame))
+        closeFrameButton.clicked.connect(lambda: self.closeInvestment(newInvestment))
 
         self.ui.scrollAreaContents_currently_opened_layout.addWidget(investmentFrame)
 
@@ -373,7 +415,8 @@ class MainWindow(QMainWindow):
             if frame is frameToHighlight:
                 frame.setStyleSheet(highlightedFrameStyleSheet)
                 iconLabel: QLabel = frame.findChild(QLabel)
-                iconLabel.setPixmap(self.savedIcon)
+                iconLabel.setPixmap(self.unsavedIcon)
+                self.isInvestmentSaved[investment.id] = False
             else:
                 frame.setStyleSheet(frameStyleSheet)
 
@@ -468,18 +511,30 @@ class MainWindow(QMainWindow):
         self.ui.label_own_capital_return_time_months.setText(str(investment.ownCapitalReturnTimeMonths()))
         self.ui.label_own_capital_return_time_years.setText(str(investment.ownCapitalReturnTimeYears()))
 
-    def changeOneIcon(self, investmentFrameLabel: QLabel):
-        if investmentFrameLabel.pixmap() is self.savedIcon:
+    def changeOneIcon(self, investmentFrameLabel: QLabel, currentInvestmentId: int):
+        print("changeOneIcon")
+        print(investmentFrameLabel.pixmap(), " --- ", self.savedIcon)
+        if self.isInvestmentSaved[currentInvestmentId] is True:
+            self.isInvestmentSaved[currentInvestmentId] = False
+            print("changing !")
             investmentFrameLabel.setPixmap(self.unsavedIcon)
+
 
     def changeSaveIconMap(self, editableTextEdit: QTextEdit):
         investmentFrameLabel = self.currentInvestmentTabIconLabel
-        editableTextEdit.textChanged.connect(self.changeOneIcon(investmentFrameLabel))
+        currentInvestmentId = self.currentInvestment.id
+        editableTextEdit.textChanged.connect(self.changeOneIcon(investmentFrameLabel, currentInvestmentId))
         return editableTextEdit
 
     def disconnectFunction(self, editableTextEdit):
         editableTextEdit.textChanged.disconnect()
         return editableTextEdit
+
+    def setInvestmentNameToTab(self, investmentId):
+        investmentFrame: QFrame = self.investmentTabs[investmentId]
+        investmentButtons = list(investmentFrame.findChildren(QPushButton))
+        investmentButton = list(filter(lambda button: "investment_button" in button.objectName(), investmentButtons))[0]
+        investmentButton.setText(self.investments[investmentId].title)
 
     def captureTextEdits(self, investment):
 
@@ -497,6 +552,7 @@ class MainWindow(QMainWindow):
 
         self.ui.text_investment_name.textChanged.connect(
             lambda: investment.setTitle(self.ui.text_investment_name.toPlainText()))
+        self.ui.text_investment_name.textChanged.connect(lambda: self.setInvestmentNameToTab(investment.id))
         self.ui.text_purchase_price.textChanged.connect(
             lambda: investment.setPurchasePrice(self.ui.text_purchase_price.toPlainText()))
         self.ui.text_area.textChanged.connect(lambda: investment.setArea(self.ui.text_area.toPlainText()))
@@ -552,10 +608,13 @@ class MainWindow(QMainWindow):
         self.ui.text_other_costs_month.textChanged.connect(
             lambda: investment.setOtherPerMonth(self.ui.text_other_costs_month.toPlainText()))
 
-
     def saveCurrentInvestment(self):
         if self.currentInvestment is None:
             return
+        self.currentInvestment.save()
+        self.isInvestmentSaved[self.currentInvestment.id] = True
+
+
 
 
 if __name__ == '__main__':
