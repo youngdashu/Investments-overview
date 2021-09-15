@@ -349,6 +349,13 @@ class MainWindow(QMainWindow):
         del self.isInvestmentSaved[id]
         del investment
 
+        for nextInvestment in self.investments.values():
+            self.showInvestmentOnMainPage(nextInvestment, self.investmentTabs[nextInvestment.id])
+            break
+
+        if len(self.investments.values()) == 0:
+            self.ui.all_pages.setCurrentWidget(self.ui.home_page)
+
     def addNewInvestment(self):
 
         global tabCounter
