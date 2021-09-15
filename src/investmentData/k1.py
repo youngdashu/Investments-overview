@@ -65,7 +65,7 @@ class Eval:
 
 class Investment:
     def __init__(self):
-        self.title = ""
+        self.title = "Unnamed"
         self.id = self.getId()
         self.Main_Char = Main_Char(float("inf"), 0, 0)
         self.Info = Info(0, 0, "", "", "", 0, 0)
@@ -344,20 +344,25 @@ class Investment:
     def totalReturnTimeYears(self):
         return self.totalReturnTimeMonths() * 12
 
-def getIDsOfInvestments():
-    ids=[]
+def getInvestments():
+    investments=[]
     with open("guide.txt") as guide:
         for line in guide.readlines():
             if "InvStart__" in line:
-                g=10
-                num=""
-                while line[g].isdigit():
-                    num=num+line[g]
-                    g+=1
-                ids.append(int(num))
-    return(ids)
+                tp=10
+                ids=""
+                titles=""
+                while line[tp].isdigit():
+                    ids=ids+line[tp]
+                    tp+=1
+                tp+=1
+                while line[tp].isalpha() or line[tp]==" ":
+                    titles=titles+line[tp]
+                    tp+=1
+                investments.append([ids, titles])
+    return(investments)
 
 #g = Investment()
 #g.save()
 
-#print(getNumberOfInvestments())
+#print(getInvestments())
