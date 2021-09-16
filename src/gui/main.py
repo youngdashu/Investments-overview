@@ -13,7 +13,6 @@ from ui_main_window import Ui_MainWindow
 from ui_UnsavedDialog import Ui_UnsavedDialog
 from ui_home_page_investment import Ui_InvestmentHomePageWidget
 
-
 SHOW_MAXIMIZED = True
 
 labelCounter = 1
@@ -50,7 +49,7 @@ class UnsavedDialog(Ui_UnsavedDialog, QDialog):
 
 
 class HomePageInvestment(Ui_InvestmentHomePageWidget, QWidget):
-    def __init__(self, parent = None):
+    def __init__(self, parent=None):
         super(HomePageInvestment, self).__init__()
         self.setupUi(self)
 
@@ -139,8 +138,9 @@ class MainWindow(QMainWindow):
         for readOnlyFrame in self.readOnlyTextEdits:
             readOnlyFrame.setReadOnly(True)
 
-        self.frameHeight = 80
+        self.frameHeight = 40
         self.targetFrameHeight = 300
+        self.slideAnimationDuration = 500
 
         self.ui.frame_information_data.setVisible(False)
         self.ui.frame_rent_data.setVisible(False)
@@ -170,7 +170,7 @@ class MainWindow(QMainWindow):
 
         # left buttons section
         self.ui.button_home_page.clicked.connect(lambda: self.mainMenu(PageTypes.homePage))
-        self.ui.button_new_investment.clicked.connect(self.addNewInvestment)
+        self.ui.button_new_investment.clicked.connect(lambda: self.addNewInvestment())
 
         self.loadInvestments()
         self.ui.all_pages.setCurrentWidget(self.ui.home_page)
@@ -223,7 +223,7 @@ class MainWindow(QMainWindow):
 
         self.informationSlideAnimation = QPropertyAnimation(self.ui.frame_information,
                                                             b'minimumHeight')
-        self.informationSlideAnimation.setDuration(450)
+        self.informationSlideAnimation.setDuration(self.slideAnimationDuration)
         self.informationSlideAnimation.setStartValue(actualHeight)
         self.informationSlideAnimation.setEndValue(afterAnimationHeight)
         self.informationSlideAnimation.setEasingCurve(QtCore.QEasingCurve.InOutQuart)
@@ -246,7 +246,7 @@ class MainWindow(QMainWindow):
 
         self.rentSlideAnimation = QPropertyAnimation(self.ui.frame_rent,
                                                      b'minimumHeight')
-        self.rentSlideAnimation.setDuration(450)
+        self.rentSlideAnimation.setDuration(self.slideAnimationDuration)
         self.rentSlideAnimation.setStartValue(actualHeight)
         self.rentSlideAnimation.setEndValue(afterAnimationHeight)
         self.rentSlideAnimation.setEasingCurve(QtCore.QEasingCurve.InOutQuart)
@@ -269,7 +269,7 @@ class MainWindow(QMainWindow):
 
         self.investmentAssessmentSlideAnimation = QPropertyAnimation(self.ui.frame_investment_assessment,
                                                                      b'minimumHeight')
-        self.investmentAssessmentSlideAnimation.setDuration(450)
+        self.investmentAssessmentSlideAnimation.setDuration(self.slideAnimationDuration)
         self.investmentAssessmentSlideAnimation.setStartValue(actualHeight)
         self.investmentAssessmentSlideAnimation.setEndValue(afterAnimationHeight)
         self.investmentAssessmentSlideAnimation.setEasingCurve(QtCore.QEasingCurve.InOutQuart)
@@ -297,7 +297,7 @@ class MainWindow(QMainWindow):
 
         self.ownContributionCreditSlideAnimation = QPropertyAnimation(self.ui.frame_own_contribution_credit,
                                                                       b'minimumHeight')
-        self.ownContributionCreditSlideAnimation.setDuration(450)
+        self.ownContributionCreditSlideAnimation.setDuration(self.slideAnimationDuration)
         self.ownContributionCreditSlideAnimation.setStartValue(actualHeight)
         self.ownContributionCreditSlideAnimation.setEndValue(afterAnimationHeight)
         self.ownContributionCreditSlideAnimation.setEasingCurve(QtCore.QEasingCurve.InOutQuart)
@@ -381,7 +381,7 @@ class MainWindow(QMainWindow):
         if len(self.investments.values()) == 0:
             self.ui.all_pages.setCurrentWidget(self.ui.home_page)
 
-    def addNewInvestment(self, newInvestment = None):
+    def addNewInvestment(self, newInvestment=None):
 
         global tabCounter
         global buttonCounter
@@ -389,8 +389,10 @@ class MainWindow(QMainWindow):
         global labelCounter
 
         if newInvestment is None:
+            print("None")
             newInvestment = Investment()
 
+        print(newInvestment)
         print("new investment ", newInvestment.id)
         # self.investments.append(newInvestment)
         self.investments[newInvestment.id] = newInvestment
@@ -551,7 +553,6 @@ class MainWindow(QMainWindow):
             print("changing !")
             investmentFrameLabel.setPixmap(self.unsavedIcon)
 
-
     def changeSaveIconMap(self, editableTextEdit: QTextEdit):
         investmentFrameLabel = self.currentInvestmentTabIconLabel
         currentInvestmentId = self.currentInvestment.id
@@ -645,8 +646,6 @@ class MainWindow(QMainWindow):
             return
         self.currentInvestment.save()
         self.isInvestmentSaved[self.currentInvestment.id] = True
-
-
 
 
 if __name__ == '__main__':
