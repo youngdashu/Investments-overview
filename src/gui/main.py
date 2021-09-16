@@ -8,9 +8,10 @@ from PySide6.QtWidgets import QApplication, QMainWindow, QLabel, QWidget, QTextE
 from typing import Dict, List
 
 from pageTypes import PageTypes
-from src.investmentData.k1 import Investment
+from src.investmentData.k1 import Investment, getInvestments, getInvestmentById, deleteInvestmentById
 from ui_main_window import Ui_MainWindow
 from ui_UnsavedDialog import Ui_UnsavedDialog
+from ui_home_page_investment import Ui_InvestmentHomePageWidget
 
 
 SHOW_MAXIMIZED = True
@@ -24,6 +25,8 @@ tabCounter = 1
 buttonCounter = 1
 
 layoutCounter = 1
+
+homePageInvestmentWidgetCounter = 1
 
 frameStyleSheet = """QFrame{
         border: 1px solid gray;
@@ -46,6 +49,12 @@ class UnsavedDialog(Ui_UnsavedDialog, QDialog):
         self.setupUi(self)
 
 
+class HomePageInvestment(Ui_InvestmentHomePageWidget, QWidget):
+    def __init__(self, parent = None):
+        super(HomePageInvestment, self).__init__()
+        self.setupUi(self)
+
+
 class MainWindow(QMainWindow):
     def __init__(self):
         QMainWindow.__init__(self)
@@ -62,6 +71,8 @@ class MainWindow(QMainWindow):
         self.isInvestmentSaved: Dict[int, bool] = {}
         self.currentInvestment: Investment = None
         self.currentInvestmentTabIconLabel: QLabel = None
+
+        # self.homePageInvestments: Dict[int, ] = {}
 
         self.ui.closeButton.clicked.connect(self.close)
         self.ui.minimizeButton.clicked.connect(self.showMinimized())
@@ -161,6 +172,7 @@ class MainWindow(QMainWindow):
         self.ui.button_home_page.clicked.connect(lambda: self.mainMenu(PageTypes.homePage))
         self.ui.button_new_investment.clicked.connect(self.addNewInvestment)
 
+        self.loadInvestments()
         self.ui.all_pages.setCurrentWidget(self.ui.home_page)
 
         self.show()
@@ -300,11 +312,24 @@ class MainWindow(QMainWindow):
             SHOW_MAXIMIZED = True
             self.showFullScreen()
 
+    def loadAndShowInvestment(self, investmentId):
+
+        investment = getInvestmentById(investmentId)
+        self.addNewInvestment(investment)
+
+    def addInvestmentWidgetToHomePage(self, investmentIdAndName):
+        id = investmentIdAndName[0]
+        name = investmentIdAndName[1]
+        investmentHomePageWidget = HomePageInvestment(self.ui.scrollAreaContents_investments_home_page)
+        # investmentHomePageWidget.
+        investmentHomePageWidget.buttonInvestmentName.setText(name)
+        investmentHomePageWidget.InvestmentId.setText(str(id))
+        investmentHomePageWidget.buttonInvestmentName.clicked.connect(lambda: self.loadAndShowInvestment(id))
+        investmentHomePageWidget.buttonDeleteInvestment.clicked.connect(lambda: deleteInvestmentById(id))
+
     def loadInvestments(self):
-
-        # read from file
-
-        pass
+        loadedInvestments = getInvestments()
+        map(self.addInvestmentWidgetToHomePage, loadedInvestments)
 
     # def clearInvestmentPage(self, parent):
     #
@@ -356,14 +381,16 @@ class MainWindow(QMainWindow):
         if len(self.investments.values()) == 0:
             self.ui.all_pages.setCurrentWidget(self.ui.home_page)
 
-    def addNewInvestment(self):
+    def addNewInvestment(self, newInvestment = None):
 
         global tabCounter
         global buttonCounter
         global layoutCounter
         global labelCounter
 
-        newInvestment = Investment()
+        if newInvestment is None:
+            newInvestment = Investment()
+
         print("new investment ", newInvestment.id)
         # self.investments.append(newInvestment)
         self.investments[newInvestment.id] = newInvestment
@@ -409,8 +436,6 @@ class MainWindow(QMainWindow):
         self.ui.scrollAreaContents_currently_opened_layout.addWidget(investmentFrame)
 
         self.ui.all_pages.setCurrentWidget(self.ui.investment_page)
-
-        # self.ui.text_investment_name.setText("Test" + str(labelCounter))
 
         self.showInvestmentOnMainPage(newInvestment, investmentFrame)
 

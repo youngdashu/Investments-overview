@@ -345,26 +345,36 @@ class Investment:
     def totalReturnTimeYears(self):
         return self.totalReturnTimeMonths() * 12
 
+
 def getInvestments():
-    investments=[]
+    investments = []
     with open("guide.txt") as guide:
         for line in guide.readlines():
             if "InvStart__" in line:
-                tp=10
-                ids=""
-                titles=""
+                tp = 10
+                ids = ""
+                titles = ""
                 while line[tp].isdigit():
-                    ids=ids+line[tp]
-                    tp+=1
-                tp+=1
-                while line[tp].isalpha() or line[tp]==" ":
-                    titles=titles+line[tp]
-                    tp+=1
-                investments.append([ids, titles])
-    return(investments)
+                    ids = ids + line[tp]
+                    tp += 1
+                tp += 1
+                while line[tp].isalpha() or line[tp] == " ":
+                    titles = titles + line[tp]
+                    tp += 1
+                investments.append((ids, titles))
+    return investments
 
 
-#g = Investment()
-#g.save()
+def getInvestmentById(investmentId):
+    investment = None
 
-#print(getInvestments())
+    return investment
+
+
+def deleteInvestmentById(investmentId):
+    pass
+
+# g = Investment()
+# g.save()
+
+# print(getInvestments())

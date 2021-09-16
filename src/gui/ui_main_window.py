@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'main_windowRteukl.ui'
+## Form generated from reading UI file 'main_windowlLilEg.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.1.1
 ##
@@ -1771,23 +1771,36 @@ class Ui_MainWindow(object):
         self.all_pages.addWidget(self.new_investment_page)
         self.home_page = QWidget()
         self.home_page.setObjectName(u"home_page")
-        self.frame_49 = QFrame(self.home_page)
-        self.frame_49.setObjectName(u"frame_49")
-        self.frame_49.setGeometry(QRect(30, 30, 800, 400))
-        self.frame_49.setMinimumSize(QSize(800, 400))
-        self.frame_49.setFrameShape(QFrame.StyledPanel)
-        self.frame_49.setFrameShadow(QFrame.Raised)
-        self.label_45 = QLabel(self.frame_49)
-        self.label_45.setObjectName(u"label_45")
-        self.label_45.setGeometry(QRect(50, 20, 281, 31))
-        self.scrollArea_2 = QScrollArea(self.frame_49)
-        self.scrollArea_2.setObjectName(u"scrollArea_2")
-        self.scrollArea_2.setGeometry(QRect(50, 60, 701, 321))
-        self.scrollArea_2.setWidgetResizable(True)
-        self.scrollAreaWidgetContents_3 = QWidget()
-        self.scrollAreaWidgetContents_3.setObjectName(u"scrollAreaWidgetContents_3")
-        self.scrollAreaWidgetContents_3.setGeometry(QRect(0, 0, 699, 319))
-        self.scrollArea_2.setWidget(self.scrollAreaWidgetContents_3)
+        self.frame_home_page = QFrame(self.home_page)
+        self.frame_home_page.setObjectName(u"frame_home_page")
+        self.frame_home_page.setGeometry(QRect(30, 0, 800, 481))
+        self.frame_home_page.setMinimumSize(QSize(800, 400))
+        self.frame_home_page.setFrameShape(QFrame.StyledPanel)
+        self.frame_home_page.setFrameShadow(QFrame.Raised)
+        self.label_welcome_home_page = QLabel(self.frame_home_page)
+        self.label_welcome_home_page.setObjectName(u"label_welcome_home_page")
+        self.label_welcome_home_page.setGeometry(QRect(50, 20, 281, 31))
+        self.scrollArea_investments_home_page = QScrollArea(self.frame_home_page)
+        self.scrollArea_investments_home_page.setObjectName(u"scrollArea_investments_home_page")
+        self.scrollArea_investments_home_page.setGeometry(QRect(50, 60, 700, 391))
+        self.scrollArea_investments_home_page.setMinimumSize(QSize(700, 350))
+        self.scrollArea_investments_home_page.setMaximumSize(QSize(16777215, 16777215))
+        self.scrollArea_investments_home_page.setWidgetResizable(True)
+        self.scrollAreaContents_investments_home_page = QWidget()
+        self.scrollAreaContents_investments_home_page.setObjectName(u"scrollAreaContents_investments_home_page")
+        self.scrollAreaContents_investments_home_page.setGeometry(QRect(0, 0, 698, 389))
+        self.scrollAreaContents_investments_home_page.setMinimumSize(QSize(600, 300))
+        self.investments_home_page_layout = QVBoxLayout(self.scrollAreaContents_investments_home_page)
+        self.investments_home_page_layout.setObjectName(u"investments_home_page_layout")
+        self.decoy_investment_home_page = QFrame(self.scrollAreaContents_investments_home_page)
+        self.decoy_investment_home_page.setObjectName(u"decoy_investment_home_page")
+        self.decoy_investment_home_page.setMaximumSize(QSize(0, 0))
+        self.decoy_investment_home_page.setFrameShape(QFrame.StyledPanel)
+        self.decoy_investment_home_page.setFrameShadow(QFrame.Raised)
+
+        self.investments_home_page_layout.addWidget(self.decoy_investment_home_page)
+
+        self.scrollArea_investments_home_page.setWidget(self.scrollAreaContents_investments_home_page)
         self.all_pages.addWidget(self.home_page)
 
         self.verticalLayout_3.addWidget(self.all_pages)
@@ -1821,7 +1834,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.all_pages.setCurrentIndex(0)
+        self.all_pages.setCurrentIndex(2)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -1909,6 +1922,6 @@ class Ui_MainWindow(object):
         self.label_65.setText(QCoreApplication.translate("MainWindow", u"Cena zakupu", None))
         self.label_66.setText(QCoreApplication.translate("MainWindow", u"POW. [m\u00b2]", None))
         self.label_67.setText(QCoreApplication.translate("MainWindow", u"Cena/m\u00b2", None))
-        self.label_45.setText(QCoreApplication.translate("MainWindow", u"Witamy na stronie g\u0142\u00f3wnej", None))
+        self.label_welcome_home_page.setText(QCoreApplication.translate("MainWindow", u"Witamy na stronie g\u0142\u00f3wnej", None))
     # retranslateUi
 
