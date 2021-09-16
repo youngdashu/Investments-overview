@@ -365,14 +365,72 @@ def getInvestments():
     return investments
 
 
-def getInvestmentById(investmentId):
-    investment = None
-
+def getInvestmentById(InvestmentId):
+    investment = Investment()
+    with open("guide.txt") as guide:
+        for line in guide.readlines():
+            if "InvStart__" in line:
+                tp=10
+                Id=""
+                ti=""
+                while line[tp].isdigit():
+                        Id=Id+line[tp]
+                        tp+=1
+                if int(Id) == InvestmentId:
+                    investment.id=int(Id)
+                    tp+=1
+                    while line[tp] !="{":
+                        ti=ti+line[tp]
+                        tp+=1
+                    investment.title=ti
+                    leng=tp+1
+                    while line[leng] != "}":
+                        leng+=1
+                    investment.Main_Char=json.loads(line[tp:leng+1].replace('\\',''), object_hook=lambda d: SimpleNamespace(**d))
+                    tp=leng+1
+                    leng+=2
+                    while line[leng] != "}":
+                        leng+=1
+                    investment.Info=json.loads(line[tp:leng+1].replace('\\',''), object_hook=lambda d: SimpleNamespace(**d))
+                    tp=leng+1
+                    leng+=2
+                    while line[leng] != "}":
+                        leng+=1
+                    investment.Contribution=json.loads(line[tp:leng+1].replace('\\',''), object_hook=lambda d: SimpleNamespace(**d))
+                    tp=leng+1
+                    leng+=2
+                    while line[leng] != "}":
+                        leng+=1
+                    investment.Credit=json.loads(line[tp:leng+1].replace('\\',''), object_hook=lambda d: SimpleNamespace(**d))
+                    tp=leng+1
+                    leng+=2
+                    while line[leng] != "}":
+                        leng+=1
+                    investment.Rent=json.loads(line[tp:leng+1].replace('\\',''), object_hook=lambda d: SimpleNamespace(**d))
+                    tp=leng+1
+                    leng+=2
+                    while line[leng] != "}":
+                        leng+=1
+                    investment.Eval=json.loads(line[tp:leng+1].replace('\\',''), object_hook=lambda d: SimpleNamespace(**d))
     return investment
 
-
 def deleteInvestmentById(investmentId):
-    pass
+    new=""
+    with open("guide.txt") as guide:
+        for line in guide.readlines():
+            if new=="":
+                new=line
+            else:
+                tp=10
+                Id=""
+                while line[tp].isdigit():
+                        Id=Id+line[tp]
+                        tp+=1
+                if investmentId!=int(Id):
+                    new=new+line
+    guide=open("guide.txt","w")
+    guide.write(new)
+    guide.close
 
 # g = Investment()
 # g.save()
