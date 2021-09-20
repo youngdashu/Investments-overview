@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'main_windowlLilEg.ui'
+## Form generated from reading UI file 'main_windowcBYUle.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.1.1
 ##
@@ -17,7 +17,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(1016, 693)
+        MainWindow.resize(1022, 695)
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.centralwidget.setStyleSheet(u"background-color: rgb(197, 195, 198);")
@@ -180,7 +180,7 @@ class Ui_MainWindow(object):
         self.scrollArea_currently_opened.setWidgetResizable(True)
         self.scrollAreaContents_currently_opened = QWidget()
         self.scrollAreaContents_currently_opened.setObjectName(u"scrollAreaContents_currently_opened")
-        self.scrollAreaContents_currently_opened.setGeometry(QRect(0, 0, 808, 72))
+        self.scrollAreaContents_currently_opened.setGeometry(QRect(0, 0, 884, 57))
         self.scrollAreaContents_currently_opened_layout = QHBoxLayout(self.scrollAreaContents_currently_opened)
         self.scrollAreaContents_currently_opened_layout.setSpacing(2)
         self.scrollAreaContents_currently_opened_layout.setObjectName(u"scrollAreaContents_currently_opened_layout")
@@ -208,6 +208,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_16.setObjectName(u"verticalLayout_16")
         self.scrollArea_current_investment = QScrollArea(self.investment_page)
         self.scrollArea_current_investment.setObjectName(u"scrollArea_current_investment")
+        self.scrollArea_current_investment.setMinimumSize(QSize(890, 480))
         self.scrollArea_current_investment.setStyleSheet(u"#scrollArea_current_investment {\n"
 "border: 3px solid gray;\n"
 "background: white;\n"
@@ -228,7 +229,7 @@ class Ui_MainWindow(object):
         self.scrollArea_current_investment.setWidgetResizable(True)
         self.scrollArea_investment_contents = QWidget()
         self.scrollArea_investment_contents.setObjectName(u"scrollArea_investment_contents")
-        self.scrollArea_investment_contents.setGeometry(QRect(0, 0, 808, 2308))
+        self.scrollArea_investment_contents.setGeometry(QRect(0, -2069, 884, 2684))
         self.scrollArea_investment_contents.setStyleSheet(u"#scrollAreaWidgetContainer{\n"
 "border: 3px solid gray;\n"
 "border-radius: 8px;\n"
@@ -351,7 +352,7 @@ class Ui_MainWindow(object):
 
         self.frame_information = QFrame(self.scrollArea_investment_contents)
         self.frame_information.setObjectName(u"frame_information")
-        self.frame_information.setMinimumSize(QSize(300, 400))
+        self.frame_information.setMinimumSize(QSize(300, 360))
         self.frame_information.setFrameShape(QFrame.StyledPanel)
         self.frame_information.setFrameShadow(QFrame.Raised)
         self.verticalLayout_4 = QVBoxLayout(self.frame_information)
@@ -370,6 +371,7 @@ class Ui_MainWindow(object):
         self.frame_information_data.setFrameShape(QFrame.StyledPanel)
         self.frame_information_data.setFrameShadow(QFrame.Raised)
         self.verticalLayout_13 = QVBoxLayout(self.frame_information_data)
+        self.verticalLayout_13.setSpacing(4)
         self.verticalLayout_13.setObjectName(u"verticalLayout_13")
         self.verticalLayout_13.setContentsMargins(4, 4, 4, 4)
         self.frame_18 = QFrame(self.frame_information_data)
@@ -531,6 +533,7 @@ class Ui_MainWindow(object):
         self.frame_own_contribution_credit.setFrameShadow(QFrame.Raised)
         self.verticalLayout_5 = QVBoxLayout(self.frame_own_contribution_credit)
         self.verticalLayout_5.setObjectName(u"verticalLayout_5")
+        self.verticalLayout_5.setContentsMargins(4, 4, 4, 4)
         self.button_own_contribution_credit = QPushButton(self.frame_own_contribution_credit)
         self.button_own_contribution_credit.setObjectName(u"button_own_contribution_credit")
         self.button_own_contribution_credit.setMinimumSize(QSize(0, 24))
@@ -726,6 +729,7 @@ class Ui_MainWindow(object):
 
         self.text_entry_cost = QTextEdit(self.frame)
         self.text_entry_cost.setObjectName(u"text_entry_cost")
+        self.text_entry_cost.setMinimumSize(QSize(220, 0))
 
         self.horizontalLayout_12.addWidget(self.text_entry_cost)
 
@@ -745,12 +749,9 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_13.addWidget(self.label_8)
 
-        self.horizontalSpacer_6 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
-
-        self.horizontalLayout_13.addItem(self.horizontalSpacer_6)
-
         self.text_invested_vs_purchase = QTextEdit(self.frame_2)
         self.text_invested_vs_purchase.setObjectName(u"text_invested_vs_purchase")
+        self.text_invested_vs_purchase.setMinimumSize(QSize(210, 0))
 
         self.horizontalLayout_13.addWidget(self.text_invested_vs_purchase)
 
@@ -767,18 +768,18 @@ class Ui_MainWindow(object):
         self.verticalLayout_10 = QVBoxLayout(self.frame_credit_data)
         self.verticalLayout_10.setSpacing(6)
         self.verticalLayout_10.setObjectName(u"verticalLayout_10")
-        self.verticalLayout_10.setContentsMargins(-1, 2, -1, 2)
+        self.verticalLayout_10.setContentsMargins(8, 2, 8, 2)
         self.frame_11 = QFrame(self.frame_credit_data)
         self.frame_11.setObjectName(u"frame_11")
-        self.frame_11.setMinimumSize(QSize(0, 40))
+        self.frame_11.setMinimumSize(QSize(0, 50))
         self.frame_11.setFrameShape(QFrame.StyledPanel)
         self.frame_11.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_14 = QHBoxLayout(self.frame_11)
         self.horizontalLayout_14.setObjectName(u"horizontalLayout_14")
-        self.horizontalLayout_14.setContentsMargins(-1, 2, -1, 2)
+        self.horizontalLayout_14.setContentsMargins(-1, 2, 2, 2)
         self.label_9 = QLabel(self.frame_11)
         self.label_9.setObjectName(u"label_9")
-        self.label_9.setMinimumSize(QSize(195, 0))
+        self.label_9.setMinimumSize(QSize(170, 0))
 
         self.horizontalLayout_14.addWidget(self.label_9)
 
@@ -792,15 +793,15 @@ class Ui_MainWindow(object):
 
         self.frame_12 = QFrame(self.frame_credit_data)
         self.frame_12.setObjectName(u"frame_12")
-        self.frame_12.setMinimumSize(QSize(0, 40))
+        self.frame_12.setMinimumSize(QSize(0, 50))
         self.frame_12.setFrameShape(QFrame.StyledPanel)
         self.frame_12.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_15 = QHBoxLayout(self.frame_12)
         self.horizontalLayout_15.setObjectName(u"horizontalLayout_15")
-        self.horizontalLayout_15.setContentsMargins(-1, 2, -1, 2)
+        self.horizontalLayout_15.setContentsMargins(-1, 2, 2, 2)
         self.label_10 = QLabel(self.frame_12)
         self.label_10.setObjectName(u"label_10")
-        self.label_10.setMinimumSize(QSize(195, 0))
+        self.label_10.setMinimumSize(QSize(170, 0))
 
         self.horizontalLayout_15.addWidget(self.label_10)
 
@@ -814,15 +815,15 @@ class Ui_MainWindow(object):
 
         self.frame_13 = QFrame(self.frame_credit_data)
         self.frame_13.setObjectName(u"frame_13")
-        self.frame_13.setMinimumSize(QSize(0, 40))
+        self.frame_13.setMinimumSize(QSize(0, 50))
         self.frame_13.setFrameShape(QFrame.StyledPanel)
         self.frame_13.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_26 = QHBoxLayout(self.frame_13)
         self.horizontalLayout_26.setObjectName(u"horizontalLayout_26")
-        self.horizontalLayout_26.setContentsMargins(-1, 2, -1, 2)
+        self.horizontalLayout_26.setContentsMargins(-1, 2, 2, 2)
         self.label_21 = QLabel(self.frame_13)
         self.label_21.setObjectName(u"label_21")
-        self.label_21.setMinimumSize(QSize(195, 0))
+        self.label_21.setMinimumSize(QSize(170, 0))
 
         self.horizontalLayout_26.addWidget(self.label_21)
 
@@ -836,15 +837,15 @@ class Ui_MainWindow(object):
 
         self.frame_14 = QFrame(self.frame_credit_data)
         self.frame_14.setObjectName(u"frame_14")
-        self.frame_14.setMinimumSize(QSize(0, 40))
+        self.frame_14.setMinimumSize(QSize(0, 50))
         self.frame_14.setFrameShape(QFrame.StyledPanel)
         self.frame_14.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_27 = QHBoxLayout(self.frame_14)
         self.horizontalLayout_27.setObjectName(u"horizontalLayout_27")
-        self.horizontalLayout_27.setContentsMargins(-1, 2, -1, 2)
+        self.horizontalLayout_27.setContentsMargins(-1, 2, 2, 2)
         self.label_22 = QLabel(self.frame_14)
         self.label_22.setObjectName(u"label_22")
-        self.label_22.setMinimumSize(QSize(195, 0))
+        self.label_22.setMinimumSize(QSize(170, 0))
 
         self.horizontalLayout_27.addWidget(self.label_22)
 
@@ -936,12 +937,12 @@ class Ui_MainWindow(object):
 
         self.frame_24 = QFrame(self.frame_credit_data)
         self.frame_24.setObjectName(u"frame_24")
-        self.frame_24.setMinimumSize(QSize(0, 40))
+        self.frame_24.setMinimumSize(QSize(0, 50))
         self.frame_24.setFrameShape(QFrame.StyledPanel)
         self.frame_24.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_29 = QHBoxLayout(self.frame_24)
         self.horizontalLayout_29.setObjectName(u"horizontalLayout_29")
-        self.horizontalLayout_29.setContentsMargins(-1, 2, -1, 2)
+        self.horizontalLayout_29.setContentsMargins(-1, 2, 2, 2)
         self.label_24 = QLabel(self.frame_24)
         self.label_24.setObjectName(u"label_24")
 
@@ -957,12 +958,12 @@ class Ui_MainWindow(object):
 
         self.frame_25 = QFrame(self.frame_credit_data)
         self.frame_25.setObjectName(u"frame_25")
-        self.frame_25.setMinimumSize(QSize(0, 40))
+        self.frame_25.setMinimumSize(QSize(0, 50))
         self.frame_25.setFrameShape(QFrame.StyledPanel)
         self.frame_25.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_30 = QHBoxLayout(self.frame_25)
         self.horizontalLayout_30.setObjectName(u"horizontalLayout_30")
-        self.horizontalLayout_30.setContentsMargins(-1, 2, -1, 2)
+        self.horizontalLayout_30.setContentsMargins(-1, 2, 2, 2)
         self.label_25 = QLabel(self.frame_25)
         self.label_25.setObjectName(u"label_25")
         self.label_25.setMinimumSize(QSize(195, 0))
@@ -993,6 +994,7 @@ class Ui_MainWindow(object):
         self.frame_rent.setFrameShadow(QFrame.Raised)
         self.verticalLayout_7 = QVBoxLayout(self.frame_rent)
         self.verticalLayout_7.setObjectName(u"verticalLayout_7")
+        self.verticalLayout_7.setContentsMargins(4, 4, 4, 4)
         self.button_rent = QPushButton(self.frame_rent)
         self.button_rent.setObjectName(u"button_rent")
         self.button_rent.setMinimumSize(QSize(0, 24))
@@ -1483,6 +1485,7 @@ class Ui_MainWindow(object):
         self.frame_investment_assessment.setFrameShadow(QFrame.Raised)
         self.verticalLayout_8 = QVBoxLayout(self.frame_investment_assessment)
         self.verticalLayout_8.setObjectName(u"verticalLayout_8")
+        self.verticalLayout_8.setContentsMargins(4, 4, 4, 4)
         self.button_investment_assessment = QPushButton(self.frame_investment_assessment)
         self.button_investment_assessment.setObjectName(u"button_investment_assessment")
         self.button_investment_assessment.setMinimumSize(QSize(0, 24))
@@ -1686,6 +1689,72 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_2.addWidget(self.frame_investment_assessment)
 
+        self.frame_notes = QFrame(self.scrollArea_investment_contents)
+        self.frame_notes.setObjectName(u"frame_notes")
+        self.frame_notes.setMinimumSize(QSize(300, 400))
+        self.frame_notes.setFrameShape(QFrame.StyledPanel)
+        self.frame_notes.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_6 = QVBoxLayout(self.frame_notes)
+        self.verticalLayout_6.setObjectName(u"verticalLayout_6")
+        self.verticalLayout_6.setContentsMargins(4, 4, 4, 4)
+        self.button_notes = QPushButton(self.frame_notes)
+        self.button_notes.setObjectName(u"button_notes")
+        self.button_notes.setMinimumSize(QSize(0, 24))
+
+        self.verticalLayout_6.addWidget(self.button_notes)
+
+        self.frame_add_note_button = QFrame(self.frame_notes)
+        self.frame_add_note_button.setObjectName(u"frame_add_note_button")
+        self.frame_add_note_button.setMinimumSize(QSize(0, 40))
+        self.frame_add_note_button.setMaximumSize(QSize(16777215, 60))
+        self.frame_add_note_button.setStyleSheet(u"#frame_add_note_button{\n"
+"border: 0px solid gray;\n"
+"}")
+        self.frame_add_note_button.setFrameShape(QFrame.StyledPanel)
+        self.frame_add_note_button.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_18 = QHBoxLayout(self.frame_add_note_button)
+        self.horizontalLayout_18.setObjectName(u"horizontalLayout_18")
+        self.horizontalLayout_18.setContentsMargins(2, 0, 2, 2)
+        self.button_add_note = QPushButton(self.frame_add_note_button)
+        self.button_add_note.setObjectName(u"button_add_note")
+        self.button_add_note.setMinimumSize(QSize(30, 30))
+        font = QFont()
+        font.setPointSize(18)
+        self.button_add_note.setFont(font)
+        self.button_add_note.setIconSize(QSize(25, 25))
+
+        self.horizontalLayout_18.addWidget(self.button_add_note)
+
+        self.horizontalSpacer_7 = QSpacerItem(700, 16, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.horizontalLayout_18.addItem(self.horizontalSpacer_7)
+
+
+        self.verticalLayout_6.addWidget(self.frame_add_note_button)
+
+        self.scrollArea_notes = QScrollArea(self.frame_notes)
+        self.scrollArea_notes.setObjectName(u"scrollArea_notes")
+        self.scrollArea_notes.setWidgetResizable(True)
+        self.scrollArea_notes_contents = QWidget()
+        self.scrollArea_notes_contents.setObjectName(u"scrollArea_notes_contents")
+        self.scrollArea_notes_contents.setGeometry(QRect(0, 0, 836, 294))
+        self.scrollArea_notes_contents_layout = QVBoxLayout(self.scrollArea_notes_contents)
+        self.scrollArea_notes_contents_layout.setObjectName(u"scrollArea_notes_contents_layout")
+        self.frame_17 = QFrame(self.scrollArea_notes_contents)
+        self.frame_17.setObjectName(u"frame_17")
+        self.frame_17.setMaximumSize(QSize(0, 0))
+        self.frame_17.setFrameShape(QFrame.StyledPanel)
+        self.frame_17.setFrameShadow(QFrame.Raised)
+
+        self.scrollArea_notes_contents_layout.addWidget(self.frame_17)
+
+        self.scrollArea_notes.setWidget(self.scrollArea_notes_contents)
+
+        self.verticalLayout_6.addWidget(self.scrollArea_notes)
+
+
+        self.verticalLayout_2.addWidget(self.frame_notes)
+
         self.scrollArea_current_investment.setWidget(self.scrollArea_investment_contents)
 
         self.verticalLayout_16.addWidget(self.scrollArea_current_investment)
@@ -1808,16 +1877,6 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout.addWidget(self.center_main_items)
 
-        self.right_side_menu = QFrame(self.main_body)
-        self.right_side_menu.setObjectName(u"right_side_menu")
-        self.right_side_menu.setMinimumSize(QSize(70, 0))
-        self.right_side_menu.setMaximumSize(QSize(100, 16777215))
-        self.right_side_menu.setStyleSheet(u"")
-        self.right_side_menu.setFrameShape(QFrame.WinPanel)
-        self.right_side_menu.setFrameShadow(QFrame.Raised)
-
-        self.horizontalLayout.addWidget(self.right_side_menu)
-
 
         self.verticalLayout.addWidget(self.main_body)
 
@@ -1834,7 +1893,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.all_pages.setCurrentIndex(2)
+        self.all_pages.setCurrentIndex(0)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -1919,6 +1978,8 @@ class Ui_MainWindow(object):
         self.label_56.setText("")
         self.label_60.setText("")
         self.label_64.setText("")
+        self.button_notes.setText(QCoreApplication.translate("MainWindow", u"Notatki", None))
+        self.button_add_note.setText(QCoreApplication.translate("MainWindow", u"+", None))
         self.label_65.setText(QCoreApplication.translate("MainWindow", u"Cena zakupu", None))
         self.label_66.setText(QCoreApplication.translate("MainWindow", u"POW. [m\u00b2]", None))
         self.label_67.setText(QCoreApplication.translate("MainWindow", u"Cena/m\u00b2", None))

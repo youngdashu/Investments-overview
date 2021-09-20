@@ -71,8 +71,6 @@ class MainWindow(QMainWindow):
         self.currentInvestment: Investment = None
         self.currentInvestmentTabIconLabel: QLabel = None
 
-        # self.homePageInvestments: Dict[int, ] = {}
-
         self.ui.closeButton.clicked.connect(self.close)
         self.ui.minimizeButton.clicked.connect(self.showMinimized())
         self.ui.restoreButton.clicked.connect(self.restore)
@@ -138,6 +136,8 @@ class MainWindow(QMainWindow):
         for readOnlyFrame in self.readOnlyTextEdits:
             readOnlyFrame.setReadOnly(True)
 
+        self.notes = []
+
         self.frameHeight = 40
         self.targetFrameHeight = 300
         self.slideAnimationDuration = 500
@@ -146,17 +146,13 @@ class MainWindow(QMainWindow):
         self.ui.frame_rent_data.setVisible(False)
         self.ui.frame_investment_assessment_data.setVisible(False)
         self.ui.frame_own_contribution_credit_inner.setVisible(False)
+        self.ui.scrollArea_notes.setVisible(False)
+        self.ui.frame_add_note_button.setVisible(False)
 
-        self.decreaseFrameHeights(40)
+        self.decreaseFrameHeights(50)
 
         # animation section
 
-        # self.isMcInfoFrameSlided = False
-        # self.mcInfoFrameHeight = self.ui.frame_mc_info.height()
-        # self.mcInfoSlideAnimation = None
-
-        # self.mainCharacteristicsSlideAnimation = None
-        # self.ui.button_main_characteristics.clicked.connect(self.slideMcAndInfo)
         self.informationSlideAnimation = None
         self.ui.button_information.clicked.connect(self.slideInformation)
         self.creditSlideAnimation = None
@@ -167,6 +163,8 @@ class MainWindow(QMainWindow):
         self.ui.button_investment_assessment.clicked.connect(self.slideInvestmentAssessment)
         self.ownContributionCreditSlideAnimation = None
         self.ui.button_own_contribution_credit.clicked.connect(self.slideOwnContributionCredit)
+        self.notesSlideAnimation = None
+        self.ui.button_notes.clicked.connect(self.slideNotes)
 
         # left buttons section
         self.ui.button_home_page.clicked.connect(lambda: self.mainMenu(PageTypes.homePage))
@@ -177,28 +175,20 @@ class MainWindow(QMainWindow):
 
         self.show()
 
-    # def myFunction(self):
-    #     global labelCounter
-    #     newLabel = QLabel("przykładowa inwestycja", self.ui.frame_currently_opened)
-    #     newLabel.setObjectName("new investment" + str(labelCounter))
-    #     labelCounter += 1
-    #     self.ui.horizontalLayout_44.addWidget(newLabel)
-    #     newLabel.show()
-
     def decreaseFrameHeights(self, minHeight):
 
         self.ui.frame_information.setMinimumHeight(minHeight)
-        # self.ui.frame_main_characteristics.setMinimumHeight(self.ui.frame_main_characteristics.width(), minHeight)
         self.ui.frame_rent.setMinimumHeight(minHeight)
 
         self.ui.frame_own_contribution_credit.setMinimumHeight(minHeight)
         self.ui.frame_investment_assessment.setMinimumHeight(minHeight)
+        self.ui.frame_notes.setMinimumHeight(minHeight)
 
         self.ui.frame_information.resize(self.ui.frame_information.width(), minHeight)
-        # self.ui.frame_main_characteristics.resize(self.ui.frame_main_characteristics.width(), minHeight)
         self.ui.frame_rent.resize(self.ui.frame_rent.width(), minHeight)
         self.ui.frame_own_contribution_credit.resize(self.ui.frame_own_contribution_credit.width(), minHeight)
         self.ui.frame_investment_assessment.resize(self.ui.frame_investment_assessment.width(), minHeight)
+        self.ui.frame_notes.resize(self.ui.frame_notes.width(), minHeight)
 
     def mainMenu(self, pageType: PageTypes):
 
@@ -209,16 +199,16 @@ class MainWindow(QMainWindow):
         isSlided = False
         afterAnimationHeight = None
         actualHeight = None
-        if self.ui.frame_information.height() < self.targetFrameHeight:  # == self.frameHeight:  # height before slide
+        if self.ui.frame_information.height() < self.targetFrameHeight:
             isSlided = False
-            afterAnimationHeight = 400
+            afterAnimationHeight = 360
             actualHeight = self.frameHeight
             self.ui.frame_information_data.setVisible(True)
 
-        else:  # self.ui.frame_main_characteristics.height() == 300: # after slide
+        else:
             isSlided = True
             afterAnimationHeight = self.frameHeight
-            actualHeight = 400
+            actualHeight = 360
             self.ui.frame_information_data.setVisible(False)
 
         self.informationSlideAnimation = QPropertyAnimation(self.ui.frame_information,
@@ -233,12 +223,12 @@ class MainWindow(QMainWindow):
         isSlided = False
         afterAnimationHeight = None
         actualHeight = None
-        if self.ui.frame_rent.height() < self.targetFrameHeight:  # == self.frameHeight:  # height before slide
+        if self.ui.frame_rent.height() < self.targetFrameHeight:
             isSlided = False
             afterAnimationHeight = 750
             actualHeight = self.frameHeight
             self.ui.frame_rent_data.setVisible(True)
-        else:  # self.ui.frame_main_characteristics.height() == 300: # after slide
+        else:
             isSlided = True
             afterAnimationHeight = self.frameHeight
             actualHeight = 750
@@ -256,12 +246,12 @@ class MainWindow(QMainWindow):
         isSlided = False
         afterAnimationHeight = None
         actualHeight = None
-        if self.ui.frame_investment_assessment.height() < self.targetFrameHeight:  # == self.frameHeight:  # height before slide
+        if self.ui.frame_investment_assessment.height() < self.targetFrameHeight:
             isSlided = False
             afterAnimationHeight = 400
             actualHeight = self.frameHeight
             self.ui.frame_investment_assessment_data.setVisible(True)
-        else:  # self.ui.frame_main_characteristics.height() == 300: # after slide
+        else:
             isSlided = True
             afterAnimationHeight = self.frameHeight
             actualHeight = 400
@@ -284,15 +274,11 @@ class MainWindow(QMainWindow):
             isSlided = False
             afterAnimationHeight = 600
             actualHeight = self.frameHeight
-            # self.ui.frame_own_contribution_data.setVisible(True)
-            # self.ui.frame_credit_data.setVisible(True)
             self.ui.frame_own_contribution_credit_inner.setVisible(True)
         else:  # self.ui.frame_main_characteristics.height() == 300: # after slide
             isSlided = True
             afterAnimationHeight = self.frameHeight
             actualHeight = 600
-            # self.ui.frame_own_contribution_data.setVisible(False)
-            # self.ui.frame_credit_data.setVisible(False)
             self.ui.frame_own_contribution_credit_inner.setVisible(False)
 
         self.ownContributionCreditSlideAnimation = QPropertyAnimation(self.ui.frame_own_contribution_credit,
@@ -302,6 +288,58 @@ class MainWindow(QMainWindow):
         self.ownContributionCreditSlideAnimation.setEndValue(afterAnimationHeight)
         self.ownContributionCreditSlideAnimation.setEasingCurve(QtCore.QEasingCurve.InOutQuart)
         self.ownContributionCreditSlideAnimation.start()
+
+    def slideNotes(self):
+        afterAnimationHeight = None
+        actualHeight = None
+        if self.ui.frame_notes.height() < self.targetFrameHeight:
+            isSlided = False
+            afterAnimationHeight = 400
+            actualHeight = self.frameHeight
+            self.ui.scrollArea_notes.setVisible(True)
+            self.ui.frame_add_note_button.setVisible(True)
+        else:
+            isSlided = True
+            afterAnimationHeight = self.frameHeight
+            actualHeight = 400
+            self.ui.scrollArea_notes.setVisible(False)
+            self.ui.frame_add_note_button.setVisible(False)
+
+        self.notesSlideAnimation = QPropertyAnimation(self.ui.frame_notes,
+                                                      b'minimumHeight')
+        self.notesSlideAnimation.setDuration(self.slideAnimationDuration)
+        self.notesSlideAnimation.setStartValue(actualHeight)
+        self.notesSlideAnimation.setEndValue(afterAnimationHeight)
+        self.notesSlideAnimation.setEasingCurve(QtCore.QEasingCurve.InOutQuart)
+        self.notesSlideAnimation.start()
+
+    def addNote(self, newNoteStr=None):
+
+        if newNoteStr is not None and newNoteStr[0] is []:
+            return
+        newNoteTextEdit = QTextEdit(self.ui.scrollArea_notes_contents)
+        noteIndex = None
+        if newNoteStr is None:
+            newNoteStr = ""
+            self.currentInvestment.notes().append(newNoteStr)
+            noteIndex = len(self.currentInvestment.notes()) - 1
+        else:
+            noteIndex = newNoteStr[1]
+            newNoteStr = newNoteStr[0]
+            newNoteTextEdit.setText(newNoteStr)
+        newNoteTextEdit.textChanged.connect(lambda: self.currentInvestment.setNote(noteIndex, newNoteTextEdit.toPlainText()))
+        investmentId = self.currentInvestment.id
+        frame = self.investmentTabs[investmentId]
+        label: QLabel = frame.findChild(QLabel)
+        newNoteTextEdit.textChanged.connect(lambda: self.changeOneIcon(label, investmentId))
+        self.ui.scrollArea_notes_contents_layout.addWidget(newNoteTextEdit)
+        self.notes.append(newNoteTextEdit)
+
+    def addNotes(self):
+        print(self.currentInvestment.notes())
+        print(list(range(0, len(self.currentInvestment.notes()))))
+        print(zip(self.currentInvestment.notes(), list(range(0, len(self.currentInvestment.notes())))))
+        list(map(self.addNote, zip(self.currentInvestment.notes(), list(range(0, len(self.currentInvestment.notes()))))))
 
     def restore(self):
         global SHOW_MAXIMIZED
@@ -329,6 +367,7 @@ class MainWindow(QMainWindow):
 
     def loadInvestments(self):
         loadedInvestments = getInvestments()
+        print(loadedInvestments)
         map(self.addInvestmentWidgetToHomePage, loadedInvestments)
 
     # def clearInvestmentPage(self, parent):
@@ -545,6 +584,8 @@ class MainWindow(QMainWindow):
         self.ui.label_own_capital_return_time_months.setText(str(investment.ownCapitalReturnTimeMonths()))
         self.ui.label_own_capital_return_time_years.setText(str(investment.ownCapitalReturnTimeYears()))
 
+        self.addNotes()
+
     def changeOneIcon(self, investmentFrameLabel: QLabel, currentInvestmentId: int):
         print("changeOneIcon")
         print(investmentFrameLabel.pixmap(), " --- ", self.savedIcon)
@@ -569,6 +610,15 @@ class MainWindow(QMainWindow):
         investmentButton = list(filter(lambda button: "investment_button" in button.objectName(), investmentButtons))[0]
         investmentButton.setText(self.investments[investmentId].title)
 
+    def connectSetInvestmentUnsavedToEditableTextEdit(self, editableTextEdit):
+        editableTextEdit.textChanged.connect(self.setInvestmentUnsaved())
+        return editableTextEdit
+
+    def setInvestmentUnsaved(self):
+        self.isInvestmentSaved[self.currentInvestment.id] = False
+
+
+
     def captureTextEdits(self, investment):
 
         if self.textEditsConnected:
@@ -577,11 +627,13 @@ class MainWindow(QMainWindow):
             print(self.editableTextEdits)
             self.editableTextEdits = list(
                 map(self.disconnectFunction, self.editableTextEdits))
+
         self.textEditsConnected = True
 
         self.currentInvestmentTabIconLabel = self.investmentTabs[investment.id].findChild(QLabel)
 
         self.editableTextEdits = list(map(self.changeSaveIconMap, self.editableTextEdits))
+        self.editableTextEdits = list(map(self.connectSetInvestmentUnsavedToEditableTextEdit, self.editableTextEdits))
 
         self.ui.text_investment_name.textChanged.connect(
             lambda: investment.setTitle(self.ui.text_investment_name.toPlainText()))
@@ -640,11 +692,18 @@ class MainWindow(QMainWindow):
             lambda: investment.setInternetPerMonth(self.ui.text_internet_month.toPlainText()))
         self.ui.text_other_costs_month.textChanged.connect(
             lambda: investment.setOtherPerMonth(self.ui.text_other_costs_month.toPlainText()))
+        self.ui.button_add_note.clicked.connect(lambda: self.addNote())
 
     def saveCurrentInvestment(self):
         if self.currentInvestment is None:
             return
         self.currentInvestment.save()
+        investmentId = self.currentInvestment.id
+
+        frame = self.investmentTabs[investmentId]
+        label: QLabel = frame.findChild(QLabel)
+        label.setPixmap(self.savedIcon)
+
         self.isInvestmentSaved[self.currentInvestment.id] = True
 
 

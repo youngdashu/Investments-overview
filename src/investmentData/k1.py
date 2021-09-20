@@ -1,4 +1,5 @@
 import json
+from typing import List
 
 noDataText = "Brak danych"
 
@@ -59,8 +60,10 @@ class Rent:
 
 
 class Eval:
-    def __init__(self, notes):
-        self.notes = notes
+    def __init__(self, notes=None):
+        if notes is None:
+            notes = []
+        self.notes: List[str] = notes
 
 
 class Investment:
@@ -73,7 +76,7 @@ class Investment:
         self.Contribution = Contribution(0, 0, 0, 0, 0, 0, 0, 0)
         self.Credit = Credit(float("inf"), 0, 0, 0)
         self.Rent = Rent(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
-        self.Eval = Eval("")
+        self.Eval = Eval(None)
 
     def getId(self):
         guide = open("guide.txt", "r+")
@@ -111,13 +114,14 @@ class Investment:
         return self.Main_Char.price
 
     def setPurchasePrice(self, purchasePrice):
-        self.Main_Char.price = purchasePrice
+        print("set purchase price ", purchasePrice)
+        self.Main_Char.price = float(purchasePrice)
 
     def area(self):
         return self.Main_Char.area
 
     def setArea(self, area):
-        self.Main_Char.area = area
+        self.Main_Char.area = float(area)
 
     def pricePerSquareMeter(self):
         return self.Main_Char.ppm
@@ -201,7 +205,9 @@ class Investment:
         self.Contribution.redec = renovationCost
 
     def entryCost(self):
-        return self.ownContribution() + self.brokerMargin() + self.notaryMargin() + self.tax() + self.otherCosts() + self.renovationCost()
+        return int(
+            int(self.ownContribution()) + int(self.brokerMargin()) + int(self.notaryMargin()) + int(self.tax()) + int(
+                self.otherCosts()) + int(self.renovationCost()))
 
     def investedVsPurchasePrice(self):
         return self.entryCost() / self.purchasePrice() if type(
@@ -245,7 +251,8 @@ class Investment:
     def monthlyInstallmentInterestPart(self):
         monthlyInstallmentInterestPart = noDataText
         try:
-            monthlyInstallmentInterestPart = self.monthlyInstallment() - self.monthlyInstallmentCapitalPart()
+            if self.monthlyInstallment() is not noDataText:
+                monthlyInstallmentInterestPart = self.monthlyInstallment() - self.monthlyInstallmentCapitalPart()
         finally:
             return monthlyInstallmentInterestPart
 
@@ -258,7 +265,8 @@ class Investment:
     def totalCreditCost(self):
         totalCreditCost = noDataText
         try:
-            totalCreditCost = self.monthlyInstallment() + self.creditInsurancePerMonth()
+            if self.monthlyInstallment() is not noDataText:
+                totalCreditCost = self.monthlyInstallment() + self.creditInsurancePerMonth()
         finally:
             return totalCreditCost
 
@@ -323,7 +331,8 @@ class Investment:
         self.Rent.other = other
 
     def costsTotalPerMonth(self):
-        return self.Rent.tax_estate + self.Rent.tax_rent + self.Rent.power + self.Rent.water + self.Rent.gas + self.Rent.internet + self.Rent.other
+        return float(self.Rent.tax_estate) + float(self.Rent.tax_rent) + float(self.Rent.power) + float(
+            self.Rent.water) + float(self.Rent.gas) + float(self.Rent.internet) + float(self.Rent.other)
 
     def incomeOrLossPerMonth(self):
         return self.incomeReceivedPerMonth() - self.costsTotalPerMonth() if type(
@@ -337,13 +346,26 @@ class Investment:
             return ownCapitalReturnTimeMonths
 
     def ownCapitalReturnTimeYears(self):
-        return self.ownCapitalReturnTimeMonths() * 12
+        ownCapitalReturnTimeYears = noDataText
+        try:
+            ownCapitalReturnTimeYears = (self.entryCost() / self.incomeOrLossPerMonth()) * 12
+        finally:
+            return ownCapitalReturnTimeYears
 
     def totalReturnTimeMonths(self):
         return (self.entryCost() + self.bankCredit()) / self.incomeOrLossPerMonth()
 
     def totalReturnTimeYears(self):
         return self.totalReturnTimeMonths() * 12
+
+    def notes(self):
+        return self.Eval.notes
+
+    def setNotes(self, notes: List[str]):
+        self.Eval.notes = notes
+
+    def setNote(self, index: int, note: str):
+        self.Eval.notes[index] = note
 
 
 def getInvestments():
@@ -370,67 +392,74 @@ def getInvestmentById(InvestmentId):
     with open("guide.txt") as guide:
         for line in guide.readlines():
             if "InvStart__" in line:
-                tp=10
-                Id=""
-                ti=""
+                tp = 10
+                Id = ""
+                ti = ""
                 while line[tp].isdigit():
-                        Id=Id+line[tp]
-                        tp+=1
+                    Id = Id + line[tp]
+                    tp += 1
                 if int(Id) == InvestmentId:
-                    investment.id=int(Id)
-                    tp+=1
-                    while line[tp] !="{":
-                        ti=ti+line[tp]
-                        tp+=1
-                    investment.title=ti
-                    leng=tp+1
+                    investment.id = int(Id)
+                    tp += 1
+                    while line[tp] != "{":
+                        ti = ti + line[tp]
+                        tp += 1
+                    investment.title = ti
+                    leng = tp + 1
                     while line[leng] != "}":
-                        leng+=1
-                    investment.Main_Char=json.loads(line[tp:leng+1].replace('\\',''), object_hook=lambda d: SimpleNamespace(**d))
-                    tp=leng+1
-                    leng+=2
+                        leng += 1
+                    investment.Main_Char = json.loads(line[tp:leng + 1].replace('\\', ''),
+                                                      object_hook=lambda d: SimpleNamespace(**d))
+                    tp = leng + 1
+                    leng += 2
                     while line[leng] != "}":
-                        leng+=1
-                    investment.Info=json.loads(line[tp:leng+1].replace('\\',''), object_hook=lambda d: SimpleNamespace(**d))
-                    tp=leng+1
-                    leng+=2
+                        leng += 1
+                    investment.Info = json.loads(line[tp:leng + 1].replace('\\', ''),
+                                                 object_hook=lambda d: SimpleNamespace(**d))
+                    tp = leng + 1
+                    leng += 2
                     while line[leng] != "}":
-                        leng+=1
-                    investment.Contribution=json.loads(line[tp:leng+1].replace('\\',''), object_hook=lambda d: SimpleNamespace(**d))
-                    tp=leng+1
-                    leng+=2
+                        leng += 1
+                    investment.Contribution = json.loads(line[tp:leng + 1].replace('\\', ''),
+                                                         object_hook=lambda d: SimpleNamespace(**d))
+                    tp = leng + 1
+                    leng += 2
                     while line[leng] != "}":
-                        leng+=1
-                    investment.Credit=json.loads(line[tp:leng+1].replace('\\',''), object_hook=lambda d: SimpleNamespace(**d))
-                    tp=leng+1
-                    leng+=2
+                        leng += 1
+                    investment.Credit = json.loads(line[tp:leng + 1].replace('\\', ''),
+                                                   object_hook=lambda d: SimpleNamespace(**d))
+                    tp = leng + 1
+                    leng += 2
                     while line[leng] != "}":
-                        leng+=1
-                    investment.Rent=json.loads(line[tp:leng+1].replace('\\',''), object_hook=lambda d: SimpleNamespace(**d))
-                    tp=leng+1
-                    leng+=2
+                        leng += 1
+                    investment.Rent = json.loads(line[tp:leng + 1].replace('\\', ''),
+                                                 object_hook=lambda d: SimpleNamespace(**d))
+                    tp = leng + 1
+                    leng += 2
                     while line[leng] != "}":
-                        leng+=1
-                    investment.Eval=json.loads(line[tp:leng+1].replace('\\',''), object_hook=lambda d: SimpleNamespace(**d))
+                        leng += 1
+                    investment.Eval = json.loads(line[tp:leng + 1].replace('\\', ''),
+                                                 object_hook=lambda d: SimpleNamespace(**d))
     return investment
 
+
 def deleteInvestmentById(investmentId):
-    new=""
+    new = ""
     with open("guide.txt") as guide:
         for line in guide.readlines():
-            if new=="":
-                new=line
+            if new == "":
+                new = line
             else:
-                tp=10
-                Id=""
+                tp = 10
+                Id = ""
                 while line[tp].isdigit():
-                        Id=Id+line[tp]
-                        tp+=1
-                if investmentId!=int(Id):
-                    new=new+line
-    guide=open("guide.txt","w")
+                    Id = Id + line[tp]
+                    tp += 1
+                if investmentId != int(Id):
+                    new = new + line
+    guide = open("guide.txt", "w")
     guide.write(new)
-    guide.close
+    guide.close()
 
 # g = Investment()
 # g.save()
