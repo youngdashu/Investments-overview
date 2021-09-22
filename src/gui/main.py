@@ -1,6 +1,6 @@
 import sys
 from PySide6 import QtCore, QtGui
-from PySide6.QtCore import (QPropertyAnimation)
+from PySide6.QtCore import (QPropertyAnimation, QObject)
 from PySide6.QtGui import (QColor)
 from PySide6.QtGui import QPixmap
 from PySide6.QtWidgets import QApplication, QMainWindow, QLabel, QWidget, QTextEdit, QFrame, QHBoxLayout, QPushButton, \
@@ -405,8 +405,8 @@ class MainWindow(QMainWindow):
                 pass
             else:
                 raise NotImplementedError
-        else:
-            investment.save()
+        # else:
+        #     investment.save()
         deleteInvestmentTab(id)
         del self.investments[id]
         del self.investmentTabs[id]
@@ -617,7 +617,7 @@ class MainWindow(QMainWindow):
     def setInvestmentUnsaved(self):
         self.isInvestmentSaved[self.currentInvestment.id] = False
 
-
+    def illegalCharacterEventFilter(self, ):
 
     def captureTextEdits(self, investment):
 
@@ -629,6 +629,8 @@ class MainWindow(QMainWindow):
                 map(self.disconnectFunction, self.editableTextEdits))
 
         self.textEditsConnected = True
+
+        self.editableTextEdits = list(map(self.))
 
         self.currentInvestmentTabIconLabel = self.investmentTabs[investment.id].findChild(QLabel)
 
@@ -705,6 +707,41 @@ class MainWindow(QMainWindow):
         label.setPixmap(self.savedIcon)
 
         self.isInvestmentSaved[self.currentInvestment.id] = True
+
+    def updateTextEdit(self, textEdit: QTextEdit, functionToGetData):
+        data = str(functionToGetData())
+        textEdit.setText(data)
+
+    def updateReadOnlyTextEdits(self):
+        # self.ui.text_investment_name.textChanged.connect(lambda: )
+        self.ui.text_purchase_price.textChanged.connect(lambda: self.updateTextEdit(self.ui.text_price_per_square_meter, self.currentInvestment.pricePerSquareMeter))
+        # self.ui.text_area.textChanged.connect(lambda: )
+        # self.ui.text_start_date.textChanged.connect(lambda: )
+        # self.ui.text_description.textChanged.connect(lambda: )
+        # self.ui.text_address_street.textChanged.connect(lambda: )
+        # self.ui.text_address_city.textChanged.connect(lambda: )
+        # self.ui.text_estimated_value.textChanged.connect(lambda: )
+        # self.ui.text_last_estimation.textChanged.connect(lambda: )
+        # self.ui.text_finish_date.textChanged.connect(lambda: )
+        # self.ui.text_own_contribution.textChanged.connect(lambda: )
+        # self.ui.text_broker_margin.textChanged.connect(lambda: )
+        # self.ui.text_notary_margin.textChanged.connect(lambda: )
+        # self.ui.text_tax.textChanged.connect(lambda: )
+        # self.ui.text_other_costs.textChanged.connect(lambda: )
+        # self.ui.text_renovation.textChanged.connect(lambda: )
+        # self.ui.text_interest_rate.textChanged.connect(lambda: )
+        # self.ui.text_repayment_period.textChanged.connect(lambda: )
+        # self.ui.text_credit_credit_insurance_per_month.textChanged.connect(lambda: )
+        # self.ui.text_rent_income_min_month.textChanged.connect(lambda: )
+        # self.ui.text_rent_income_max_month.textChanged.connect(lambda: )
+        # self.ui.text_income_earned_month.textChanged.connect(lambda: )
+        # self.ui.text_rent_tax_month.textChanged.connect(lambda: )
+        # self.ui.text_property_tax_year.textChanged.connect(lambda: )
+        # self.ui.text_electricity_month.textChanged.connect(lambda: )
+        # self.ui.text_gas_month.textChanged.connect(lambda: )
+        # self.ui.text_water_month.textChanged.connect(lambda: )
+        # self.ui.text_internet_month.textChanged.connect(lambda: )
+        # self.ui.text_other_costs_month
 
 
 if __name__ == '__main__':
