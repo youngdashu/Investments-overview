@@ -1,6 +1,6 @@
 import sys
 from PySide6 import QtCore, QtGui
-from PySide6.QtCore import (QPropertyAnimation, QObject)
+from PySide6.QtCore import (QPropertyAnimation, QObject, QEvent)
 from PySide6.QtGui import (QColor)
 from PySide6.QtGui import QPixmap
 from PySide6.QtWidgets import QApplication, QMainWindow, QLabel, QWidget, QTextEdit, QFrame, QHBoxLayout, QPushButton, \
@@ -50,7 +50,8 @@ class UnsavedDialog(Ui_UnsavedDialog, QDialog):
 
 class HomePageInvestment(Ui_InvestmentHomePageWidget, QWidget):
     def __init__(self, parent=None):
-        super(HomePageInvestment, self).__init__()
+        # super(HomePageInvestment, self).__init__()
+        super().__init__(parent)
         self.setupUi(self)
 
 
@@ -102,6 +103,17 @@ class MainWindow(QMainWindow):
                                                    self.ui.text_internet_year, self.ui.text_other_costs_year,
                                                    self.ui.text_total_costs_month, self.ui.text_total_costs_year,
                                                    self.ui.text_rent_gain_loss_month, self.ui.text_rent_gain_loss_year]
+
+        self.editableTextEditsNumeric: List[QTextEdit] = [self.ui.text_purchase_price,
+                                                          self.ui.text_area,
+                                                          self.ui.text_estimated_value,
+                                                          self.ui.text_own_contribution,
+                                                          self.ui.text_broker_margin,
+                                                          self.ui.text_notary_margin,
+                                                          self.ui.text_tax,
+                                                          self.ui.text_other_costs,
+                                                          self.ui.text_renovation
+                                                          ]
 
         self.editableTextEdits: List[QTextEdit] = [self.ui.text_investment_name,
                                                    self.ui.text_purchase_price,
@@ -270,12 +282,12 @@ class MainWindow(QMainWindow):
         isSlided = False
         afterAnimationHeight = None
         actualHeight = None
-        if self.ui.frame_own_contribution_credit.height() < self.targetFrameHeight:  # == self.frameHeight:  # height before slide
+        if self.ui.frame_own_contribution_credit.height() < self.targetFrameHeight:
             isSlided = False
             afterAnimationHeight = 600
             actualHeight = self.frameHeight
             self.ui.frame_own_contribution_credit_inner.setVisible(True)
-        else:  # self.ui.frame_main_characteristics.height() == 300: # after slide
+        else:  # after slide
             isSlided = True
             afterAnimationHeight = self.frameHeight
             actualHeight = 600
@@ -327,7 +339,8 @@ class MainWindow(QMainWindow):
             noteIndex = newNoteStr[1]
             newNoteStr = newNoteStr[0]
             newNoteTextEdit.setText(newNoteStr)
-        newNoteTextEdit.textChanged.connect(lambda: self.currentInvestment.setNote(noteIndex, newNoteTextEdit.toPlainText()))
+        newNoteTextEdit.textChanged.connect(
+            lambda: self.currentInvestment.setNote(noteIndex, newNoteTextEdit.toPlainText()))
         investmentId = self.currentInvestment.id
         frame = self.investmentTabs[investmentId]
         label: QLabel = frame.findChild(QLabel)
@@ -339,7 +352,8 @@ class MainWindow(QMainWindow):
         print(self.currentInvestment.notes())
         print(list(range(0, len(self.currentInvestment.notes()))))
         print(zip(self.currentInvestment.notes(), list(range(0, len(self.currentInvestment.notes())))))
-        list(map(self.addNote, zip(self.currentInvestment.notes(), list(range(0, len(self.currentInvestment.notes()))))))
+        list(
+            map(self.addNote, zip(self.currentInvestment.notes(), list(range(0, len(self.currentInvestment.notes()))))))
 
     def restore(self):
         global SHOW_MAXIMIZED
@@ -356,35 +370,20 @@ class MainWindow(QMainWindow):
         self.addNewInvestment(investment)
 
     def addInvestmentWidgetToHomePage(self, investmentIdAndName):
-        id = investmentIdAndName[0]
+        investmentId = investmentIdAndName[0]
         name = investmentIdAndName[1]
         investmentHomePageWidget = HomePageInvestment(self.ui.scrollAreaContents_investments_home_page)
-        # investmentHomePageWidget.
         investmentHomePageWidget.buttonInvestmentName.setText(name)
-        investmentHomePageWidget.InvestmentId.setText(str(id))
-        investmentHomePageWidget.buttonInvestmentName.clicked.connect(lambda: self.loadAndShowInvestment(id))
-        investmentHomePageWidget.buttonDeleteInvestment.clicked.connect(lambda: deleteInvestmentById(id))
+        investmentHomePageWidget.InvestmentId.setText(str(investmentId))
+        investmentHomePageWidget.buttonInvestmentName.clicked.connect(lambda: self.loadAndShowInvestment(investmentId))
+        investmentHomePageWidget.buttonDeleteInvestment.clicked.connect(lambda: deleteInvestmentById(investmentId))
+        self.ui.investments_home_page_layout.addWidget(investmentHomePageWidget)
+        investmentHomePageWidget.show()
 
     def loadInvestments(self):
         loadedInvestments = getInvestments()
         print(loadedInvestments)
         map(self.addInvestmentWidgetToHomePage, loadedInvestments)
-
-    # def clearInvestmentPage(self, parent):
-    #
-    #     print(parent)
-    #
-    #     if type(parent) is QTextEdit:
-    #         parent.setText("")
-    #         print("Clear")
-    #     else:
-    #         children = []
-    #         try:
-    #             children = parent.findChildren(QWidget)
-    #         except:
-    #             pass
-    #         for c in children:
-    #             self.clearInvestmentPage(c)
 
     def closeInvestment(self, investment: Investment):
 
@@ -405,8 +404,7 @@ class MainWindow(QMainWindow):
                 pass
             else:
                 raise NotImplementedError
-        # else:
-        #     investment.save()
+
         deleteInvestmentTab(id)
         del self.investments[id]
         del self.investmentTabs[id]
@@ -587,11 +585,11 @@ class MainWindow(QMainWindow):
         self.addNotes()
 
     def changeOneIcon(self, investmentFrameLabel: QLabel, currentInvestmentId: int):
-        print("changeOneIcon")
-        print(investmentFrameLabel.pixmap(), " --- ", self.savedIcon)
+        # print("changeOneIcon")
+        # print(investmentFrameLabel.pixmap(), " --- ", self.savedIcon)
         if self.isInvestmentSaved[currentInvestmentId] is True:
             self.isInvestmentSaved[currentInvestmentId] = False
-            print("changing !")
+            # print("changing !")
             investmentFrameLabel.setPixmap(self.unsavedIcon)
 
     def changeSaveIconMap(self, editableTextEdit: QTextEdit):
@@ -611,26 +609,39 @@ class MainWindow(QMainWindow):
         investmentButton.setText(self.investments[investmentId].title)
 
     def connectSetInvestmentUnsavedToEditableTextEdit(self, editableTextEdit):
-        editableTextEdit.textChanged.connect(self.setInvestmentUnsaved())
+        investmentFrameLabelIcon = self.investmentTabs[self.currentInvestment.id].findChild(QLabel)
+        editableTextEdit.textChanged.connect(lambda: self.setInvestmentUnsaved(investmentFrameLabelIcon))
         return editableTextEdit
 
-    def setInvestmentUnsaved(self):
-        self.isInvestmentSaved[self.currentInvestment.id] = False
+    def setInvestmentUnsaved(self, investmentFrameLabel: QLabel):
+        if self.isInvestmentSaved[self.currentInvestment.id] is True:
+            investmentFrameLabel.setPixmap(self.unsavedIcon)
+            self.isInvestmentSaved[self.currentInvestment.id] = False
 
-    def illegalCharacterEventFilter(self, ):
+    def connectEventFilter(self, textEdit: QTextEdit):
+        textEdit.installEventFilter(textEdit)
+        return textEdit
+
+    def eventFilter(self, object, event):
+
+        # if object in self.editableTextEditsNumeric and event == QEvent.
+        #
+        # if textEdit.toPlainText().isdigit():
+        #     return False
+        return True
 
     def captureTextEdits(self, investment):
 
         if self.textEditsConnected:
-            print("odlaczam")
+            # print("odlaczam")
             self.textEditsConnected = False
-            print(self.editableTextEdits)
+            # print(self.editableTextEdits)
             self.editableTextEdits = list(
                 map(self.disconnectFunction, self.editableTextEdits))
 
         self.textEditsConnected = True
 
-        self.editableTextEdits = list(map(self.))
+        # self.editableTextEditsNumeric = list(map(, self.editableTextEditsNumeric))
 
         self.currentInvestmentTabIconLabel = self.investmentTabs[investment.id].findChild(QLabel)
 
@@ -696,6 +707,8 @@ class MainWindow(QMainWindow):
             lambda: investment.setOtherPerMonth(self.ui.text_other_costs_month.toPlainText()))
         self.ui.button_add_note.clicked.connect(lambda: self.addNote())
 
+        self.updateReadOnlyTextEdits()
+
     def saveCurrentInvestment(self):
         if self.currentInvestment is None:
             return
@@ -710,31 +723,53 @@ class MainWindow(QMainWindow):
 
     def updateTextEdit(self, textEdit: QTextEdit, functionToGetData):
         data = str(functionToGetData())
+        print("data: ", data)
         textEdit.setText(data)
 
     def updateReadOnlyTextEdits(self):
-        self.ui.text_purchase_price.textChanged.connect(lambda: self.updateTextEdit(self.ui.text_price_per_square_meter, self.currentInvestment.pricePerSquareMeter))
-        self.ui.text_area.textChanged.connect(lambda: (self.ui.text_price_per_square_meter, self.currentInvestment.pricePerSquareMeter))
-        self.ui.text_own_contribution.textChanged.connect(lambda: self.updateTextEdit(self.ui.text_entry_cost ,self.currentInvestment.entryCost))
-        self.ui.text_broker_margin.textChanged.connect(lambda: self.updateTextEdit(self.ui.text_entry_cost ,self.currentInvestment.entryCost))
-        self.ui.text_notary_margin.textChanged.connect(lambda: self.updateTextEdit(self.ui.text_entry_cost ,self.currentInvestment.entryCost))
-        self.ui.text_tax.textChanged.connect(lambda: self.updateTextEdit(self.ui.text_entry_cost ,self.currentInvestment.entryCost))
-        self.ui.text_other_costs.textChanged.connect(lambda: self.updateTextEdit(self.ui.text_entry_cost ,self.currentInvestment.entryCost))
-        self.ui.text_renovation.textChanged.connect(lambda: self.updateTextEdit(self.ui.text_entry_cost ,self.currentInvestment.entryCost))
-        
-        self.ui.text_interest_rate.textChanged.connect(lambda: self.updateTextEdit(self.ui.text_monthly_installment ,self.currentInvestment.monthlyInstallment)
-        self.ui.text_repayment_period.textChanged.connect(lambda: self.updateTextEdit(self.ui.text_monthly_installment ,self.currentInvestment.monthlyInstallment))
-        self.ui.text_repayment_period.textChanged.connect(lambda: self.updateTextEdit(self.ui.text_monthly_installment ,self.currentInvestment.monthlyInstallment))
-                                                       
-        self.ui.text_credit_credit_insurance_per_month.textChanged.connect(lambda: self.updateTextEdit(self.ui.text_total_credit_cost ,self.currentInvestment.totalCreditCost))
+        self.ui.text_purchase_price.textChanged.connect(
+            lambda: self.updateTextEdit(self.ui.text_price_per_square_meter,
+                                        self.currentInvestment.pricePerSquareMeter))
+        self.ui.text_area.textChanged.connect(
+            lambda: self.updateTextEdit(self.ui.text_price_per_square_meter,
+                                        self.currentInvestment.pricePerSquareMeter))
+        self.ui.text_own_contribution.textChanged.connect(
+            lambda: self.updateTextEdit(self.ui.text_entry_cost, self.currentInvestment.entryCost))
+        self.ui.text_broker_margin.textChanged.connect(
+            lambda: self.updateTextEdit(self.ui.text_entry_cost, self.currentInvestment.entryCost))
+        self.ui.text_notary_margin.textChanged.connect(
+            lambda: self.updateTextEdit(self.ui.text_entry_cost, self.currentInvestment.entryCost))
+        self.ui.text_tax.textChanged.connect(
+            lambda: self.updateTextEdit(self.ui.text_entry_cost, self.currentInvestment.entryCost))
+        self.ui.text_other_costs.textChanged.connect(
+            lambda: self.updateTextEdit(self.ui.text_entry_cost, self.currentInvestment.entryCost))
+        self.ui.text_renovation.textChanged.connect(
+            lambda: self.updateTextEdit(self.ui.text_entry_cost, self.currentInvestment.entryCost))
 
-        self.ui.text_rent_tax_month.textChanged.connect(lambda: self.updateTextEdit(self.ui.text_total_costs_month ,self.currentInvestment.costsTotalPerMonth))
-        self.ui.text_property_tax_year.textChanged.connect(lambda: self.updateTextEdit(self.ui.text_total_costs_month ,self.currentInvestment.costsTotalPerMonth))
-        self.ui.text_electricity_month.textChanged.connect(lambda: self.updateTextEdit(self.ui.text_total_costs_month ,self.currentInvestment.costsTotalPerMonth))
-        self.ui.text_gas_month.textChanged.connect(lambda: self.updateTextEdit(self.ui.text_total_costs_month ,self.currentInvestment.costsTotalPerMonth))
-        self.ui.text_water_month.textChanged.connect(lambda: self.updateTextEdit(self.ui.text_total_costs_month ,self.currentInvestment.costsTotalPerMonth))
-        self.ui.text_internet_month.textChanged.connect(lambda: self.updateTextEdit(self.ui.text_total_costs_month ,self.currentInvestment.costsTotalPerMonth))
-        self.ui.text_other_costs_month.textChanged.connect(lambda: self.updateTextEdit(self.ui.text_total_costs_month ,self.currentInvestment.costsTotalPerMonth))
+        self.ui.text_interest_rate.textChanged.connect(
+            lambda: self.updateTextEdit(self.ui.text_monthly_installment, self.currentInvestment.monthlyInstallment))
+        self.ui.text_repayment_period.textChanged.connect(
+            lambda: self.updateTextEdit(self.ui.text_monthly_installment, self.currentInvestment.monthlyInstallment))
+        self.ui.text_repayment_period.textChanged.connect(
+            lambda: self.updateTextEdit(self.ui.text_monthly_installment, self.currentInvestment.monthlyInstallment))
+
+        self.ui.text_credit_credit_insurance_per_month.textChanged.connect(
+            lambda: self.updateTextEdit(self.ui.text_total_credit_cost, self.currentInvestment.totalCreditCost))
+
+        self.ui.text_rent_tax_month.textChanged.connect(
+            lambda: self.updateTextEdit(self.ui.text_total_costs_month, self.currentInvestment.costsTotalPerMonth))
+        self.ui.text_property_tax_year.textChanged.connect(
+            lambda: self.updateTextEdit(self.ui.text_total_costs_month, self.currentInvestment.costsTotalPerMonth))
+        self.ui.text_electricity_month.textChanged.connect(
+            lambda: self.updateTextEdit(self.ui.text_total_costs_month, self.currentInvestment.costsTotalPerMonth))
+        self.ui.text_gas_month.textChanged.connect(
+            lambda: self.updateTextEdit(self.ui.text_total_costs_month, self.currentInvestment.costsTotalPerMonth))
+        self.ui.text_water_month.textChanged.connect(
+            lambda: self.updateTextEdit(self.ui.text_total_costs_month, self.currentInvestment.costsTotalPerMonth))
+        self.ui.text_internet_month.textChanged.connect(
+            lambda: self.updateTextEdit(self.ui.text_total_costs_month, self.currentInvestment.costsTotalPerMonth))
+        self.ui.text_other_costs_month.textChanged.connect(
+            lambda: self.updateTextEdit(self.ui.text_total_costs_month, self.currentInvestment.costsTotalPerMonth))
 
 
 if __name__ == '__main__':

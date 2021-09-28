@@ -5,10 +5,10 @@ noDataText = "Brak danych"
 
 
 class Main_Char:
-    def __init__(self, price, area, ppm):
+    def __init__(self, price, area):
         self.price = price
         self.area = area
-        self.ppm = ppm
+        # self.ppm = ppm
 
 
 class Info:
@@ -71,7 +71,7 @@ class Investment:
         self.title = "Unnamed"
         self.id = self.getId()
         print(self.id)
-        self.Main_Char = Main_Char(float("inf"), 0, 0)
+        self.Main_Char = Main_Char(float("inf"), 0)
         self.Info = Info(0, 0, "", "", "", 0, 0)
         self.Contribution = Contribution(0, 0, 0, 0, 0, 0, 0, 0)
         self.Credit = Credit(float("inf"), 0, 0, 0)
@@ -125,7 +125,11 @@ class Investment:
         self.Main_Char.area = float(area)
 
     def pricePerSquareMeter(self):
-        return self.Main_Char.ppm
+        pricePerSquareMeter = noDataText
+        try:
+            pricePerSquareMeter = float(self.purchasePrice()) / float(self.area())
+        finally:
+            return pricePerSquareMeter
 
     def startDate(self):
         return self.Info.date_start
