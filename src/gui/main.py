@@ -746,15 +746,35 @@ class MainWindow(QMainWindow):
         self.ui.text_renovation.textChanged.connect(
             lambda: self.updateTextEdit(self.ui.text_entry_cost, self.currentInvestment.entryCost))
 
+        self.ui.text_credit.textChanged.connect(
+            lambda: self.updateTextEdit(self.ui.text_monthly_installment, self.currentInvestment.monthlyInstallment))
+        self.ui.text_repayment_period.textChanged.connect(
+            lambda: self.updateTextEdit(self.ui.text_monthly_installment, self.currentInvestment.monthlyInstallment))
         self.ui.text_interest_rate.textChanged.connect(
             lambda: self.updateTextEdit(self.ui.text_monthly_installment, self.currentInvestment.monthlyInstallment))
+        self.ui.text_credit.textChanged.connect(
+            lambda: self.updateTextEdit(self.ui.text_monthly_installment_capital_part, self.currentInvestment.monthlyInstallmentCapitalPart))
         self.ui.text_repayment_period.textChanged.connect(
-            lambda: self.updateTextEdit(self.ui.text_monthly_installment, self.currentInvestment.monthlyInstallment))
+            lambda: self.updateTextEdit(self.ui.text_monthly_installment_capital_part, self.currentInvestment.monthlyInstallmentCapitalPart))
+        self.ui.text_credit.textChanged.connect(
+            lambda: self.updateTextEdit(self.ui.text_monthly_installment_interest_part, self.currentInvestment.monthlyInstallmentInterestPart))
         self.ui.text_repayment_period.textChanged.connect(
-            lambda: self.updateTextEdit(self.ui.text_monthly_installment, self.currentInvestment.monthlyInstallment))
+            lambda: self.updateTextEdit(self.ui.text_monthly_installment_interest_part, self.currentInvestment.monthlyInstallmentInterestPart))
+        self.ui.text_interest_rate.textChanged.connect(
+            lambda: self.updateTextEdit(self.ui.text_monthly_installment_interest_part, self.currentInvestment.monthlyInstallmentInterestPart))
+
+        self.ui.text_monthly_installment.textChanged.connect(
+            lambda: self.updateTextEdit(self.ui.text_total_credit_cost, self.currentInvestment.totalCreditCost))
+        self.ui.text_credit_credit_insurance_per_month.textChanged.connect(
+            lambda: self.updateTextEdit(self.ui.text_total_credit_cost, self.currentInvestment.totalCreditCost))
 
         self.ui.text_credit_credit_insurance_per_month.textChanged.connect(
             lambda: self.updateTextEdit(self.ui.text_total_credit_cost, self.currentInvestment.totalCreditCost))
+
+        self.ui.text_purchase_price.textChanged.connect(
+            lambda: self.updateTextEdit(self.ui.text_credit, self.currentInvestment.bankCredit))
+        self.ui.text_own_contribution.textChanged.connect(
+            lambda: self.updateTextEdit(self.ui.text_credit, self.currentInvestment.bankCredit))
 
         self.ui.text_rent_tax_month.textChanged.connect(
             lambda: self.updateTextEdit(self.ui.text_total_costs_month, self.currentInvestment.costsTotalPerMonth))
@@ -770,6 +790,15 @@ class MainWindow(QMainWindow):
             lambda: self.updateTextEdit(self.ui.text_total_costs_month, self.currentInvestment.costsTotalPerMonth))
         self.ui.text_other_costs_month.textChanged.connect(
             lambda: self.updateTextEdit(self.ui.text_total_costs_month, self.currentInvestment.costsTotalPerMonth))
+
+        self.ui.text_income_earned_month.textChanged.connect(
+            lambda: self.updateTextEdit(self.ui.text_rent_gain_loss_month, self.currentInvestment.gainLossPerMonth))
+        self.ui.text_total_costs_month.textChanged.connect(
+            lambda: self.updateTextEdit(self.ui.text_rent_gain_loss_month, self.currentInvestment.gainLossPerMonth))
+        self.ui.text_income_earned_month.textChanged.connect(
+            lambda: self.updateTextEdit(self.ui.text_rent_gain_loss_year, self.currentInvestment.gainLossPerYear))
+        self.ui.text_total_costs_month.textChanged.connect(
+            lambda: self.updateTextEdit(self.ui.text_rent_gain_loss_year, self.currentInvestment.gainLossPerYear))
 
 
 if __name__ == '__main__':
