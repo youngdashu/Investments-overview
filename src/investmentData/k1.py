@@ -179,11 +179,20 @@ class Investment:
     def setOwnContribution(self, ownContribution):
         self.Contribution.contr = ownContribution
 
+    def ownContributionPercent(self):
+        ownContributionPercent = str(int((self.ownContribution() / self.purchasePrice()) * 100)) + "%" if type(
+            self.ownContribution()) is not str and type(self.purchasePrice()) is not str else noDataText
+        return ownContributionPercent
+
     def brokerMargin(self):
         return self.Contribution.marg_b
 
     def setBrokerMargin(self, brokerMargin):
         self.Contribution.marg_b = brokerMargin
+
+    def brokerMarginPercent(self):
+        return str(int((self.brokerMargin() / self.purchasePrice()) * 100)) + "%" if type(
+                self.brokerMargin()) is not str and type(self.purchasePrice()) is not str else noDataText
 
     def notaryMargin(self):
         return self.Contribution.marg_n
@@ -191,11 +200,19 @@ class Investment:
     def setNotaryMargin(self, notaryMargin):
         self.Contribution.marg_n = notaryMargin
 
+    def notaryMarginPercent(self):
+        return str(int((self.notaryMargin() / self.purchasePrice()) * 100)) + "%" if type(
+                self.notaryMargin()) is not str and type(self.purchasePrice()) is not str else noDataText
+
     def tax(self):
         return self.Contribution.tax
 
     def setTax(self, tax):
         self.Contribution.tax = tax
+
+    def taxPercent(self):
+        return str(int((self.tax() / self.purchasePrice()) * 100)) + "%" if type(
+            self.tax()) is not str and type(self.purchasePrice()) is not str else noDataText
 
     def otherCosts(self):
         return self.Contribution.other
@@ -203,11 +220,19 @@ class Investment:
     def setOtherCosts(self, otherCosts):
         self.Contribution.other = otherCosts
 
+    def otherCostsPercent(self):
+        return str(int((self.otherCosts() / self.purchasePrice()) * 100)) + "%" if type(
+                self.otherCosts()) is not str and type(self.purchasePrice()) is not str else noDataText
+
     def renovationCost(self):
         return self.Contribution.redec
 
     def setRenovationCost(self, renovationCost):
         self.Contribution.redec = renovationCost
+
+    def renovationCostPercent(self):
+        return str(int((self.renovationCost() / self.purchasePrice()) * 100)) + "%" if type(
+                self.renovationCost()) is not str and type(self.purchasePrice()) is not str else noDataText
 
     def entryCost(self):
         return int(
@@ -339,26 +364,26 @@ class Investment:
         return float(self.Rent.tax_estate) + float(self.Rent.tax_rent) + float(self.Rent.power) + float(
             self.Rent.water) + float(self.Rent.gas) + float(self.Rent.internet) + float(self.Rent.other)
 
-    def incomeOrLossPerMonth(self):
+    def gainLossPerMonth(self):
         return self.incomeReceivedPerMonth() - self.costsTotalPerMonth() if type(
             self.incomeReceivedPerMonth()) is not str and type(self.costsTotalPerMonth()) is not str else noDataText
 
     def ownCapitalReturnTimeMonths(self):
         ownCapitalReturnTimeMonths = noDataText
         try:
-            ownCapitalReturnTimeMonths = self.entryCost() / self.incomeOrLossPerMonth()
+            ownCapitalReturnTimeMonths = self.entryCost() / self.gainLossPerMonth()
         finally:
             return ownCapitalReturnTimeMonths
 
     def ownCapitalReturnTimeYears(self):
         ownCapitalReturnTimeYears = noDataText
         try:
-            ownCapitalReturnTimeYears = (self.entryCost() / self.incomeOrLossPerMonth()) * 12
+            ownCapitalReturnTimeYears = (self.entryCost() / self.gainLossPerMonth()) * 12
         finally:
             return ownCapitalReturnTimeYears
 
     def totalReturnTimeMonths(self):
-        return (self.entryCost() + self.bankCredit()) / self.incomeOrLossPerMonth()
+        return (self.entryCost() + self.bankCredit()) / self.gainLossPerMonth()
 
     def totalReturnTimeYears(self):
         return self.totalReturnTimeMonths() * 12

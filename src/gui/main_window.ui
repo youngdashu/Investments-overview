@@ -417,7 +417,7 @@ border-radius: 5px;
           <item>
            <widget class="QStackedWidget" name="all_pages">
             <property name="currentIndex">
-             <number>2</number>
+             <number>0</number>
             </property>
             <widget class="QWidget" name="investment_page">
              <layout class="QVBoxLayout" name="verticalLayout_16">
@@ -455,8 +455,8 @@ color: rgb(255, 255, 255)
                  <property name="geometry">
                   <rect>
                    <x>0</x>
-                   <y>0</y>
-                   <width>666</width>
+                   <y>-1259</y>
+                   <width>884</width>
                    <height>2684</height>
                   </rect>
                  </property>
@@ -1145,7 +1145,14 @@ border-radius: 8px;
                                <widget class="QTextEdit" name="text_own_contribution"/>
                               </item>
                               <item>
-                               <widget class="QTextEdit" name="text_own_contribution_percent"/>
+                               <widget class="QTextEdit" name="text_own_contribution_percent">
+                                <property name="minimumSize">
+                                 <size>
+                                  <width>50</width>
+                                  <height>0</height>
+                                 </size>
+                                </property>
+                               </widget>
                               </item>
                              </layout>
                             </widget>
@@ -1182,7 +1189,14 @@ border-radius: 8px;
                                <widget class="QTextEdit" name="text_broker_margin"/>
                               </item>
                               <item>
-                               <widget class="QTextEdit" name="text_broker_margin_percent"/>
+                               <widget class="QTextEdit" name="text_broker_margin_percent">
+                                <property name="minimumSize">
+                                 <size>
+                                  <width>50</width>
+                                  <height>0</height>
+                                 </size>
+                                </property>
+                               </widget>
                               </item>
                              </layout>
                             </widget>
@@ -1219,7 +1233,14 @@ border-radius: 8px;
                                <widget class="QTextEdit" name="text_notary_margin"/>
                               </item>
                               <item>
-                               <widget class="QTextEdit" name="text_notary_margin_percent"/>
+                               <widget class="QTextEdit" name="text_notary_margin_percent">
+                                <property name="minimumSize">
+                                 <size>
+                                  <width>50</width>
+                                  <height>0</height>
+                                 </size>
+                                </property>
+                               </widget>
                               </item>
                              </layout>
                             </widget>
@@ -1256,7 +1277,14 @@ border-radius: 8px;
                                <widget class="QTextEdit" name="text_tax"/>
                               </item>
                               <item>
-                               <widget class="QTextEdit" name="text_tax_percent"/>
+                               <widget class="QTextEdit" name="text_tax_percent">
+                                <property name="minimumSize">
+                                 <size>
+                                  <width>50</width>
+                                  <height>0</height>
+                                 </size>
+                                </property>
+                               </widget>
                               </item>
                              </layout>
                             </widget>
@@ -1293,7 +1321,14 @@ border-radius: 8px;
                                <widget class="QTextEdit" name="text_other_costs"/>
                               </item>
                               <item>
-                               <widget class="QTextEdit" name="text_other_costs_percent"/>
+                               <widget class="QTextEdit" name="text_other_costs_percent">
+                                <property name="minimumSize">
+                                 <size>
+                                  <width>50</width>
+                                  <height>0</height>
+                                 </size>
+                                </property>
+                               </widget>
                               </item>
                              </layout>
                             </widget>
@@ -1330,7 +1365,14 @@ border-radius: 8px;
                                <widget class="QTextEdit" name="text_renovation"/>
                               </item>
                               <item>
-                               <widget class="QTextEdit" name="text_renovation_percent"/>
+                               <widget class="QTextEdit" name="text_renovation_percent">
+                                <property name="minimumSize">
+                                 <size>
+                                  <width>50</width>
+                                  <height>0</height>
+                                 </size>
+                                </property>
+                               </widget>
                               </item>
                              </layout>
                             </widget>
@@ -3198,8 +3240,8 @@ border: 0px solid gray;
                          <rect>
                           <x>0</x>
                           <y>0</y>
-                          <width>98</width>
-                          <height>34</height>
+                          <width>836</width>
+                          <height>294</height>
                          </rect>
                         </property>
                         <layout class="QVBoxLayout" name="scrollArea_notes_contents_layout">

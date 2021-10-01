@@ -507,28 +507,21 @@ class MainWindow(QMainWindow):
         self.ui.text_last_estimation.setText(str(investment.lastEstimationDate()))
         self.ui.text_finish_date.setText(str(investment.finishDate()))
         self.ui.text_own_contribution.setText(str(investment.ownContribution()))
-        ownContributionText = str(int((investment.ownContribution() / investment.purchasePrice()) * 100)) + "%" if type(
-            investment.ownContribution()) is not str and type(investment.purchasePrice()) is not str else noDataText
-        self.ui.text_own_contribution_percent.setText(ownContributionText)
+        self.ui.text_own_contribution_percent.setText(investment.ownContributionPercent())
         self.ui.text_broker_margin.setText(str(investment.brokerMargin()))
         self.ui.text_broker_margin_percent.setText(
-            str(int((investment.brokerMargin() / investment.purchasePrice()) * 100)) + "%" if type(
-                investment.brokerMargin()) is not str and type(investment.purchasePrice()) is not str else noDataText)
+            investment.brokerMarginPercent())
         self.ui.text_notary_margin.setText(str(investment.notaryMargin()))
         self.ui.text_notary_margin_percent.setText(
-            str(int((investment.notaryMargin() / investment.purchasePrice()) * 100)) + "%" if type(
-                investment.notaryMargin()) is not str and type(investment.purchasePrice()) is not str else noDataText)
+            investment.notaryMarginPercent())
         self.ui.text_tax.setText(str(investment.tax()))
-        self.ui.text_tax_percent.setText(str(int((investment.tax() / investment.purchasePrice()) * 100)) + "%" if type(
-            investment.tax()) is not str and type(investment.purchasePrice()) is not str else noDataText)
+        self.ui.text_tax_percent.setText(investment.taxPercent())
         self.ui.text_other_costs.setText(str(investment.otherCosts()))
         self.ui.text_other_costs_percent.setText(
-            str(int((investment.otherCosts() / investment.purchasePrice()) * 100)) + "%" if type(
-                investment.otherCosts()) is not str and type(investment.purchasePrice()) is not str else noDataText)
+            investment.otherCostsPercent())
         self.ui.text_renovation.setText(str(investment.renovationCost()))
         self.ui.text_renovation_percent.setText(
-            str(int((investment.renovationCost() / investment.purchasePrice()) * 100)) + "%" if type(
-                investment.renovationCost()) is not str and type(investment.purchasePrice()) is not str else noDataText)
+            investment.renovationCostPercent())
         self.ui.text_entry_cost.setText(str(investment.entryCost()))
         self.ui.text_invested_vs_purchase.setText(str(investment.investedVsPurchasePrice()))
         self.ui.text_credit.setText(str(investment.bankCredit()))
@@ -576,9 +569,9 @@ class MainWindow(QMainWindow):
         self.ui.text_total_costs_month.setText(str(investment.costsTotalPerMonth()))
         self.ui.text_total_costs_year.setText(str(investment.costsTotalPerMonth() * 12) if type(
             investment.costsTotalPerMonth()) is not str else noDataText)
-        self.ui.text_rent_gain_loss_month.setText(str(investment.incomeOrLossPerMonth()))
-        self.ui.text_rent_gain_loss_year.setText(str(investment.incomeOrLossPerMonth() * 12) if type(
-            investment.incomeOrLossPerMonth()) is not str else noDataText)
+        self.ui.text_rent_gain_loss_month.setText(str(investment.gainLossPerMonth()))
+        self.ui.text_rent_gain_loss_year.setText(str(investment.gainLossPerMonth() * 12) if type(
+            investment.gainLossPerMonth()) is not str else noDataText)
         self.ui.label_own_capital_return_time_months.setText(str(investment.ownCapitalReturnTimeMonths()))
         self.ui.label_own_capital_return_time_years.setText(str(investment.ownCapitalReturnTimeYears()))
 
@@ -799,6 +792,25 @@ class MainWindow(QMainWindow):
             lambda: self.updateTextEdit(self.ui.text_rent_gain_loss_year, self.currentInvestment.gainLossPerYear))
         self.ui.text_total_costs_month.textChanged.connect(
             lambda: self.updateTextEdit(self.ui.text_rent_gain_loss_year, self.currentInvestment.gainLossPerYear))
+
+        self.ui.text_own_contribution.textChanged.connect(
+            lambda: self.updateTextEdit(self.ui.text_own_contribution_percent,
+                                        self.currentInvestment.ownContributionPercent)
+        )
+        self.ui.text_broker_margin.textChanged.connect(
+            lambda: self.updateTextEdit(self.ui.text_broker_margin_percent, self.currentInvestment.brokerMarginPercent)
+        )
+        self.ui.text_notary_margin.textChanged.connect(
+            lambda: self.updateTextEdit(self.ui.text_notary_margin_percent, self.currentInvestment.notaryMarginPercent)
+        )
+        self.ui.text_tax.textChanged.connect(
+            lambda: self.updateTextEdit(self.ui.text_tax_percent, self.currentInvestment.taxPercent)
+        )
+        self.ui.text_other_costs.textChanged.connect(
+            lambda: self.updateTextEdit(self.ui.text_other_costs_percent, self.currentInvestment.otherCostsPercent))
+        self.ui.text_renovation.textChanged.connect(lambda: self.ui.text_renovation_percent,
+                                                    self.currentInvestment.renovationCostPercent)
+        
 
 
 if __name__ == '__main__':
