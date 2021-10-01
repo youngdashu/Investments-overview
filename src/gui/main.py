@@ -151,7 +151,18 @@ class MainWindow(QMainWindow):
                                                    self.ui.text_internet_month,
                                                    self.ui.text_other_costs_month]
 
-        self.framesToRemoveBorder = [self.ui.frame_label_an]
+        self.framesToRemoveBorder = [self.ui.frame_label_and_text_purchase_price, self.ui.frame_label_and_text_renovation,
+                                     self.ui.frame_label_and_text_tax, self.ui.frame_label_and_text_area,
+                                     self.ui.frame_label_and_text_credit, self.ui.frame_label_and_text_address_city,
+                                     self.ui.frame_label_and_text_address_street, self.ui.frame_label_and_text_bank_contribution,
+                                     self.ui.frame_label_and_text_broker_margin, self.ui.frame_label_and_text_description,
+                                     self.ui.frame_label_and_text_entry_cost, self.ui.frame_label_and_text_estimated_value,
+                                     self.ui.frame_label_and_text_finish_date, self.ui.frame_label_and_text_interest_rate,
+                                     self.ui.frame_label_and_text_invested_vs_purchase, self.ui.frame_label_and_text_,
+                                     self.ui.frame_label_and_text_, self.ui.frame_label_and_text_,
+                                     self.ui.frame_label_and_text_, self.ui.frame_label_and_text_,
+                                     self.ui.frame_label_and_text_, self.ui.frame_label_and_text_,
+                                     self.ui.frame_label_and_text_, self.ui.frame_label_and_text_, ]
 
         for readOnlyFrame in self.readOnlyTextEdits:
             readOnlyFrame.setReadOnly(True)
@@ -830,10 +841,10 @@ class MainWindow(QMainWindow):
 
         self.ui.text_entry_cost.textChanged.connect(
             (lambda: self.updateTextEdit(self.ui.label_own_capital_return_time_months,
-                                     self.currentInvestment.ownCapitalReturnTimeMonths())))
+                                         self.currentInvestment.ownCapitalReturnTimeMonths())))
         self.ui.text_rent_gain_loss_month.textChanged.connect(
             (lambda: self.updateTextEdit(self.ui.label_own_capital_return_time_months,
-                                     self.currentInvestment.ownCapitalReturnTimeMonths())))
+                                         self.currentInvestment.ownCapitalReturnTimeMonths())))
 
     def removeExcessiveFrameBorders(self):
         self.ui.frame_label_and_text_purchase_price.setStyleSheet(
