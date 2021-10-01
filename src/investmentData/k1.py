@@ -368,6 +368,10 @@ class Investment:
         return self.incomeReceivedPerMonth() - self.costsTotalPerMonth() if type(
             self.incomeReceivedPerMonth()) is not str and type(self.costsTotalPerMonth()) is not str else noDataText
 
+    def gainLossPerYear(self):
+        return (self.incomeReceivedPerMonth() - self.costsTotalPerMonth()) * 12 if type(
+            self.incomeReceivedPerMonth()) is not str and type(self.costsTotalPerMonth()) is not str else noDataText
+
     def ownCapitalReturnTimeMonths(self):
         ownCapitalReturnTimeMonths = noDataText
         try:

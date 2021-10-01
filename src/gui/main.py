@@ -39,6 +39,12 @@ highlightedFrameStyleSheet = """QFrame{
         background: rgb(255, 255, 255);
         }"""
 
+noBorderFrameStyleSheetTemplate = """{
+        border: 0px solid gray;
+        border-radius: 10px;
+        background: rgb(207, 206, 209);
+        }"""
+
 noDataText = "Brak danych"
 
 
@@ -181,6 +187,8 @@ class MainWindow(QMainWindow):
         # left buttons section
         self.ui.button_home_page.clicked.connect(lambda: self.mainMenu(PageTypes.homePage))
         self.ui.button_new_investment.clicked.connect(lambda: self.addNewInvestment())
+
+        self.removeExcessiveFrameBorders()
 
         self.loadInvestments()
         self.ui.all_pages.setCurrentWidget(self.ui.home_page)
@@ -495,6 +503,8 @@ class MainWindow(QMainWindow):
 
         self.captureTextEdits(investment)
 
+        # self.remov
+
         self.ui.text_investment_name.setText(investment.title)
         self.ui.text_purchase_price.setText(str(investment.purchasePrice()))
         self.ui.text_area.setText(str(investment.area()))
@@ -746,15 +756,20 @@ class MainWindow(QMainWindow):
         self.ui.text_interest_rate.textChanged.connect(
             lambda: self.updateTextEdit(self.ui.text_monthly_installment, self.currentInvestment.monthlyInstallment))
         self.ui.text_credit.textChanged.connect(
-            lambda: self.updateTextEdit(self.ui.text_monthly_installment_capital_part, self.currentInvestment.monthlyInstallmentCapitalPart))
+            lambda: self.updateTextEdit(self.ui.text_monthly_installment_capital_part,
+                                        self.currentInvestment.monthlyInstallmentCapitalPart))
         self.ui.text_repayment_period.textChanged.connect(
-            lambda: self.updateTextEdit(self.ui.text_monthly_installment_capital_part, self.currentInvestment.monthlyInstallmentCapitalPart))
+            lambda: self.updateTextEdit(self.ui.text_monthly_installment_capital_part,
+                                        self.currentInvestment.monthlyInstallmentCapitalPart))
         self.ui.text_credit.textChanged.connect(
-            lambda: self.updateTextEdit(self.ui.text_monthly_installment_interest_part, self.currentInvestment.monthlyInstallmentInterestPart))
+            lambda: self.updateTextEdit(self.ui.text_monthly_installment_interest_part,
+                                        self.currentInvestment.monthlyInstallmentInterestPart))
         self.ui.text_repayment_period.textChanged.connect(
-            lambda: self.updateTextEdit(self.ui.text_monthly_installment_interest_part, self.currentInvestment.monthlyInstallmentInterestPart))
+            lambda: self.updateTextEdit(self.ui.text_monthly_installment_interest_part,
+                                        self.currentInvestment.monthlyInstallmentInterestPart))
         self.ui.text_interest_rate.textChanged.connect(
-            lambda: self.updateTextEdit(self.ui.text_monthly_installment_interest_part, self.currentInvestment.monthlyInstallmentInterestPart))
+            lambda: self.updateTextEdit(self.ui.text_monthly_installment_interest_part,
+                                        self.currentInvestment.monthlyInstallmentInterestPart))
 
         self.ui.text_monthly_installment.textChanged.connect(
             lambda: self.updateTextEdit(self.ui.text_total_credit_cost, self.currentInvestment.totalCreditCost))
@@ -808,9 +823,12 @@ class MainWindow(QMainWindow):
         )
         self.ui.text_other_costs.textChanged.connect(
             lambda: self.updateTextEdit(self.ui.text_other_costs_percent, self.currentInvestment.otherCostsPercent))
-        self.ui.text_renovation.textChanged.connect(lambda: self.ui.text_renovation_percent,
-                                                    self.currentInvestment.renovationCostPercent)
-        
+        self.ui.text_renovation.textChanged.connect(lambda: self.updateTextEdit(self.ui.text_renovation_percent,
+                                                                                self.currentInvestment.renovationCostPercent))
+
+    def removeExcessiveFrameBorders(self):
+        self.ui.frame_label_and_text_purchase_price.setStyleSheet(
+            "#frame_label_and_text_purchase_price" + noBorderFrameStyleSheetTemplate)
 
 
 if __name__ == '__main__':

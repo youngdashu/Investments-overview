@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'main_windowogFtoB.ui'
+## Form generated from reading UI file 'main_windowURWPwt.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.1.1
 ##
@@ -181,7 +181,7 @@ class Ui_MainWindow(object):
         self.scrollArea_currently_opened.setWidgetResizable(True)
         self.scrollAreaContents_currently_opened = QWidget()
         self.scrollAreaContents_currently_opened.setObjectName(u"scrollAreaContents_currently_opened")
-        self.scrollAreaContents_currently_opened.setGeometry(QRect(0, 0, 904, 72))
+        self.scrollAreaContents_currently_opened.setGeometry(QRect(0, 0, 904, 69))
         self.scrollAreaContents_currently_opened_layout = QHBoxLayout(self.scrollAreaContents_currently_opened)
         self.scrollAreaContents_currently_opened_layout.setSpacing(2)
         self.scrollAreaContents_currently_opened_layout.setObjectName(u"scrollAreaContents_currently_opened_layout")
@@ -230,7 +230,7 @@ class Ui_MainWindow(object):
         self.scrollArea_current_investment.setWidgetResizable(True)
         self.scrollArea_investment_contents = QWidget()
         self.scrollArea_investment_contents.setObjectName(u"scrollArea_investment_contents")
-        self.scrollArea_investment_contents.setGeometry(QRect(0, 0, 666, 2684))
+        self.scrollArea_investment_contents.setGeometry(QRect(0, 0, 869, 2684))
         self.scrollArea_investment_contents.setStyleSheet(u"#scrollAreaWidgetContainer{\n"
 "border: 3px solid gray;\n"
 "border-radius: 8px;\n"
@@ -279,27 +279,27 @@ class Ui_MainWindow(object):
         self.horizontalLayout_6.setSpacing(4)
         self.horizontalLayout_6.setObjectName(u"horizontalLayout_6")
         self.horizontalLayout_6.setContentsMargins(4, 4, 4, 4)
-        self.frame_51 = QFrame(self.frame_16)
-        self.frame_51.setObjectName(u"frame_51")
-        self.frame_51.setMinimumSize(QSize(0, 40))
-        self.frame_51.setFrameShape(QFrame.StyledPanel)
-        self.frame_51.setFrameShadow(QFrame.Raised)
-        self.horizontalLayout_57 = QHBoxLayout(self.frame_51)
+        self.frame_label_and_text_purchase_price = QFrame(self.frame_16)
+        self.frame_label_and_text_purchase_price.setObjectName(u"frame_label_and_text_purchase_price")
+        self.frame_label_and_text_purchase_price.setMinimumSize(QSize(0, 40))
+        self.frame_label_and_text_purchase_price.setFrameShape(QFrame.StyledPanel)
+        self.frame_label_and_text_purchase_price.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_57 = QHBoxLayout(self.frame_label_and_text_purchase_price)
         self.horizontalLayout_57.setSpacing(4)
         self.horizontalLayout_57.setObjectName(u"horizontalLayout_57")
         self.horizontalLayout_57.setContentsMargins(4, 4, 4, 4)
-        self.label_68 = QLabel(self.frame_51)
+        self.label_68 = QLabel(self.frame_label_and_text_purchase_price)
         self.label_68.setObjectName(u"label_68")
 
         self.horizontalLayout_57.addWidget(self.label_68)
 
-        self.text_purchase_price = QTextEdit(self.frame_51)
+        self.text_purchase_price = QTextEdit(self.frame_label_and_text_purchase_price)
         self.text_purchase_price.setObjectName(u"text_purchase_price")
 
         self.horizontalLayout_57.addWidget(self.text_purchase_price)
 
 
-        self.horizontalLayout_6.addWidget(self.frame_51)
+        self.horizontalLayout_6.addWidget(self.frame_label_and_text_purchase_price)
 
         self.frame_52 = QFrame(self.frame_16)
         self.frame_52.setObjectName(u"frame_52")
@@ -579,6 +579,7 @@ class Ui_MainWindow(object):
 
         self.text_own_contribution_percent = QTextEdit(self.frame_3)
         self.text_own_contribution_percent.setObjectName(u"text_own_contribution_percent")
+        self.text_own_contribution_percent.setMinimumSize(QSize(50, 0))
 
         self.horizontalLayout_5.addWidget(self.text_own_contribution_percent)
 
@@ -605,6 +606,7 @@ class Ui_MainWindow(object):
 
         self.text_broker_margin_percent = QTextEdit(self.frame_6)
         self.text_broker_margin_percent.setObjectName(u"text_broker_margin_percent")
+        self.text_broker_margin_percent.setMinimumSize(QSize(50, 0))
 
         self.horizontalLayout_7.addWidget(self.text_broker_margin_percent)
 
@@ -631,6 +633,7 @@ class Ui_MainWindow(object):
 
         self.text_notary_margin_percent = QTextEdit(self.frame_9)
         self.text_notary_margin_percent.setObjectName(u"text_notary_margin_percent")
+        self.text_notary_margin_percent.setMinimumSize(QSize(50, 0))
 
         self.horizontalLayout_8.addWidget(self.text_notary_margin_percent)
 
@@ -657,6 +660,7 @@ class Ui_MainWindow(object):
 
         self.text_tax_percent = QTextEdit(self.frame_5)
         self.text_tax_percent.setObjectName(u"text_tax_percent")
+        self.text_tax_percent.setMinimumSize(QSize(50, 0))
 
         self.horizontalLayout_9.addWidget(self.text_tax_percent)
 
@@ -683,6 +687,7 @@ class Ui_MainWindow(object):
 
         self.text_other_costs_percent = QTextEdit(self.frame_10)
         self.text_other_costs_percent.setObjectName(u"text_other_costs_percent")
+        self.text_other_costs_percent.setMinimumSize(QSize(50, 0))
 
         self.horizontalLayout_10.addWidget(self.text_other_costs_percent)
 
@@ -709,6 +714,7 @@ class Ui_MainWindow(object):
 
         self.text_renovation_percent = QTextEdit(self.frame_4)
         self.text_renovation_percent.setObjectName(u"text_renovation_percent")
+        self.text_renovation_percent.setMinimumSize(QSize(50, 0))
 
         self.horizontalLayout_11.addWidget(self.text_renovation_percent)
 
@@ -1738,7 +1744,7 @@ class Ui_MainWindow(object):
         self.scrollArea_notes.setWidgetResizable(True)
         self.scrollArea_notes_contents = QWidget()
         self.scrollArea_notes_contents.setObjectName(u"scrollArea_notes_contents")
-        self.scrollArea_notes_contents.setGeometry(QRect(0, 0, 98, 34))
+        self.scrollArea_notes_contents.setGeometry(QRect(0, 0, 821, 294))
         self.scrollArea_notes_contents_layout = QVBoxLayout(self.scrollArea_notes_contents)
         self.scrollArea_notes_contents_layout.setObjectName(u"scrollArea_notes_contents_layout")
         self.frame_17 = QFrame(self.scrollArea_notes_contents)
@@ -1819,7 +1825,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.all_pages.setCurrentIndex(2)
+        self.all_pages.setCurrentIndex(0)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
