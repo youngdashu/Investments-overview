@@ -13,8 +13,6 @@ from ui_main_window import Ui_MainWindow
 from ui_UnsavedDialog import Ui_UnsavedDialog
 from ui_home_page_investment import Ui_InvestmentHomePageWidget
 
-from src.utilityQtObjectsFunctions.functions import removeExcessiveBorders, disconnectFunction
-
 SHOW_MAXIMIZED = True
 
 labelCounter = 1
@@ -61,9 +59,6 @@ class HomePageInvestment(Ui_InvestmentHomePageWidget, QWidget):
         # super(HomePageInvestment, self).__init__()
         super().__init__(parent)
         self.setupUi(self)
-
-
-
 
 
 class MainWindow(QMainWindow):
@@ -156,25 +151,18 @@ class MainWindow(QMainWindow):
                                                    self.ui.text_internet_month,
                                                    self.ui.text_other_costs_month]
 
-        self.framesToRemoveBorder = [self.ui.frame_label_and_text_purchase_price,
-                                     self.ui.frame_label_and_text_renovation,
+        self.framesToRemoveBorder = [self.ui.frame_label_and_text_purchase_price, self.ui.frame_label_and_text_renovation,
                                      self.ui.frame_label_and_text_tax, self.ui.frame_label_and_text_area,
                                      self.ui.frame_label_and_text_credit, self.ui.frame_label_and_text_address_city,
-                                     self.ui.frame_label_and_text_address_street,
-                                     self.ui.frame_label_and_text_bank_contribution,
-                                     self.ui.frame_label_and_text_broker_margin,
-                                     self.ui.frame_label_and_text_description,
-                                     self.ui.frame_label_and_text_entry_cost,
-                                     self.ui.frame_label_and_text_estimated_value,
-                                     self.ui.frame_label_and_text_finish_date,
-                                     self.ui.frame_label_and_text_interest_rate,
-                                     self.ui.frame_label_and_text_invested_vs_purchase,
-                                     self.ui.frame_label_and_text_monthly_installment,
-                                     self.ui.frame_label_and_text_monthly_installment_capital_part,
-                                     self.ui.frame_label_and_text_own_contribution,
-                                     self.ui.frame_label_and_text_notary_margin,
-                                     self.ui.frame_label_and_text_other_costs,
-                                     self.ui.frame_label_and_text_repayment_period]
+                                     self.ui.frame_label_and_text_address_street, self.ui.frame_label_and_text_bank_contribution,
+                                     self.ui.frame_label_and_text_broker_margin, self.ui.frame_label_and_text_description,
+                                     self.ui.frame_label_and_text_entry_cost, self.ui.frame_label_and_text_estimated_value,
+                                     self.ui.frame_label_and_text_finish_date, self.ui.frame_label_and_text_interest_rate,
+                                     self.ui.frame_label_and_text_invested_vs_purchase, self.ui.frame_label_and_text_,
+                                     self.ui.frame_label_and_text_, self.ui.frame_label_and_text_,
+                                     self.ui.frame_label_and_text_, self.ui.frame_label_and_text_,
+                                     self.ui.frame_label_and_text_, self.ui.frame_label_and_text_,
+                                     self.ui.frame_label_and_text_, self.ui.frame_label_and_text_, ]
 
         for readOnlyFrame in self.readOnlyTextEdits:
             readOnlyFrame.setReadOnly(True)
@@ -213,7 +201,7 @@ class MainWindow(QMainWindow):
         self.ui.button_home_page.clicked.connect(lambda: self.mainMenu(PageTypes.homePage))
         self.ui.button_new_investment.clicked.connect(lambda: self.addNewInvestment())
 
-        self.framesToRemoveBorder = removeExcessiveBorders(self.framesToRemoveBorder)
+        self.removeExcessiveFrameBorders()
 
         self.loadInvestments()
         self.ui.all_pages.setCurrentWidget(self.ui.home_page)
@@ -626,6 +614,10 @@ class MainWindow(QMainWindow):
         editableTextEdit.textChanged.connect(self.changeOneIcon(investmentFrameLabel, currentInvestmentId))
         return editableTextEdit
 
+    def disconnectFunction(self, editableTextEdit):
+        editableTextEdit.textChanged.disconnect()
+        return editableTextEdit
+
     def setInvestmentNameToTab(self, investmentId):
         investmentFrame: QFrame = self.investmentTabs[investmentId]
         investmentButtons = list(investmentFrame.findChildren(QPushButton))
@@ -661,7 +653,7 @@ class MainWindow(QMainWindow):
             self.textEditsConnected = False
             # print(self.editableTextEdits)
             self.editableTextEdits = list(
-                map(disconnectFunction, self.editableTextEdits))
+                map(self.disconnectFunction, self.editableTextEdits))
 
         self.textEditsConnected = True
 
@@ -854,9 +846,9 @@ class MainWindow(QMainWindow):
             (lambda: self.updateTextEdit(self.ui.label_own_capital_return_time_months,
                                          self.currentInvestment.ownCapitalReturnTimeMonths)))
 
-    # def removeExcessiveFrameBorders(self):
-    #     self.ui.frame_label_and_text_purchase_price.setStyleSheet(
-    #         "#frame_label_and_text_purchase_price" + noBorderFrameStyleSheetTemplate)
+    def removeExcessiveFrameBorders(self):
+        self.ui.frame_label_and_text_purchase_price.setStyleSheet(
+            "#frame_label_and_text_purchase_price" + noBorderFrameStyleSheetTemplate)
 
 
 if __name__ == '__main__':

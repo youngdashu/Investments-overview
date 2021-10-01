@@ -455,7 +455,7 @@ color: rgb(255, 255, 255)
                  <property name="geometry">
                   <rect>
                    <x>0</x>
-                   <y>-95</y>
+                   <y>-581</y>
                    <width>879</width>
                    <height>2628</height>
                   </rect>
@@ -507,7 +507,7 @@ border-radius: 8px;
                       <number>4</number>
                      </property>
                      <item>
-                      <widget class="QFrame" name="frame_label_and_text_start_date_2">
+                      <widget class="QFrame" name="frame_label_and_text_investment_name">
                        <property name="minimumSize">
                         <size>
                          <width>0</width>
@@ -550,7 +550,7 @@ border-radius: 8px;
                       </widget>
                      </item>
                      <item>
-                      <widget class="QFrame" name="frame_label_and_text_start_date_3">
+                      <widget class="QFrame" name="frame_label_and_text_price_tags">
                        <property name="minimumSize">
                         <size>
                          <width>0</width>
@@ -1730,7 +1730,7 @@ vs cena zakupu</string>
                             </widget>
                            </item>
                            <item>
-                            <widget class="QFrame" name="frame_label_and_text_start_date_6">
+                            <widget class="QFrame" name="frame_label_and_text_monthly_installment_group">
                              <property name="minimumSize">
                               <size>
                                <width>0</width>
@@ -1892,7 +1892,7 @@ vs cena zakupu</string>
                             </widget>
                            </item>
                            <item>
-                            <widget class="QFrame" name="frame_label_and_text_start_date_5">
+                            <widget class="QFrame" name="frame_label_and_text_credit_credit_insurance_per_month">
                              <property name="minimumSize">
                               <size>
                                <width>0</width>
@@ -1929,7 +1929,7 @@ vs cena zakupu</string>
                             </widget>
                            </item>
                            <item>
-                            <widget class="QFrame" name="frame_label_and_text_start_date_4">
+                            <widget class="QFrame" name="frame_label_and_text_total_credit_cost">
                              <property name="minimumSize">
                               <size>
                                <width>0</width>
@@ -2183,7 +2183,7 @@ border: 1px white;
                             </widget>
                            </item>
                            <item>
-                            <widget class="QFrame" name="frame_label_and_text_start_date_7">
+                            <widget class="QFrame" name="frame_label_and_text_rent_income_min">
                              <property name="frameShape">
                               <enum>QFrame::StyledPanel</enum>
                              </property>
@@ -2223,7 +2223,7 @@ border: 1px white;
                             </widget>
                            </item>
                            <item>
-                            <widget class="QFrame" name="frame_label_and_text_start_date_8">
+                            <widget class="QFrame" name="frame_label_and_text_rent_income_max">
                              <property name="frameShape">
                               <enum>QFrame::StyledPanel</enum>
                              </property>
@@ -2263,7 +2263,7 @@ border: 1px white;
                             </widget>
                            </item>
                            <item>
-                            <widget class="QFrame" name="frame_label_and_text_start_date_9">
+                            <widget class="QFrame" name="frame_label_and_text_income_earned">
                              <property name="frameShape">
                               <enum>QFrame::StyledPanel</enum>
                              </property>
@@ -2352,7 +2352,7 @@ border: 1px white;
                             </widget>
                            </item>
                            <item>
-                            <widget class="QFrame" name="frame_label_and_text_start_date_10">
+                            <widget class="QFrame" name="frame_label_and_text_rent_tax">
                              <property name="frameShape">
                               <enum>QFrame::StyledPanel</enum>
                              </property>
@@ -2392,7 +2392,7 @@ border: 1px white;
                             </widget>
                            </item>
                            <item>
-                            <widget class="QFrame" name="frame_label_and_text_start_date_11">
+                            <widget class="QFrame" name="frame_label_and_text_property_tax">
                              <property name="frameShape">
                               <enum>QFrame::StyledPanel</enum>
                              </property>
@@ -2432,7 +2432,7 @@ border: 1px white;
                             </widget>
                            </item>
                            <item>
-                            <widget class="QFrame" name="frame_label_and_text_start_date_12">
+                            <widget class="QFrame" name="frame_label_and_text_tax_electricity">
                              <property name="frameShape">
                               <enum>QFrame::StyledPanel</enum>
                              </property>
@@ -2472,7 +2472,7 @@ border: 1px white;
                             </widget>
                            </item>
                            <item>
-                            <widget class="QFrame" name="frame_label_and_text_start_date_13">
+                            <widget class="QFrame" name="frame_label_and_text_gas">
                              <property name="frameShape">
                               <enum>QFrame::StyledPanel</enum>
                              </property>
@@ -2512,7 +2512,7 @@ border: 1px white;
                             </widget>
                            </item>
                            <item>
-                            <widget class="QFrame" name="frame_label_and_text_start_date_14">
+                            <widget class="QFrame" name="frame_label_and_text_water">
                              <property name="frameShape">
                               <enum>QFrame::StyledPanel</enum>
                              </property>
@@ -2552,7 +2552,7 @@ border: 1px white;
                             </widget>
                            </item>
                            <item>
-                            <widget class="QFrame" name="frame_label_and_text_start_date_15">
+                            <widget class="QFrame" name="frame_label_and_text_internet">
                              <property name="frameShape">
                               <enum>QFrame::StyledPanel</enum>
                              </property>
@@ -2592,7 +2592,7 @@ border: 1px white;
                             </widget>
                            </item>
                            <item>
-                            <widget class="QFrame" name="frame_label_and_text_start_date_16">
+                            <widget class="QFrame" name="frame_label_and_text_other_costs_2">
                              <property name="frameShape">
                               <enum>QFrame::StyledPanel</enum>
                              </property>
@@ -2632,7 +2632,7 @@ border: 1px white;
                             </widget>
                            </item>
                            <item>
-                            <widget class="QFrame" name="frame_label_and_text_start_date_17">
+                            <widget class="QFrame" name="frame_label_and_text_total_costs">
                              <property name="frameShape">
                               <enum>QFrame::StyledPanel</enum>
                              </property>
@@ -2685,7 +2685,7 @@ border: 1px white;
                          </widget>
                         </item>
                         <item>
-                         <widget class="QFrame" name="frame_label_and_text_start_date_18">
+                         <widget class="QFrame" name="frame_label_and_text_rent_gain_loss">
                           <property name="minimumSize">
                            <size>
                             <width>0</width>
@@ -2897,7 +2897,7 @@ border: 1px white;
                          </widget>
                         </item>
                         <item>
-                         <widget class="QFrame" name="frame_label_and_text_start_date_23">
+                         <widget class="QFrame" name="frame_label_and_text_own_capital_return_2">
                           <property name="frameShape">
                            <enum>QFrame::StyledPanel</enum>
                           </property>
@@ -2918,7 +2918,7 @@ border: 1px white;
                             <number>2</number>
                            </property>
                            <item>
-                            <widget class="QFrame" name="frame_label_and_text_start_date_19">
+                            <widget class="QFrame" name="frame_label_and_text_own_capital_return">
                              <property name="minimumSize">
                               <size>
                                <width>0</width>
@@ -2982,7 +2982,7 @@ border: 1px white;
                             </widget>
                            </item>
                            <item>
-                            <widget class="QFrame" name="frame_label_and_text_start_date_20">
+                            <widget class="QFrame" name="frame_label_and_text_total_return_time">
                              <property name="minimumSize">
                               <size>
                                <width>0</width>
