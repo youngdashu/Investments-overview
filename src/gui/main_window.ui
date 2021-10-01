@@ -163,7 +163,7 @@
          </property>
          <layout class="QHBoxLayout" name="horizontalLayout_2">
           <property name="spacing">
-           <number>-1</number>
+           <number>6</number>
           </property>
           <item>
            <widget class="QPushButton" name="minimizeButton">
@@ -371,7 +371,7 @@ border-radius: 5px;
                  <rect>
                   <x>0</x>
                   <y>0</y>
-                  <width>904</width>
+                  <width>910</width>
                   <height>69</height>
                  </rect>
                 </property>
@@ -455,9 +455,9 @@ color: rgb(255, 255, 255)
                  <property name="geometry">
                   <rect>
                    <x>0</x>
-                   <y>-30</y>
-                   <width>869</width>
-                   <height>2684</height>
+                   <y>-95</y>
+                   <width>879</width>
+                   <height>2628</height>
                   </rect>
                  </property>
                  <property name="styleSheet">
@@ -507,7 +507,7 @@ border-radius: 8px;
                       <number>4</number>
                      </property>
                      <item>
-                      <widget class="QFrame" name="frame_15">
+                      <widget class="QFrame" name="frame_label_and_text_start_date_2">
                        <property name="minimumSize">
                         <size>
                          <width>0</width>
@@ -550,7 +550,7 @@ border-radius: 8px;
                       </widget>
                      </item>
                      <item>
-                      <widget class="QFrame" name="frame_16">
+                      <widget class="QFrame" name="frame_label_and_text_start_date_3">
                        <property name="minimumSize">
                         <size>
                          <width>0</width>
@@ -1730,7 +1730,7 @@ vs cena zakupu</string>
                             </widget>
                            </item>
                            <item>
-                            <widget class="QFrame" name="frame_23">
+                            <widget class="QFrame" name="frame_label_and_text_start_date_6">
                              <property name="minimumSize">
                               <size>
                                <width>0</width>
@@ -1892,7 +1892,7 @@ vs cena zakupu</string>
                             </widget>
                            </item>
                            <item>
-                            <widget class="QFrame" name="frame_24">
+                            <widget class="QFrame" name="frame_label_and_text_start_date_5">
                              <property name="minimumSize">
                               <size>
                                <width>0</width>
@@ -1929,7 +1929,7 @@ vs cena zakupu</string>
                             </widget>
                            </item>
                            <item>
-                            <widget class="QFrame" name="frame_25">
+                            <widget class="QFrame" name="frame_label_and_text_start_date_4">
                              <property name="minimumSize">
                               <size>
                                <width>0</width>
@@ -2064,7 +2064,7 @@ border: 1px white;
                           </property>
                           <layout class="QHBoxLayout" name="horizontalLayout_43">
                            <property name="spacing">
-                            <number>-1</number>
+                            <number>6</number>
                            </property>
                            <property name="topMargin">
                             <number>2</number>
@@ -2183,7 +2183,7 @@ border: 1px white;
                             </widget>
                            </item>
                            <item>
-                            <widget class="QFrame" name="frame_31">
+                            <widget class="QFrame" name="frame_label_and_text_start_date_7">
                              <property name="frameShape">
                               <enum>QFrame::StyledPanel</enum>
                              </property>
@@ -2223,7 +2223,7 @@ border: 1px white;
                             </widget>
                            </item>
                            <item>
-                            <widget class="QFrame" name="frame_34">
+                            <widget class="QFrame" name="frame_label_and_text_start_date_8">
                              <property name="frameShape">
                               <enum>QFrame::StyledPanel</enum>
                              </property>
@@ -2263,7 +2263,7 @@ border: 1px white;
                             </widget>
                            </item>
                            <item>
-                            <widget class="QFrame" name="frame_33">
+                            <widget class="QFrame" name="frame_label_and_text_start_date_9">
                              <property name="frameShape">
                               <enum>QFrame::StyledPanel</enum>
                              </property>
@@ -2352,7 +2352,7 @@ border: 1px white;
                             </widget>
                            </item>
                            <item>
-                            <widget class="QFrame" name="frame_35">
+                            <widget class="QFrame" name="frame_label_and_text_start_date_10">
                              <property name="frameShape">
                               <enum>QFrame::StyledPanel</enum>
                              </property>
@@ -2392,7 +2392,7 @@ border: 1px white;
                             </widget>
                            </item>
                            <item>
-                            <widget class="QFrame" name="frame_36">
+                            <widget class="QFrame" name="frame_label_and_text_start_date_11">
                              <property name="frameShape">
                               <enum>QFrame::StyledPanel</enum>
                              </property>
@@ -2432,7 +2432,7 @@ border: 1px white;
                             </widget>
                            </item>
                            <item>
-                            <widget class="QFrame" name="frame_37">
+                            <widget class="QFrame" name="frame_label_and_text_start_date_12">
                              <property name="frameShape">
                               <enum>QFrame::StyledPanel</enum>
                              </property>
@@ -2472,7 +2472,7 @@ border: 1px white;
                             </widget>
                            </item>
                            <item>
-                            <widget class="QFrame" name="frame_38">
+                            <widget class="QFrame" name="frame_label_and_text_start_date_13">
                              <property name="frameShape">
                               <enum>QFrame::StyledPanel</enum>
                              </property>
@@ -2512,7 +2512,7 @@ border: 1px white;
                             </widget>
                            </item>
                            <item>
-                            <widget class="QFrame" name="frame_40">
+                            <widget class="QFrame" name="frame_label_and_text_start_date_14">
                              <property name="frameShape">
                               <enum>QFrame::StyledPanel</enum>
                              </property>
@@ -2552,7 +2552,7 @@ border: 1px white;
                             </widget>
                            </item>
                            <item>
-                            <widget class="QFrame" name="frame_41">
+                            <widget class="QFrame" name="frame_label_and_text_start_date_15">
                              <property name="frameShape">
                               <enum>QFrame::StyledPanel</enum>
                              </property>
@@ -2592,7 +2592,7 @@ border: 1px white;
                             </widget>
                            </item>
                            <item>
-                            <widget class="QFrame" name="frame_39">
+                            <widget class="QFrame" name="frame_label_and_text_start_date_16">
                              <property name="frameShape">
                               <enum>QFrame::StyledPanel</enum>
                              </property>
@@ -2632,7 +2632,7 @@ border: 1px white;
                             </widget>
                            </item>
                            <item>
-                            <widget class="QFrame" name="frame_26">
+                            <widget class="QFrame" name="frame_label_and_text_start_date_17">
                              <property name="frameShape">
                               <enum>QFrame::StyledPanel</enum>
                              </property>
@@ -2685,7 +2685,7 @@ border: 1px white;
                          </widget>
                         </item>
                         <item>
-                         <widget class="QFrame" name="frame_32">
+                         <widget class="QFrame" name="frame_label_and_text_start_date_18">
                           <property name="minimumSize">
                            <size>
                             <width>0</width>
@@ -2821,7 +2821,7 @@ border: 1px white;
                           </property>
                           <layout class="QHBoxLayout" name="horizontalLayout_45">
                            <property name="spacing">
-                            <number>-1</number>
+                            <number>6</number>
                            </property>
                            <property name="topMargin">
                             <number>2</number>
@@ -2897,7 +2897,7 @@ border: 1px white;
                          </widget>
                         </item>
                         <item>
-                         <widget class="QFrame" name="frame_44">
+                         <widget class="QFrame" name="frame_label_and_text_start_date_23">
                           <property name="frameShape">
                            <enum>QFrame::StyledPanel</enum>
                           </property>
@@ -2918,7 +2918,7 @@ border: 1px white;
                             <number>2</number>
                            </property>
                            <item>
-                            <widget class="QFrame" name="frame_27">
+                            <widget class="QFrame" name="frame_label_and_text_start_date_19">
                              <property name="minimumSize">
                               <size>
                                <width>0</width>
@@ -2982,7 +2982,7 @@ border: 1px white;
                             </widget>
                            </item>
                            <item>
-                            <widget class="QFrame" name="frame_46">
+                            <widget class="QFrame" name="frame_label_and_text_start_date_20">
                              <property name="minimumSize">
                               <size>
                                <width>0</width>
@@ -3046,7 +3046,7 @@ border: 1px white;
                             </widget>
                            </item>
                            <item>
-                            <widget class="QFrame" name="frame_47">
+                            <widget class="QFrame" name="frame_label_and_text_start_date_21">
                              <property name="minimumSize">
                               <size>
                                <width>0</width>
@@ -3110,7 +3110,7 @@ border: 1px white;
                             </widget>
                            </item>
                            <item>
-                            <widget class="QFrame" name="frame_45">
+                            <widget class="QFrame" name="frame_label_and_text_start_date_22">
                              <property name="minimumSize">
                               <size>
                                <width>0</width>
@@ -3310,8 +3310,8 @@ border: 0px solid gray;
                          <rect>
                           <x>0</x>
                           <y>0</y>
-                          <width>821</width>
-                          <height>294</height>
+                          <width>834</width>
+                          <height>312</height>
                          </rect>
                         </property>
                         <layout class="QVBoxLayout" name="scrollArea_notes_contents_layout">
