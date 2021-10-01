@@ -151,6 +151,8 @@ class MainWindow(QMainWindow):
                                                    self.ui.text_internet_month,
                                                    self.ui.text_other_costs_month]
 
+        self.framesToRemoveBorder = [self.ui.frame_label_an]
+
         for readOnlyFrame in self.readOnlyTextEdits:
             readOnlyFrame.setReadOnly(True)
 
