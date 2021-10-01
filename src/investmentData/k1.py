@@ -177,7 +177,7 @@ class Investment:
         return self.Contribution.contr
 
     def setOwnContribution(self, ownContribution):
-        self.Contribution.contr = ownContribution
+        self.Contribution.contr = float(ownContribution)
 
     def ownContributionPercent(self):
         ownContributionPercent = str(int((self.ownContribution() / self.purchasePrice()) * 100)) + "%" if type(
@@ -188,7 +188,7 @@ class Investment:
         return self.Contribution.marg_b
 
     def setBrokerMargin(self, brokerMargin):
-        self.Contribution.marg_b = brokerMargin
+        self.Contribution.marg_b = float(brokerMargin)
 
     def brokerMarginPercent(self):
         return str(int((self.brokerMargin() / self.purchasePrice()) * 100)) + "%" if type(
@@ -198,7 +198,7 @@ class Investment:
         return self.Contribution.marg_n
 
     def setNotaryMargin(self, notaryMargin):
-        self.Contribution.marg_n = notaryMargin
+        self.Contribution.marg_n = float(notaryMargin)
 
     def notaryMarginPercent(self):
         return str(int((self.notaryMargin() / self.purchasePrice()) * 100)) + "%" if type(
@@ -208,7 +208,7 @@ class Investment:
         return self.Contribution.tax
 
     def setTax(self, tax):
-        self.Contribution.tax = tax
+        self.Contribution.tax = float(tax)
 
     def taxPercent(self):
         return str(int((self.tax() / self.purchasePrice()) * 100)) + "%" if type(
@@ -218,7 +218,7 @@ class Investment:
         return self.Contribution.other
 
     def setOtherCosts(self, otherCosts):
-        self.Contribution.other = otherCosts
+        self.Contribution.other = float(otherCosts)
 
     def otherCostsPercent(self):
         return str(int((self.otherCosts() / self.purchasePrice()) * 100)) + "%" if type(
@@ -228,7 +228,7 @@ class Investment:
         return self.Contribution.redec
 
     def setRenovationCost(self, renovationCost):
-        self.Contribution.redec = renovationCost
+        self.Contribution.redec = float(renovationCost)
 
     def renovationCostPercent(self):
         return str(int((self.renovationCost() / self.purchasePrice()) * 100)) + "%" if type(
@@ -255,26 +255,26 @@ class Investment:
         return self.Credit.rate
 
     def setInterestRate(self, interestRate):
-        self.Credit.rate = interestRate
+        self.Credit.rate = float(interestRate)
 
     def repaymentPeriod(self):
         return self.Credit.time
 
     def setRepaymentPeriod(self, period):
-        self.Credit.time = period
+        self.Credit.time = float(period)
 
     def monthlyInstallment(self):
         monthlyInstallment = noDataText
         try:
-            monthlyInstallment = (self.bankCredit() * self.interestRate()) / (
-                    12 * (1 - (12 / (12 + self.interestRate())) ** self.repaymentPeriod()))
+            monthlyInstallment = float((self.bankCredit() * self.interestRate()) / (
+                    12 * (1 - (12 / (12 + self.interestRate())) ** self.repaymentPeriod())))
         finally:
             return monthlyInstallment
 
     def monthlyInstallmentCapitalPart(self):
         monthlyInstallmentCapitalPart = noDataText
         try:
-            monthlyInstallmentCapitalPart = self.bankCredit() / self.repaymentPeriod()
+            monthlyInstallmentCapitalPart = float(self.bankCredit() / self.repaymentPeriod())
         finally:
             return monthlyInstallmentCapitalPart
 
@@ -282,7 +282,7 @@ class Investment:
         monthlyInstallmentInterestPart = noDataText
         try:
             if self.monthlyInstallment() is not noDataText:
-                monthlyInstallmentInterestPart = self.monthlyInstallment() - self.monthlyInstallmentCapitalPart()
+                float(monthlyInstallmentInterestPart = self.monthlyInstallment() - self.monthlyInstallmentCapitalPart())
         finally:
             return monthlyInstallmentInterestPart
 
@@ -290,13 +290,13 @@ class Investment:
         return self.Credit.monthly_insurance
 
     def setCreditInsurancePerMonth(self, creditInsurance):
-        self.Credit.monthly_insurance = creditInsurance
+        self.Credit.monthly_insurance = float(creditInsurance)
 
     def totalCreditCost(self):
         totalCreditCost = noDataText
         try:
             if self.monthlyInstallment() is not noDataText:
-                totalCreditCost = self.monthlyInstallment() + self.creditInsurancePerMonth()
+                float(totalCreditCost = self.monthlyInstallment() + self.creditInsurancePerMonth())
         finally:
             return totalCreditCost
 
@@ -316,49 +316,49 @@ class Investment:
         return self.Rent.income_real
 
     def setIncomeReceivedPerMonth(self, income):
-        self.Rent.income_real = income
+        self.Rent.income_real = float(income)
 
     def rentTaxPerMonth(self):
         return self.Rent.tax_rent
 
     def setRentTaxPerMonth(self, rentTax):
-        self.Rent.tax_rent = rentTax
+        self.Rent.tax_rent = float(rentTax)
 
     def propertyTaxPerYear(self):
         return self.Rent.tax_estate
 
     def setPropertyTaxPerYear(self, propertyTax):
-        self.Rent.tax_estate = propertyTax
+        self.Rent.tax_estate = float(propertyTax)
 
     def electricityPerMonth(self):
         return self.Rent.power
 
     def setElectricityPerMonth(self, electricity):
-        self.Rent.power = electricity
+        self.Rent.power = float(electricity)
 
     def gasPerMonth(self):
         return self.Rent.gas
 
     def setGasPerMonth(self, gas):
-        self.Rent.gas = gas
+        self.Rent.gas = float(gas)
 
     def waterPerMonth(self):
         return self.Rent.water
 
     def setWaterPerMonth(self, water):
-        self.Rent.water = water
+        self.Rent.water = float(water)
 
     def internetPerMonth(self):
         return self.Rent.internet
 
     def setInternetPerMonth(self, internet):
-        self.Rent.internet = internet
+        self.Rent.internet = float(internet)
 
     def otherPerMonth(self):
         return self.Rent.other
 
     def setOtherPerMonth(self, other):
-        self.Rent.other = other
+        self.Rent.other = float(other)
 
     def costsTotalPerMonth(self):
         return float(self.Rent.tax_estate) + float(self.Rent.tax_rent) + float(self.Rent.power) + float(
