@@ -299,13 +299,13 @@ class MainWindow(QMainWindow):
         actualHeight = None
         if self.ui.frame_investment_assessment.height() < self.targetFrameHeight:
             isSlided = False
-            afterAnimationHeight = 400
+            afterAnimationHeight = 450
             actualHeight = self.frameHeight
             self.ui.frame_investment_assessment_data.setVisible(True)
         else:
             isSlided = True
             afterAnimationHeight = self.frameHeight
-            actualHeight = 400
+            actualHeight = 450
             self.ui.frame_investment_assessment_data.setVisible(False)
 
         self.investmentAssessmentSlideAnimation = QPropertyAnimation(self.ui.frame_investment_assessment,
