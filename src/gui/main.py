@@ -855,6 +855,15 @@ class MainWindow(QMainWindow):
         self.ui.text_rent_gain_loss_month.textChanged.connect(
             (lambda: self.updateTextEdit(self.ui.label_own_capital_return_time_months,
                                          self.currentInvestment.ownCapitalReturnTimeMonths)))
+        self.ui.text_entry_cost.textChanged.connect(
+            (lambda: self.updateTextEdit(self.ui.label_own_capital_return_time_months,
+                                         self.currentInvestment.totalReturnTimeMonths)))
+        self.ui.text_rent_gain_loss_month.textChanged.connect(
+            (lambda: self.updateTextEdit(self.ui.label_own_capital_return_time_months,
+                                         self.currentInvestment.totalReturnTimeMonths)))
+        self.ui.text_credit.textChanged.connect(
+            (lambda: self.updateTextEdit(self.ui.label_own_capital_return_time_months,
+                                         self.currentInvestment.totalReturnTimeMonths)))
 
     def removeExcessiveFrameBorders(self):
         self.ui.frame_label_and_text_purchase_price.setStyleSheet(
