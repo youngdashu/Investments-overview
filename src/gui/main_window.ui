@@ -455,7 +455,7 @@ color: rgb(255, 255, 255)
                  <property name="geometry">
                   <rect>
                    <x>0</x>
-                   <y>-581</y>
+                   <y>-654</y>
                    <width>879</width>
                    <height>2628</height>
                   </rect>
@@ -3046,7 +3046,7 @@ border: 1px white;
                             </widget>
                            </item>
                            <item>
-                            <widget class="QFrame" name="frame_label_and_text_start_date_21">
+                            <widget class="QFrame" name="frame_label_and_text_return_rate_1">
                              <property name="minimumSize">
                               <size>
                                <width>0</width>
@@ -3110,7 +3110,7 @@ border: 1px white;
                             </widget>
                            </item>
                            <item>
-                            <widget class="QFrame" name="frame_label_and_text_start_date_22">
+                            <widget class="QFrame" name="frame_label_and_text_return_rate_2">
                              <property name="minimumSize">
                               <size>
                                <width>0</width>
