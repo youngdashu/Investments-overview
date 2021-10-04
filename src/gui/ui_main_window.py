@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'main_windowxmgBnv.ui'
+## Form generated from reading UI file 'main_windowIiRMLR.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.1.1
 ##
@@ -106,7 +106,7 @@ class Ui_MainWindow(object):
         self.scrollArea_currently_opened.setWidgetResizable(True)
         self.scrollAreaContents_currently_opened = QWidget()
         self.scrollAreaContents_currently_opened.setObjectName(u"scrollAreaContents_currently_opened")
-        self.scrollAreaContents_currently_opened.setGeometry(QRect(0, 0, 904, 69))
+        self.scrollAreaContents_currently_opened.setGeometry(QRect(0, 0, 904, 72))
         self.scrollAreaContents_currently_opened_layout = QHBoxLayout(self.scrollAreaContents_currently_opened)
         self.scrollAreaContents_currently_opened_layout.setSpacing(2)
         self.scrollAreaContents_currently_opened_layout.setObjectName(u"scrollAreaContents_currently_opened_layout")
@@ -155,7 +155,7 @@ class Ui_MainWindow(object):
         self.scrollArea_current_investment.setWidgetResizable(True)
         self.scrollArea_investment_contents = QWidget()
         self.scrollArea_investment_contents.setObjectName(u"scrollArea_investment_contents")
-        self.scrollArea_investment_contents.setGeometry(QRect(0, -310, 869, 2684))
+        self.scrollArea_investment_contents.setGeometry(QRect(0, 0, 654, 2684))
         self.scrollArea_investment_contents.setStyleSheet(u"#scrollAreaWidgetContainer{\n"
 "border: 3px solid gray;\n"
 "border-radius: 8px;\n"
@@ -1715,7 +1715,7 @@ class Ui_MainWindow(object):
         self.scrollArea_notes.setWidgetResizable(True)
         self.scrollArea_notes_contents = QWidget()
         self.scrollArea_notes_contents.setObjectName(u"scrollArea_notes_contents")
-        self.scrollArea_notes_contents.setGeometry(QRect(0, 0, 833, 294))
+        self.scrollArea_notes_contents.setGeometry(QRect(0, 0, 98, 34))
         self.scrollArea_notes_contents_layout = QVBoxLayout(self.scrollArea_notes_contents)
         self.scrollArea_notes_contents_layout.setObjectName(u"scrollArea_notes_contents_layout")
         self.frame_17 = QFrame(self.scrollArea_notes_contents)
@@ -1745,34 +1745,37 @@ class Ui_MainWindow(object):
         self.home_page.setObjectName(u"home_page")
         self.frame_home_page = QFrame(self.home_page)
         self.frame_home_page.setObjectName(u"frame_home_page")
-        self.frame_home_page.setGeometry(QRect(30, 0, 800, 481))
+        self.frame_home_page.setGeometry(QRect(30, 0, 800, 551))
         self.frame_home_page.setMinimumSize(QSize(800, 400))
         self.frame_home_page.setFrameShape(QFrame.StyledPanel)
         self.frame_home_page.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_21 = QVBoxLayout(self.frame_home_page)
+        self.verticalLayout_21.setObjectName(u"verticalLayout_21")
         self.label_welcome_home_page = QLabel(self.frame_home_page)
         self.label_welcome_home_page.setObjectName(u"label_welcome_home_page")
-        self.label_welcome_home_page.setGeometry(QRect(50, 20, 281, 31))
+
+        self.verticalLayout_21.addWidget(self.label_welcome_home_page)
+
         self.scrollArea_investments_home_page = QScrollArea(self.frame_home_page)
         self.scrollArea_investments_home_page.setObjectName(u"scrollArea_investments_home_page")
-        self.scrollArea_investments_home_page.setGeometry(QRect(50, 60, 700, 391))
-        self.scrollArea_investments_home_page.setMinimumSize(QSize(700, 350))
-        self.scrollArea_investments_home_page.setMaximumSize(QSize(16777215, 16777215))
         self.scrollArea_investments_home_page.setWidgetResizable(True)
         self.scrollAreaContents_investments_home_page = QWidget()
         self.scrollAreaContents_investments_home_page.setObjectName(u"scrollAreaContents_investments_home_page")
-        self.scrollAreaContents_investments_home_page.setGeometry(QRect(0, 0, 698, 389))
-        self.scrollAreaContents_investments_home_page.setMinimumSize(QSize(600, 300))
+        self.scrollAreaContents_investments_home_page.setGeometry(QRect(0, 0, 772, 499))
         self.investments_home_page_layout = QVBoxLayout(self.scrollAreaContents_investments_home_page)
         self.investments_home_page_layout.setObjectName(u"investments_home_page_layout")
-        self.decoy_investment_home_page = QFrame(self.scrollAreaContents_investments_home_page)
-        self.decoy_investment_home_page.setObjectName(u"decoy_investment_home_page")
-        self.decoy_investment_home_page.setMaximumSize(QSize(0, 0))
-        self.decoy_investment_home_page.setFrameShape(QFrame.StyledPanel)
-        self.decoy_investment_home_page.setFrameShadow(QFrame.Raised)
+        self.frame = QFrame(self.scrollAreaContents_investments_home_page)
+        self.frame.setObjectName(u"frame")
+        self.frame.setMaximumSize(QSize(16777215, 0))
+        self.frame.setFrameShape(QFrame.StyledPanel)
+        self.frame.setFrameShadow(QFrame.Raised)
 
-        self.investments_home_page_layout.addWidget(self.decoy_investment_home_page)
+        self.investments_home_page_layout.addWidget(self.frame)
 
         self.scrollArea_investments_home_page.setWidget(self.scrollAreaContents_investments_home_page)
+
+        self.verticalLayout_21.addWidget(self.scrollArea_investments_home_page)
+
         self.all_pages.addWidget(self.home_page)
 
         self.verticalLayout_3.addWidget(self.all_pages)
@@ -1796,14 +1799,14 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.all_pages.setCurrentIndex(0)
+        self.all_pages.setCurrentIndex(2)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
     # setupUi
 
     def retranslateUi(self, MainWindow):
-        MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
+        MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"Przegl\u0105d inwestycji", None))
         self.button_save_data.setText(QCoreApplication.translate("MainWindow", u"Zapisz\n"
 "dane", None))
         self.button_new_investment.setText(QCoreApplication.translate("MainWindow", u"Nowa", None))

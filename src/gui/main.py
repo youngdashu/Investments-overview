@@ -247,8 +247,10 @@ class MainWindow(QMainWindow):
 
         self.framesToRemoveBorder = removeExcessiveBorders(self.framesToRemoveBorder)
 
-        self.loadInvestments()
+        self.ui.scrollArea_investments_home_page.setWidgetResizable(True)
+        self.homePageInvestments = self.loadInvestments()
         self.ui.all_pages.setCurrentWidget(self.ui.home_page)
+
 
         self.show()
 
@@ -457,6 +459,7 @@ class MainWindow(QMainWindow):
     def addInvestmentWidgetToHomePage(self, investmentIdAndName):
         investmentId = investmentIdAndName[0]
         name = investmentIdAndName[1]
+        print("NAMEEEEEE ", name)
         investmentHomePageWidget = HomePageInvestment(self.ui.scrollAreaContents_investments_home_page)
         investmentHomePageWidget.buttonInvestmentName.setText(name)
         investmentHomePageWidget.InvestmentId.setText(str(investmentId))
@@ -464,11 +467,12 @@ class MainWindow(QMainWindow):
         investmentHomePageWidget.buttonDeleteInvestment.clicked.connect(lambda: deleteInvestmentById(investmentId))
         self.ui.investments_home_page_layout.addWidget(investmentHomePageWidget)
         investmentHomePageWidget.show()
+        return investmentHomePageWidget
 
     def loadInvestments(self):
         loadedInvestments = getInvestments()
         print(loadedInvestments)
-        map(self.addInvestmentWidgetToHomePage, loadedInvestments)
+        return list(map(self.addInvestmentWidgetToHomePage, loadedInvestments))
 
     def closeInvestment(self, investment: Investment):
 

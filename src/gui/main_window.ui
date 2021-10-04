@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Przegląd inwestycji</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <property name="styleSheet">
@@ -213,7 +213,7 @@ border-radius: 5px;
                   <x>0</x>
                   <y>0</y>
                   <width>904</width>
-                  <height>69</height>
+                  <height>72</height>
                  </rect>
                 </property>
                 <layout class="QHBoxLayout" name="scrollAreaContents_currently_opened_layout">
@@ -258,7 +258,7 @@ border-radius: 5px;
           <item>
            <widget class="QStackedWidget" name="all_pages">
             <property name="currentIndex">
-             <number>0</number>
+             <number>2</number>
             </property>
             <widget class="QWidget" name="investment_page">
              <layout class="QVBoxLayout" name="verticalLayout_16">
@@ -296,8 +296,8 @@ color: rgb(255, 255, 255)
                  <property name="geometry">
                   <rect>
                    <x>0</x>
-                   <y>-310</y>
-                   <width>869</width>
+                   <y>0</y>
+                   <width>654</width>
                    <height>2684</height>
                   </rect>
                  </property>
@@ -3151,8 +3151,8 @@ border: 0px solid gray;
                          <rect>
                           <x>0</x>
                           <y>0</y>
-                          <width>833</width>
-                          <height>294</height>
+                          <width>98</width>
+                          <height>34</height>
                          </rect>
                         </property>
                         <layout class="QVBoxLayout" name="scrollArea_notes_contents_layout">
@@ -3193,7 +3193,7 @@ border: 0px solid gray;
                 <x>30</x>
                 <y>0</y>
                 <width>800</width>
-                <height>481</height>
+                <height>551</height>
                </rect>
               </property>
               <property name="minimumSize">
@@ -3208,78 +3208,50 @@ border: 0px solid gray;
               <property name="frameShadow">
                <enum>QFrame::Raised</enum>
               </property>
-              <widget class="QLabel" name="label_welcome_home_page">
-               <property name="geometry">
-                <rect>
-                 <x>50</x>
-                 <y>20</y>
-                 <width>281</width>
-                 <height>31</height>
-                </rect>
-               </property>
-               <property name="text">
-                <string>Witamy na stronie głównej</string>
-               </property>
-              </widget>
-              <widget class="QScrollArea" name="scrollArea_investments_home_page">
-               <property name="geometry">
-                <rect>
-                 <x>50</x>
-                 <y>60</y>
-                 <width>700</width>
-                 <height>391</height>
-                </rect>
-               </property>
-               <property name="minimumSize">
-                <size>
-                 <width>700</width>
-                 <height>350</height>
-                </size>
-               </property>
-               <property name="maximumSize">
-                <size>
-                 <width>16777215</width>
-                 <height>16777215</height>
-                </size>
-               </property>
-               <property name="widgetResizable">
-                <bool>true</bool>
-               </property>
-               <widget class="QWidget" name="scrollAreaContents_investments_home_page">
-                <property name="geometry">
-                 <rect>
-                  <x>0</x>
-                  <y>0</y>
-                  <width>698</width>
-                  <height>389</height>
-                 </rect>
-                </property>
-                <property name="minimumSize">
-                 <size>
-                  <width>600</width>
-                  <height>300</height>
-                 </size>
-                </property>
-                <layout class="QVBoxLayout" name="investments_home_page_layout">
-                 <item>
-                  <widget class="QFrame" name="decoy_investment_home_page">
-                   <property name="maximumSize">
-                    <size>
-                     <width>0</width>
-                     <height>0</height>
-                    </size>
-                   </property>
-                   <property name="frameShape">
-                    <enum>QFrame::StyledPanel</enum>
-                   </property>
-                   <property name="frameShadow">
-                    <enum>QFrame::Raised</enum>
-                   </property>
-                  </widget>
-                 </item>
-                </layout>
-               </widget>
-              </widget>
+              <layout class="QVBoxLayout" name="verticalLayout_21">
+               <item>
+                <widget class="QLabel" name="label_welcome_home_page">
+                 <property name="text">
+                  <string>Witamy na stronie głównej</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QScrollArea" name="scrollArea_investments_home_page">
+                 <property name="widgetResizable">
+                  <bool>true</bool>
+                 </property>
+                 <widget class="QWidget" name="scrollAreaContents_investments_home_page">
+                  <property name="geometry">
+                   <rect>
+                    <x>0</x>
+                    <y>0</y>
+                    <width>772</width>
+                    <height>499</height>
+                   </rect>
+                  </property>
+                  <layout class="QVBoxLayout" name="investments_home_page_layout">
+                   <item>
+                    <widget class="QFrame" name="frame">
+                     <property name="maximumSize">
+                      <size>
+                       <width>16777215</width>
+                       <height>0</height>
+                      </size>
+                     </property>
+                     <property name="frameShape">
+                      <enum>QFrame::StyledPanel</enum>
+                     </property>
+                     <property name="frameShadow">
+                      <enum>QFrame::Raised</enum>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </widget>
+               </item>
+              </layout>
              </widget>
             </widget>
            </widget>

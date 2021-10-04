@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'home_page_investmentRIdqVn.ui'
+## Form generated from reading UI file 'home_page_investmentRuwcez.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.1.1
 ##
@@ -18,6 +18,7 @@ class Ui_InvestmentHomePageWidget(object):
         if not InvestmentHomePageWidget.objectName():
             InvestmentHomePageWidget.setObjectName(u"InvestmentHomePageWidget")
         InvestmentHomePageWidget.resize(686, 94)
+        InvestmentHomePageWidget.setMinimumSize(QSize(686, 94))
         InvestmentHomePageWidget.setStyleSheet(u"#InvestmentHomePageWidget{\n"
 "border: 1px solid gray;\n"
 "border-radius: 10px;\n"
