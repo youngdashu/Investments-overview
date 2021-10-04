@@ -18,7 +18,6 @@ def removeExcessiveBorders(frames: List[QFrame]):
     return list(map(setProperStyleSheet, frames))
 
 
-
 def disconnectFunction(editableTextEdit):
     editableTextEdit.textChanged.disconnect()
     return editableTextEdit

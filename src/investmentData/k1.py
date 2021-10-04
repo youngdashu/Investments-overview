@@ -98,6 +98,9 @@ class Investment:
 
     def save(self):
         print("zapisuję")
+
+        self.Eval.notes = list(filter(lambda noteStr: noteStr is not None, self.Eval.notes))
+
         self.inv = self.title + json.dumps(self.Main_Char.__dict__) + json.dumps(self.Info.__dict__) + json.dumps(
             self.Contribution.__dict__) + json.dumps(self.Credit.__dict__) + json.dumps(
             self.Rent.__dict__) + json.dumps(self.Eval.__dict__)
@@ -387,7 +390,11 @@ class Investment:
             return ownCapitalReturnTimeYears
 
     def totalReturnTimeMonths(self):
-        return (self.entryCost() + self.bankCredit()) / self.gainLossPerMonth()
+        totalReturnTimeMonths = noDataText
+        try:
+            totalReturnTimeMonths = float((self.entryCost() + self.bankCredit()) / self.gainLossPerMonth())
+        finally:
+            return totalReturnTimeMonths
 
     def totalReturnTimeYears(self):
         return self.totalReturnTimeMonths() * 12

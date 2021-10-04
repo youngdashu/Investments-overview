@@ -9,6 +9,7 @@ from typing import Dict, List
 
 from pageTypes import PageTypes
 from src.investmentData.k1 import Investment, getInvestments, getInvestmentById, deleteInvestmentById
+from src.utilityQtObjectsFunctions.Note import Note
 from src.utilityQtObjectsFunctions.functions import removeExcessiveBorders
 from ui_main_window import Ui_MainWindow
 from ui_UnsavedDialog import Ui_UnsavedDialog
@@ -89,9 +90,9 @@ class MainWindow(QMainWindow):
         self.currentInvestment: Investment = None
         self.currentInvestmentTabIconLabel: QLabel = None
 
-        self.ui.closeButton.clicked.connect(self.close)
-        self.ui.minimizeButton.clicked.connect(self.showMinimized())
-        self.ui.restoreButton.clicked.connect(self.restore)
+        # self.ui.closeButton.clicked.connect(self.close)
+        # self.ui.minimizeButton.clicked.connect(self.showMinimized())
+        # self.ui.restoreButton.clicked.connect(self.restore)
 
         self.ui.button_save_data.clicked.connect(self.saveCurrentInvestment)
 
@@ -162,7 +163,8 @@ class MainWindow(QMainWindow):
                                                    self.ui.text_internet_month,
                                                    self.ui.text_other_costs_month]
 
-        self.framesToRemoveBorder = [self.ui.frame_label_and_text_purchase_price,
+        self.framesToRemoveBorder = [self.ui.frame_label_and_text_investment_name,
+                                     self.ui.frame_label_and_text_purchase_price,
                                      self.ui.frame_label_and_text_renovation, self.ui.frame_label_and_text_tax,
                                      self.ui.frame_label_and_text_area,
                                      self.ui.frame_label_and_text_credit, self.ui.frame_label_and_text_address_city,
@@ -191,13 +193,13 @@ class MainWindow(QMainWindow):
                                      self.ui.frame_rent_data_cost,
                                      self.ui.frame_label_and_text_rent_tax,
                                      self.ui.frame_label_and_text_property_tax,
-                                     self.ui.frame_label_and_text_electricity,
+                                     self.ui.frame_label_and_text_tax_electricity,
                                      self.ui.frame_label_and_text_gas,
                                      self.ui.frame_label_and_text_water,
                                      self.ui.frame_label_and_text_internet,
                                      self.ui.frame_label_and_text_other_costs_2,
                                      self.ui.frame_label_and_text_total_costs,
-                                     self.ui.frame_label_and_text_gain_loss,
+                                     self.ui.frame_label_and_text_rent_gain_loss,
                                      self.ui.frame_investment_assessment_data,
                                      self.ui.frame_label_and_text_own_capital_return_2,
                                      self.ui.frame_label_and_text_own_capital_return,
@@ -208,7 +210,8 @@ class MainWindow(QMainWindow):
         for readOnlyFrame in self.readOnlyTextEdits:
             readOnlyFrame.setReadOnly(True)
 
-        self.notes = []
+        self.notesStr: List[str] = []
+        self.notes: List[Note] = []
 
         self.frameHeight = 40
         self.targetFrameHeight = 300
@@ -322,13 +325,13 @@ class MainWindow(QMainWindow):
         actualHeight = None
         if self.ui.frame_investment_assessment.height() < self.targetFrameHeight:
             isSlided = False
-            afterAnimationHeight = 450
+            afterAnimationHeight = 320
             actualHeight = self.frameHeight
             self.ui.frame_investment_assessment_data.setVisible(True)
         else:
             isSlided = True
             afterAnimationHeight = self.frameHeight
-            actualHeight = 450
+            actualHeight = 320
             self.ui.frame_investment_assessment_data.setVisible(False)
 
         self.investmentAssessmentSlideAnimation = QPropertyAnimation(self.ui.frame_investment_assessment,
@@ -368,14 +371,14 @@ class MainWindow(QMainWindow):
         actualHeight = None
         if self.ui.frame_notes.height() < self.targetFrameHeight:
             isSlided = False
-            afterAnimationHeight = 400
+            afterAnimationHeight = 500
             actualHeight = self.frameHeight
             self.ui.scrollArea_notes.setVisible(True)
             self.ui.frame_add_note_button.setVisible(True)
         else:
             isSlided = True
             afterAnimationHeight = self.frameHeight
-            actualHeight = 400
+            actualHeight = 500
             self.ui.scrollArea_notes.setVisible(False)
             self.ui.frame_add_note_button.setVisible(False)
 
@@ -407,15 +410,35 @@ class MainWindow(QMainWindow):
         frame = self.investmentTabs[investmentId]
         label: QLabel = frame.findChild(QLabel)
         newNoteTextEdit.textChanged.connect(lambda: self.changeOneIcon(label, investmentId))
-        self.ui.scrollArea_notes_contents_layout.addWidget(newNoteTextEdit)
-        self.notes.append(newNoteTextEdit)
+        newNoteTextEdit.setMinimumHeight(140)
+
+        frameWithNote = QFrame(self.ui.scrollArea_notes_contents)
+        frameWithNote.setObjectName("note_" + str(noteIndex) + "_frame" )
+        frameWithNoteLayout = QHBoxLayout(frameWithNote)
+        frameWithNoteLayout.setObjectName("note_" + str(noteIndex) + "_layout")
+        frameWithNote.setLayout(frameWithNoteLayout)
+        deleteButton = QPushButton("x", frameWithNote)
+        frameWithNoteLayout.addWidget(deleteButton)
+        frameWithNoteLayout.addWidget(newNoteTextEdit)
+
+        newNote = Note(newNoteStr, newNoteTextEdit, frameWithNote, deleteButton, noteIndex, self.notesStr, self.notes)
+
+        deleteButton.clicked.connect(newNote.deleteNote)
+
+        self.ui.scrollArea_notes_contents_layout.addWidget(frameWithNote)
+        self.notesStr.append(newNote.noteStr)
+        self.notes.append(newNote)
 
     def addNotes(self):
-        print(self.currentInvestment.notes())
-        print(list(range(0, len(self.currentInvestment.notes()))))
-        print(zip(self.currentInvestment.notes(), list(range(0, len(self.currentInvestment.notes())))))
+        # print(self.currentInvestment.notes())
+        # print(list(range(0, len(self.currentInvestment.notes()))))
+        # print(zip(self.currentInvestment.notes(), list(range(0, len(self.currentInvestment.notes())))))
         list(
             map(self.addNote, zip(self.currentInvestment.notes(), list(range(0, len(self.currentInvestment.notes()))))))
+
+    def removeNote(self):
+
+        pass
 
     def restore(self):
         global SHOW_MAXIMIZED
@@ -456,7 +479,6 @@ class MainWindow(QMainWindow):
 
         id = investment.id
         if self.isInvestmentSaved[id] is False:
-            print("false")
             # otworz okienko i zapytaj sie o zapisanie pliku
             unsavedInvestmentDialog = UnsavedDialog(self)
             dialogResult: QDialog.DialogCode = unsavedInvestmentDialog.exec()
@@ -488,12 +510,9 @@ class MainWindow(QMainWindow):
         global labelCounter
 
         if newInvestment is None:
-            print("None")
+            # print("None")
             newInvestment = Investment()
 
-        print(newInvestment)
-        print("new investment ", newInvestment.id)
-        # self.investments.append(newInvestment)
         self.investments[newInvestment.id] = newInvestment
 
         self.isInvestmentSaved[newInvestment.id] = False
@@ -520,7 +539,11 @@ class MainWindow(QMainWindow):
         isSavedLabel.setObjectName("isSavedLabel_" + str(labelCounter))
         labelCounter += 1
         isSavedLabel.setPixmap(self.unsavedIcon)
-        isSavedLabel.setStyleSheet("")
+        isSavedLabel.setStyleSheet("#"+isSavedLabel.objectName() + """{
+        border: 0px solid gray;
+        border-radius: 10px;
+        background: rgb(255, 255, 255);
+        }""")
         isSavedLabel.setMaximumHeight(42)
         isSavedLabel.setMaximumWidth(42)
 
@@ -888,9 +911,9 @@ class MainWindow(QMainWindow):
             (lambda: self.updateTextEdit(self.ui.label_own_capital_return_time_months,
                                          self.currentInvestment.totalReturnTimeMonths)))
 
-    def removeExcessiveFrameBorders(self):
-        self.ui.frame_label_and_text_purchase_price.setStyleSheet(
-            "#frame_label_and_text_purchase_price" + noBorderFrameStyleSheetTemplate)
+    # def removeExcessiveFrameBorders(self):
+    #     self.ui.frame_label_and_text_purchase_price.setStyleSheet(
+    #         "#frame_label_and_text_purchase_price" + noBorderFrameStyleSheetTemplate)
 
 
 if __name__ == '__main__':
