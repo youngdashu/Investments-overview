@@ -238,7 +238,7 @@ class Investment:
                 self.renovationCost()) is not str and type(self.purchasePrice()) is not str else noDataText
 
     def entryCost(self):
-        return int(
+        return float(
             int(self.ownContribution()) + int(self.brokerMargin()) + int(self.notaryMargin()) + int(self.tax()) + int(
                 self.otherCosts()) + int(self.renovationCost()))
 
@@ -372,7 +372,7 @@ class Investment:
             self.incomeReceivedPerMonth()) is not str and type(self.costsTotalPerMonth()) is not str else noDataText
 
     def gainLossPerYear(self):
-        return (self.incomeReceivedPerMonth() - self.costsTotalPerMonth()) * 12 if type(
+        return float((self.incomeReceivedPerMonth() - self.costsTotalPerMonth())) * 12 if type(
             self.incomeReceivedPerMonth()) is not str and type(self.costsTotalPerMonth()) is not str else noDataText
 
     def ownCapitalReturnTimeMonths(self):
@@ -398,6 +398,10 @@ class Investment:
 
     def totalReturnTimeYears(self):
         return self.totalReturnTimeMonths() * 12
+
+    def returnRate(self):
+        return self.gainLossPerYear() / self.entryCost()
+
 
     def notes(self):
         return self.Eval.notes
@@ -486,6 +490,7 @@ def getInvestmentById(InvestmentId):
 
 def deleteInvestmentById(investmentId):
     new = ""
+    print(investmentId)
     with open("guide.txt") as guide:
         for line in guide.readlines():
             if new == "":
@@ -496,7 +501,8 @@ def deleteInvestmentById(investmentId):
                 while line[tp].isdigit():
                     Id = Id + line[tp]
                     tp += 1
-                if investmentId != int(Id):
+                    print(Id)
+                if int(investmentId) != int(Id):
                     new = new + line
     guide = open("guide.txt", "w")
     guide.write(new)
