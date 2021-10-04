@@ -371,7 +371,7 @@ border-radius: 5px;
                  <rect>
                   <x>0</x>
                   <y>0</y>
-                  <width>904</width>
+                  <width>910</width>
                   <height>69</height>
                  </rect>
                 </property>
@@ -455,9 +455,9 @@ color: rgb(255, 255, 255)
                  <property name="geometry">
                   <rect>
                    <x>0</x>
-                   <y>-1878</y>
-                   <width>869</width>
-                   <height>2734</height>
+                   <y>-654</y>
+                   <width>879</width>
+                   <height>2628</height>
                   </rect>
                  </property>
                  <property name="styleSheet">
@@ -2751,7 +2751,7 @@ border: 1px white;
                     <property name="minimumSize">
                      <size>
                       <width>630</width>
-                      <height>450</height>
+                      <height>400</height>
                      </size>
                     </property>
                     <property name="frameShape">
@@ -2898,12 +2898,6 @@ border: 1px white;
                         </item>
                         <item>
                          <widget class="QFrame" name="frame_label_and_text_own_capital_return_2">
-                          <property name="minimumSize">
-                           <size>
-                            <width>0</width>
-                            <height>350</height>
-                           </size>
-                          </property>
                           <property name="frameShape">
                            <enum>QFrame::StyledPanel</enum>
                           </property>
@@ -2928,7 +2922,7 @@ border: 1px white;
                              <property name="minimumSize">
                               <size>
                                <width>0</width>
-                               <height>0</height>
+                               <height>40</height>
                               </size>
                              </property>
                              <property name="frameShape">
@@ -2992,7 +2986,7 @@ border: 1px white;
                              <property name="minimumSize">
                               <size>
                                <width>0</width>
-                               <height>0</height>
+                               <height>40</height>
                               </size>
                              </property>
                              <property name="frameShape">
@@ -3052,11 +3046,11 @@ border: 1px white;
                             </widget>
                            </item>
                            <item>
-                            <widget class="QFrame" name="frame_label_and_text_start_date_21">
+                            <widget class="QFrame" name="frame_label_and_text_return_rate_1">
                              <property name="minimumSize">
                               <size>
                                <width>0</width>
-                               <height>0</height>
+                               <height>40</height>
                               </size>
                              </property>
                              <property name="frameShape">
@@ -3116,11 +3110,11 @@ border: 1px white;
                             </widget>
                            </item>
                            <item>
-                            <widget class="QFrame" name="frame_label_and_text_start_date_22">
+                            <widget class="QFrame" name="frame_label_and_text_return_rate_2">
                              <property name="minimumSize">
                               <size>
                                <width>0</width>
-                               <height>0</height>
+                               <height>40</height>
                               </size>
                              </property>
                              <property name="frameShape">
@@ -3316,8 +3310,8 @@ border: 0px solid gray;
                          <rect>
                           <x>0</x>
                           <y>0</y>
-                          <width>821</width>
-                          <height>294</height>
+                          <width>834</width>
+                          <height>312</height>
                          </rect>
                         </property>
                         <layout class="QVBoxLayout" name="scrollArea_notes_contents_layout">

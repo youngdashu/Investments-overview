@@ -180,7 +180,30 @@ class MainWindow(QMainWindow):
                                      self.ui.frame_label_and_text_own_contribution,
                                      self.ui.frame_label_and_text_notary_margin,
                                      self.ui.frame_label_and_text_other_costs,
-                                     self.ui.frame_label_and_text_repayment_period]
+                                     self.ui.frame_label_and_text_repayment_period,
+                                     self.ui.frame_label_and_text_text_monthly_installment_interest_part,
+                                     self.ui.frame_label_and_text_credit_credit_insurance_per_month,
+                                     self.ui.frame_label_and_text_total_credit_cost,
+                                     self.ui.frame_rent_data_income,
+                                     self.ui.frame_label_and_text_rent_income_min,
+                                     self.ui.frame_label_and_text_rent_income_max,
+                                     self.ui.frame_label_and_text_income_earned,
+                                     self.ui.frame_rent_data_cost,
+                                     self.ui.frame_label_and_text_rent_tax,
+                                     self.ui.frame_label_and_text_property_tax,
+                                     self.ui.frame_label_and_text_electricity,
+                                     self.ui.frame_label_and_text_gas,
+                                     self.ui.frame_label_and_text_water,
+                                     self.ui.frame_label_and_text_internet,
+                                     self.ui.frame_label_and_text_other_costs_2,
+                                     self.ui.frame_label_and_text_total_costs,
+                                     self.ui.frame_label_and_text_gain_loss,
+                                     self.ui.frame_investment_assessment_data,
+                                     self.ui.frame_label_and_text_own_capital_return_2,
+                                     self.ui.frame_label_and_text_own_capital_return,
+                                     self.ui.frame_label_and_text_total_return_time,
+                                     self.ui.frame_label_and_text_return_rate_1,
+                                     self.ui.frame_label_and_text_return_rate_2]
 
         for readOnlyFrame in self.readOnlyTextEdits:
             readOnlyFrame.setReadOnly(True)
