@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'main_windowIiRMLR.ui'
+## Form generated from reading UI file 'main_windowEEbXyZ.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.1.1
 ##
@@ -151,11 +151,18 @@ class Ui_MainWindow(object):
 "border-radius: 5px;\n"
 "background: rgb(126, 125, 128);\n"
 "color: rgb(255, 255, 255)\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"border: 2px solid gray;\n"
+"border-radius: 5px;\n"
+"background: rgb(176, 175, 178);\n"
+"color: rgb(255, 255, 255)\n"
 "}")
         self.scrollArea_current_investment.setWidgetResizable(True)
         self.scrollArea_investment_contents = QWidget()
         self.scrollArea_investment_contents.setObjectName(u"scrollArea_investment_contents")
-        self.scrollArea_investment_contents.setGeometry(QRect(0, 0, 654, 2684))
+        self.scrollArea_investment_contents.setGeometry(QRect(0, 0, 884, 2684))
         self.scrollArea_investment_contents.setStyleSheet(u"#scrollAreaWidgetContainer{\n"
 "border: 3px solid gray;\n"
 "border-radius: 8px;\n"
@@ -1715,7 +1722,7 @@ class Ui_MainWindow(object):
         self.scrollArea_notes.setWidgetResizable(True)
         self.scrollArea_notes_contents = QWidget()
         self.scrollArea_notes_contents.setObjectName(u"scrollArea_notes_contents")
-        self.scrollArea_notes_contents.setGeometry(QRect(0, 0, 98, 34))
+        self.scrollArea_notes_contents.setGeometry(QRect(0, 0, 848, 294))
         self.scrollArea_notes_contents_layout = QVBoxLayout(self.scrollArea_notes_contents)
         self.scrollArea_notes_contents_layout.setObjectName(u"scrollArea_notes_contents_layout")
         self.frame_17 = QFrame(self.scrollArea_notes_contents)
@@ -1799,7 +1806,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.all_pages.setCurrentIndex(2)
+        self.all_pages.setCurrentIndex(0)
 
 
         QMetaObject.connectSlotsByName(MainWindow)

@@ -258,7 +258,7 @@ border-radius: 5px;
           <item>
            <widget class="QStackedWidget" name="all_pages">
             <property name="currentIndex">
-             <number>2</number>
+             <number>0</number>
             </property>
             <widget class="QWidget" name="investment_page">
              <layout class="QVBoxLayout" name="verticalLayout_16">
@@ -287,6 +287,13 @@ border: 2px solid gray;
 border-radius: 5px;
 background: rgb(126, 125, 128);
 color: rgb(255, 255, 255)
+}
+
+QPushButton:hover{
+border: 2px solid gray;
+border-radius: 5px;
+background: rgb(176, 175, 178);
+color: rgb(255, 255, 255)
 }</string>
                 </property>
                 <property name="widgetResizable">
@@ -297,7 +304,7 @@ color: rgb(255, 255, 255)
                   <rect>
                    <x>0</x>
                    <y>0</y>
-                   <width>654</width>
+                   <width>884</width>
                    <height>2684</height>
                   </rect>
                  </property>
@@ -3151,8 +3158,8 @@ border: 0px solid gray;
                          <rect>
                           <x>0</x>
                           <y>0</y>
-                          <width>98</width>
-                          <height>34</height>
+                          <width>848</width>
+                          <height>294</height>
                          </rect>
                         </property>
                         <layout class="QVBoxLayout" name="scrollArea_notes_contents_layout">

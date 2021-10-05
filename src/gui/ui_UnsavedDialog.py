@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'UnsavedDialogTBSVxN.ui'
+## Form generated from reading UI file 'unsavedDialogToTMzh.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.1.1
 ##
@@ -17,8 +17,8 @@ class Ui_UnsavedDialog(object):
     def setupUi(self, UnsavedDialog):
         if not UnsavedDialog.objectName():
             UnsavedDialog.setObjectName(u"UnsavedDialog")
-        UnsavedDialog.resize(290, 140)
-        UnsavedDialog.setMinimumSize(QSize(290, 140))
+        UnsavedDialog.resize(290, 100)
+        UnsavedDialog.setMinimumSize(QSize(290, 100))
         UnsavedDialog.setMaximumSize(QSize(300, 150))
         self.buttonBox = QDialogButtonBox(UnsavedDialog)
         self.buttonBox.setObjectName(u"buttonBox")

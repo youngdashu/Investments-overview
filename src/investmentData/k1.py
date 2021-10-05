@@ -490,7 +490,6 @@ def getInvestmentById(InvestmentId):
 
 def deleteInvestmentById(investmentId):
     new = ""
-    print(investmentId)
     with open("guide.txt") as guide:
         for line in guide.readlines():
             if new == "":
@@ -501,7 +500,6 @@ def deleteInvestmentById(investmentId):
                 while line[tp].isdigit():
                     Id = Id + line[tp]
                     tp += 1
-                    print(Id)
                 if int(investmentId) != int(Id):
                     new = new + line
     guide = open("guide.txt", "w")

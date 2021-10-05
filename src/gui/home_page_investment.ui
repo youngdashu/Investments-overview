@@ -6,14 +6,14 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>686</width>
-    <height>94</height>
+    <width>750</width>
+    <height>70</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
     <width>686</width>
-    <height>94</height>
+    <height>63</height>
    </size>
   </property>
   <property name="windowTitle">
@@ -29,21 +29,21 @@ background: rgb(207, 206, 209);
   <widget class="QFrame" name="MainFrame">
    <property name="geometry">
     <rect>
-     <x>9</x>
-     <y>10</y>
-     <width>661</width>
-     <height>81</height>
+     <x>-1</x>
+     <y>0</y>
+     <width>751</width>
+     <height>71</height>
     </rect>
    </property>
    <property name="styleSheet">
     <string notr="true">QFrame{
-/*border: 1px solid gray;*/
+border: 0px solid gray;
 border-radius: 10px;
 background: rgb(207, 206, 209);
 }
 
 QLabel{
-border: 1px solid gray;
+border: 0px solid gray;
 border-radius: 10px;
 background: rgb(207, 206, 209);
 }
@@ -52,6 +52,13 @@ QPushButton{
 border: 2px solid gray;
 border-radius: 5px;
 background: rgb(126, 125, 128);
+color: rgb(255, 255, 255)
+}
+
+QPushButton:hover{
+border: 2px solid gray;
+border-radius: 5px;
+background: rgb(176, 175, 178);
 color: rgb(255, 255, 255)
 }</string>
    </property>
@@ -75,33 +82,13 @@ color: rgb(255, 255, 255)
      <number>12</number>
     </property>
     <item>
-     <widget class="QLabel" name="labelInvestmentId">
-      <property name="text">
-       <string>Id inwetycji:</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QLabel" name="InvestmentId">
-      <property name="minimumSize">
-       <size>
-        <width>40</width>
-        <height>0</height>
-       </size>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-    </item>
-    <item>
      <spacer name="horizontalSpacer">
       <property name="orientation">
        <enum>Qt::Horizontal</enum>
       </property>
       <property name="sizeHint" stdset="0">
        <size>
-        <width>50</width>
+        <width>40</width>
         <height>20</height>
        </size>
       </property>
@@ -124,7 +111,7 @@ color: rgb(255, 255, 255)
      <widget class="QPushButton" name="buttonInvestmentName">
       <property name="minimumSize">
        <size>
-        <width>200</width>
+        <width>300</width>
         <height>40</height>
        </size>
       </property>
@@ -140,7 +127,7 @@ color: rgb(255, 255, 255)
       </property>
       <property name="sizeHint" stdset="0">
        <size>
-        <width>40</width>
+        <width>120</width>
         <height>20</height>
        </size>
       </property>

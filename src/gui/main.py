@@ -1,19 +1,23 @@
 import sys
-from PySide6 import QtCore, QtGui
-from PySide6.QtCore import (QPropertyAnimation, QObject, QEvent)
-from PySide6.QtGui import (QColor)
-from PySide6.QtGui import QPixmap
-from PySide6.QtWidgets import QApplication, QMainWindow, QLabel, QWidget, QTextEdit, QFrame, QHBoxLayout, QPushButton, \
-    QDialog
 from typing import Dict, List
+
+import PySide6
+from PySide6 import QtCore, QtGui
+from PySide6.QtCore import (QPropertyAnimation)
+from PySide6.QtGui import QPixmap
+from PySide6.QtWidgets import QApplication, QMainWindow, QLabel, QTextEdit, QFrame, QHBoxLayout, QPushButton, \
+    QDialog, QDialogButtonBox
 
 from pageTypes import PageTypes
 from src.investmentData.k1 import Investment, getInvestments, getInvestmentById, deleteInvestmentById
 from src.utilityQtObjectsFunctions.Note import Note
-from src.utilityQtObjectsFunctions.functions import removeExcessiveBorders
+from src.utilityQtObjectsFunctions.functions import removeExcessiveBorders, saveAllInvestments, disconnectFunction, \
+    connectEventFilter
 from ui_main_window import Ui_MainWindow
-from ui_UnsavedDialog import Ui_UnsavedDialog
-from ui_home_page_investment import Ui_InvestmentHomePageWidget
+
+from unsavedDialog import UnsavedDialog
+from closeProgramDialog import CloseProgramDialog
+from homePageInvestment import HomePageInvestment
 
 SHOW_MAXIMIZED = True
 
@@ -50,29 +54,6 @@ noBorderFrameStyleSheetTemplate = """{
 noDataText = "Brak danych"
 
 
-class UnsavedDialog(Ui_UnsavedDialog, QDialog):
-    def __init__(self, parent=None):
-        super().__init__(parent)
-        self.setupUi(self)
-
-
-class HomePageInvestment(Ui_InvestmentHomePageWidget, QWidget):
-    def __init__(self, parent=None):
-        # super(HomePageInvestment, self).__init__()
-        super().__init__(parent)
-        self.setupUi(self)
-
-
-def disconnectFunction(editableTextEdit):
-    editableTextEdit.textChanged.disconnect()
-    return editableTextEdit
-
-
-def connectEventFilter(textEdit: QTextEdit):
-    textEdit.installEventFilter(textEdit)
-    return textEdit
-
-
 class MainWindow(QMainWindow):
     def __init__(self):
         QMainWindow.__init__(self)
@@ -95,10 +76,6 @@ class MainWindow(QMainWindow):
         # self.ui.restoreButton.clicked.connect(self.restore)
 
         self.ui.button_save_data.clicked.connect(self.saveCurrentInvestment)
-
-        # self.tables = [self.ui.tableRent, self.ui.tableCredit, self.ui.tableInformation,
-        #                self.ui.tableMainCharacteristics, self.ui.tableOwnContribution,
-        #                self.ui.tableInvestmentAssessment]
 
         # read only text edits
         self.readOnlyTextEdits: List[QTextEdit] = [self.ui.text_price_per_square_meter,
@@ -251,8 +228,26 @@ class MainWindow(QMainWindow):
         self.homePageInvestments = self.loadInvestments()
         self.ui.all_pages.setCurrentWidget(self.ui.home_page)
 
-
         self.show()
+
+    def closeEvent(self, event: PySide6.QtGui.QCloseEvent) -> None:
+
+        if all(self.isInvestmentSaved.values()):
+            super(MainWindow, self).closeEvent(event)
+        else:
+            unsavedInvestmentsDialog = CloseProgramDialog(self)
+
+            unsavedInvestmentsDialog.exec()
+            dialogResult = unsavedInvestmentsDialog.result()
+            if dialogResult == QDialog.Accepted:
+                self.investments, self.isInvestmentSaved = saveAllInvestments(self.investments, self.isInvestmentSaved)
+                super(MainWindow, self).closeEvent(event)
+            elif dialogResult == QDialog.Rejected:
+                super(MainWindow, self).closeEvent(event)
+            elif dialogResult == 2:
+                event.ignore()
+            else:
+                raise NotImplementedError
 
     def decreaseFrameHeights(self, minHeight):
 
@@ -415,7 +410,7 @@ class MainWindow(QMainWindow):
         newNoteTextEdit.setMinimumHeight(140)
 
         frameWithNote = QFrame(self.ui.scrollArea_notes_contents)
-        frameWithNote.setObjectName("note_" + str(noteIndex) + "_frame" )
+        frameWithNote.setObjectName("note_" + str(noteIndex) + "_frame")
         frameWithNoteLayout = QHBoxLayout(frameWithNote)
         frameWithNoteLayout.setObjectName("note_" + str(noteIndex) + "_layout")
         frameWithNote.setLayout(frameWithNoteLayout)
@@ -462,7 +457,6 @@ class MainWindow(QMainWindow):
         print("NAMEEEEEE ", name)
         investmentHomePageWidget = HomePageInvestment(self.ui.scrollAreaContents_investments_home_page)
         investmentHomePageWidget.buttonInvestmentName.setText(name)
-        investmentHomePageWidget.InvestmentId.setText(str(investmentId))
         investmentHomePageWidget.buttonInvestmentName.clicked.connect(lambda: self.loadAndShowInvestment(investmentId))
         investmentHomePageWidget.buttonDeleteInvestment.clicked.connect(lambda: deleteInvestmentById(investmentId))
         self.ui.investments_home_page_layout.addWidget(investmentHomePageWidget)
@@ -543,7 +537,7 @@ class MainWindow(QMainWindow):
         isSavedLabel.setObjectName("isSavedLabel_" + str(labelCounter))
         labelCounter += 1
         isSavedLabel.setPixmap(self.unsavedIcon)
-        isSavedLabel.setStyleSheet("#"+isSavedLabel.objectName() + """{
+        isSavedLabel.setStyleSheet("#" + isSavedLabel.objectName() + """{
         border: 0px solid gray;
         border-radius: 10px;
         background: rgb(255, 255, 255);
