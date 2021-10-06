@@ -358,9 +358,9 @@ class Investment:
     def bankContributionPercent(self):
         perc = noDataText
         try:
-            perc = str(round(float((self.bankCredit() / self.purchasePrice()) * 100), 2)) + "%" if type(
-                self.renovationCost()) is not str and type(self.purchasePrice()) is not str else noDataText
-        finally:
+            perc = str(round(float((self.bankCredit() / self.purchasePrice()) * 100), 2)) + "%"
+            return perc
+        except:
             return perc
 
     def interestRate(self):
