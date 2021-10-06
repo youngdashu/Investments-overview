@@ -15,6 +15,8 @@ from src.utilityQtObjectsFunctions.functions import removeExcessiveBorders, save
     connectEventFilter, setDarkerBackgroundForStaticTextEdits, clearHomePageWidgetsAndLoadNewWidgets, darkerStyleSheet
 from ui_main_window import Ui_MainWindow
 
+
+
 from unsavedDialog import UnsavedDialog
 from closeProgramDialog import CloseProgramDialog
 from homePageInvestment import HomePageInvestment
@@ -85,8 +87,7 @@ class MainWindow(QMainWindow):
                                                    self.ui.text_tax_percent, self.ui.text_other_costs_percent,
                                                    self.ui.text_renovation_percent, self.ui.text_entry_cost,
                                                    self.ui.text_credit,
-                                                   self.ui.text_bank_contribution_percent,
-                                                   self.ui.text_monthly_installment,
+                                                   self.ui.text_bank_contribution_percent, self.ui.text_monthly_installment,
                                                    self.ui.text_monthly_installment_capital_part,
                                                    self.ui.text_monthly_installment_interest_part,
                                                    self.ui.text_total_credit_cost,
@@ -147,7 +148,7 @@ class MainWindow(QMainWindow):
                                      self.ui.frame_label_and_text_area,
                                      self.ui.frame_label_and_text_credit, self.ui.frame_label_and_text_address_city,
                                      self.ui.frame_label_and_text_address_street,
-                                     self.ui.frame_label_and_text_bank_contribution,
+                                     self.ui.frame_label_and_text_bank_contribution_percent,
                                      self.ui.frame_label_and_text_broker_margin,
                                      self.ui.frame_label_and_text_description,
                                      self.ui.frame_label_and_text_entry_cost,
@@ -185,18 +186,11 @@ class MainWindow(QMainWindow):
                                      self.ui.frame_label_and_text_return_rate_1,
                                      self.ui.frame_label_and_text_return_rate_2]
 
-        self.labels = [self.ui.label_11, self.ui.label_68, self.ui.label_69, self.ui.label_70, self.ui.label_14,
-                       self.ui.label_15, self.ui.label_16, self.ui.label_17, self.ui.label_18, self.ui.label_19,
-                       self.ui.label_20, self.ui.label, self.ui.label_2, self.ui.label_3, self.ui.label_4,
-                       self.ui.label_5, self.ui.label_6, self.ui.label_7, self.ui.label_8, self.ui.label_9,
-                       self.ui.label_10,
-                       self.ui.label_20, self.ui.label_21, self.ui.label_22, self.ui.label_23, self.ui.label_28,
-                       self.ui.label_29, self.ui.label_24, self.ui.label_25, self.ui.label_37, self.ui.label_38,
-                       self.ui.label_39, self.ui.label_30, self.ui.label_31, self.ui.label_32, self.ui.label_33,
-                       self.ui.label_34, self.ui.label_35, self.ui.label_36, self.ui.label_47, self.ui.label_48,
+        self.labels = [self.ui.label , self.ui.label_2 , self.ui.label_3 ,self.ui.label_4 ,self.ui.label_5 ,self.ui.label_6 ,self.ui.label_7 ,self.ui.label_8 ,self.ui.label_9 ,self.ui.label_10 ,
+                       self.ui.label_20 ,self.ui.label_21 ,self.ui.label_22 ,self.ui.label_23 ,self.ui.label_28 ,self.ui.label_29 ,self.ui.label_24 ,self.ui.label_25 ,self.ui.label_37 ,self.ui.label_38 ,
+                       self.ui.label_39 ,self.ui.label_30 ,self.ui.label_31 ,self.ui.label_32 ,self.ui.label_33 ,self.ui.label_34 ,self.ui.label_35 ,self.ui.label_36 ,self.ui.label_47 ,self.ui.label_48,
                        self.ui.label_49, self.ui.label_50, self.ui.label_51, self.ui.label_52]
-        self.labels = list(
-            map(lambda label: label.setStyleSheet("QLabel{background: rgb(197, 196, 199);}"), self.labels))
+        self.labels = list(map(lambda label: label.setStyleSheet("QLabel{background: rgb(197, 196, 199);}"), self.labels))
 
         for readOnlyFrame in self.readOnlyTextEdits:
             readOnlyFrame.setReadOnly(True)
@@ -898,6 +892,10 @@ class MainWindow(QMainWindow):
             lambda: self.updateTextEdit(self.ui.text_rent_gain_loss_year, self.currentInvestment.gainLossPerYear))
         self.ui.text_total_costs_month.textChanged.connect(
             lambda: self.updateTextEdit(self.ui.text_rent_gain_loss_year, self.currentInvestment.gainLossPerYear))
+
+        self.ui.text_credit.textChanged.connect(
+            lambda: self.updateTextEdit(self.ui.text_bank_contribution_percent, self.currentInvestment.bankContributionPercent)
+        )
 
         self.ui.text_own_contribution.textChanged.connect(
             lambda: self.updateTextEdit(self.ui.text_own_contribution_percent,

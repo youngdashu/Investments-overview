@@ -839,27 +839,27 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_10.addWidget(self.frame_label_and_text_credit)
 
-        self.frame_label_and_text_bank_contribution = QFrame(self.frame_credit_data)
-        self.frame_label_and_text_bank_contribution.setObjectName(u"frame_label_and_text_bank_contribution")
-        self.frame_label_and_text_bank_contribution.setMinimumSize(QSize(0, 50))
-        self.frame_label_and_text_bank_contribution.setFrameShape(QFrame.StyledPanel)
-        self.frame_label_and_text_bank_contribution.setFrameShadow(QFrame.Raised)
-        self.horizontalLayout_15 = QHBoxLayout(self.frame_label_and_text_bank_contribution)
+        self.frame_label_and_text_bank_contribution_percent = QFrame(self.frame_credit_data)
+        self.frame_label_and_text_bank_contribution_percent.setObjectName(u"frame_label_and_text_bank_contribution_percent")
+        self.frame_label_and_text_bank_contribution_percent.setMinimumSize(QSize(0, 50))
+        self.frame_label_and_text_bank_contribution_percent.setFrameShape(QFrame.StyledPanel)
+        self.frame_label_and_text_bank_contribution_percent.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_15 = QHBoxLayout(self.frame_label_and_text_bank_contribution_percent)
         self.horizontalLayout_15.setObjectName(u"horizontalLayout_15")
         self.horizontalLayout_15.setContentsMargins(-1, 2, 2, 2)
-        self.label_10 = QLabel(self.frame_label_and_text_bank_contribution)
+        self.label_10 = QLabel(self.frame_label_and_text_bank_contribution_percent)
         self.label_10.setObjectName(u"label_10")
         self.label_10.setMinimumSize(QSize(170, 0))
 
         self.horizontalLayout_15.addWidget(self.label_10)
 
-        self.text_bank_contribution_percent = QTextEdit(self.frame_label_and_text_bank_contribution)
+        self.text_bank_contribution_percent = QTextEdit(self.frame_label_and_text_bank_contribution_percent)
         self.text_bank_contribution_percent.setObjectName(u"text_bank_contribution_percent")
 
         self.horizontalLayout_15.addWidget(self.text_bank_contribution_percent)
 
 
-        self.verticalLayout_10.addWidget(self.frame_label_and_text_bank_contribution)
+        self.verticalLayout_10.addWidget(self.frame_label_and_text_bank_contribution_percent)
 
         self.frame_label_and_text_interest_rate = QFrame(self.frame_credit_data)
         self.frame_label_and_text_interest_rate.setObjectName(u"frame_label_and_text_interest_rate")

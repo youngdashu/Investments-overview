@@ -244,11 +244,12 @@ class Investment:
             self.ui.text_broker_margin.setStyleSheet(wrongTextEditStyleSheet)
 
     def brokerMarginPercent(self):
+        perc = noDataText
         try:
-            return str(round(float((self.brokerMargin() / self.purchasePrice()) * 100), 2)) + "%" if type(
+            perc = str(round(float((self.brokerMargin() / self.purchasePrice()) * 100), 2)) + "%" if type(
                 self.brokerMargin()) is not str and type(self.purchasePrice()) is not str else noDataText
         finally:
-            return noDataText
+            return perc
 
     def notaryMargin(self):
         return self.Contribution.marg_n
@@ -264,11 +265,12 @@ class Investment:
             self.ui.text_notary_margin.setStyleSheet(wrongTextEditStyleSheet)
 
     def notaryMarginPercent(self):
+        perc = noDataText
         try:
-            return str(round(float((self.notaryMargin() / self.purchasePrice()) * 100), 2)) + "%" if type(
+            perc = str(round(float((self.notaryMargin() / self.purchasePrice()) * 100), 2)) + "%" if type(
                 self.notaryMargin()) is not str and type(self.purchasePrice()) is not str else noDataText
         finally:
-            return noDataText
+            return perc
 
     def tax(self):
         return self.Contribution.tax
@@ -284,11 +286,12 @@ class Investment:
             self.ui.text_tax.setStyleSheet(wrongTextEditStyleSheet)
 
     def taxPercent(self):
+        perc = noDataText
         try:
-            return str(round(float((self.tax() / self.purchasePrice()) * 100), 2)) + "%" if type(
+            perc =  str(round(float((self.tax() / self.purchasePrice()) * 100), 2)) + "%" if type(
                 self.tax()) is not str and type(self.purchasePrice()) is not str else noDataText
         finally:
-            return noDataText
+            return perc
 
     def otherCosts(self):
         return self.Contribution.other
@@ -304,11 +307,12 @@ class Investment:
             self.ui.text_other_costs.setStyleSheet(wrongTextEditStyleSheet)
 
     def otherCostsPercent(self):
+        perc = noDataText
         try:
-            return str(round(float((self.otherCosts() / self.purchasePrice()) * 100), 2)) + "%" if type(
+            perc =  str(round(float((self.otherCosts() / self.purchasePrice()) * 100), 2)) + "%" if type(
                 self.otherCosts()) is not str and type(self.purchasePrice()) is not str else noDataText
         finally:
-            return noDataText
+            return perc
 
     def renovationCost(self):
         return self.Contribution.redec
@@ -324,12 +328,12 @@ class Investment:
             self.ui.text_renovation.setStyleSheet(wrongTextEditStyleSheet)
 
     def renovationCostPercent(self):
+        perc = noDataText
         try:
-            return str(round(float((self.renovationCost() / self.purchasePrice()) * 100), 2)) + "%" if type(
+            perc = str(round(float((self.renovationCost() / self.purchasePrice()) * 100), 2)) + "%" if type(
                 self.renovationCost()) is not str and type(self.purchasePrice()) is not str else noDataText
         finally:
-            return noDataText
-
+            return perc
     def entryCost(self):
         try:
             return float(self.ownContribution()) + float(self.brokerMargin()) + float(self.notaryMargin()) + float(
@@ -344,7 +348,6 @@ class Investment:
         finally:
             return noDataText
 
-    # noinspection PyBroadException
     def bankCredit(self):
         try:
             return self.purchasePrice() - self.ownContribution()
@@ -353,11 +356,12 @@ class Investment:
 
 
     def bankContributionPercent(self):
+        perc = noDataText
         try:
-            return (self.bankCredit() / self.Main_Char.price) if type(
-                self.bankCredit()) is not str and type(self.Main_Char.price) is not str else noDataText
+            perc = str(round(float((self.bankCredit() / self.purchasePrice()) * 100), 2)) + "%" if type(
+                self.renovationCost()) is not str and type(self.purchasePrice()) is not str else noDataText
         finally:
-            return noDataText
+            return perc
 
     def interestRate(self):
         return self.Credit.rate
