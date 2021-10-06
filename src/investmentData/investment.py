@@ -119,10 +119,25 @@ class Investment:
         self.inv = self.title + json.dumps(self.Main_Char.__dict__) + json.dumps(self.Info.__dict__) + json.dumps(
             self.Contribution.__dict__) + json.dumps(self.Credit.__dict__) + json.dumps(
             self.Rent.__dict__) + json.dumps(self.Eval.__dict__)
+        outfile = open("guide.txt", "r")
+        i = 0
+        conv=""
+        for line in outfile.readlines():
+            if line.find("InvStart__") < 0 and line != "" and line != "\n":
+                i = line
+            elif line.find("InvStart__") >=0 :
+                try:
+                    copy_i=int(line[10:10+len(str(self.id))])
+                    if copy_i != self.id:
+                        conv = conv + line
+                except:
+                    conv = conv + line
+        outfile.close()
+        outfile = open("guide.txt", "w")
+        outfile.write(i+"\n" + "InvStart__" + str(self.id))
+        outfile.close()
         outfile = open("guide.txt", "a")
-        outfile.write("\n" + "InvStart__" + str(self.id))
-        outfile.write(json.dumps(self.inv))
-        outfile.write("__InvEnd")
+        outfile.write(json.dumps(self.inv)+"__InvEnd"+"\n"+conv)
         outfile.close()
 
     def setTitle(self, title):
@@ -630,7 +645,7 @@ def getInvestments():
                     ids = ids + line[tp]
                     tp += 1
                 tp += 1
-                while line[tp].isalpha() or line[tp] == " ":
+                while line[tp] != "{":
                     titles = titles + line[tp]
                     tp += 1
                 times = line[line.find("last_saved") + 16:line.find("last_saved") + 35]
