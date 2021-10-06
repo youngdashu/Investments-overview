@@ -9,10 +9,10 @@ from PySide6.QtWidgets import QApplication, QMainWindow, QLabel, QTextEdit, QFra
     QDialog, QDialogButtonBox
 
 from pageTypes import PageTypes
-from src.investmentData.k1 import Investment, getInvestments, getInvestmentById, deleteInvestmentById
+from src.investmentData.investment import Investment, getInvestments, getInvestmentById, deleteInvestmentById
 from src.utilityQtObjectsFunctions.Note import Note
 from src.utilityQtObjectsFunctions.functions import removeExcessiveBorders, saveAllInvestments, disconnectFunction, \
-    connectEventFilter
+    connectEventFilter, setDarkerBackgroundForStaticTextEdits, clearHomePageWidgetsAndLoadNewWidgets
 from ui_main_window import Ui_MainWindow
 
 from unsavedDialog import UnsavedDialog
@@ -187,6 +187,8 @@ class MainWindow(QMainWindow):
         for readOnlyFrame in self.readOnlyTextEdits:
             readOnlyFrame.setReadOnly(True)
 
+        self.readOnlyTextEdits = setDarkerBackgroundForStaticTextEdits(self.readOnlyTextEdits)
+
         self.notesStr: List[str] = []
         self.notes: List[Note] = []
 
@@ -267,6 +269,7 @@ class MainWindow(QMainWindow):
     def mainMenu(self, pageType: PageTypes):
 
         if pageType == PageTypes.homePage:
+            self.homePageInvestments = clearHomePageWidgetsAndLoadNewWidgets(self.homePageInvestments, self)
             self.ui.all_pages.setCurrentWidget(self.ui.home_page)
 
     def slideInformation(self):
@@ -389,6 +392,8 @@ class MainWindow(QMainWindow):
 
     def addNote(self, newNoteStr=None):
 
+        print("new note ", newNoteStr)
+
         if newNoteStr is not None and newNoteStr[0] is []:
             return
         newNoteTextEdit = QTextEdit(self.ui.scrollArea_notes_contents)
@@ -427,9 +432,6 @@ class MainWindow(QMainWindow):
         self.notes.append(newNote)
 
     def addNotes(self):
-        # print(self.currentInvestment.notes())
-        # print(list(range(0, len(self.currentInvestment.notes()))))
-        # print(zip(self.currentInvestment.notes(), list(range(0, len(self.currentInvestment.notes())))))
         list(
             map(self.addNote, zip(self.currentInvestment.notes(), list(range(0, len(self.currentInvestment.notes()))))))
 
@@ -448,11 +450,16 @@ class MainWindow(QMainWindow):
 
     def loadAndShowInvestment(self, investmentId):
 
-        investment = getInvestmentById(investmentId)
-        self.addNewInvestment(investment)
+        print("ID: ", investmentId, " | ", self.investments.keys())
+
+        if investmentId in self.investments.keys():
+            self.showInvestmentOnMainPage(self.investments[investmentId], self.investmentTabs[investmentId])
+        else:
+            investment = getInvestmentById(investmentId, self.ui)
+            self.addNewInvestment(investment)
 
     def addInvestmentWidgetToHomePage(self, investmentIdAndName):
-        investmentId = investmentIdAndName[0]
+        investmentId: int = int(investmentIdAndName[0])
         name = investmentIdAndName[1]
         time = investmentIdAndName[2]
         print("NAMEEEEEE ", name)
@@ -461,7 +468,8 @@ class MainWindow(QMainWindow):
         investmentHomePageWidget.buttonInvestmentName.clicked.connect(lambda: self.loadAndShowInvestment(investmentId))
         investmentHomePageWidget.buttonInvestmentTime.setText(time)
         investmentHomePageWidget.buttonInvestmentTime.clicked.connect(lambda: self.loadAndShowInvestment(investmentId))
-        investmentHomePageWidget.buttonDeleteInvestment.clicked.connect(lambda: deleteInvestmentById(investmentId))
+        investmentHomePageWidget.buttonDeleteInvestment.clicked.connect(
+            investmentHomePageWidget.deleteInvestmentAndWidget)
         self.ui.investments_home_page_layout.addWidget(investmentHomePageWidget)
         investmentHomePageWidget.show()
         return investmentHomePageWidget
@@ -501,6 +509,7 @@ class MainWindow(QMainWindow):
             break
 
         if len(self.investments.values()) == 0:
+            self.homePageInvestments = clearHomePageWidgetsAndLoadNewWidgets(self.homePageInvestments, self)
             self.ui.all_pages.setCurrentWidget(self.ui.home_page)
 
     def addNewInvestment(self, newInvestment=None):
@@ -511,8 +520,7 @@ class MainWindow(QMainWindow):
         global labelCounter
 
         if newInvestment is None:
-            # print("None")
-            newInvestment = Investment()
+            newInvestment = Investment(self.ui)
 
         self.investments[newInvestment.id] = newInvestment
 
@@ -582,7 +590,6 @@ class MainWindow(QMainWindow):
 
         self.captureTextEdits(investment)
 
-        # self.remov
 
         self.ui.text_investment_name.setText(investment.title)
         self.ui.text_purchase_price.setText(str(investment.purchasePrice()))
@@ -797,7 +804,6 @@ class MainWindow(QMainWindow):
 
     def updateTextEdit(self, textEdit: QTextEdit, functionToGetData):
         data = str(functionToGetData())
-        print("data: ", data)
         textEdit.setText(data)
 
     def updateReadOnlyTextEdits(self):
@@ -912,10 +918,6 @@ class MainWindow(QMainWindow):
         self.ui.text_credit.textChanged.connect(
             (lambda: self.updateTextEdit(self.ui.label_own_capital_return_time_months,
                                          self.currentInvestment.totalReturnTimeMonths)))
-
-    # def removeExcessiveFrameBorders(self):
-    #     self.ui.frame_label_and_text_purchase_price.setStyleSheet(
-    #         "#frame_label_and_text_purchase_price" + noBorderFrameStyleSheetTemplate)
 
 
 if __name__ == '__main__':

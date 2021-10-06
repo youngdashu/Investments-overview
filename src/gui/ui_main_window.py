@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'main_windowJzXdyp.ui'
+## Form generated from reading UI file 'main_windowJdTHGB.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.1.1
 ##
@@ -221,7 +221,7 @@ class Ui_MainWindow(object):
         self.scrollArea_current_investment.setWidgetResizable(True)
         self.scrollArea_investment_contents = QWidget()
         self.scrollArea_investment_contents.setObjectName(u"scrollArea_investment_contents")
-        self.scrollArea_investment_contents.setGeometry(QRect(0, -1088, 880, 2684))
+        self.scrollArea_investment_contents.setGeometry(QRect(0, 0, 880, 2684))
         self.scrollArea_investment_contents.setStyleSheet(u"#scrollAreaWidgetContainer{\n"
 "border: 3px solid gray;\n"
 "border-radius: 8px;\n"
@@ -232,7 +232,7 @@ class Ui_MainWindow(object):
         self.frame_main_characteristics = QFrame(self.scrollArea_investment_contents)
         self.frame_main_characteristics.setObjectName(u"frame_main_characteristics")
         self.frame_main_characteristics.setMinimumSize(QSize(0, 120))
-        self.frame_main_characteristics.setMaximumSize(QSize(16777215, 200))
+        self.frame_main_characteristics.setMaximumSize(QSize(16777215, 160))
         self.frame_main_characteristics.setFrameShape(QFrame.StyledPanel)
         self.frame_main_characteristics.setFrameShadow(QFrame.Raised)
         self.verticalLayout_20 = QVBoxLayout(self.frame_main_characteristics)
@@ -1814,8 +1814,8 @@ class Ui_MainWindow(object):
         self.home_page.setObjectName(u"home_page")
         self.frame_home_page = QFrame(self.home_page)
         self.frame_home_page.setObjectName(u"frame_home_page")
-        self.frame_home_page.setGeometry(QRect(30, 0, 800, 551))
-        self.frame_home_page.setMinimumSize(QSize(800, 400))
+        self.frame_home_page.setGeometry(QRect(30, 0, 840, 551))
+        self.frame_home_page.setMinimumSize(QSize(840, 500))
         self.frame_home_page.setFrameShape(QFrame.StyledPanel)
         self.frame_home_page.setFrameShadow(QFrame.Raised)
         self.verticalLayout_21 = QVBoxLayout(self.frame_home_page)
@@ -1830,7 +1830,7 @@ class Ui_MainWindow(object):
         self.scrollArea_investments_home_page.setWidgetResizable(True)
         self.scrollAreaContents_investments_home_page = QWidget()
         self.scrollAreaContents_investments_home_page.setObjectName(u"scrollAreaContents_investments_home_page")
-        self.scrollAreaContents_investments_home_page.setGeometry(QRect(0, 0, 88, 34))
+        self.scrollAreaContents_investments_home_page.setGeometry(QRect(0, 0, 812, 499))
         self.investments_home_page_layout = QVBoxLayout(self.scrollAreaContents_investments_home_page)
         self.investments_home_page_layout.setObjectName(u"investments_home_page_layout")
         self.frame = QFrame(self.scrollAreaContents_investments_home_page)
@@ -1868,7 +1868,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.all_pages.setCurrentIndex(0)
+        self.all_pages.setCurrentIndex(2)
 
 
         QMetaObject.connectSlotsByName(MainWindow)

@@ -321,7 +321,7 @@ border-radius: 5px;
           <item>
            <widget class="QStackedWidget" name="all_pages">
             <property name="currentIndex">
-             <number>0</number>
+             <number>2</number>
             </property>
             <widget class="QWidget" name="investment_page">
              <layout class="QVBoxLayout" name="verticalLayout_16">
@@ -395,7 +395,7 @@ border-radius: 8px;
                     <property name="maximumSize">
                      <size>
                       <width>16777215</width>
-                      <height>200</height>
+                      <height>160</height>
                      </size>
                     </property>
                     <property name="frameShape">
@@ -2058,8 +2058,11 @@ border: 1px white;
                           <property name="minimumSize">
                            <size>
                             <width>0</width>
-                            <height>130</height>
+                            <height>0</height>
                            </size>
+                          </property>
+                          <property name="styleSheet">
+                           <string notr="true"/>
                           </property>
                           <property name="frameShape">
                            <enum>QFrame::StyledPanel</enum>
@@ -2085,8 +2088,17 @@ border: 1px white;
                                <verstretch>0</verstretch>
                               </sizepolicy>
                              </property>
+                             <property name="minimumSize">
+                              <size>
+                               <width>0</width>
+                               <height>30</height>
+                              </size>
+                             </property>
                              <property name="layoutDirection">
                               <enum>Qt::LeftToRight</enum>
+                             </property>
+                             <property name="styleSheet">
+                              <string notr="true"/>
                              </property>
                              <property name="text">
                               <string>PRZYCHODY</string>
@@ -2224,7 +2236,7 @@ border: 1px white;
                           <property name="minimumSize">
                            <size>
                             <width>0</width>
-                            <height>450</height>
+                            <height>0</height>
                            </size>
                           </property>
                           <property name="frameShape">
@@ -3265,14 +3277,14 @@ border: 0px solid gray;
                <rect>
                 <x>30</x>
                 <y>0</y>
-                <width>800</width>
+                <width>840</width>
                 <height>551</height>
                </rect>
               </property>
               <property name="minimumSize">
                <size>
-                <width>800</width>
-                <height>400</height>
+                <width>840</width>
+                <height>500</height>
                </size>
               </property>
               <property name="frameShape">
@@ -3299,8 +3311,8 @@ border: 0px solid gray;
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>88</width>
-                    <height>34</height>
+                    <width>812</width>
+                    <height>499</height>
                    </rect>
                   </property>
                   <layout class="QVBoxLayout" name="investments_home_page_layout">
