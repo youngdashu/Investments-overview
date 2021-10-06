@@ -468,8 +468,9 @@ class MainWindow(QMainWindow):
         investmentHomePageWidget.buttonInvestmentName.clicked.connect(lambda: self.loadAndShowInvestment(investmentId))
         investmentHomePageWidget.buttonInvestmentTime.setText(time)
         investmentHomePageWidget.buttonInvestmentTime.clicked.connect(lambda: self.loadAndShowInvestment(investmentId))
-        investmentHomePageWidget.buttonDeleteInvestment.clicked.connect(
-            investmentHomePageWidget.deleteInvestmentAndWidget)
+        investmentHomePageWidget.buttonDeleteInvestment.clicked.connect(lambda:
+                                                                        investmentHomePageWidget.deleteInvestmentAndWidget(
+                                                                            investmentId))
         self.ui.investments_home_page_layout.addWidget(investmentHomePageWidget)
         investmentHomePageWidget.show()
         return investmentHomePageWidget
@@ -589,7 +590,6 @@ class MainWindow(QMainWindow):
         self.ui.all_pages.setCurrentWidget(self.ui.investment_page)
 
         self.captureTextEdits(investment)
-
 
         self.ui.text_investment_name.setText(investment.title)
         self.ui.text_purchase_price.setText(str(investment.purchasePrice()))

@@ -88,7 +88,7 @@ class Investment:
         self.Main_Char = Main_Char(float("inf"), 0, "")
         self.Info = Info(0, 0, "", "", "", 0, 0)
         self.Contribution = Contribution("", "", "", "", "", "", "", "")
-        self.Credit = Credit(float("inf"), 0, 0, 0)
+        self.Credit = Credit("", "", "", "")
         self.Rent = Rent(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
         self.Eval = Eval(None)
 
@@ -321,7 +321,7 @@ class Investment:
             self.Contribution.redec = float(renovationCost)
             self.ui.text_renovation.setStyleSheet(correctTextEditStyleSheet)
         except ValueError:
-            self.ui.text_renovation.setStyleSheet(correctTextEditStyleSheet)
+            self.ui.text_renovation.setStyleSheet(wrongTextEditStyleSheet)
 
     def renovationCostPercent(self):
         try:
