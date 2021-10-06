@@ -636,7 +636,6 @@ def getInvestments():
 
 def getInvestmentById(InvestmentId, ui):
     investment = Investment(ui)
-
     with open("guide.txt") as guide:
         for line in guide.readlines():
             if "InvStart__" in line:
@@ -648,7 +647,6 @@ def getInvestmentById(InvestmentId, ui):
                     tp += 1
                 if int(Id) == InvestmentId:
                     investment.id = int(Id)
-                    print("zaczytane id ", Id)
                     tp += 1
                     while line[tp] != "{":
                         ti = ti + line[tp]
@@ -696,16 +694,19 @@ def deleteInvestmentById(investmentId):
     new = ""
     with open("guide.txt") as guide:
         for line in guide.readlines():
-            if new == "":
-                new = line
+            if line.find("InvStart__") < 0:
+                new = new + line
             else:
-                tp = 10
-                Id = ""
-                while line[tp].isdigit():
-                    Id = Id + line[tp]
-                    tp += 1
-                if int(investmentId) != int(Id):
-                    new = new + line
+                try:
+                    tp = 10
+                    Id = ""
+                    while line[tp].isdigit():
+                        Id = Id + line[tp]
+                        tp += 1
+                    if int(investmentId) != int(Id):
+                        new = new + line
+                except:
+                    pass
     guide = open("guide.txt", "w")
     guide.write(new)
     guide.close()
