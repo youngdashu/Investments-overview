@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'home_page_investmentPAfMlv.ui'
+## Form generated from reading UI file 'new_home_page_investmentfOogOw.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.1.1
 ##
@@ -57,10 +57,6 @@ class Ui_InvestmentHomePageWidget(object):
         self.horizontalLayout = QHBoxLayout(self.MainFrame)
         self.horizontalLayout.setObjectName(u"horizontalLayout")
         self.horizontalLayout.setContentsMargins(8, 12, 8, 12)
-        self.horizontalSpacer = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
-
-        self.horizontalLayout.addItem(self.horizontalSpacer)
-
         self.labelInvestmentName = QLabel(self.MainFrame)
         self.labelInvestmentName.setObjectName(u"labelInvestmentName")
         self.labelInvestmentName.setMinimumSize(QSize(0, 40))
@@ -72,6 +68,12 @@ class Ui_InvestmentHomePageWidget(object):
         self.buttonInvestmentName.setMinimumSize(QSize(300, 40))
 
         self.horizontalLayout.addWidget(self.buttonInvestmentName)
+
+        self.buttonInvestmentTime = QPushButton(self.MainFrame)
+        self.buttonInvestmentTime.setObjectName(u"buttonInvestmentTime")
+        self.buttonInvestmentTime.setMinimumSize(QSize(175, 40))
+
+        self.horizontalLayout.addWidget(self.buttonInvestmentTime)
 
         self.horizontalSpacer_2 = QSpacerItem(120, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
@@ -93,6 +95,7 @@ class Ui_InvestmentHomePageWidget(object):
         InvestmentHomePageWidget.setWindowTitle(QCoreApplication.translate("InvestmentHomePageWidget", u"Form", None))
         self.labelInvestmentName.setText(QCoreApplication.translate("InvestmentHomePageWidget", u"Nazwa inwestycji", None))
         self.buttonInvestmentName.setText("")
+        self.buttonInvestmentTime.setText("")
         self.buttonDeleteInvestment.setText(QCoreApplication.translate("InvestmentHomePageWidget", u"XXX", None))
     # retranslateUi
 

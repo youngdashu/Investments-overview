@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'main_windowEEbXyZ.ui'
+## Form generated from reading UI file 'main_windowJzXdyp.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.1.1
 ##
@@ -18,6 +18,63 @@ class Ui_MainWindow(object):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
         MainWindow.resize(1022, 695)
+        MainWindow.setStyleSheet(u"QScrollBar:vertical {             \n"
+"        border: 1px solid #999999;\n"
+"        background:white;\n"
+"      width:10px;    \n"
+"       margin: 0px 0px 0px 0px;\n"
+"    }\n"
+"    QScrollBar::handle:vertical {\n"
+"        background: qlineargradient(x1:0, y1:0, x2:1, y2:0,\n"
+"        stop: 0 rgb(32, 47, 130), stop: 0.5 rgb(32, 47, 130), stop:1 rgb(32, 47, 130));\n"
+"        min-height: 0px;\n"
+"    }\n"
+"    QScrollBar::add-line:vertical {\n"
+"        background: qlineargradient(x1:0, y1:0, x2:1, y2:0,\n"
+"       stop: 0 rgb(32, 47, 130), stop: 0.5 rgb(32, 47, 130),  stop:1 rgb(32, 47, 130));\n"
+"        height: 0px;\n"
+"       subcontrol-position: bottom;\n"
+"        subcontrol-origin: margin;\n"
+"    }\n"
+"    QScrollBar::sub-line:vertical {\n"
+"        background: qlineargradient(x1:0, y1:0, x2:1, y2:0,\n"
+"        stop: 0  rgb(32, 47, 130), stop: 0.5 rgb(32, 47, 130),  stop:1 rgb(32, 47, 130));\n"
+"       height: 0 px;\n"
+"       subcontrol-position: top;\n"
+"        subcontrol-origin: margin;\n"
+"   "
+                        " }\n"
+"\n"
+"/*\n"
+"QScrollBar:horizontal {             \n"
+"        border: 1px solid #999999;\n"
+"        background:white;\n"
+"      width:10px;    \n"
+"       margin: 0px 0px 0px 0px;\n"
+"    }\n"
+"    QScrollBar::handle:horizontal {\n"
+"        background: qlineargradient(x1:0, y1:0, x2:1, y2:0,\n"
+"        stop: 0 rgb(32, 47, 130), stop: 0.5 rgb(32, 47, 130), stop:1 rgb(32, 47, 130));\n"
+"        min-height: 0px;\n"
+"    }\n"
+"    QScrollBar::add-line:horizontal {\n"
+"        background: qlineargradient(x1:0, y1:0, x2:1, y2:0,\n"
+"       stop: 0 rgb(32, 47, 130), stop: 0.5 rgb(32, 47, 130),  stop:1 rgb(32, 47, 130));\n"
+"        height: 0px;\n"
+"       subcontrol-position: bottom;\n"
+"        subcontrol-origin: margin;\n"
+"    }\n"
+"    QScrollBar::sub-line:horizontal {\n"
+"        background: qlineargradient(x1:0, y1:0, x2:1, y2:0,\n"
+"        stop: 0  rgb(32, 47, 130), stop: 0.5 rgb(32, 47, 130),  stop:1 rgb(32, 47, 130));\n"
+"       height: 0 px;\n"
+"       subcontrol-position: top;\n"
+"        subcont"
+                        "rol-origin: margin;\n"
+"    }\n"
+"\n"
+"*/\n"
+"")
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.centralwidget.setStyleSheet(u"background-color: rgb(197, 195, 198);")
@@ -103,10 +160,11 @@ class Ui_MainWindow(object):
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.scrollArea_currently_opened.sizePolicy().hasHeightForWidth())
         self.scrollArea_currently_opened.setSizePolicy(sizePolicy)
+        self.scrollArea_currently_opened.setMinimumSize(QSize(0, 80))
         self.scrollArea_currently_opened.setWidgetResizable(True)
         self.scrollAreaContents_currently_opened = QWidget()
         self.scrollAreaContents_currently_opened.setObjectName(u"scrollAreaContents_currently_opened")
-        self.scrollAreaContents_currently_opened.setGeometry(QRect(0, 0, 904, 72))
+        self.scrollAreaContents_currently_opened.setGeometry(QRect(0, 0, 904, 78))
         self.scrollAreaContents_currently_opened_layout = QHBoxLayout(self.scrollAreaContents_currently_opened)
         self.scrollAreaContents_currently_opened_layout.setSpacing(2)
         self.scrollAreaContents_currently_opened_layout.setObjectName(u"scrollAreaContents_currently_opened_layout")
@@ -136,7 +194,7 @@ class Ui_MainWindow(object):
         self.scrollArea_current_investment.setObjectName(u"scrollArea_current_investment")
         self.scrollArea_current_investment.setMinimumSize(QSize(890, 480))
         self.scrollArea_current_investment.setStyleSheet(u"#scrollArea_current_investment {\n"
-"border: 3px solid gray;\n"
+"border: 0px solid gray;\n"
 "background: white;\n"
 "}\n"
 "\n"
@@ -159,10 +217,11 @@ class Ui_MainWindow(object):
 "background: rgb(176, 175, 178);\n"
 "color: rgb(255, 255, 255)\n"
 "}")
+        self.scrollArea_current_investment.setVerticalScrollBarPolicy(Qt.ScrollBarAsNeeded)
         self.scrollArea_current_investment.setWidgetResizable(True)
         self.scrollArea_investment_contents = QWidget()
         self.scrollArea_investment_contents.setObjectName(u"scrollArea_investment_contents")
-        self.scrollArea_investment_contents.setGeometry(QRect(0, 0, 884, 2684))
+        self.scrollArea_investment_contents.setGeometry(QRect(0, -1088, 880, 2684))
         self.scrollArea_investment_contents.setStyleSheet(u"#scrollAreaWidgetContainer{\n"
 "border: 3px solid gray;\n"
 "border-radius: 8px;\n"
@@ -1045,7 +1104,8 @@ class Ui_MainWindow(object):
 
         self.frame_rent_data_income = QFrame(self.frame_rent_data)
         self.frame_rent_data_income.setObjectName(u"frame_rent_data_income")
-        self.frame_rent_data_income.setMinimumSize(QSize(0, 130))
+        self.frame_rent_data_income.setMinimumSize(QSize(0, 0))
+        self.frame_rent_data_income.setStyleSheet(u"")
         self.frame_rent_data_income.setFrameShape(QFrame.StyledPanel)
         self.frame_rent_data_income.setFrameShadow(QFrame.Raised)
         self.verticalLayout_14 = QVBoxLayout(self.frame_rent_data_income)
@@ -1059,7 +1119,9 @@ class Ui_MainWindow(object):
         sizePolicy1.setVerticalStretch(0)
         sizePolicy1.setHeightForWidth(self.label_26.sizePolicy().hasHeightForWidth())
         self.label_26.setSizePolicy(sizePolicy1)
+        self.label_26.setMinimumSize(QSize(0, 30))
         self.label_26.setLayoutDirection(Qt.LeftToRight)
+        self.label_26.setStyleSheet(u"")
         self.label_26.setAlignment(Qt.AlignCenter)
 
         self.verticalLayout_14.addWidget(self.label_26)
@@ -1162,7 +1224,7 @@ class Ui_MainWindow(object):
 
         self.frame_rent_data_cost = QFrame(self.frame_rent_data)
         self.frame_rent_data_cost.setObjectName(u"frame_rent_data_cost")
-        self.frame_rent_data_cost.setMinimumSize(QSize(0, 450))
+        self.frame_rent_data_cost.setMinimumSize(QSize(0, 0))
         self.frame_rent_data_cost.setFrameShape(QFrame.StyledPanel)
         self.frame_rent_data_cost.setFrameShadow(QFrame.Raised)
         self.verticalLayout_15 = QVBoxLayout(self.frame_rent_data_cost)
@@ -1722,7 +1784,7 @@ class Ui_MainWindow(object):
         self.scrollArea_notes.setWidgetResizable(True)
         self.scrollArea_notes_contents = QWidget()
         self.scrollArea_notes_contents.setObjectName(u"scrollArea_notes_contents")
-        self.scrollArea_notes_contents.setGeometry(QRect(0, 0, 848, 294))
+        self.scrollArea_notes_contents.setGeometry(QRect(0, 0, 844, 294))
         self.scrollArea_notes_contents_layout = QVBoxLayout(self.scrollArea_notes_contents)
         self.scrollArea_notes_contents_layout.setObjectName(u"scrollArea_notes_contents_layout")
         self.frame_17 = QFrame(self.scrollArea_notes_contents)
@@ -1768,7 +1830,7 @@ class Ui_MainWindow(object):
         self.scrollArea_investments_home_page.setWidgetResizable(True)
         self.scrollAreaContents_investments_home_page = QWidget()
         self.scrollAreaContents_investments_home_page.setObjectName(u"scrollAreaContents_investments_home_page")
-        self.scrollAreaContents_investments_home_page.setGeometry(QRect(0, 0, 772, 499))
+        self.scrollAreaContents_investments_home_page.setGeometry(QRect(0, 0, 88, 34))
         self.investments_home_page_layout = QVBoxLayout(self.scrollAreaContents_investments_home_page)
         self.investments_home_page_layout.setObjectName(u"investments_home_page_layout")
         self.frame = QFrame(self.scrollAreaContents_investments_home_page)

@@ -8,3 +8,8 @@ class HomePageInvestment(Ui_InvestmentHomePageWidget, QWidget):
         # super(HomePageInvestment, self).__init__()
         super().__init__(parent)
         self.setupUi(self)
+
+    def destroy(self, destroyWindow: bool = True, destroySubWindows: bool = True) -> None:
+        self.MainFrame.destroy(True, True)
+        self.setVisible(False)
+        del self
