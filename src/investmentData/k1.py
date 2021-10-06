@@ -118,13 +118,19 @@ class Investment:
 
     def setPurchasePrice(self, purchasePrice):
         print("set purchase price ", purchasePrice)
-        self.Main_Char.price = float(purchasePrice)
+        try:
+            self.Main_Char.price = float(purchasePrice)
+        except ValueError:
+            pass
 
     def area(self):
         return self.Main_Char.area
 
     def setArea(self, area):
-        self.Main_Char.area = float(area)
+        if area is "":
+            self.Main_Char.area = 0.0
+        else:
+            self.Main_Char.area = float(area)
 
     def pricePerSquareMeter(self):
         pricePerSquareMeter = noDataText
@@ -182,9 +188,12 @@ class Investment:
         self.Contribution.contr = float(ownContribution)
 
     def ownContributionPercent(self):
-        ownContributionPercent = str(int((self.ownContribution() / self.purchasePrice()) * 100)) + "%" if type(
-            self.ownContribution()) is not str and type(self.purchasePrice()) is not str else noDataText
-        return ownContributionPercent
+        ownContributionPercent = noDataText
+        try:
+            ownContributionPercent = str(int((self.ownContribution() / self.purchasePrice()) * 100)) + "%" if type(
+                self.ownContribution()) is not str and type(self.purchasePrice()) is not str else noDataText
+        finally:
+            return ownContributionPercent
 
     def brokerMargin(self):
         return self.Contribution.marg_b
@@ -193,8 +202,11 @@ class Investment:
         self.Contribution.marg_b = float(brokerMargin)
 
     def brokerMarginPercent(self):
-        return str(int((self.brokerMargin() / self.purchasePrice()) * 100)) + "%" if type(
-                self.brokerMargin()) is not str and type(self.purchasePrice()) is not str else noDataText
+        try:
+            return str(int((self.brokerMargin() / self.purchasePrice()) * 100)) + "%" if type(
+                    self.brokerMargin()) is not str and type(self.purchasePrice()) is not str else noDataText
+        finally:
+            return noDataText
 
     def notaryMargin(self):
         return self.Contribution.marg_n
@@ -203,8 +215,11 @@ class Investment:
         self.Contribution.marg_n = float(notaryMargin)
 
     def notaryMarginPercent(self):
-        return str(int((self.notaryMargin() / self.purchasePrice()) * 100)) + "%" if type(
+        try:
+            return str(int((self.notaryMargin() / self.purchasePrice()) * 100)) + "%" if type(
                 self.notaryMargin()) is not str and type(self.purchasePrice()) is not str else noDataText
+        finally:
+            return noDataText
 
     def tax(self):
         return self.Contribution.tax
@@ -213,8 +228,11 @@ class Investment:
         self.Contribution.tax = float(tax)
 
     def taxPercent(self):
-        return str(int((self.tax() / self.purchasePrice()) * 100)) + "%" if type(
+        try:
+            return str(int((self.tax() / self.purchasePrice()) * 100)) + "%" if type(
             self.tax()) is not str and type(self.purchasePrice()) is not str else noDataText
+        finally:
+            return noDataText
 
     def otherCosts(self):
         return self.Contribution.other
@@ -223,8 +241,11 @@ class Investment:
         self.Contribution.other = float(otherCosts)
 
     def otherCostsPercent(self):
-        return str(int((self.otherCosts() / self.purchasePrice()) * 100)) + "%" if type(
+        try:
+            return str(int((self.otherCosts() / self.purchasePrice()) * 100)) + "%" if type(
                 self.otherCosts()) is not str and type(self.purchasePrice()) is not str else noDataText
+        finally:
+            return noDataText
 
     def renovationCost(self):
         return self.Contribution.redec
@@ -233,8 +254,11 @@ class Investment:
         self.Contribution.redec = float(renovationCost)
 
     def renovationCostPercent(self):
-        return str(int((self.renovationCost() / self.purchasePrice()) * 100)) + "%" if type(
+        try:
+            return str(int((self.renovationCost() / self.purchasePrice()) * 100)) + "%" if type(
                 self.renovationCost()) is not str and type(self.purchasePrice()) is not str else noDataText
+        finally:
+            return noDataText
 
     def entryCost(self):
         return float(
@@ -242,16 +266,22 @@ class Investment:
                 self.otherCosts()) + int(self.renovationCost()))
 
     def investedVsPurchasePrice(self):
-        return self.entryCost() / self.purchasePrice() if type(
-            self.entryCost()) is not str and type(self.purchasePrice()) is not str else noDataText
+        try:
+            return self.entryCost() / self.purchasePrice() if type(
+                self.entryCost()) is not str and type(self.purchasePrice()) is not str else noDataText
+        finally:
+            return noDataText
 
     def bankCredit(self):
         return self.Main_Char.price - self.Contribution.contr if type(
             self.Main_Char.price) is not str and type(self.Contribution.contr) is not str else noDataText
 
     def bankContributionPercent(self):
-        return self.bankCredit() / self.Main_Char.price if type(
-            self.bankCredit()) is not str and type(self.Main_Char.price) is not str else noDataText
+        try:
+            return self.bankCredit() / self.Main_Char.price if type(
+                self.bankCredit()) is not str and type(self.Main_Char.price) is not str else noDataText
+        finally:
+            return noDataText
 
     def interestRate(self):
         return self.Credit.rate
@@ -414,6 +444,11 @@ class Investment:
 
 def getInvestments():
     investments = []
+    try:
+        f = open('guide.txt', 'x')
+        f.close()
+    except FileExistsError:
+        pass
     with open("guide.txt") as guide:
         for line in guide.readlines():
             if "InvStart__" in line:
@@ -435,6 +470,7 @@ def getInvestments():
 
 def getInvestmentById(InvestmentId):
     investment = Investment()
+
     with open("guide.txt") as guide:
         for line in guide.readlines():
             if "InvStart__" in line:
