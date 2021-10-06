@@ -1,17 +1,15 @@
 import json
+import datetime
 from typing import List
-
-from src.gui.homePageInvestment import HomePageInvestment
 
 noDataText = "Brak danych"
 
 
 class Main_Char:
-    def __init__(self, price, area):
+    def __init__(self, saved, price, area):
+        self.last_saved=saved
         self.price = price
         self.area = area
-        # self.ppm = ppm
-
 
 class Info:
     def __init__(self, date_start, date_end, desc, address1, address2, estimated_value, estimation_date):
@@ -73,7 +71,7 @@ class Investment:
         self.title = "Unnamed"
         self.id = self.getId()
         print(self.id)
-        self.Main_Char = Main_Char(float("inf"), 0)
+        self.Main_Char = Main_Char(float("inf"), 0,"")
         self.Info = Info(0, 0, "", "", "", 0, 0)
         self.Contribution = Contribution(0, 0, 0, 0, 0, 0, 0, 0)
         self.Credit = Credit(float("inf"), 0, 0, 0)
@@ -100,9 +98,8 @@ class Investment:
 
     def save(self):
         print("zapisuję")
-
+        self.Main_Char.last_saved=str(datetime.datetime.now())
         self.Eval.notes = list(filter(lambda noteStr: noteStr is not None, self.Eval.notes))
-
         self.inv = self.title + json.dumps(self.Main_Char.__dict__) + json.dumps(self.Info.__dict__) + json.dumps(
             self.Contribution.__dict__) + json.dumps(self.Credit.__dict__) + json.dumps(
             self.Rent.__dict__) + json.dumps(self.Eval.__dict__)
@@ -423,6 +420,7 @@ def getInvestments():
                 tp = 10
                 ids = ""
                 titles = ""
+                times = ""
                 while line[tp].isdigit():
                     ids = ids + line[tp]
                     tp += 1
@@ -430,7 +428,8 @@ def getInvestments():
                 while line[tp].isalpha() or line[tp] == " ":
                     titles = titles + line[tp]
                     tp += 1
-                investments.append((ids, titles))
+                times=line[line.find("last_saved")+16:line.find("last_saved")+35]
+                investments.append((ids, titles, times))
     return investments
 
 
@@ -490,7 +489,7 @@ def getInvestmentById(InvestmentId):
     return investment
 
 
-def deleteInvestmentById(investmentId, deleteWidget):
+def deleteInvestmentById(investmentId):
     new = ""
     with open("guide.txt") as guide:
         for line in guide.readlines():
@@ -507,10 +506,3 @@ def deleteInvestmentById(investmentId, deleteWidget):
     guide = open("guide.txt", "w")
     guide.write(new)
     guide.close()
-
-    deleteWidget()
-
-# g = Investment()
-# g.save()
-
-# print(getInvestments())

@@ -454,12 +454,14 @@ class MainWindow(QMainWindow):
     def addInvestmentWidgetToHomePage(self, investmentIdAndName):
         investmentId = investmentIdAndName[0]
         name = investmentIdAndName[1]
+        time = investmentIdAndName[2]
         print("NAMEEEEEE ", name)
         investmentHomePageWidget = HomePageInvestment(self.ui.scrollAreaContents_investments_home_page)
         investmentHomePageWidget.buttonInvestmentName.setText(name)
         investmentHomePageWidget.buttonInvestmentName.clicked.connect(lambda: self.loadAndShowInvestment(investmentId))
-        investmentHomePageWidget.buttonDeleteInvestment.clicked.connect(
-            lambda: deleteInvestmentById(investmentId, investmentHomePageWidget.destroy))
+        investmentHomePageWidget.buttonInvestmentTime.setText(time)
+        investmentHomePageWidget.buttonInvestmentTime.clicked.connect(lambda: self.loadAndShowInvestment(investmentId))
+        investmentHomePageWidget.buttonDeleteInvestment.clicked.connect(lambda: deleteInvestmentById(investmentId))
         self.ui.investments_home_page_layout.addWidget(investmentHomePageWidget)
         investmentHomePageWidget.show()
         return investmentHomePageWidget
