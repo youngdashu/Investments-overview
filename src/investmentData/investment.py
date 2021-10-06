@@ -354,7 +354,7 @@ class Investment:
 
     def bankContributionPercent(self):
         try:
-            return self.bankCredit() / self.Main_Char.price if type(
+            return (self.bankCredit() / self.Main_Char.price) if type(
                 self.bankCredit()) is not str and type(self.Main_Char.price) is not str else noDataText
         finally:
             return noDataText

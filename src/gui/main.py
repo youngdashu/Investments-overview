@@ -12,8 +12,10 @@ from pageTypes import PageTypes
 from src.investmentData.investment import Investment, getInvestments, getInvestmentById, deleteInvestmentById
 from src.utilityQtObjectsFunctions.Note import Note
 from src.utilityQtObjectsFunctions.functions import removeExcessiveBorders, saveAllInvestments, disconnectFunction, \
-    connectEventFilter, setDarkerBackgroundForStaticTextEdits, clearHomePageWidgetsAndLoadNewWidgets
+    connectEventFilter, setDarkerBackgroundForStaticTextEdits, clearHomePageWidgetsAndLoadNewWidgets, darkerStyleSheet
 from ui_main_window import Ui_MainWindow
+
+
 
 from unsavedDialog import UnsavedDialog
 from closeProgramDialog import CloseProgramDialog
@@ -183,6 +185,12 @@ class MainWindow(QMainWindow):
                                      self.ui.frame_label_and_text_total_return_time,
                                      self.ui.frame_label_and_text_return_rate_1,
                                      self.ui.frame_label_and_text_return_rate_2]
+
+        self.labels = [self.ui.label , self.ui.label_2 , self.ui.label_3 ,self.ui.label_4 ,self.ui.label_5 ,self.ui.label_6 ,self.ui.label_7 ,self.ui.label_8 ,self.ui.label_9 ,self.ui.label_10 ,
+                       self.ui.label_20 ,self.ui.label_21 ,self.ui.label_22 ,self.ui.label_23 ,self.ui.label_28 ,self.ui.label_29 ,self.ui.label_24 ,self.ui.label_25 ,self.ui.label_37 ,self.ui.label_38 ,
+                       self.ui.label_39 ,self.ui.label_30 ,self.ui.label_31 ,self.ui.label_32 ,self.ui.label_33 ,self.ui.label_34 ,self.ui.label_35 ,self.ui.label_36 ,self.ui.label_47 ,self.ui.label_48,
+                       self.ui.label_49, self.ui.label_50, self.ui.label_51, self.ui.label_52]
+        self.labels = list(map(lambda label: label.setStyleSheet("QLabel{background: rgb(197, 196, 199);}"), self.labels))
 
         for readOnlyFrame in self.readOnlyTextEdits:
             readOnlyFrame.setReadOnly(True)

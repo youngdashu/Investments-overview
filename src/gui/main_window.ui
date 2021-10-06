@@ -321,7 +321,7 @@ border-radius: 5px;
           <item>
            <widget class="QStackedWidget" name="all_pages">
             <property name="currentIndex">
-             <number>2</number>
+             <number>0</number>
             </property>
             <widget class="QWidget" name="investment_page">
              <layout class="QVBoxLayout" name="verticalLayout_16">
@@ -369,7 +369,7 @@ color: rgb(255, 255, 255)
                  <property name="geometry">
                   <rect>
                    <x>0</x>
-                   <y>0</y>
+                   <y>-407</y>
                    <width>880</width>
                    <height>2684</height>
                   </rect>
@@ -1552,7 +1552,7 @@ vs cena zakupu</string>
                                </widget>
                               </item>
                               <item>
-                               <widget class="QTextEdit" name="text_bank_contribution"/>
+                               <widget class="QTextEdit" name="text_bank_contribution_percent"/>
                               </item>
                              </layout>
                             </widget>

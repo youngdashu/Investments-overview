@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'main_windowJdTHGB.ui'
+## Form generated from reading UI file 'main_windowaBNfTX.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.1.1
 ##
@@ -221,7 +221,7 @@ class Ui_MainWindow(object):
         self.scrollArea_current_investment.setWidgetResizable(True)
         self.scrollArea_investment_contents = QWidget()
         self.scrollArea_investment_contents.setObjectName(u"scrollArea_investment_contents")
-        self.scrollArea_investment_contents.setGeometry(QRect(0, 0, 880, 2684))
+        self.scrollArea_investment_contents.setGeometry(QRect(0, -407, 880, 2684))
         self.scrollArea_investment_contents.setStyleSheet(u"#scrollAreaWidgetContainer{\n"
 "border: 3px solid gray;\n"
 "border-radius: 8px;\n"
@@ -853,10 +853,10 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_15.addWidget(self.label_10)
 
-        self.text_bank_contribution = QTextEdit(self.frame_label_and_text_bank_contribution)
-        self.text_bank_contribution.setObjectName(u"text_bank_contribution")
+        self.text_bank_contribution_percent = QTextEdit(self.frame_label_and_text_bank_contribution)
+        self.text_bank_contribution_percent.setObjectName(u"text_bank_contribution_percent")
 
-        self.horizontalLayout_15.addWidget(self.text_bank_contribution)
+        self.horizontalLayout_15.addWidget(self.text_bank_contribution_percent)
 
 
         self.verticalLayout_10.addWidget(self.frame_label_and_text_bank_contribution)
@@ -1868,7 +1868,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.all_pages.setCurrentIndex(2)
+        self.all_pages.setCurrentIndex(0)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
