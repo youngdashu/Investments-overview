@@ -1,6 +1,8 @@
 import json
 from typing import List
 
+from src.gui.homePageInvestment import HomePageInvestment
+
 noDataText = "Brak danych"
 
 
@@ -488,7 +490,7 @@ def getInvestmentById(InvestmentId):
     return investment
 
 
-def deleteInvestmentById(investmentId):
+def deleteInvestmentById(investmentId, deleteWidget):
     new = ""
     with open("guide.txt") as guide:
         for line in guide.readlines():
@@ -505,6 +507,8 @@ def deleteInvestmentById(investmentId):
     guide = open("guide.txt", "w")
     guide.write(new)
     guide.close()
+
+    deleteWidget()
 
 # g = Investment()
 # g.save()

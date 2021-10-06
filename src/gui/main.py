@@ -458,7 +458,8 @@ class MainWindow(QMainWindow):
         investmentHomePageWidget = HomePageInvestment(self.ui.scrollAreaContents_investments_home_page)
         investmentHomePageWidget.buttonInvestmentName.setText(name)
         investmentHomePageWidget.buttonInvestmentName.clicked.connect(lambda: self.loadAndShowInvestment(investmentId))
-        investmentHomePageWidget.buttonDeleteInvestment.clicked.connect(lambda: deleteInvestmentById(investmentId))
+        investmentHomePageWidget.buttonDeleteInvestment.clicked.connect(
+            lambda: deleteInvestmentById(investmentId, investmentHomePageWidget.destroy))
         self.ui.investments_home_page_layout.addWidget(investmentHomePageWidget)
         investmentHomePageWidget.show()
         return investmentHomePageWidget
@@ -522,6 +523,7 @@ class MainWindow(QMainWindow):
         investmentFrame = QFrame(self.ui.scrollAreaContents_currently_opened)
         investmentFrame.setStyleSheet(frameStyleSheet)
         investmentFrame.setObjectName("Tab_" + str(tabCounter))
+        investmentFrame.setMaximumHeight(50)
         tabCounter += 1
         investmentFrameLayout = QHBoxLayout(investmentFrame)
         investmentFrameLayout.setObjectName("layout_investment_" + str(layoutCounter))
@@ -542,8 +544,8 @@ class MainWindow(QMainWindow):
         border-radius: 10px;
         background: rgb(255, 255, 255);
         }""")
-        isSavedLabel.setMaximumHeight(42)
-        isSavedLabel.setMaximumWidth(42)
+        isSavedLabel.setMaximumHeight(30)
+        isSavedLabel.setMaximumWidth(30)
 
         investmentFrameLayout.addWidget(closeFrameButton)
         investmentFrameLayout.addWidget(openInvestmentButton)
