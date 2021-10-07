@@ -96,19 +96,19 @@ class Investment:
         self.precision: int = precision if precision is not None else 2
 
     def getId(self):
-        guide = open("guide.txt", "r+")
+        guide = open("data.txt", "r+")
         text = guide.readlines()
         try:
             id = int(text[0]) + 1
             text[0] = str(id) + "\n"
             guide.close()
-            guide = open("guide.txt", "w")
+            guide = open("data.txt", "w")
             guide.writelines(text)
             guide.close()
         except:
             guide.close()
             id = 0
-            guide = open("guide.txt", "w")
+            guide = open("data.txt", "w")
             guide.writelines("0")
             guide.close()
         return id
@@ -120,7 +120,7 @@ class Investment:
         self.inv = self.title + json.dumps(self.Main_Char.__dict__) + json.dumps(self.Info.__dict__) + json.dumps(
             self.Contribution.__dict__) + json.dumps(self.Credit.__dict__) + json.dumps(
             self.Rent.__dict__) + json.dumps(self.Eval.__dict__)
-        outfile = open("guide.txt", "r")
+        outfile = open("data.txt", "r")
         i = 0
         conv = ""
         for line in outfile.readlines():
@@ -134,10 +134,10 @@ class Investment:
                 except:
                     conv = conv + line
         outfile.close()
-        outfile = open("guide.txt", "w")
+        outfile = open("data.txt", "w")
         outfile.write(i + "\n" + "InvStart__" + str(self.id))
         outfile.close()
-        outfile = open("guide.txt", "a")
+        outfile = open("data.txt", "a")
         outfile.write(json.dumps(self.inv) + "__InvEnd" + "\n" + conv)
         outfile.close()
 
@@ -360,9 +360,8 @@ class Investment:
 
     def investedVsPurchasePrice(self):
         try:
-            return self.entryCost() / self.purchasePrice() if type(
-                self.entryCost()) is not str and type(self.purchasePrice()) is not str else noDataText
-        finally:
+            return round(float(self.entryCost() / self.purchasePrice()) * 100, 2)
+        except:
             return noDataText
 
     def bankCredit(self):
@@ -632,11 +631,11 @@ class Investment:
 def getInvestments():
     investments = []
     try:
-        f = open('guide.txt', 'x')
+        f = open('data.txt', 'x')
         f.close()
     except FileExistsError:
         pass
-    with open("guide.txt") as guide:
+    with open("data.txt") as guide:
         for line in guide.readlines():
             if "InvStart__" in line:
                 tp = 10
@@ -656,8 +655,8 @@ def getInvestments():
 
 
 def getInvestmentById(InvestmentId, app):
-    investment = Investment(app.ui, app.options.precision)
-    with open("guide.txt") as guide:
+    investment = Investment(app.ui, None)
+    with open("data.txt") as guide:
         for line in guide.readlines():
             if "InvStart__" in line:
                 tp = 10
@@ -713,7 +712,7 @@ def getInvestmentById(InvestmentId, app):
 
 def deleteInvestmentById(investmentId):
     new = ""
-    with open("guide.txt") as guide:
+    with open("data.txt") as guide:
         for line in guide.readlines():
             if line.find("InvStart__") < 0:
                 new = new + line
@@ -728,6 +727,6 @@ def deleteInvestmentById(investmentId):
                         new = new + line
                 except:
                     pass
-    guide = open("guide.txt", "w")
+    guide = open("data.txt", "w")
     guide.write(new)
     guide.close()

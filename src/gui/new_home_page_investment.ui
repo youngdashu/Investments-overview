@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>750</width>
-    <height>70</height>
+    <width>828</width>
+    <height>63</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -31,7 +31,7 @@ background: rgb(207, 206, 209);
     <rect>
      <x>-1</x>
      <y>0</y>
-     <width>751</width>
+     <width>831</width>
      <height>71</height>
     </rect>
    </property>
@@ -81,19 +81,6 @@ color: rgb(255, 255, 255)
     <property name="bottomMargin">
      <number>12</number>
     </property>
-    <item>
-     <widget class="QLabel" name="labelInvestmentName">
-      <property name="minimumSize">
-       <size>
-        <width>0</width>
-        <height>40</height>
-       </size>
-      </property>
-      <property name="text">
-       <string>Nazwa inwestycji</string>
-      </property>
-     </widget>
-    </item>
     <item>
      <widget class="QPushButton" name="buttonInvestmentName">
       <property name="minimumSize">

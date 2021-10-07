@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'new_home_page_investmentfOogOw.ui'
+## Form generated from reading UI file 'home_page_investmentVnJLEH.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.1.1
+## Created by: Qt User Interface Compiler version 6.1.2
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -17,16 +17,19 @@ class Ui_InvestmentHomePageWidget(object):
     def setupUi(self, InvestmentHomePageWidget):
         if not InvestmentHomePageWidget.objectName():
             InvestmentHomePageWidget.setObjectName(u"InvestmentHomePageWidget")
-        InvestmentHomePageWidget.resize(750, 70)
-        InvestmentHomePageWidget.setMinimumSize(QSize(686, 63))
+        InvestmentHomePageWidget.resize(828, 80)
+        InvestmentHomePageWidget.setMinimumSize(QSize(686, 80))
         InvestmentHomePageWidget.setStyleSheet(u"#InvestmentHomePageWidget{\n"
 "border: 1px solid gray;\n"
 "border-radius: 10px;\n"
 "background: rgb(207, 206, 209);\n"
 "}")
+        self.horizontalLayout_2 = QHBoxLayout(InvestmentHomePageWidget)
+        self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
+        self.horizontalLayout_2.setContentsMargins(1, 1, 1, 1)
         self.MainFrame = QFrame(InvestmentHomePageWidget)
         self.MainFrame.setObjectName(u"MainFrame")
-        self.MainFrame.setGeometry(QRect(-1, 0, 751, 71))
+        self.MainFrame.setMinimumSize(QSize(0, 0))
         self.MainFrame.setStyleSheet(u"QFrame{\n"
 "border: 0px solid gray;\n"
 "border-radius: 10px;\n"
@@ -57,12 +60,6 @@ class Ui_InvestmentHomePageWidget(object):
         self.horizontalLayout = QHBoxLayout(self.MainFrame)
         self.horizontalLayout.setObjectName(u"horizontalLayout")
         self.horizontalLayout.setContentsMargins(8, 12, 8, 12)
-        self.labelInvestmentName = QLabel(self.MainFrame)
-        self.labelInvestmentName.setObjectName(u"labelInvestmentName")
-        self.labelInvestmentName.setMinimumSize(QSize(0, 40))
-
-        self.horizontalLayout.addWidget(self.labelInvestmentName)
-
         self.buttonInvestmentName = QPushButton(self.MainFrame)
         self.buttonInvestmentName.setObjectName(u"buttonInvestmentName")
         self.buttonInvestmentName.setMinimumSize(QSize(300, 40))
@@ -86,6 +83,9 @@ class Ui_InvestmentHomePageWidget(object):
         self.horizontalLayout.addWidget(self.buttonDeleteInvestment)
 
 
+        self.horizontalLayout_2.addWidget(self.MainFrame)
+
+
         self.retranslateUi(InvestmentHomePageWidget)
 
         QMetaObject.connectSlotsByName(InvestmentHomePageWidget)
@@ -93,7 +93,6 @@ class Ui_InvestmentHomePageWidget(object):
 
     def retranslateUi(self, InvestmentHomePageWidget):
         InvestmentHomePageWidget.setWindowTitle(QCoreApplication.translate("InvestmentHomePageWidget", u"Form", None))
-        self.labelInvestmentName.setText(QCoreApplication.translate("InvestmentHomePageWidget", u"Nazwa inwestycji", None))
         self.buttonInvestmentName.setText("")
         self.buttonInvestmentTime.setText("")
         self.buttonDeleteInvestment.setText(QCoreApplication.translate("InvestmentHomePageWidget", u"XXX", None))

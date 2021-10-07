@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'main_windowhNhWIt.ui'
+## Form generated from reading UI file 'main_windowleDSUM.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.1.1
+## Created by: Qt User Interface Compiler version 6.1.2
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -151,7 +151,7 @@ class Ui_MainWindow(object):
 
         self.center_main_items = QFrame(self.main_body)
         self.center_main_items.setObjectName(u"center_main_items")
-        self.center_main_items.setMinimumSize(QSize(0, 530))
+        self.center_main_items.setMinimumSize(QSize(0, 600))
         self.center_main_items.setStyleSheet(u"")
         self.center_main_items.setFrameShape(QFrame.StyledPanel)
         self.center_main_items.setFrameShadow(QFrame.Raised)
@@ -164,6 +164,20 @@ class Ui_MainWindow(object):
 "\n"
 "border: 2px solid gray;\n"
 "border-radius: 5px;\n"
+"}\n"
+"QPushButton{\n"
+"border: 2px solid gray;\n"
+"border-radius: 5px;\n"
+"background: rgb(126, 125, 128);\n"
+"color: rgb(255, 255, 255)\n"
+"}\n"
+"\n"
+"\n"
+"QPushButton:hover{\n"
+"border: 2px solid gray;\n"
+"border-radius: 5px;\n"
+"background: rgb(176, 175, 178);\n"
+"color: rgb(255, 255, 255)\n"
 "}")
         self.frame_currently_opened.setFrameShape(QFrame.StyledPanel)
         self.frame_currently_opened.setFrameShadow(QFrame.Raised)
@@ -181,7 +195,7 @@ class Ui_MainWindow(object):
         self.scrollArea_currently_opened.setWidgetResizable(True)
         self.scrollAreaContents_currently_opened = QWidget()
         self.scrollAreaContents_currently_opened.setObjectName(u"scrollAreaContents_currently_opened")
-        self.scrollAreaContents_currently_opened.setGeometry(QRect(0, 0, 904, 78))
+        self.scrollAreaContents_currently_opened.setGeometry(QRect(0, 0, 910, 78))
         self.scrollAreaContents_currently_opened_layout = QHBoxLayout(self.scrollAreaContents_currently_opened)
         self.scrollAreaContents_currently_opened_layout.setSpacing(2)
         self.scrollAreaContents_currently_opened_layout.setObjectName(u"scrollAreaContents_currently_opened_layout")
@@ -203,6 +217,7 @@ class Ui_MainWindow(object):
 
         self.all_pages = QStackedWidget(self.center_main_items)
         self.all_pages.setObjectName(u"all_pages")
+        self.all_pages.setMinimumSize(QSize(0, 500))
         self.investment_page = QWidget()
         self.investment_page.setObjectName(u"investment_page")
         self.verticalLayout_16 = QVBoxLayout(self.investment_page)
@@ -238,7 +253,7 @@ class Ui_MainWindow(object):
         self.scrollArea_current_investment.setWidgetResizable(True)
         self.scrollArea_investment_contents = QWidget()
         self.scrollArea_investment_contents.setObjectName(u"scrollArea_investment_contents")
-        self.scrollArea_investment_contents.setGeometry(QRect(0, 0, 890, 2684))
+        self.scrollArea_investment_contents.setGeometry(QRect(0, -517, 892, 2628))
         self.scrollArea_investment_contents.setStyleSheet(u"#scrollAreaWidgetContainer{\n"
 "border: 3px solid gray;\n"
 "border-radius: 8px;\n"
@@ -1801,7 +1816,7 @@ class Ui_MainWindow(object):
         self.scrollArea_notes.setWidgetResizable(True)
         self.scrollArea_notes_contents = QWidget()
         self.scrollArea_notes_contents.setObjectName(u"scrollArea_notes_contents")
-        self.scrollArea_notes_contents.setGeometry(QRect(0, 0, 854, 294))
+        self.scrollArea_notes_contents.setGeometry(QRect(0, 0, 859, 312))
         self.scrollArea_notes_contents_layout = QVBoxLayout(self.scrollArea_notes_contents)
         self.scrollArea_notes_contents_layout.setObjectName(u"scrollArea_notes_contents_layout")
         self.frame_17 = QFrame(self.scrollArea_notes_contents)
@@ -1968,25 +1983,59 @@ class Ui_MainWindow(object):
         self.all_pages.addWidget(self.options_page)
         self.home_page = QWidget()
         self.home_page.setObjectName(u"home_page")
+        self.home_page.setStyleSheet(u"#frame_home_page_label{\n"
+"border: 0px;\n"
+"}\n"
+"\n"
+"QFrame{\n"
+"border: 1px solid gray;\n"
+"border-radius: 10px;\n"
+"background: rgb(207, 206, 209);\n"
+"}\n"
+"\n"
+"QScrollArea{\n"
+"border: 0px;\n"
+"}\n"
+"\n"
+"\n"
+"\n"
+"")
+        self.verticalLayout_24 = QVBoxLayout(self.home_page)
+        self.verticalLayout_24.setObjectName(u"verticalLayout_24")
         self.frame_home_page = QFrame(self.home_page)
         self.frame_home_page.setObjectName(u"frame_home_page")
-        self.frame_home_page.setGeometry(QRect(30, 0, 840, 551))
         self.frame_home_page.setMinimumSize(QSize(840, 500))
         self.frame_home_page.setFrameShape(QFrame.StyledPanel)
         self.frame_home_page.setFrameShadow(QFrame.Raised)
         self.verticalLayout_21 = QVBoxLayout(self.frame_home_page)
         self.verticalLayout_21.setObjectName(u"verticalLayout_21")
-        self.label_welcome_home_page = QLabel(self.frame_home_page)
+        self.frame_home_page_label = QFrame(self.frame_home_page)
+        self.frame_home_page_label.setObjectName(u"frame_home_page_label")
+        self.frame_home_page_label.setMinimumSize(QSize(0, 40))
+        self.frame_home_page_label.setFrameShape(QFrame.StyledPanel)
+        self.frame_home_page_label.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_3 = QHBoxLayout(self.frame_home_page_label)
+        self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
+        self.horizontalLayout_3.setContentsMargins(1, 1, 1, 1)
+        self.label_welcome_home_page = QLabel(self.frame_home_page_label)
         self.label_welcome_home_page.setObjectName(u"label_welcome_home_page")
+        self.label_welcome_home_page.setFont(font)
 
-        self.verticalLayout_21.addWidget(self.label_welcome_home_page)
+        self.horizontalLayout_3.addWidget(self.label_welcome_home_page)
+
+        self.horizontalSpacer = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.horizontalLayout_3.addItem(self.horizontalSpacer)
+
+
+        self.verticalLayout_21.addWidget(self.frame_home_page_label)
 
         self.scrollArea_investments_home_page = QScrollArea(self.frame_home_page)
         self.scrollArea_investments_home_page.setObjectName(u"scrollArea_investments_home_page")
         self.scrollArea_investments_home_page.setWidgetResizable(True)
         self.scrollAreaContents_investments_home_page = QWidget()
         self.scrollAreaContents_investments_home_page.setObjectName(u"scrollAreaContents_investments_home_page")
-        self.scrollAreaContents_investments_home_page.setGeometry(QRect(0, 0, 812, 499))
+        self.scrollAreaContents_investments_home_page.setGeometry(QRect(0, 0, 882, 485))
         self.investments_home_page_layout = QVBoxLayout(self.scrollAreaContents_investments_home_page)
         self.investments_home_page_layout.setObjectName(u"investments_home_page_layout")
         self.frame = QFrame(self.scrollAreaContents_investments_home_page)
@@ -2000,6 +2049,9 @@ class Ui_MainWindow(object):
         self.scrollArea_investments_home_page.setWidget(self.scrollAreaContents_investments_home_page)
 
         self.verticalLayout_21.addWidget(self.scrollArea_investments_home_page)
+
+
+        self.verticalLayout_24.addWidget(self.frame_home_page)
 
         self.all_pages.addWidget(self.home_page)
 
@@ -2024,7 +2076,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.all_pages.setCurrentIndex(1)
+        self.all_pages.setCurrentIndex(0)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -2061,9 +2113,9 @@ class Ui_MainWindow(object):
         self.label_8.setText(QCoreApplication.translate("MainWindow", u"Kwota zainwestowana\n"
 "vs cena zakupu", None))
         self.label_9.setText(QCoreApplication.translate("MainWindow", u"Kredyt bankowy", None))
-        self.label_10.setText(QCoreApplication.translate("MainWindow", u"Wk\u0142ad banku [%]", None))
+        self.label_10.setText(QCoreApplication.translate("MainWindow", u"Wk\u0142ad banku", None))
         self.label_21.setText(QCoreApplication.translate("MainWindow", u"Stopa procentowa", None))
-        self.label_22.setText(QCoreApplication.translate("MainWindow", u"Okres sp\u0142aty", None))
+        self.label_22.setText(QCoreApplication.translate("MainWindow", u"Okres sp\u0142aty [mies.]", None))
         self.label_23.setText(QCoreApplication.translate("MainWindow", u"Rata miesi\u0119czna", None))
         self.label_28.setText(QCoreApplication.translate("MainWindow", u"Cz\u0119\u015b\u0107 kapita\u0142owa", None))
         self.label_29.setText(QCoreApplication.translate("MainWindow", u"Cz\u0119\u015b\u0107 odestkowa", None))
