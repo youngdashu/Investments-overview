@@ -82,7 +82,7 @@ class Eval:
 
 
 class Investment:
-    def __init__(self, ui):
+    def __init__(self, ui, precision: int):
         self.title = "Unnamed"
         self.id = self.getId()
         self.Main_Char = Main_Char(float("inf"), 0, "")
@@ -93,6 +93,7 @@ class Investment:
         self.Eval = Eval(None)
 
         self.ui: Ui_MainWindow = ui
+        self.precision: int = precision
 
     def getId(self):
         guide = open("guide.txt", "r+")
@@ -121,23 +122,23 @@ class Investment:
             self.Rent.__dict__) + json.dumps(self.Eval.__dict__)
         outfile = open("guide.txt", "r")
         i = 0
-        conv=""
+        conv = ""
         for line in outfile.readlines():
             if line.find("InvStart__") < 0 and line != "" and line != "\n":
                 i = line
-            elif line.find("InvStart__") >=0 :
+            elif line.find("InvStart__") >= 0:
                 try:
-                    copy_i=int(line[10:10+len(str(self.id))])
+                    copy_i = int(line[10:10 + len(str(self.id))])
                     if copy_i != self.id:
                         conv = conv + line
                 except:
                     conv = conv + line
         outfile.close()
         outfile = open("guide.txt", "w")
-        outfile.write(i+"\n" + "InvStart__" + str(self.id))
+        outfile.write(i + "\n" + "InvStart__" + str(self.id))
         outfile.close()
         outfile = open("guide.txt", "a")
-        outfile.write(json.dumps(self.inv)+"__InvEnd"+"\n"+conv)
+        outfile.write(json.dumps(self.inv) + "__InvEnd" + "\n" + conv)
         outfile.close()
 
     def setTitle(self, title):
@@ -177,7 +178,7 @@ class Investment:
     def pricePerSquareMeter(self):
         pricePerSquareMeter = noDataText
         try:
-            pricePerSquareMeter = float(self.purchasePrice()) / float(self.area())
+            pricePerSquareMeter = round(float(self.purchasePrice()) / float(self.area()), self.precision)
         finally:
             return pricePerSquareMeter
 
@@ -240,7 +241,7 @@ class Investment:
         ownContributionPercent = noDataText
         try:
             ownContributionPercent = str(
-                round(float((self.ownContribution() / self.purchasePrice()) * 100), 2)) + "%" if type(
+                round(float((self.ownContribution() / self.purchasePrice()) * 100), self.precision)) + "%" if type(
                 self.ownContribution()) is not str and type(self.purchasePrice()) is not str else noDataText
         finally:
             return ownContributionPercent
@@ -261,7 +262,7 @@ class Investment:
     def brokerMarginPercent(self):
         perc = noDataText
         try:
-            perc = str(round(float((self.brokerMargin() / self.purchasePrice()) * 100), 2)) + "%" if type(
+            perc = str(round(float((self.brokerMargin() / self.purchasePrice()) * 100), self.precision)) + "%" if type(
                 self.brokerMargin()) is not str and type(self.purchasePrice()) is not str else noDataText
         finally:
             return perc
@@ -282,7 +283,7 @@ class Investment:
     def notaryMarginPercent(self):
         perc = noDataText
         try:
-            perc = str(round(float((self.notaryMargin() / self.purchasePrice()) * 100), 2)) + "%" if type(
+            perc = str(round(float((self.notaryMargin() / self.purchasePrice()) * 100), self.precision)) + "%" if type(
                 self.notaryMargin()) is not str and type(self.purchasePrice()) is not str else noDataText
         finally:
             return perc
@@ -303,7 +304,7 @@ class Investment:
     def taxPercent(self):
         perc = noDataText
         try:
-            perc =  str(round(float((self.tax() / self.purchasePrice()) * 100), 2)) + "%" if type(
+            perc = str(round(float((self.tax() / self.purchasePrice()) * 100), self.precision)) + "%" if type(
                 self.tax()) is not str and type(self.purchasePrice()) is not str else noDataText
         finally:
             return perc
@@ -324,7 +325,7 @@ class Investment:
     def otherCostsPercent(self):
         perc = noDataText
         try:
-            perc =  str(round(float((self.otherCosts() / self.purchasePrice()) * 100), 2)) + "%" if type(
+            perc = str(round(float((self.otherCosts() / self.purchasePrice()) * 100), self.precision)) + "%" if type(
                 self.otherCosts()) is not str and type(self.purchasePrice()) is not str else noDataText
         finally:
             return perc
@@ -345,10 +346,11 @@ class Investment:
     def renovationCostPercent(self):
         perc = noDataText
         try:
-            perc = str(round(float((self.renovationCost() / self.purchasePrice()) * 100), 2)) + "%" if type(
+            perc = str(round(float((self.renovationCost() / self.purchasePrice()) * 100), self.precision)) + "%" if type(
                 self.renovationCost()) is not str and type(self.purchasePrice()) is not str else noDataText
         finally:
             return perc
+
     def entryCost(self):
         try:
             return float(self.ownContribution()) + float(self.brokerMargin()) + float(self.notaryMargin()) + float(
@@ -369,11 +371,10 @@ class Investment:
         except:
             return ""
 
-
     def bankContributionPercent(self):
         perc = noDataText
         try:
-            perc = str(round(float((self.bankCredit() / self.purchasePrice()) * 100), 2)) + "%"
+            perc = str(round(float((self.bankCredit() / self.purchasePrice()) * 100), self.precision)) + "%"
             return perc
         except:
             return perc
@@ -407,15 +408,15 @@ class Investment:
     def monthlyInstallment(self):
         monthlyInstallment = noDataText
         try:
-            monthlyInstallment = float((self.bankCredit() * self.interestRate()) / (
-                    12 * (1 - (12 / (12 + self.interestRate())) ** self.repaymentPeriod())))
+            monthlyInstallment = round(float((self.bankCredit() * self.interestRate()) / (
+                    12 * (1 - (12 / (12 + self.interestRate())) ** self.repaymentPeriod()))), self.precision)
         finally:
             return monthlyInstallment
 
     def monthlyInstallmentCapitalPart(self):
         monthlyInstallmentCapitalPart = noDataText
         try:
-            monthlyInstallmentCapitalPart = float(self.bankCredit() / self.repaymentPeriod())
+            monthlyInstallmentCapitalPart = round(float(self.bankCredit() / self.repaymentPeriod()), self.precision)
         finally:
             return monthlyInstallmentCapitalPart
 
@@ -423,7 +424,8 @@ class Investment:
         monthlyInstallmentInterestPart = noDataText
         try:
             if self.monthlyInstallment() is not noDataText:
-                float(monthlyInstallmentInterestPart=self.monthlyInstallment() - self.monthlyInstallmentCapitalPart())
+                monthlyInstallmentInterestPart = round(
+                    float(self.monthlyInstallment() - self.monthlyInstallmentCapitalPart()), self.precision)
         finally:
             return monthlyInstallmentInterestPart
 

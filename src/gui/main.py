@@ -13,6 +13,7 @@ from src.investmentData.investment import Investment, getInvestments, getInvestm
 from src.utilityQtObjectsFunctions.Note import Note
 from src.utilityQtObjectsFunctions.functions import removeExcessiveBorders, saveAllInvestments, disconnectFunction, \
     connectEventFilter, setDarkerBackgroundForStaticTextEdits, clearHomePageWidgetsAndLoadNewWidgets, darkerStyleSheet
+from src.utilityQtObjectsFunctions.options import Options
 from ui_main_window import Ui_MainWindow
 
 from unsavedDialog import UnsavedDialog
@@ -243,6 +244,11 @@ class MainWindow(QMainWindow):
         self.ui.scrollArea_investments_home_page.setWidgetResizable(True)
         self.homePageInvestments = self.loadInvestments()
         self.ui.all_pages.setCurrentWidget(self.ui.home_page)
+
+        self.options = Options()
+        # options
+        self.ui.button_options.clicked.connect(lambda: self.ui.all_pages.setCurrentWidget(self.ui.options_page))
+        self.ui.comboBox_precision.
 
         self.show()
 
@@ -540,18 +546,17 @@ class MainWindow(QMainWindow):
         self.investments[newInvestment.id] = newInvestment
 
         self.isInvestmentSaved[newInvestment.id] = False
-        # self.currentInvestment = newInvestment
-
-        print(newInvestment)
 
         # add frame to tab bar
         investmentFrame = QFrame(self.ui.scrollAreaContents_currently_opened)
         investmentFrame.setStyleSheet(frameStyleSheet)
         investmentFrame.setObjectName("Tab_" + str(tabCounter))
         investmentFrame.setMaximumHeight(50)
+
         tabCounter += 1
         investmentFrameLayout = QHBoxLayout(investmentFrame)
         investmentFrameLayout.setObjectName("layout_investment_" + str(layoutCounter))
+        investmentFrameLayout.setContentsMargins(4, 4, 4, 4)
         layoutCounter += 1
         closeFrameButton = QPushButton("x", investmentFrame)
         closeFrameButton.setObjectName("Close_button" + str(buttonCounter))
@@ -569,8 +574,8 @@ class MainWindow(QMainWindow):
         border-radius: 10px;
         background: rgb(255, 255, 255);
         }""")
-        isSavedLabel.setMaximumHeight(30)
-        isSavedLabel.setMaximumWidth(30)
+        isSavedLabel.setMaximumHeight(40)
+        isSavedLabel.setMaximumWidth(40)
 
         investmentFrameLayout.addWidget(closeFrameButton)
         investmentFrameLayout.addWidget(openInvestmentButton)

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'main_windowaBNfTX.ui'
+## Form generated from reading UI file 'main_windowhNhWIt.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.1.1
 ##
@@ -74,6 +74,9 @@ class Ui_MainWindow(object):
 "    }\n"
 "\n"
 "*/\n"
+"\n"
+"\n"
+"\n"
 "")
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
@@ -105,6 +108,14 @@ class Ui_MainWindow(object):
 "border-radius: 5px;\n"
 "background: rgb(126, 125, 128);\n"
 "color: rgb(255, 255, 255)\n"
+"}\n"
+"\n"
+"\n"
+"QPushButton:hover{\n"
+"border: 2px solid gray;\n"
+"border-radius: 5px;\n"
+"background: rgb(176, 175, 178);\n"
+"color: rgb(255, 255, 255)\n"
 "}")
         self.left_side_menu.setFrameShape(QFrame.WinPanel)
         self.left_side_menu.setFrameShadow(QFrame.Raised)
@@ -128,6 +139,12 @@ class Ui_MainWindow(object):
         self.button_home_page.setMinimumSize(QSize(0, 60))
 
         self.verticalLayout_18.addWidget(self.button_home_page)
+
+        self.button_options = QPushButton(self.left_side_menu)
+        self.button_options.setObjectName(u"button_options")
+        self.button_options.setMinimumSize(QSize(0, 60))
+
+        self.verticalLayout_18.addWidget(self.button_options)
 
 
         self.horizontalLayout.addWidget(self.left_side_menu)
@@ -221,7 +238,7 @@ class Ui_MainWindow(object):
         self.scrollArea_current_investment.setWidgetResizable(True)
         self.scrollArea_investment_contents = QWidget()
         self.scrollArea_investment_contents.setObjectName(u"scrollArea_investment_contents")
-        self.scrollArea_investment_contents.setGeometry(QRect(0, -407, 880, 2684))
+        self.scrollArea_investment_contents.setGeometry(QRect(0, 0, 890, 2684))
         self.scrollArea_investment_contents.setStyleSheet(u"#scrollAreaWidgetContainer{\n"
 "border: 3px solid gray;\n"
 "border-radius: 8px;\n"
@@ -1784,7 +1801,7 @@ class Ui_MainWindow(object):
         self.scrollArea_notes.setWidgetResizable(True)
         self.scrollArea_notes_contents = QWidget()
         self.scrollArea_notes_contents.setObjectName(u"scrollArea_notes_contents")
-        self.scrollArea_notes_contents.setGeometry(QRect(0, 0, 844, 294))
+        self.scrollArea_notes_contents.setGeometry(QRect(0, 0, 854, 294))
         self.scrollArea_notes_contents_layout = QVBoxLayout(self.scrollArea_notes_contents)
         self.scrollArea_notes_contents_layout.setObjectName(u"scrollArea_notes_contents_layout")
         self.frame_17 = QFrame(self.scrollArea_notes_contents)
@@ -1807,9 +1824,148 @@ class Ui_MainWindow(object):
         self.verticalLayout_16.addWidget(self.scrollArea_current_investment)
 
         self.all_pages.addWidget(self.investment_page)
-        self.new_investment_page = QWidget()
-        self.new_investment_page.setObjectName(u"new_investment_page")
-        self.all_pages.addWidget(self.new_investment_page)
+        self.options_page = QWidget()
+        self.options_page.setObjectName(u"options_page")
+        self.options_page.setStyleSheet(u"QFrame{\n"
+"border: 1px solid gray;\n"
+"border-radius: 10px;\n"
+"background: rgb(207, 206, 209);\n"
+"}\n"
+"\n"
+"QComboBox {\n"
+"    border: 1px solid gray;\n"
+"    border-radius: 3px;\n"
+"    padding: 1px 18px 1px 3px;\n"
+"    min-width: 6em;\n"
+"}\n"
+"\n"
+"QComboBox:editable {\n"
+"    background: white;\n"
+"}\n"
+"\n"
+"QComboBox:!editable, QComboBox::drop-down:editable {\n"
+"     background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
+"                                 stop: 0 #E1E1E1, stop: 0.4 #DDDDDD,\n"
+"                                 stop: 0.5 #D8D8D8, stop: 1.0 #D3D3D3);\n"
+"}\n"
+"\n"
+"/* QComboBox gets the \"on\" state when the popup is open */\n"
+"QComboBox:!editable:on, QComboBox::drop-down:editable:on {\n"
+"    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
+"                                stop: 0 #D3D3D3, stop: 0.4 #D8D8D8,\n"
+"                                stop: 0.5 #DDDDDD, stop: 1.0 #E1E1E1);\n"
+"}\n"
+"\n"
+"QComboBox:on { /* shift the text when the popup opens */\n"
+"    padding"
+                        "-top: 3px;\n"
+"    padding-left: 4px;\n"
+"}\n"
+"\n"
+"QComboBox::drop-down {\n"
+"    subcontrol-origin: padding;\n"
+"    subcontrol-position: top right;\n"
+"    width: 15px;\n"
+"\n"
+"    border-left-width: 1px;\n"
+"    border-left-color: darkgray;\n"
+"    border-left-style: solid; /* just a single line */\n"
+"    border-top-right-radius: 3px; /* same radius as the QComboBox */\n"
+"    border-bottom-right-radius: 3px;\n"
+"}\n"
+"\n"
+"QComboBox::down-arrow {\n"
+"    image: url(/usr/share/icons/crystalsvg/16x16/actions/1downarrow.png);\n"
+"}\n"
+"\n"
+"QComboBox::down-arrow:on { /* shift the arrow when popup is open */\n"
+"    top: 1px;\n"
+"    left: 1px;\n"
+"}")
+        self.frame_options = QFrame(self.options_page)
+        self.frame_options.setObjectName(u"frame_options")
+        self.frame_options.setGeometry(QRect(30, 20, 700, 242))
+        self.frame_options.setMinimumSize(QSize(700, 0))
+        self.frame_options.setFrameShape(QFrame.StyledPanel)
+        self.frame_options.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_22 = QVBoxLayout(self.frame_options)
+        self.verticalLayout_22.setObjectName(u"verticalLayout_22")
+        self.label_options_text = QLabel(self.frame_options)
+        self.label_options_text.setObjectName(u"label_options_text")
+        self.label_options_text.setMinimumSize(QSize(0, 50))
+        font1 = QFont()
+        font1.setPointSize(23)
+        self.label_options_text.setFont(font1)
+        self.label_options_text.setStyleSheet(u"#label_options_text{\n"
+"border: 0px;\n"
+"\n"
+"}")
+
+        self.verticalLayout_22.addWidget(self.label_options_text)
+
+        self.frame_options_inner = QFrame(self.frame_options)
+        self.frame_options_inner.setObjectName(u"frame_options_inner")
+        self.frame_options_inner.setMinimumSize(QSize(0, 150))
+        self.frame_options_inner.setFont(font1)
+        self.frame_options_inner.setFrameShape(QFrame.StyledPanel)
+        self.frame_options_inner.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_2 = QHBoxLayout(self.frame_options_inner)
+        self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
+        self.frame_precision = QFrame(self.frame_options_inner)
+        self.frame_precision.setObjectName(u"frame_precision")
+        self.frame_precision.setFrameShape(QFrame.StyledPanel)
+        self.frame_precision.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_23 = QVBoxLayout(self.frame_precision)
+        self.verticalLayout_23.setObjectName(u"verticalLayout_23")
+        self.label_precision = QLabel(self.frame_precision)
+        self.label_precision.setObjectName(u"label_precision")
+        self.label_precision.setMinimumSize(QSize(0, 35))
+
+        self.verticalLayout_23.addWidget(self.label_precision)
+
+        self.verticalSpacer = QSpacerItem(20, 5, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.verticalLayout_23.addItem(self.verticalSpacer)
+
+        self.comboBox_precision = QComboBox(self.frame_precision)
+        self.comboBox_precision.addItem("")
+        self.comboBox_precision.addItem("")
+        self.comboBox_precision.addItem("")
+        self.comboBox_precision.addItem("")
+        self.comboBox_precision.addItem("")
+        self.comboBox_precision.addItem("")
+        self.comboBox_precision.setObjectName(u"comboBox_precision")
+        self.comboBox_precision.setMinimumSize(QSize(119, 30))
+
+        self.verticalLayout_23.addWidget(self.comboBox_precision)
+
+
+        self.horizontalLayout_2.addWidget(self.frame_precision)
+
+        self.frame_5 = QFrame(self.frame_options_inner)
+        self.frame_5.setObjectName(u"frame_5")
+        self.frame_5.setFrameShape(QFrame.StyledPanel)
+        self.frame_5.setFrameShadow(QFrame.Raised)
+        self.label_45 = QLabel(self.frame_5)
+        self.label_45.setObjectName(u"label_45")
+        self.label_45.setGeometry(QRect(50, 10, 58, 16))
+
+        self.horizontalLayout_2.addWidget(self.frame_5)
+
+        self.frame_6 = QFrame(self.frame_options_inner)
+        self.frame_6.setObjectName(u"frame_6")
+        self.frame_6.setFrameShape(QFrame.StyledPanel)
+        self.frame_6.setFrameShadow(QFrame.Raised)
+        self.label_53 = QLabel(self.frame_6)
+        self.label_53.setObjectName(u"label_53")
+        self.label_53.setGeometry(QRect(60, 10, 58, 16))
+
+        self.horizontalLayout_2.addWidget(self.frame_6)
+
+
+        self.verticalLayout_22.addWidget(self.frame_options_inner)
+
+        self.all_pages.addWidget(self.options_page)
         self.home_page = QWidget()
         self.home_page.setObjectName(u"home_page")
         self.frame_home_page = QFrame(self.home_page)
@@ -1868,7 +2024,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.all_pages.setCurrentIndex(0)
+        self.all_pages.setCurrentIndex(1)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -1881,6 +2037,7 @@ class Ui_MainWindow(object):
         self.button_new_investment.setText(QCoreApplication.translate("MainWindow", u"Nowa", None))
         self.button_home_page.setText(QCoreApplication.translate("MainWindow", u"Strona \n"
 "g\u0142\u00f3wna", None))
+        self.button_options.setText(QCoreApplication.translate("MainWindow", u"Opcje", None))
         self.label_11.setText(QCoreApplication.translate("MainWindow", u"Nazwa inwestycji", None))
         self.label_68.setText(QCoreApplication.translate("MainWindow", u"Cena zakupu", None))
         self.label_69.setText(QCoreApplication.translate("MainWindow", u"POW. [m\u00b2]", None))
@@ -1952,6 +2109,17 @@ class Ui_MainWindow(object):
         self.label_64.setText("")
         self.button_notes.setText(QCoreApplication.translate("MainWindow", u"Notatki", None))
         self.button_add_note.setText(QCoreApplication.translate("MainWindow", u"+", None))
+        self.label_options_text.setText(QCoreApplication.translate("MainWindow", u"Opcje", None))
+        self.label_precision.setText(QCoreApplication.translate("MainWindow", u"Dok\u0142adno\u015b\u0107 zaokr\u0105glania", None))
+        self.comboBox_precision.setItemText(0, QCoreApplication.translate("MainWindow", u"0", None))
+        self.comboBox_precision.setItemText(1, QCoreApplication.translate("MainWindow", u"1", None))
+        self.comboBox_precision.setItemText(2, QCoreApplication.translate("MainWindow", u"2", None))
+        self.comboBox_precision.setItemText(3, QCoreApplication.translate("MainWindow", u"3", None))
+        self.comboBox_precision.setItemText(4, QCoreApplication.translate("MainWindow", u"4", None))
+        self.comboBox_precision.setItemText(5, QCoreApplication.translate("MainWindow", u"5", None))
+
+        self.label_45.setText(QCoreApplication.translate("MainWindow", u"TextLabel", None))
+        self.label_53.setText(QCoreApplication.translate("MainWindow", u"TextLabel", None))
         self.label_welcome_home_page.setText(QCoreApplication.translate("MainWindow", u"Witamy na stronie g\u0142\u00f3wnej", None))
     # retranslateUi
 
