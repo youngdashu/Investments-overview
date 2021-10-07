@@ -248,7 +248,7 @@ class MainWindow(QMainWindow):
         self.options = Options()
         # options
         self.ui.button_options.clicked.connect(lambda: self.ui.all_pages.setCurrentWidget(self.ui.options_page))
-        self.ui.comboBox_precision.
+        # self.ui.comboBox_precision.highlighted.connect()
 
         self.show()
 
@@ -475,7 +475,7 @@ class MainWindow(QMainWindow):
         if investmentId in self.investments.keys():
             self.showInvestmentOnMainPage(self.investments[investmentId], self.investmentTabs[investmentId])
         else:
-            investment = getInvestmentById(investmentId, self.ui)
+            investment = getInvestmentById(investmentId, self)
             self.addNewInvestment(investment)
 
     def addInvestmentWidgetToHomePage(self, investmentIdAndName):
@@ -541,7 +541,7 @@ class MainWindow(QMainWindow):
         global labelCounter
 
         if newInvestment is None:
-            newInvestment = Investment(self.ui)
+            newInvestment = Investment(self.ui, self.options.precision)
 
         self.investments[newInvestment.id] = newInvestment
 

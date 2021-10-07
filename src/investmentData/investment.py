@@ -93,7 +93,7 @@ class Investment:
         self.Eval = Eval(None)
 
         self.ui: Ui_MainWindow = ui
-        self.precision: int = precision
+        self.precision: int = precision if precision is not None else 2
 
     def getId(self):
         guide = open("guide.txt", "r+")
@@ -655,8 +655,8 @@ def getInvestments():
     return investments
 
 
-def getInvestmentById(InvestmentId, ui):
-    investment = Investment(ui)
+def getInvestmentById(InvestmentId, app):
+    investment = Investment(app.ui, app.options.precision)
     with open("guide.txt") as guide:
         for line in guide.readlines():
             if "InvStart__" in line:
