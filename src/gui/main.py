@@ -248,9 +248,13 @@ class MainWindow(QMainWindow):
         self.options = Options()
         # options
         self.ui.button_options.clicked.connect(lambda: self.ui.all_pages.setCurrentWidget(self.ui.options_page))
-        # self.ui.comboBox_precision.highlighted.connect()
+        self.ui.comboBox_precision.highlighted.connect(self.setPrecisionToInvestments)
 
         self.show()
+
+    def setPrecisionToInvestments(self, index):
+        self.options.setPrecision(int(self.ui.comboBox_precision.currentText()))
+        self.investments = dict()
 
     def closeEvent(self, event: PySide6.QtGui.QCloseEvent) -> None:
 
