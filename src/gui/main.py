@@ -4,7 +4,7 @@ from typing import Dict, List
 import PySide6
 from PySide6 import QtCore, QtGui
 from PySide6.QtCore import (QPropertyAnimation)
-from PySide6.QtGui import QPixmap
+from PySide6.QtGui import QPixmap, QIcon
 from PySide6.QtWidgets import QApplication, QMainWindow, QLabel, QTextEdit, QFrame, QHBoxLayout, QPushButton, \
 	QDialog, QDialogButtonBox
 
@@ -251,6 +251,8 @@ class MainWindow(QMainWindow):
 		# # options
 		# self.ui.button_options.clicked.connect(lambda: self.ui.all_pages.setCurrentWidget(self.ui.options_page))
 		# self.ui.comboBox_precision.highlighted.connect(self.setPrecisionToInvestments)
+		icon = QIcon("./icons/app_icon.png")
+		self.setWindowIcon(icon)
 
 		self.show()
 
