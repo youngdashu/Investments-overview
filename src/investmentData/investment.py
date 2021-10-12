@@ -86,7 +86,7 @@ class Investment:
         self.title = "Unnamed"
         self.id = self.getId()
         self.Main_Char = Main_Char(float("inf"), 0, "")
-        self.Info = Info(0, 0, "", "", "", 0, 0)
+        self.Info = Info("", "", "", "", "", "", "")
         self.Contribution = Contribution("", "", "", "", "", "", "", "")
         self.Credit = Credit("", "", "", "")
         self.Rent = Rent(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)

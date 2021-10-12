@@ -1,5 +1,6 @@
 from typing import List, Dict
 
+from PySide6.QtCore import Qt
 from PySide6.QtWidgets import QFrame, QTextEdit, QPlainTextEdit, QLineEdit
 
 from src.gui.homePageInvestment import HomePageInvestment
@@ -25,6 +26,16 @@ darkerStyleSheet = """QTextEdit{
     background: rgb(197, 196, 199);
 }
 """
+
+
+def setTextEditAlignmentCenter(textEdit: QTextEdit):
+    textEdit.setAlignment(Qt.AlignCenter)
+    return textEdit
+
+
+def setLabelStyleSheet(label):
+    label.setStyleSheet("QLabel{background: rgb(197, 196, 199);}")
+    return label
 
 
 def setProperStyleSheet(frame: QFrame):
