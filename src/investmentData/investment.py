@@ -512,6 +512,9 @@ class Investment:
         except ValueError:
             self.ui.text_rent_tax_month.setStyleSheet(wrongTextEditStyleSheet)
 
+    def rentTaxPerYear(self):
+        return self.Rent.tax_rent * 12 if type(self.Rent.tax_rent) is not str else noDataText
+
     def propertyTaxPerYear(self):
         return self.Rent.tax_estate
 
@@ -524,6 +527,9 @@ class Investment:
             self.ui.text_property_tax_year.setStyleSheet(correctTextEditStyleSheet)
         except ValueError:
             self.ui.text_property_tax_year.setStyleSheet(wrongTextEditStyleSheet)
+
+    def propertyTaxPerMonth(self):
+        return self.Rent.tax_estate / 12 if type(self.Rent.tax_estate) is not str else noDataText
 
     def electricityPerMonth(self):
         return self.Rent.power
@@ -538,6 +544,9 @@ class Investment:
         except ValueError:
             self.ui.text_electricity_month.setStyleSheet(correctTextEditStyleSheet)
 
+    def electricityPerYear(self):
+        return self.Rent.power * 12 if type(self.Rent.power) is not str else noDataText
+
     def gasPerMonth(self):
         return self.Rent.gas
 
@@ -550,6 +559,9 @@ class Investment:
             self.ui.text_gas_month.setStyleSheet(correctTextEditStyleSheet)
         except ValueError:
             self.ui.text_gas_month.setStyleSheet(wrongTextEditStyleSheet)
+
+    def gasPerYear(self):
+        return self.Rent.gas * 12 if type(self.Rent.gas) is not str else noDataText
 
     def waterPerMonth(self):
         return self.Rent.water
@@ -564,6 +576,9 @@ class Investment:
         except ValueError:
             self.ui.text_water_month.setStyleSheet(wrongTextEditStyleSheet)
 
+    def waterPerYear(self):
+        return self.Rent.water * 12 if type(self.Rent.water) is not str else noDataText
+
     def internetPerMonth(self):
         return self.Rent.internet
 
@@ -576,6 +591,9 @@ class Investment:
             self.ui.text_internet_month.setStyleSheet(correctTextEditStyleSheet)
         except ValueError:
             self.ui.text_internet_month.setStyleSheet(wrongTextEditStyleSheet)
+
+    def internetPerYear(self):
+        return self.Rent.internet * 12 if type(self.Rent.internet) is not str else noDataText
 
     def otherPerMonth(self):
         return self.Rent.other
@@ -590,9 +608,15 @@ class Investment:
         except ValueError:
             self.ui.text_other_costs_month.setStyleSheet(wrongTextEditStyleSheet)
 
+    def otherPerYear(self):
+        return self.Rent.other * 12 if type(self.Rent.other) is not str else noDataText
+
     def costsTotalPerMonth(self):
         return float(self.Rent.tax_estate) + float(self.Rent.tax_rent) + float(self.Rent.power) + float(
             self.Rent.water) + float(self.Rent.gas) + float(self.Rent.internet) + float(self.Rent.other)
+
+    def costsTotalPerYear(self):
+        return self.costsTotalPerMonth() * 12 if type(self.costsTotalPerMonth()) is not str else noDataText
 
     def gainLossPerMonth(self):
         return self.incomeReceivedPerMonth() - self.costsTotalPerMonth() if type(

@@ -1021,6 +1021,42 @@ class MainWindow(QMainWindow):
                                                                                     self.currentInvestment.investedVsPurchasePrice))
 
 
+
+        self.ui.text_rent_income_min_month.textChanged.connect(lambda: self.updateTextEdit(
+            self.ui.text_rent_income_min_year, self.currentInvestment.rentIncomeMinPerYear
+        ))
+        self.ui.text_rent_income_max_month.textChanged.connect(lambda: self.updateTextEdit(
+            self.ui.text_rent_income_max_year, self.currentInvestment.rentIncomeMaxPerYear
+        ))
+        self.ui.text_income_earned_month.textChanged.connect(lambda: self.updateTextEdit(
+            self.ui.text_income_earned_year, self.currentInvestment.rentIncomeReceivedPerYear
+        ))
+        self.ui.text_rent_tax_month.textChanged.connect(lambda: self.updateTextEdit(
+            self.ui.text_rent_tax_year, self.currentInvestment.rentTaxPerYear
+        ))
+        self.ui.text_property_tax_year.textChanged.connect(lambda: self.updateTextEdit(
+            self.ui.text_property_tax_month, self.currentInvestment.propertyTaxPerMonth
+        ))
+        self.ui.text_electricity_month.textChanged.connect(lambda: self.updateTextEdit(
+            self.ui.text_electricity_year, self.currentInvestment.electricityPerYear
+        ))
+        self.ui.text_water_month.textChanged.connect(lambda: self.updateTextEdit(
+            self.ui.text_water_year, self.currentInvestment.waterPerYear
+        ))
+        self.ui.text_gas_month.textChanged.connect(lambda: self.updateTextEdit(
+            self.ui.text_gas_year, self.currentInvestment.gasPerYear
+        ))
+        self.ui.text_internet_month.textChanged.connect(lambda: self.updateTextEdit(
+            self.ui.text_internet_year, self.currentInvestment.internetPerYear
+        ))
+        self.ui.text_other_costs_month.textChanged.connect(lambda: self.updateTextEdit(
+            self.ui.text_other_costs_year, self.currentInvestment.otherPerYear
+        ))
+        self.ui.text_total_costs_month.textChanged.connect(lambda: self.updateTextEdit(
+            self.ui.text_total_costs_year, self.currentInvestment.costsTotalPerYear
+        ))
+
+
 if __name__ == '__main__':
     app = QApplication(sys.argv)
 
