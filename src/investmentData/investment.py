@@ -129,7 +129,9 @@ class Investment:
             elif line.find("InvStart__") >= 0:
                 try:
                     copy_i = int(line[10:10 + len(str(self.id))])
-                    if copy_i != self.id:
+                    if copy_i == self.id and line[10+len(str(self.id))].isdigit() == False:
+                        pass
+                    else:
                         conv = conv + line
                 except:
                     conv = conv + line
@@ -462,6 +464,9 @@ class Investment:
         except ValueError:
             self.ui.text_rent_income_min_month.setStyleSheet(wrongTextEditStyleSheet)
 
+    def rentIncomeMinPerYear(self):
+        return self.Rent.income_min * 12 if type(self.Rent.income_min) is not str else noDataText
+
     def rentIncomeMaxPerMonth(self):
         return self.Rent.income_max
 
@@ -475,6 +480,9 @@ class Investment:
         except ValueError:
             self.ui.text_rent_income_max_month.setStyleSheet(wrongTextEditStyleSheet)
 
+    def rentIncomeMaxPerYear(self):
+        return self.Rent.income_max * 12 if type(self.Rent.income_max) is not str else noDataText
+
     def incomeReceivedPerMonth(self):
         return self.Rent.income_real
 
@@ -487,6 +495,9 @@ class Investment:
             self.ui.text_income_earned_month.setStyleSheet(correctTextEditStyleSheet)
         except ValueError:
             self.ui.text_income_earned_month.setStyleSheet(wrongTextEditStyleSheet)
+
+    def rentIncomeReceivedPerYear(self):
+        return self.Rent.income_real * 12 if type(self.Rent.income_real) is not str else noDataText
 
     def rentTaxPerMonth(self):
         return self.Rent.tax_rent
