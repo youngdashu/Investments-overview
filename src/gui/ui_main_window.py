@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'main_windowiuWVXc.ui'
+## Form generated from reading UI file 'main_windowrCyIGv.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.1.1
 ##
@@ -254,7 +254,7 @@ class Ui_MainWindow(object):
         self.scrollArea_current_investment.setWidgetResizable(True)
         self.scrollArea_investment_contents = QWidget()
         self.scrollArea_investment_contents.setObjectName(u"scrollArea_investment_contents")
-        self.scrollArea_investment_contents.setGeometry(QRect(0, -457, 890, 2684))
+        self.scrollArea_investment_contents.setGeometry(QRect(0, -427, 890, 2684))
         self.scrollArea_investment_contents.setStyleSheet(u"#scrollAreaWidgetContainer{\n"
 "border: 3px solid gray;\n"
 "border-radius: 8px;\n"
@@ -632,7 +632,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_9 = QVBoxLayout(self.frame_own_contribution_data)
         self.verticalLayout_9.setSpacing(4)
         self.verticalLayout_9.setObjectName(u"verticalLayout_9")
-        self.verticalLayout_9.setContentsMargins(-1, 2, -1, 2)
+        self.verticalLayout_9.setContentsMargins(8, 2, 8, 2)
         self.frame_label_and_text_own_contribution = QFrame(self.frame_own_contribution_data)
         self.frame_label_and_text_own_contribution.setObjectName(u"frame_label_and_text_own_contribution")
         self.frame_label_and_text_own_contribution.setFrameShape(QFrame.StyledPanel)
@@ -648,6 +648,7 @@ class Ui_MainWindow(object):
 
         self.text_own_contribution = QTextEdit(self.frame_label_and_text_own_contribution)
         self.text_own_contribution.setObjectName(u"text_own_contribution")
+        self.text_own_contribution.setMinimumSize(QSize(140, 0))
 
         self.horizontalLayout_5.addWidget(self.text_own_contribution)
 
@@ -675,6 +676,7 @@ class Ui_MainWindow(object):
 
         self.text_broker_margin = QTextEdit(self.frame_label_and_text_broker_margin)
         self.text_broker_margin.setObjectName(u"text_broker_margin")
+        self.text_broker_margin.setMinimumSize(QSize(140, 0))
 
         self.horizontalLayout_7.addWidget(self.text_broker_margin)
 
@@ -702,6 +704,7 @@ class Ui_MainWindow(object):
 
         self.text_notary_margin = QTextEdit(self.frame_label_and_text_notary_margin)
         self.text_notary_margin.setObjectName(u"text_notary_margin")
+        self.text_notary_margin.setMinimumSize(QSize(140, 0))
 
         self.horizontalLayout_8.addWidget(self.text_notary_margin)
 
@@ -729,6 +732,7 @@ class Ui_MainWindow(object):
 
         self.text_tax = QTextEdit(self.frame_label_and_text_tax)
         self.text_tax.setObjectName(u"text_tax")
+        self.text_tax.setMinimumSize(QSize(140, 0))
 
         self.horizontalLayout_9.addWidget(self.text_tax)
 
@@ -756,6 +760,7 @@ class Ui_MainWindow(object):
 
         self.text_other_costs = QTextEdit(self.frame_label_and_text_other_costs)
         self.text_other_costs.setObjectName(u"text_other_costs")
+        self.text_other_costs.setMinimumSize(QSize(140, 0))
 
         self.horizontalLayout_10.addWidget(self.text_other_costs)
 
@@ -783,6 +788,7 @@ class Ui_MainWindow(object):
 
         self.text_renovation = QTextEdit(self.frame_label_and_text_renovation)
         self.text_renovation.setObjectName(u"text_renovation")
+        self.text_renovation.setMinimumSize(QSize(140, 0))
 
         self.horizontalLayout_11.addWidget(self.text_renovation)
 
@@ -844,7 +850,7 @@ class Ui_MainWindow(object):
 
         self.frame_credit_data = QFrame(self.frame_own_contribution_credit_inner)
         self.frame_credit_data.setObjectName(u"frame_credit_data")
-        self.frame_credit_data.setMinimumSize(QSize(320, 0))
+        self.frame_credit_data.setMinimumSize(QSize(380, 0))
         self.frame_credit_data.setFrameShape(QFrame.StyledPanel)
         self.frame_credit_data.setFrameShadow(QFrame.Raised)
         self.verticalLayout_10 = QVBoxLayout(self.frame_credit_data)
@@ -1050,7 +1056,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_30.setContentsMargins(2, 2, 2, 2)
         self.label_25 = QLabel(self.frame_label_and_text_total_credit_cost)
         self.label_25.setObjectName(u"label_25")
-        self.label_25.setMinimumSize(QSize(195, 0))
+        self.label_25.setMinimumSize(QSize(240, 0))
 
         self.horizontalLayout_30.addWidget(self.label_25)
 

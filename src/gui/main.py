@@ -10,7 +10,6 @@ from PySide6.QtWidgets import QApplication, QMainWindow, QLabel, QTextEdit, QFra
 
 import locale
 
-
 from pageTypes import PageTypes
 from src.investmentData.investment import Investment, getInvestments, getInvestmentById, deleteInvestmentById
 from src.utilityQtObjectsFunctions.Note import Note
@@ -107,7 +106,13 @@ class MainWindow(QMainWindow):
                                                    self.ui.text_internet_year, self.ui.text_other_costs_year,
                                                    self.ui.text_total_costs_month, self.ui.text_total_costs_year,
                                                    self.ui.text_rent_gain_loss_month, self.ui.text_rent_gain_loss_year,
-                                                   self.ui.text_invested_vs_purchase]
+                                                   self.ui.text_invested_vs_purchase,
+                                                   self.ui.text_rent_income_min_percent,
+                                                   self.ui.text_rent_income_max_percent,
+                                                   self.ui.text_income_earned_percent, self.ui.text_rent_tax_percent,
+                                                   self.ui.text_property_tax_percent, self.ui.text_electricity_percent,
+                                                   self.ui.text_gas_percent, self.ui.text_water_percent, self.ui.text_internet_percent,
+                                                   self.ui.text_other_costs_percent_2]
 
         self.editableTextEditsNumeric: List[QTextEdit] = [self.ui.text_purchase_price,
                                                           self.ui.text_area,

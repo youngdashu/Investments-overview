@@ -419,7 +419,7 @@ color: rgb(255, 255, 255)
                  <property name="geometry">
                   <rect>
                    <x>0</x>
-                   <y>-457</y>
+                   <y>-427</y>
                    <width>890</width>
                    <height>2684</height>
                   </rect>
@@ -1141,8 +1141,14 @@ border-radius: 8px;
                            <property name="spacing">
                             <number>4</number>
                            </property>
+                           <property name="leftMargin">
+                            <number>8</number>
+                           </property>
                            <property name="topMargin">
                             <number>2</number>
+                           </property>
+                           <property name="rightMargin">
+                            <number>8</number>
                            </property>
                            <property name="bottomMargin">
                             <number>2</number>
@@ -1176,7 +1182,14 @@ border-radius: 8px;
                                </widget>
                               </item>
                               <item>
-                               <widget class="QTextEdit" name="text_own_contribution"/>
+                               <widget class="QTextEdit" name="text_own_contribution">
+                                <property name="minimumSize">
+                                 <size>
+                                  <width>140</width>
+                                  <height>0</height>
+                                 </size>
+                                </property>
+                               </widget>
                               </item>
                               <item>
                                <widget class="QTextEdit" name="text_own_contribution_percent">
@@ -1220,7 +1233,14 @@ border-radius: 8px;
                                </widget>
                               </item>
                               <item>
-                               <widget class="QTextEdit" name="text_broker_margin"/>
+                               <widget class="QTextEdit" name="text_broker_margin">
+                                <property name="minimumSize">
+                                 <size>
+                                  <width>140</width>
+                                  <height>0</height>
+                                 </size>
+                                </property>
+                               </widget>
                               </item>
                               <item>
                                <widget class="QTextEdit" name="text_broker_margin_percent">
@@ -1264,7 +1284,14 @@ border-radius: 8px;
                                </widget>
                               </item>
                               <item>
-                               <widget class="QTextEdit" name="text_notary_margin"/>
+                               <widget class="QTextEdit" name="text_notary_margin">
+                                <property name="minimumSize">
+                                 <size>
+                                  <width>140</width>
+                                  <height>0</height>
+                                 </size>
+                                </property>
+                               </widget>
                               </item>
                               <item>
                                <widget class="QTextEdit" name="text_notary_margin_percent">
@@ -1308,7 +1335,14 @@ border-radius: 8px;
                                </widget>
                               </item>
                               <item>
-                               <widget class="QTextEdit" name="text_tax"/>
+                               <widget class="QTextEdit" name="text_tax">
+                                <property name="minimumSize">
+                                 <size>
+                                  <width>140</width>
+                                  <height>0</height>
+                                 </size>
+                                </property>
+                               </widget>
                               </item>
                               <item>
                                <widget class="QTextEdit" name="text_tax_percent">
@@ -1352,7 +1386,14 @@ border-radius: 8px;
                                </widget>
                               </item>
                               <item>
-                               <widget class="QTextEdit" name="text_other_costs"/>
+                               <widget class="QTextEdit" name="text_other_costs">
+                                <property name="minimumSize">
+                                 <size>
+                                  <width>140</width>
+                                  <height>0</height>
+                                 </size>
+                                </property>
+                               </widget>
                               </item>
                               <item>
                                <widget class="QTextEdit" name="text_other_costs_percent">
@@ -1396,7 +1437,14 @@ border-radius: 8px;
                                </widget>
                               </item>
                               <item>
-                               <widget class="QTextEdit" name="text_renovation"/>
+                               <widget class="QTextEdit" name="text_renovation">
+                                <property name="minimumSize">
+                                 <size>
+                                  <width>140</width>
+                                  <height>0</height>
+                                 </size>
+                                </property>
+                               </widget>
                               </item>
                               <item>
                                <widget class="QTextEdit" name="text_renovation_percent">
@@ -1501,7 +1549,7 @@ vs cena zakupu</string>
                          <widget class="QFrame" name="frame_credit_data">
                           <property name="minimumSize">
                            <size>
-                            <width>320</width>
+                            <width>380</width>
                             <height>0</height>
                            </size>
                           </property>
@@ -1938,7 +1986,7 @@ vs cena zakupu</string>
                                <widget class="QLabel" name="label_25">
                                 <property name="minimumSize">
                                  <size>
-                                  <width>195</width>
+                                  <width>240</width>
                                   <height>0</height>
                                  </size>
                                 </property>
