@@ -298,6 +298,7 @@ class MainWindow(QMainWindow):
             isChanged = True
             mainCharacteristicsFrameMinHeight = 180
             currentlyOpenedFrameMinHeight = 100
+
         elif self.width() < 1080 and self.ui.text_area.fontInfo().pointSize() is not 15:
             fontSize = 15
             isChanged = True
@@ -370,14 +371,14 @@ class MainWindow(QMainWindow):
         actualHeight = None
         if self.ui.frame_information.height() < self.targetFrameHeight:
             isSlided = False
-            afterAnimationHeight = 360
+            afterAnimationHeight = 440
             actualHeight = self.frameHeight
             self.ui.frame_information_data.setVisible(True)
 
         else:
             isSlided = True
             afterAnimationHeight = self.frameHeight
-            actualHeight = 360
+            actualHeight = 440
             self.ui.frame_information_data.setVisible(False)
 
         self.informationSlideAnimation = QPropertyAnimation(self.ui.frame_information,
@@ -394,13 +395,13 @@ class MainWindow(QMainWindow):
         actualHeight = None
         if self.ui.frame_rent.height() < self.targetFrameHeight:
             isSlided = False
-            afterAnimationHeight = 750
+            afterAnimationHeight = 800
             actualHeight = self.frameHeight
             self.ui.frame_rent_data.setVisible(True)
         else:
             isSlided = True
             afterAnimationHeight = self.frameHeight
-            actualHeight = 750
+            actualHeight = 800
             self.ui.frame_rent_data.setVisible(False)
 
         self.rentSlideAnimation = QPropertyAnimation(self.ui.frame_rent,
