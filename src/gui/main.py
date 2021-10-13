@@ -4,7 +4,7 @@ from typing import Dict, List
 import PySide6
 from PySide6 import QtCore, QtGui
 from PySide6.QtCore import (QPropertyAnimation)
-from PySide6.QtGui import QPixmap, QIcon
+from PySide6.QtGui import QPixmap, QIcon, QFont
 from PySide6.QtWidgets import QApplication, QMainWindow, QLabel, QTextEdit, QFrame, QHBoxLayout, QPushButton, \
     QDialog, QDialogButtonBox
 
@@ -291,17 +291,30 @@ class MainWindow(QMainWindow):
         isChanged = False
         fontSize = None
         print(self.width())
+        mainCharacteristicsFrameMinHeight = None
+        currentlyOpenedFrameMinHeight = None
         if self.width() > 1200 and self.ui.text_area.fontInfo().pointSize() is not 20:
             fontSize = 20
             isChanged = True
+            mainCharacteristicsFrameMinHeight = 180
+            currentlyOpenedFrameMinHeight = 100
+        elif self.width() < 1080 and self.ui.text_area.fontInfo().pointSize() is not 15:
+            fontSize = 15
+            isChanged = True
+            mainCharacteristicsFrameMinHeight = 120
+            currentlyOpenedFrameMinHeight = 70
         else:
             fontSize = 17
+            mainCharacteristicsFrameMinHeight = 140
+            currentlyOpenedFrameMinHeight = 84
             if self.ui.text_area.fontInfo().pointSize() is 20:
                 isChanged = True
 
         self.ui.label.font()
 
         if isChanged:
+            self.ui.frame_main_characteristics.setMinimumHeight(mainCharacteristicsFrameMinHeight)
+            self.ui.frame_currently_opened.setMinimumHeight(currentlyOpenedFrameMinHeight)
             self.editableTextEdits = list(
                 map(lambda qObject: changeObjectFontSize(qObject, fontSize), self.editableTextEdits))
             self.editableTextEditsNumeric = list(
@@ -631,6 +644,8 @@ class MainWindow(QMainWindow):
         investmentFrame.setObjectName("Tab_" + str(tabCounter))
         investmentFrame.setMaximumHeight(50)
 
+        fontSize = 18
+
         tabCounter += 1
         investmentFrameLayout = QHBoxLayout(investmentFrame)
         investmentFrameLayout.setObjectName("layout_investment_" + str(layoutCounter))
@@ -638,10 +653,16 @@ class MainWindow(QMainWindow):
         layoutCounter += 1
         closeFrameButton = QPushButton("x", investmentFrame)
         closeFrameButton.setObjectName("Close_button" + str(buttonCounter))
+        font: QFont = closeFrameButton.font()
+        font.setPointSize(fontSize)
+        closeFrameButton.setFont(font)
         buttonCounter += 1
         closeFrameButton.setMaximumWidth(20)
         openInvestmentButton = QPushButton("Inwestycja nienazwana", investmentFrame)
         openInvestmentButton.setObjectName("investment_button" + str(buttonCounter))
+        font: QFont = openInvestmentButton.font()
+        font.setPointSize(fontSize)
+        openInvestmentButton.setFont(font)
         buttonCounter += 1
         isSavedLabel = QLabel("", investmentFrame)
         isSavedLabel.setObjectName("isSavedLabel_" + str(labelCounter))

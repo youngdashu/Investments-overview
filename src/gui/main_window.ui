@@ -419,7 +419,7 @@ color: rgb(255, 255, 255)
                  <property name="geometry">
                   <rect>
                    <x>0</x>
-                   <y>-2048</y>
+                   <y>-1886</y>
                    <width>880</width>
                    <height>2684</height>
                   </rect>
@@ -2932,7 +2932,7 @@ border: 1px white;
                              </property>
                              <property name="sizeHint" stdset="0">
                               <size>
-                               <width>325</width>
+                               <width>350</width>
                                <height>20</height>
                               </size>
                              </property>
@@ -3056,7 +3056,7 @@ border: 1px white;
                                <widget class="QLabel" name="label_49">
                                 <property name="minimumSize">
                                  <size>
-                                  <width>325</width>
+                                  <width>350</width>
                                   <height>0</height>
                                  </size>
                                 </property>
@@ -3120,7 +3120,7 @@ border: 1px white;
                                <widget class="QLabel" name="label_50">
                                 <property name="minimumSize">
                                  <size>
-                                  <width>325</width>
+                                  <width>350</width>
                                   <height>0</height>
                                  </size>
                                 </property>
@@ -3184,7 +3184,7 @@ border: 1px white;
                                <widget class="QLabel" name="label_51">
                                 <property name="minimumSize">
                                  <size>
-                                  <width>325</width>
+                                  <width>350</width>
                                   <height>0</height>
                                  </size>
                                 </property>
@@ -3248,7 +3248,7 @@ border: 1px white;
                                <widget class="QLabel" name="label_52">
                                 <property name="minimumSize">
                                  <size>
-                                  <width>325</width>
+                                  <width>350</width>
                                   <height>0</height>
                                  </size>
                                 </property>
