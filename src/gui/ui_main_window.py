@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'main_windowphGiCT.ui'
+## Form generated from reading UI file 'main_windowyRIZyV.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.1.1
 ##
@@ -254,7 +254,7 @@ class Ui_MainWindow(object):
         self.scrollArea_current_investment.setWidgetResizable(True)
         self.scrollArea_investment_contents = QWidget()
         self.scrollArea_investment_contents.setObjectName(u"scrollArea_investment_contents")
-        self.scrollArea_investment_contents.setGeometry(QRect(0, 0, 880, 2684))
+        self.scrollArea_investment_contents.setGeometry(QRect(0, -1830, 880, 2684))
         self.scrollArea_investment_contents.setStyleSheet(u"#scrollAreaWidgetContainer{\n"
 "border: 3px solid gray;\n"
 "border-radius: 8px;\n"
@@ -1620,7 +1620,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_45.setSpacing(6)
         self.horizontalLayout_45.setObjectName(u"horizontalLayout_45")
         self.horizontalLayout_45.setContentsMargins(-1, 2, -1, 2)
-        self.horizontalSpacer_3 = QSpacerItem(350, 20, QSizePolicy.Preferred, QSizePolicy.Minimum)
+        self.horizontalSpacer_3 = QSpacerItem(380, 20, QSizePolicy.Preferred, QSizePolicy.Minimum)
 
         self.horizontalLayout_45.addItem(self.horizontalSpacer_3)
 
@@ -1668,7 +1668,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_48.setContentsMargins(2, 2, 2, 2)
         self.label_49 = QLabel(self.frame_label_and_text_own_capital_return)
         self.label_49.setObjectName(u"label_49")
-        self.label_49.setMinimumSize(QSize(350, 0))
+        self.label_49.setMinimumSize(QSize(380, 0))
 
         self.horizontalLayout_48.addWidget(self.label_49)
 
@@ -1700,7 +1700,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_49.setContentsMargins(2, 2, 2, 2)
         self.label_50 = QLabel(self.frame_label_and_text_total_return_time)
         self.label_50.setObjectName(u"label_50")
-        self.label_50.setMinimumSize(QSize(350, 0))
+        self.label_50.setMinimumSize(QSize(380, 0))
 
         self.horizontalLayout_49.addWidget(self.label_50)
 
@@ -1732,7 +1732,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_50.setContentsMargins(2, 2, 2, 2)
         self.label_51 = QLabel(self.frame_label_and_text_return_rate_1)
         self.label_51.setObjectName(u"label_51")
-        self.label_51.setMinimumSize(QSize(350, 0))
+        self.label_51.setMinimumSize(QSize(380, 0))
 
         self.horizontalLayout_50.addWidget(self.label_51)
 
@@ -1764,7 +1764,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_51.setContentsMargins(2, 2, 2, 2)
         self.label_52 = QLabel(self.frame_label_and_text_return_rate_2)
         self.label_52.setObjectName(u"label_52")
-        self.label_52.setMinimumSize(QSize(350, 0))
+        self.label_52.setMinimumSize(QSize(380, 0))
 
         self.horizontalLayout_51.addWidget(self.label_52)
 
