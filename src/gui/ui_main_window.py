@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'main_windowrCyIGv.ui'
+## Form generated from reading UI file 'main_windowwkXVAk.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.1.1
 ##
@@ -254,7 +254,7 @@ class Ui_MainWindow(object):
         self.scrollArea_current_investment.setWidgetResizable(True)
         self.scrollArea_investment_contents = QWidget()
         self.scrollArea_investment_contents.setObjectName(u"scrollArea_investment_contents")
-        self.scrollArea_investment_contents.setGeometry(QRect(0, -427, 890, 2684))
+        self.scrollArea_investment_contents.setGeometry(QRect(0, -2048, 880, 2684))
         self.scrollArea_investment_contents.setStyleSheet(u"#scrollAreaWidgetContainer{\n"
 "border: 3px solid gray;\n"
 "border-radius: 8px;\n"
@@ -402,6 +402,9 @@ class Ui_MainWindow(object):
         self.button_information = QPushButton(self.frame_information)
         self.button_information.setObjectName(u"button_information")
         self.button_information.setMinimumSize(QSize(0, 24))
+        font = QFont()
+        font.setPointSize(14)
+        self.button_information.setFont(font)
 
         self.verticalLayout_4.addWidget(self.button_information)
 
@@ -428,7 +431,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_19.setContentsMargins(12, 2, -1, 2)
         self.label_14 = QLabel(self.frame_label_and_text_start_date)
         self.label_14.setObjectName(u"label_14")
-        self.label_14.setMinimumSize(QSize(140, 0))
+        self.label_14.setMinimumSize(QSize(180, 0))
 
         self.horizontalLayout_19.addWidget(self.label_14)
 
@@ -454,7 +457,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_20.setContentsMargins(-1, 2, -1, 2)
         self.label_15 = QLabel(self.frame_label_and_text_description)
         self.label_15.setObjectName(u"label_15")
-        self.label_15.setMinimumSize(QSize(140, 0))
+        self.label_15.setMinimumSize(QSize(180, 0))
 
         self.horizontalLayout_20.addWidget(self.label_15)
 
@@ -480,7 +483,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_21.setContentsMargins(-1, 2, -1, 2)
         self.label_16 = QLabel(self.frame_label_and_text_address_street)
         self.label_16.setObjectName(u"label_16")
-        self.label_16.setMinimumSize(QSize(140, 0))
+        self.label_16.setMinimumSize(QSize(180, 0))
 
         self.horizontalLayout_21.addWidget(self.label_16)
 
@@ -506,7 +509,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_22.setContentsMargins(-1, 2, -1, 2)
         self.label_17 = QLabel(self.frame_label_and_text_address_city)
         self.label_17.setObjectName(u"label_17")
-        self.label_17.setMinimumSize(QSize(140, 0))
+        self.label_17.setMinimumSize(QSize(180, 0))
 
         self.horizontalLayout_22.addWidget(self.label_17)
 
@@ -532,6 +535,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_23.setContentsMargins(-1, 2, -1, 2)
         self.label_18 = QLabel(self.frame_label_and_text_estimated_value)
         self.label_18.setObjectName(u"label_18")
+        self.label_18.setMinimumSize(QSize(180, 0))
 
         self.horizontalLayout_23.addWidget(self.label_18)
 
@@ -557,7 +561,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_24.setContentsMargins(-1, 2, -1, 2)
         self.label_19 = QLabel(self.frame_label_and_text_last_estimation)
         self.label_19.setObjectName(u"label_19")
-        self.label_19.setMinimumSize(QSize(140, 0))
+        self.label_19.setMinimumSize(QSize(180, 0))
 
         self.horizontalLayout_24.addWidget(self.label_19)
 
@@ -583,7 +587,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_25.setContentsMargins(-1, 2, -1, 2)
         self.label_20 = QLabel(self.frame_label_and_text_finish_date)
         self.label_20.setObjectName(u"label_20")
-        self.label_20.setMinimumSize(QSize(140, 0))
+        self.label_20.setMinimumSize(QSize(180, 0))
 
         self.horizontalLayout_25.addWidget(self.label_20)
 
@@ -612,6 +616,7 @@ class Ui_MainWindow(object):
         self.button_own_contribution_credit = QPushButton(self.frame_own_contribution_credit)
         self.button_own_contribution_credit.setObjectName(u"button_own_contribution_credit")
         self.button_own_contribution_credit.setMinimumSize(QSize(0, 24))
+        self.button_own_contribution_credit.setFont(font)
 
         self.verticalLayout_5.addWidget(self.button_own_contribution_credit)
 
@@ -1088,6 +1093,7 @@ class Ui_MainWindow(object):
         self.button_rent = QPushButton(self.frame_rent)
         self.button_rent.setObjectName(u"button_rent")
         self.button_rent.setMinimumSize(QSize(0, 24))
+        self.button_rent.setFont(font)
 
         self.verticalLayout_7.addWidget(self.button_rent)
 
@@ -1116,16 +1122,16 @@ class Ui_MainWindow(object):
         self.horizontalLayout_43.setSpacing(6)
         self.horizontalLayout_43.setObjectName(u"horizontalLayout_43")
         self.horizontalLayout_43.setContentsMargins(-1, 2, -1, 2)
-        self.horizontalSpacer_2 = QSpacerItem(235, 20, QSizePolicy.Preferred, QSizePolicy.Minimum)
+        self.horizontalSpacer_2 = QSpacerItem(255, 20, QSizePolicy.Preferred, QSizePolicy.Minimum)
 
         self.horizontalLayout_43.addItem(self.horizontalSpacer_2)
 
         self.label_40 = QLabel(self.frame_rent_header)
         self.label_40.setObjectName(u"label_40")
         self.label_40.setMinimumSize(QSize(0, 20))
-        font = QFont()
-        font.setPointSize(18)
-        self.label_40.setFont(font)
+        font1 = QFont()
+        font1.setPointSize(18)
+        self.label_40.setFont(font1)
         self.label_40.setAlignment(Qt.AlignCenter)
 
         self.horizontalLayout_43.addWidget(self.label_40)
@@ -1133,7 +1139,7 @@ class Ui_MainWindow(object):
         self.label_41 = QLabel(self.frame_rent_header)
         self.label_41.setObjectName(u"label_41")
         self.label_41.setMinimumSize(QSize(0, 20))
-        self.label_41.setFont(font)
+        self.label_41.setFont(font1)
         self.label_41.setAlignment(Qt.AlignCenter)
 
         self.horizontalLayout_43.addWidget(self.label_41)
@@ -1141,7 +1147,7 @@ class Ui_MainWindow(object):
         self.label_42 = QLabel(self.frame_rent_header)
         self.label_42.setObjectName(u"label_42")
         self.label_42.setMinimumSize(QSize(0, 20))
-        self.label_42.setFont(font)
+        self.label_42.setFont(font1)
         self.label_42.setAlignment(Qt.AlignCenter)
 
         self.horizontalLayout_43.addWidget(self.label_42)
@@ -1167,7 +1173,7 @@ class Ui_MainWindow(object):
         sizePolicy1.setHeightForWidth(self.label_26.sizePolicy().hasHeightForWidth())
         self.label_26.setSizePolicy(sizePolicy1)
         self.label_26.setMinimumSize(QSize(0, 30))
-        self.label_26.setFont(font)
+        self.label_26.setFont(font1)
         self.label_26.setLayoutDirection(Qt.LeftToRight)
         self.label_26.setStyleSheet(u"")
         self.label_26.setAlignment(Qt.AlignCenter)
@@ -1183,7 +1189,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_31.setContentsMargins(-1, 2, -1, 2)
         self.label_37 = QLabel(self.frame_label_and_text_rent_income_min)
         self.label_37.setObjectName(u"label_37")
-        self.label_37.setMinimumSize(QSize(230, 0))
+        self.label_37.setMinimumSize(QSize(250, 0))
 
         self.horizontalLayout_31.addWidget(self.label_37)
 
@@ -1214,7 +1220,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_32.setContentsMargins(-1, 2, -1, 2)
         self.label_38 = QLabel(self.frame_label_and_text_rent_income_max)
         self.label_38.setObjectName(u"label_38")
-        self.label_38.setMinimumSize(QSize(230, 0))
+        self.label_38.setMinimumSize(QSize(250, 0))
 
         self.horizontalLayout_32.addWidget(self.label_38)
 
@@ -1245,7 +1251,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_35.setContentsMargins(-1, 2, -1, 2)
         self.label_39 = QLabel(self.frame_label_and_text_income_earned)
         self.label_39.setObjectName(u"label_39")
-        self.label_39.setMinimumSize(QSize(230, 0))
+        self.label_39.setMinimumSize(QSize(250, 0))
 
         self.horizontalLayout_35.addWidget(self.label_39)
 
@@ -1284,7 +1290,7 @@ class Ui_MainWindow(object):
         sizePolicy1.setHeightForWidth(self.label_27.sizePolicy().hasHeightForWidth())
         self.label_27.setSizePolicy(sizePolicy1)
         self.label_27.setMinimumSize(QSize(0, 30))
-        self.label_27.setFont(font)
+        self.label_27.setFont(font1)
         self.label_27.setAlignment(Qt.AlignCenter)
 
         self.verticalLayout_15.addWidget(self.label_27)
@@ -1298,7 +1304,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_36.setContentsMargins(-1, 2, -1, 2)
         self.label_30 = QLabel(self.frame_label_and_text_rent_tax)
         self.label_30.setObjectName(u"label_30")
-        self.label_30.setMinimumSize(QSize(230, 0))
+        self.label_30.setMinimumSize(QSize(250, 0))
 
         self.horizontalLayout_36.addWidget(self.label_30)
 
@@ -1329,7 +1335,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_37.setContentsMargins(-1, 2, -1, 2)
         self.label_31 = QLabel(self.frame_label_and_text_property_tax)
         self.label_31.setObjectName(u"label_31")
-        self.label_31.setMinimumSize(QSize(230, 0))
+        self.label_31.setMinimumSize(QSize(250, 0))
 
         self.horizontalLayout_37.addWidget(self.label_31)
 
@@ -1360,7 +1366,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_38.setContentsMargins(-1, 2, -1, 2)
         self.label_32 = QLabel(self.frame_label_and_text_tax_electricity)
         self.label_32.setObjectName(u"label_32")
-        self.label_32.setMinimumSize(QSize(230, 0))
+        self.label_32.setMinimumSize(QSize(250, 0))
 
         self.horizontalLayout_38.addWidget(self.label_32)
 
@@ -1391,7 +1397,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_39.setContentsMargins(-1, 2, -1, 2)
         self.label_33 = QLabel(self.frame_label_and_text_gas)
         self.label_33.setObjectName(u"label_33")
-        self.label_33.setMinimumSize(QSize(230, 0))
+        self.label_33.setMinimumSize(QSize(250, 0))
 
         self.horizontalLayout_39.addWidget(self.label_33)
 
@@ -1422,7 +1428,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_40.setContentsMargins(-1, 2, -1, 2)
         self.label_34 = QLabel(self.frame_label_and_text_water)
         self.label_34.setObjectName(u"label_34")
-        self.label_34.setMinimumSize(QSize(230, 0))
+        self.label_34.setMinimumSize(QSize(250, 0))
 
         self.horizontalLayout_40.addWidget(self.label_34)
 
@@ -1453,7 +1459,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_41.setContentsMargins(-1, 2, -1, 2)
         self.label_35 = QLabel(self.frame_label_and_text_internet)
         self.label_35.setObjectName(u"label_35")
-        self.label_35.setMinimumSize(QSize(230, 0))
+        self.label_35.setMinimumSize(QSize(250, 0))
 
         self.horizontalLayout_41.addWidget(self.label_35)
 
@@ -1484,7 +1490,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_42.setContentsMargins(-1, 2, -1, 2)
         self.label_36 = QLabel(self.frame_label_and_text_other_costs_2)
         self.label_36.setObjectName(u"label_36")
-        self.label_36.setMinimumSize(QSize(230, 0))
+        self.label_36.setMinimumSize(QSize(250, 0))
 
         self.horizontalLayout_42.addWidget(self.label_36)
 
@@ -1515,7 +1521,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_46.setContentsMargins(-1, 2, -1, 2)
         self.label_47 = QLabel(self.frame_label_and_text_total_costs)
         self.label_47.setObjectName(u"label_47")
-        self.label_47.setMinimumSize(QSize(230, 0))
+        self.label_47.setMinimumSize(QSize(250, 0))
 
         self.horizontalLayout_46.addWidget(self.label_47)
 
@@ -1549,7 +1555,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_47.setContentsMargins(-1, 2, -1, 2)
         self.label_48 = QLabel(self.frame_label_and_text_rent_gain_loss)
         self.label_48.setObjectName(u"label_48")
-        self.label_48.setMinimumSize(QSize(240, 0))
+        self.label_48.setMinimumSize(QSize(260, 0))
 
         self.horizontalLayout_47.addWidget(self.label_48)
 
@@ -1587,6 +1593,7 @@ class Ui_MainWindow(object):
         self.button_investment_assessment = QPushButton(self.frame_investment_assessment)
         self.button_investment_assessment.setObjectName(u"button_investment_assessment")
         self.button_investment_assessment.setMinimumSize(QSize(0, 24))
+        self.button_investment_assessment.setFont(font)
 
         self.verticalLayout_8.addWidget(self.button_investment_assessment)
 
@@ -1620,7 +1627,7 @@ class Ui_MainWindow(object):
         self.label_43 = QLabel(self.frame_investment_assessment_header)
         self.label_43.setObjectName(u"label_43")
         self.label_43.setMinimumSize(QSize(0, 20))
-        self.label_43.setFont(font)
+        self.label_43.setFont(font1)
         self.label_43.setAlignment(Qt.AlignCenter)
 
         self.horizontalLayout_45.addWidget(self.label_43)
@@ -1628,7 +1635,7 @@ class Ui_MainWindow(object):
         self.label_44 = QLabel(self.frame_investment_assessment_header)
         self.label_44.setObjectName(u"label_44")
         self.label_44.setMinimumSize(QSize(0, 20))
-        self.label_44.setFont(font)
+        self.label_44.setFont(font1)
         self.label_44.setAlignment(Qt.AlignCenter)
 
         self.horizontalLayout_45.addWidget(self.label_44)
@@ -1636,7 +1643,7 @@ class Ui_MainWindow(object):
         self.label_46 = QLabel(self.frame_investment_assessment_header)
         self.label_46.setObjectName(u"label_46")
         self.label_46.setMinimumSize(QSize(0, 20))
-        self.label_46.setFont(font)
+        self.label_46.setFont(font1)
         self.label_46.setAlignment(Qt.AlignCenter)
 
         self.horizontalLayout_45.addWidget(self.label_46)
@@ -1799,6 +1806,7 @@ class Ui_MainWindow(object):
         self.button_notes = QPushButton(self.frame_notes)
         self.button_notes.setObjectName(u"button_notes")
         self.button_notes.setMinimumSize(QSize(0, 24))
+        self.button_notes.setFont(font)
 
         self.verticalLayout_6.addWidget(self.button_notes)
 
@@ -1817,7 +1825,7 @@ class Ui_MainWindow(object):
         self.button_add_note = QPushButton(self.frame_add_note_button)
         self.button_add_note.setObjectName(u"button_add_note")
         self.button_add_note.setMinimumSize(QSize(30, 30))
-        self.button_add_note.setFont(font)
+        self.button_add_note.setFont(font1)
         self.button_add_note.setIconSize(QSize(25, 25))
 
         self.horizontalLayout_18.addWidget(self.button_add_note)
@@ -1834,7 +1842,7 @@ class Ui_MainWindow(object):
         self.scrollArea_notes.setWidgetResizable(True)
         self.scrollArea_notes_contents = QWidget()
         self.scrollArea_notes_contents.setObjectName(u"scrollArea_notes_contents")
-        self.scrollArea_notes_contents.setGeometry(QRect(0, 0, 854, 294))
+        self.scrollArea_notes_contents.setGeometry(QRect(0, 0, 844, 294))
         self.scrollArea_notes_contents_layout = QVBoxLayout(self.scrollArea_notes_contents)
         self.scrollArea_notes_contents_layout.setObjectName(u"scrollArea_notes_contents_layout")
         self.frame_17 = QFrame(self.scrollArea_notes_contents)
@@ -1926,9 +1934,9 @@ class Ui_MainWindow(object):
         self.label_options_text = QLabel(self.frame_options)
         self.label_options_text.setObjectName(u"label_options_text")
         self.label_options_text.setMinimumSize(QSize(0, 50))
-        font1 = QFont()
-        font1.setPointSize(23)
-        self.label_options_text.setFont(font1)
+        font2 = QFont()
+        font2.setPointSize(23)
+        self.label_options_text.setFont(font2)
         self.label_options_text.setStyleSheet(u"#label_options_text{\n"
 "border: 0px;\n"
 "\n"
@@ -1939,7 +1947,7 @@ class Ui_MainWindow(object):
         self.frame_options_inner = QFrame(self.frame_options)
         self.frame_options_inner.setObjectName(u"frame_options_inner")
         self.frame_options_inner.setMinimumSize(QSize(0, 150))
-        self.frame_options_inner.setFont(font1)
+        self.frame_options_inner.setFont(font2)
         self.frame_options_inner.setFrameShape(QFrame.StyledPanel)
         self.frame_options_inner.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_2 = QHBoxLayout(self.frame_options_inner)
@@ -2037,7 +2045,11 @@ class Ui_MainWindow(object):
         self.horizontalLayout_3.setContentsMargins(1, 1, 1, 1)
         self.label_welcome_home_page = QLabel(self.frame_home_page_label)
         self.label_welcome_home_page.setObjectName(u"label_welcome_home_page")
-        self.label_welcome_home_page.setFont(font)
+        self.label_welcome_home_page.setFont(font1)
+        self.label_welcome_home_page.setStyleSheet(u"#label_welcome_home_page{\n"
+"border-width: 0px;\n"
+"}")
+        self.label_welcome_home_page.setLineWidth(1)
 
         self.horizontalLayout_3.addWidget(self.label_welcome_home_page)
 
@@ -2053,7 +2065,7 @@ class Ui_MainWindow(object):
         self.scrollArea_investments_home_page.setWidgetResizable(True)
         self.scrollAreaContents_investments_home_page = QWidget()
         self.scrollAreaContents_investments_home_page.setObjectName(u"scrollAreaContents_investments_home_page")
-        self.scrollAreaContents_investments_home_page.setGeometry(QRect(0, 0, 98, 34))
+        self.scrollAreaContents_investments_home_page.setGeometry(QRect(0, 0, 864, 447))
         self.investments_home_page_layout = QVBoxLayout(self.scrollAreaContents_investments_home_page)
         self.investments_home_page_layout.setObjectName(u"investments_home_page_layout")
         self.frame = QFrame(self.scrollAreaContents_investments_home_page)

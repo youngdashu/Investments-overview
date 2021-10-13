@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'unsavedDialogEOdMcN.ui'
+## Form generated from reading UI file 'unsavedDialogcoyFkh.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.1.1
 ##
@@ -19,16 +19,22 @@ class Ui_UnsavedDialog(object):
             UnsavedDialog.setObjectName(u"UnsavedDialog")
         UnsavedDialog.resize(290, 100)
         UnsavedDialog.setMinimumSize(QSize(290, 100))
-        UnsavedDialog.setMaximumSize(QSize(300, 150))
+        UnsavedDialog.setMaximumSize(QSize(290, 100))
+        self.verticalLayout = QVBoxLayout(UnsavedDialog)
+        self.verticalLayout.setObjectName(u"verticalLayout")
+        self.label = QLabel(UnsavedDialog)
+        self.label.setObjectName(u"label")
+
+        self.verticalLayout.addWidget(self.label)
+
         self.buttonBox = QDialogButtonBox(UnsavedDialog)
         self.buttonBox.setObjectName(u"buttonBox")
-        self.buttonBox.setGeometry(QRect(100, 60, 161, 32))
         self.buttonBox.setOrientation(Qt.Horizontal)
         self.buttonBox.setStandardButtons(QDialogButtonBox.Close|QDialogButtonBox.Save)
         self.buttonBox.setCenterButtons(True)
-        self.label = QLabel(UnsavedDialog)
-        self.label.setObjectName(u"label")
-        self.label.setGeometry(QRect(10, 10, 261, 51))
+
+        self.verticalLayout.addWidget(self.buttonBox)
+
 
         self.retranslateUi(UnsavedDialog)
         self.buttonBox.accepted.connect(UnsavedDialog.accept)
@@ -38,7 +44,7 @@ class Ui_UnsavedDialog(object):
     # setupUi
 
     def retranslateUi(self, UnsavedDialog):
-        UnsavedDialog.setWindowTitle(QCoreApplication.translate("UnsavedDialog", u"Dialog", None))
+        UnsavedDialog.setWindowTitle(QCoreApplication.translate("UnsavedDialog", u"Zapisz zmiany", None))
         self.label.setText(QCoreApplication.translate("UnsavedDialog", u"Czy chcesz zapisa\u0107 zmiany do inwestycji?", None))
     # retranslateUi
 
