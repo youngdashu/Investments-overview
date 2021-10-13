@@ -513,8 +513,13 @@ class MainWindow(QMainWindow):
     def addNotes(self):
         print("self.notes ", self.notes)
         if len(self.notes) > 0:
-            list(map(lambda note: note.deleteNote(), self.notes))
-            self.notes = []
+            try:
+                self.notes.remove(None)
+            except:
+                pass
+            finally:
+                list(map(lambda note: note.deleteNote(), self.notes))
+                self.notes = []
         print(self.notes)
 
         print("---------------------------")

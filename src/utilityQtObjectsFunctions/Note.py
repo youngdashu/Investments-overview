@@ -16,6 +16,7 @@ class Note:
         self.notes = notes
 
     def deleteNote(self):
+
         self.notesStr[self.index] = None
         self.notes[self.index] = None
         self.frame.hide()
