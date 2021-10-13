@@ -395,13 +395,13 @@ class MainWindow(QMainWindow):
         actualHeight = None
         if self.ui.frame_rent.height() < self.targetFrameHeight:
             isSlided = False
-            afterAnimationHeight = 800
+            afterAnimationHeight = 820
             actualHeight = self.frameHeight
             self.ui.frame_rent_data.setVisible(True)
         else:
             isSlided = True
             afterAnimationHeight = self.frameHeight
-            actualHeight = 800
+            actualHeight = 820
             self.ui.frame_rent_data.setVisible(False)
 
         self.rentSlideAnimation = QPropertyAnimation(self.ui.frame_rent,
@@ -490,6 +490,9 @@ class MainWindow(QMainWindow):
         if newNoteStr is not None and newNoteStr[0] is []:
             return
         newNoteTextEdit = QTextEdit(self.ui.scrollArea_notes_contents)
+        font: QFont = newNoteTextEdit.font()
+        font.setPointSize(19)
+        newNoteTextEdit.setFont(font)
         noteIndex = None
         if newNoteStr is None:
             newNoteStr = ""
