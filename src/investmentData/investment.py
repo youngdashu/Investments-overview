@@ -520,8 +520,8 @@ class Investment:
 
     def setPropertyTaxPerYear(self, propertyTax):
         try:
-            propertTax = float(propertyTax)
-            if propertTax < 0:
+            propertyTax = float(propertyTax)
+            if propertyTax < 0:
                 raise ValueError
             self.Rent.tax_estate = float(propertyTax)
             self.ui.text_property_tax_year.setStyleSheet(correctTextEditStyleSheet)
@@ -529,7 +529,7 @@ class Investment:
             self.ui.text_property_tax_year.setStyleSheet(wrongTextEditStyleSheet)
 
     def propertyTaxPerMonth(self):
-        return self.Rent.tax_estate / 12 if type(self.Rent.tax_estate) is not str else noDataText
+        return round(float(self.Rent.tax_estate / 12.0), 2) if type(self.Rent.tax_estate) is not str else noDataText
 
     def electricityPerMonth(self):
         return self.Rent.power

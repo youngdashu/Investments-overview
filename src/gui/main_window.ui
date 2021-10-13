@@ -419,8 +419,8 @@ color: rgb(255, 255, 255)
                  <property name="geometry">
                   <rect>
                    <x>0</x>
-                   <y>-427</y>
-                   <width>890</width>
+                   <y>-2048</y>
+                   <width>880</width>
                    <height>2684</height>
                   </rect>
                  </property>
@@ -731,6 +731,11 @@ border-radius: 8px;
                          <height>24</height>
                         </size>
                        </property>
+                       <property name="font">
+                        <font>
+                         <pointsize>14</pointsize>
+                        </font>
+                       </property>
                        <property name="text">
                         <string>Informacje</string>
                        </property>
@@ -795,7 +800,7 @@ border-radius: 8px;
                             <widget class="QLabel" name="label_14">
                              <property name="minimumSize">
                               <size>
-                               <width>140</width>
+                               <width>180</width>
                                <height>0</height>
                               </size>
                              </property>
@@ -836,7 +841,7 @@ border-radius: 8px;
                             <widget class="QLabel" name="label_15">
                              <property name="minimumSize">
                               <size>
-                               <width>140</width>
+                               <width>180</width>
                                <height>0</height>
                               </size>
                              </property>
@@ -877,7 +882,7 @@ border-radius: 8px;
                             <widget class="QLabel" name="label_16">
                              <property name="minimumSize">
                               <size>
-                               <width>140</width>
+                               <width>180</width>
                                <height>0</height>
                               </size>
                              </property>
@@ -918,7 +923,7 @@ border-radius: 8px;
                             <widget class="QLabel" name="label_17">
                              <property name="minimumSize">
                               <size>
-                               <width>140</width>
+                               <width>180</width>
                                <height>0</height>
                               </size>
                              </property>
@@ -957,6 +962,12 @@ border-radius: 8px;
                            </property>
                            <item>
                             <widget class="QLabel" name="label_18">
+                             <property name="minimumSize">
+                              <size>
+                               <width>180</width>
+                               <height>0</height>
+                              </size>
+                             </property>
                              <property name="text">
                               <string>Szac. wartość obecna</string>
                              </property>
@@ -994,7 +1005,7 @@ border-radius: 8px;
                             <widget class="QLabel" name="label_19">
                              <property name="minimumSize">
                               <size>
-                               <width>140</width>
+                               <width>180</width>
                                <height>0</height>
                               </size>
                              </property>
@@ -1035,7 +1046,7 @@ border-radius: 8px;
                             <widget class="QLabel" name="label_20">
                              <property name="minimumSize">
                               <size>
-                               <width>140</width>
+                               <width>180</width>
                                <height>0</height>
                               </size>
                              </property>
@@ -1090,6 +1101,11 @@ border-radius: 8px;
                          <width>0</width>
                          <height>24</height>
                         </size>
+                       </property>
+                       <property name="font">
+                        <font>
+                         <pointsize>14</pointsize>
+                        </font>
                        </property>
                        <property name="text">
                         <string>Wkład własny / Kredyt</string>
@@ -2045,6 +2061,11 @@ vs cena zakupu</string>
                          <height>24</height>
                         </size>
                        </property>
+                       <property name="font">
+                        <font>
+                         <pointsize>14</pointsize>
+                        </font>
+                       </property>
                        <property name="text">
                         <string>Wynajem</string>
                        </property>
@@ -2112,7 +2133,7 @@ border: 1px white;
                              </property>
                              <property name="sizeHint" stdset="0">
                               <size>
-                               <width>235</width>
+                               <width>255</width>
                                <height>20</height>
                               </size>
                              </property>
@@ -2263,7 +2284,7 @@ border: 1px white;
                                <widget class="QLabel" name="label_37">
                                 <property name="minimumSize">
                                  <size>
-                                  <width>230</width>
+                                  <width>250</width>
                                   <height>0</height>
                                  </size>
                                 </property>
@@ -2303,7 +2324,7 @@ border: 1px white;
                                <widget class="QLabel" name="label_38">
                                 <property name="minimumSize">
                                  <size>
-                                  <width>230</width>
+                                  <width>250</width>
                                   <height>0</height>
                                  </size>
                                 </property>
@@ -2343,7 +2364,7 @@ border: 1px white;
                                <widget class="QLabel" name="label_39">
                                 <property name="minimumSize">
                                  <size>
-                                  <width>230</width>
+                                  <width>250</width>
                                   <height>0</height>
                                  </size>
                                 </property>
@@ -2437,7 +2458,7 @@ border: 1px white;
                                <widget class="QLabel" name="label_30">
                                 <property name="minimumSize">
                                  <size>
-                                  <width>230</width>
+                                  <width>250</width>
                                   <height>0</height>
                                  </size>
                                 </property>
@@ -2477,7 +2498,7 @@ border: 1px white;
                                <widget class="QLabel" name="label_31">
                                 <property name="minimumSize">
                                  <size>
-                                  <width>230</width>
+                                  <width>250</width>
                                   <height>0</height>
                                  </size>
                                 </property>
@@ -2517,7 +2538,7 @@ border: 1px white;
                                <widget class="QLabel" name="label_32">
                                 <property name="minimumSize">
                                  <size>
-                                  <width>230</width>
+                                  <width>250</width>
                                   <height>0</height>
                                  </size>
                                 </property>
@@ -2557,7 +2578,7 @@ border: 1px white;
                                <widget class="QLabel" name="label_33">
                                 <property name="minimumSize">
                                  <size>
-                                  <width>230</width>
+                                  <width>250</width>
                                   <height>0</height>
                                  </size>
                                 </property>
@@ -2597,7 +2618,7 @@ border: 1px white;
                                <widget class="QLabel" name="label_34">
                                 <property name="minimumSize">
                                  <size>
-                                  <width>230</width>
+                                  <width>250</width>
                                   <height>0</height>
                                  </size>
                                 </property>
@@ -2637,7 +2658,7 @@ border: 1px white;
                                <widget class="QLabel" name="label_35">
                                 <property name="minimumSize">
                                  <size>
-                                  <width>230</width>
+                                  <width>250</width>
                                   <height>0</height>
                                  </size>
                                 </property>
@@ -2677,7 +2698,7 @@ border: 1px white;
                                <widget class="QLabel" name="label_36">
                                 <property name="minimumSize">
                                  <size>
-                                  <width>230</width>
+                                  <width>250</width>
                                   <height>0</height>
                                  </size>
                                 </property>
@@ -2717,7 +2738,7 @@ border: 1px white;
                                <widget class="QLabel" name="label_47">
                                 <property name="minimumSize">
                                  <size>
-                                  <width>230</width>
+                                  <width>250</width>
                                   <height>0</height>
                                  </size>
                                 </property>
@@ -2776,7 +2797,7 @@ border: 1px white;
                             <widget class="QLabel" name="label_48">
                              <property name="minimumSize">
                               <size>
-                               <width>240</width>
+                               <width>260</width>
                                <height>0</height>
                               </size>
                              </property>
@@ -2847,6 +2868,11 @@ border: 1px white;
                          <width>0</width>
                          <height>24</height>
                         </size>
+                       </property>
+                       <property name="font">
+                        <font>
+                         <pointsize>14</pointsize>
+                        </font>
                        </property>
                        <property name="text">
                         <string>Ocena inwestycji</string>
@@ -3299,6 +3325,11 @@ border: 1px white;
                          <height>24</height>
                         </size>
                        </property>
+                       <property name="font">
+                        <font>
+                         <pointsize>14</pointsize>
+                        </font>
+                       </property>
                        <property name="text">
                         <string>Notatki</string>
                        </property>
@@ -3392,7 +3423,7 @@ border: 0px solid gray;
                          <rect>
                           <x>0</x>
                           <y>0</y>
-                          <width>854</width>
+                          <width>844</width>
                           <height>294</height>
                          </rect>
                         </property>
@@ -3750,6 +3781,14 @@ border: 0px;
                         <pointsize>18</pointsize>
                        </font>
                       </property>
+                      <property name="styleSheet">
+                       <string notr="true">#label_welcome_home_page{
+border-width: 0px;
+}</string>
+                      </property>
+                      <property name="lineWidth">
+                       <number>1</number>
+                      </property>
                       <property name="text">
                        <string>Witamy na stronie głównej</string>
                       </property>
@@ -3781,8 +3820,8 @@ border: 0px;
                      <rect>
                       <x>0</x>
                       <y>0</y>
-                      <width>98</width>
-                      <height>34</height>
+                      <width>864</width>
+                      <height>447</height>
                      </rect>
                     </property>
                     <layout class="QVBoxLayout" name="investments_home_page_layout">

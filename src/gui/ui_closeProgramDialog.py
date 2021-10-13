@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'closeProgramDialogAlWExn.ui'
+## Form generated from reading UI file 'closeProgramDialogaWknIn.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.1.1
 ##
@@ -17,8 +17,9 @@ class Ui_Dialog(object):
     def setupUi(self, Dialog):
         if not Dialog.objectName():
             Dialog.setObjectName(u"Dialog")
-        Dialog.resize(480, 96)
+        Dialog.resize(480, 80)
         Dialog.setMinimumSize(QSize(480, 80))
+        Dialog.setMaximumSize(QSize(480, 80))
         self.label = QLabel(Dialog)
         self.label.setObjectName(u"label")
         self.label.setGeometry(QRect(10, 0, 441, 41))
@@ -48,7 +49,7 @@ class Ui_Dialog(object):
     # setupUi
 
     def retranslateUi(self, Dialog):
-        Dialog.setWindowTitle(QCoreApplication.translate("Dialog", u"Dialog", None))
+        Dialog.setWindowTitle(QCoreApplication.translate("Dialog", u"Zamknij program", None))
         self.label.setText(QCoreApplication.translate("Dialog", u"Czy chcesz zapisa\u0107 zmiany do wszystkich inwestycji i wyj\u015b\u0107 z programu?", None))
     # retranslateUi
 
