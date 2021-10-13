@@ -511,9 +511,11 @@ class MainWindow(QMainWindow):
         self.notes.append(newNote)
 
     def addNotes(self):
+        print("self.notes ", self.notes)
         if len(self.notes) > 0:
             list(map(lambda note: note.deleteNote(), self.notes))
             self.notes = []
+        print(self.notes)
 
         print("---------------------------")
         print(self.currentInvestment)
@@ -809,6 +811,7 @@ class MainWindow(QMainWindow):
             # print(self.editableTextEdits)
             self.editableTextEdits = list(
                 map(disconnectFunction, self.editableTextEdits))
+            self.ui.button_add_note.clicked.disconnect()
 
         self.textEditsConnected = True
 
