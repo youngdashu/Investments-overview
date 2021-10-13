@@ -119,7 +119,7 @@ class Investment:
         self.Eval.notes = list(filter(lambda noteStr: noteStr is not None, self.Eval.notes))
         self.inv = self.title + json.dumps(self.Main_Char.__dict__) + json.dumps(self.Info.__dict__) + json.dumps(
             self.Contribution.__dict__) + json.dumps(self.Credit.__dict__) + json.dumps(
-            self.Rent.__dict__) + json.dumps(self.Eval.__dict__)
+            self.Rent.__dict__) + json.dumps(self.Eval.__dict__).replace("\\n","\n")
         outfile = open("data.txt", "r")
         i = 0
         conv = ""
@@ -740,7 +740,7 @@ def getInvestmentById(InvestmentId, app):
                     leng += 2
                     while line[leng] != "}":
                         leng += 1
-                    investment.Eval = json.loads(line[tp:leng + 1].replace('\\', ''),
+                    investment.Eval = json.loads(line[tp:leng + 1].replace('\\"', '"'),
                                                  object_hook=lambda d: SimpleNamespace(**d))
     return investment
 
