@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'main_windowyRIZyV.ui'
+## Form generated from reading UI file 'main_windowXZIpmQ.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.1.1
 ##
@@ -254,7 +254,7 @@ class Ui_MainWindow(object):
         self.scrollArea_current_investment.setWidgetResizable(True)
         self.scrollArea_investment_contents = QWidget()
         self.scrollArea_investment_contents.setObjectName(u"scrollArea_investment_contents")
-        self.scrollArea_investment_contents.setGeometry(QRect(0, -1830, 880, 2684))
+        self.scrollArea_investment_contents.setGeometry(QRect(0, 0, 890, 2684))
         self.scrollArea_investment_contents.setStyleSheet(u"#scrollAreaWidgetContainer{\n"
 "border: 3px solid gray;\n"
 "border-radius: 8px;\n"
@@ -288,6 +288,10 @@ class Ui_MainWindow(object):
 
         self.text_investment_name = QTextEdit(self.frame_label_and_text_investment_name)
         self.text_investment_name.setObjectName(u"text_investment_name")
+        self.text_investment_name.setStyleSheet(u"#text_investment_name{\n"
+"	display: flex;\n"
+"	align-items:center;\n"
+"}")
 
         self.horizontalLayout_16.addWidget(self.text_investment_name)
 
@@ -1842,7 +1846,7 @@ class Ui_MainWindow(object):
         self.scrollArea_notes.setWidgetResizable(True)
         self.scrollArea_notes_contents = QWidget()
         self.scrollArea_notes_contents.setObjectName(u"scrollArea_notes_contents")
-        self.scrollArea_notes_contents.setGeometry(QRect(0, 0, 844, 294))
+        self.scrollArea_notes_contents.setGeometry(QRect(0, 0, 854, 294))
         self.scrollArea_notes_contents_layout = QVBoxLayout(self.scrollArea_notes_contents)
         self.scrollArea_notes_contents_layout.setObjectName(u"scrollArea_notes_contents_layout")
         self.frame_17 = QFrame(self.scrollArea_notes_contents)
@@ -2065,7 +2069,7 @@ class Ui_MainWindow(object):
         self.scrollArea_investments_home_page.setWidgetResizable(True)
         self.scrollAreaContents_investments_home_page = QWidget()
         self.scrollAreaContents_investments_home_page.setObjectName(u"scrollAreaContents_investments_home_page")
-        self.scrollAreaContents_investments_home_page.setGeometry(QRect(0, 0, 864, 447))
+        self.scrollAreaContents_investments_home_page.setGeometry(QRect(0, 0, 98, 34))
         self.investments_home_page_layout = QVBoxLayout(self.scrollAreaContents_investments_home_page)
         self.investments_home_page_layout.setObjectName(u"investments_home_page_layout")
         self.frame = QFrame(self.scrollAreaContents_investments_home_page)

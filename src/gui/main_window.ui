@@ -419,8 +419,8 @@ color: rgb(255, 255, 255)
                  <property name="geometry">
                   <rect>
                    <x>0</x>
-                   <y>-1830</y>
-                   <width>880</width>
+                   <y>0</y>
+                   <width>890</width>
                    <height>2684</height>
                   </rect>
                  </property>
@@ -508,7 +508,14 @@ border-radius: 8px;
                          </widget>
                         </item>
                         <item>
-                         <widget class="QTextEdit" name="text_investment_name"/>
+                         <widget class="QTextEdit" name="text_investment_name">
+                          <property name="styleSheet">
+                           <string notr="true">#text_investment_name{
+	display: flex;
+	align-items:center;
+}</string>
+                          </property>
+                         </widget>
                         </item>
                        </layout>
                       </widget>
@@ -3423,7 +3430,7 @@ border: 0px solid gray;
                          <rect>
                           <x>0</x>
                           <y>0</y>
-                          <width>844</width>
+                          <width>854</width>
                           <height>294</height>
                          </rect>
                         </property>
@@ -3820,8 +3827,8 @@ border-width: 0px;
                      <rect>
                       <x>0</x>
                       <y>0</y>
-                      <width>864</width>
-                      <height>447</height>
+                      <width>98</width>
+                      <height>34</height>
                      </rect>
                     </property>
                     <layout class="QVBoxLayout" name="investments_home_page_layout">
